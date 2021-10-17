@@ -1,0 +1,241 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Post {
+  id: ID!
+  title: String!
+  content: String
+  published: Boolean
+  author: User
+  authorId: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type UserCount {
+  posts: Int!
+  courses: Int!
+}
+
+type User {
+  id: ID!
+  email: String!
+  username: String
+  name: String
+  posts: [Post!]
+  courses: [Course!]
+  role: Role!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  _count: UserCount
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+type Course {
+  id: ID!
+  title: String!
+  description: String
+  audio: String
+  image: String
+  published: Boolean
+  author: User
+  authorId: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Query {
+  courses(where: CourseWhereInput, orderBy: [CourseOrderByWithRelationInput!], cursor: CourseWhereUniqueInput, take: Int, skip: Int, distinct: [CourseScalarFieldEnum!]): [Course!]!
+  course(id: Int!): Course!
+  whoAmI: User!
+  posts: [Post!]!
+  post(id: Int!): Post!
+}
+
+input CourseWhereInput {
+  AND: [CourseWhereInput!]
+  OR: [CourseWhereInput!]
+  NOT: [CourseWhereInput!]
+  id: IntFilter
+  title: StringFilter
+  description: StringNullableFilter
+  audio: StringNullableFilter
+  image: StringNullableFilter
+  published: BoolNullableFilter
+}
+
+input IntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input NestedIntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input StringFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringFilter
+}
+
+input NestedStringFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringFilter
+}
+
+input StringNullableFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringNullableFilter
+}
+
+input NestedStringNullableFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringNullableFilter
+}
+
+input BoolNullableFilter {
+  equals: Boolean
+  not: NestedBoolNullableFilter
+}
+
+input NestedBoolNullableFilter {
+  equals: Boolean
+  not: NestedBoolNullableFilter
+}
+
+input CourseOrderByWithRelationInput {
+  id: SortOrder
+  title: SortOrder
+  description: SortOrder
+  audio: SortOrder
+  image: SortOrder
+  published: SortOrder
+}
+
+enum SortOrder {
+  asc
+  desc
+}
+
+input CourseWhereUniqueInput {
+  id: Int
+}
+
+enum CourseScalarFieldEnum {
+  id
+  title
+  description
+  audio
+  image
+  published
+  authorId
+  createdAt
+  updatedAt
+}
+
+type Mutation {
+  createCourse(courseCreateInput: CourseCreateInput!): Course!
+  updateCourse(data: CourseUpdateInput!, where: CourseWhereUniqueInput!): Course!
+  removeCourse(id: Int!): Course!
+  createPost(createPostInput: CreatePostInput!): Post!
+  updatePost(updatePostInput: UpdatePostInput!): Post!
+  removePost(id: Int!): Post!
+}
+
+input CourseCreateInput {
+  title: String!
+  description: String
+  audio: String
+  image: String
+  published: Boolean
+}
+
+input CourseUpdateInput {
+  title: StringFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  audio: NullableStringFieldUpdateOperationsInput
+  image: NullableStringFieldUpdateOperationsInput
+  published: NullableBoolFieldUpdateOperationsInput
+}
+
+input StringFieldUpdateOperationsInput {
+  set: String
+}
+
+input NullableStringFieldUpdateOperationsInput {
+  set: String
+}
+
+input NullableBoolFieldUpdateOperationsInput {
+  set: Boolean
+}
+
+input CreatePostInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdatePostInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
