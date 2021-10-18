@@ -1,3 +1,4 @@
+import { SectionCreateNestedManyWithoutCourseInput } from '../section/section-create-nested-many-without-course.input';
 export declare class CourseCreateWithoutAuthorInput {
     title: string;
     description?: string;
@@ -6,4 +7,5 @@ export declare class CourseCreateWithoutAuthorInput {
     published?: boolean;
     createdAt?: Date | string;
     updatedAt?: Date | string;
+    sections?: SectionCreateNestedManyWithoutCourseInput;
 }

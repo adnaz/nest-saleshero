@@ -15,9 +15,6 @@ export class SectionMinAggregateInput {
     description?: true;
 
     @Field(() => Boolean, {nullable:true})
-    audio?: true;
-
-    @Field(() => Boolean, {nullable:true})
     image?: true;
 
     @Field(() => Boolean, {nullable:true})

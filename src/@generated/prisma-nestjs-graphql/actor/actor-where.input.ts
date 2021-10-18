@@ -2,7 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
-import { MessageListRelationFilter } from '../message/message-list-relation-filter.input';
+import { ReplyListRelationFilter } from '../reply/reply-list-relation-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 
 @InputType()
@@ -26,8 +26,8 @@ export class ActorWhereInput {
     @Field(() => StringNullableFilter, {nullable:true})
     avatar?: StringNullableFilter;
 
-    @Field(() => MessageListRelationFilter, {nullable:true})
-    messages?: MessageListRelationFilter;
+    @Field(() => ReplyListRelationFilter, {nullable:true})
+    replies?: ReplyListRelationFilter;
 
     @Field(() => DateTimeFilter, {nullable:true})
     createdAt?: DateTimeFilter;

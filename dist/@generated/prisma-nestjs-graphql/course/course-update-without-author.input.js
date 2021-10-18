@@ -17,6 +17,7 @@ const nullable_string_field_update_operations_input_1 = require("../prisma/nulla
 const nullable_bool_field_update_operations_input_1 = require("../prisma/nullable-bool-field-update-operations.input");
 const date_time_field_update_operations_input_1 = require("../prisma/date-time-field-update-operations.input");
 const graphql_3 = require("@nestjs/graphql");
+const section_update_many_without_course_input_1 = require("../section/section-update-many-without-course.input");
 let CourseUpdateWithoutAuthorInput = class CourseUpdateWithoutAuthorInput {
 };
 __decorate([
@@ -47,6 +48,10 @@ __decorate([
     (0, graphql_3.HideField)(),
     __metadata("design:type", date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput)
 ], CourseUpdateWithoutAuthorInput.prototype, "updatedAt", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => section_update_many_without_course_input_1.SectionUpdateManyWithoutCourseInput, { nullable: true }),
+    __metadata("design:type", section_update_many_without_course_input_1.SectionUpdateManyWithoutCourseInput)
+], CourseUpdateWithoutAuthorInput.prototype, "sections", void 0);
 CourseUpdateWithoutAuthorInput = __decorate([
     (0, graphql_2.InputType)()
 ], CourseUpdateWithoutAuthorInput);

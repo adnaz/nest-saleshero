@@ -4,6 +4,7 @@ import { EnumRoleFieldUpdateOperationsInput } from '../prisma/enum-role-field-up
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { PostUpdateManyWithoutAuthorInput } from '../post/post-update-many-without-author.input';
 import { CourseUpdateManyWithoutAuthorInput } from '../course/course-update-many-without-author.input';
+import { SectionUpdateManyWithoutAuthorInput } from '../section/section-update-many-without-author.input';
 export declare class UserUpdateInput {
     email?: StringFieldUpdateOperationsInput;
     username?: NullableStringFieldUpdateOperationsInput;
@@ -14,4 +15,5 @@ export declare class UserUpdateInput {
     updatedAt?: DateTimeFieldUpdateOperationsInput;
     posts?: PostUpdateManyWithoutAuthorInput;
     courses?: CourseUpdateManyWithoutAuthorInput;
+    sections?: SectionUpdateManyWithoutAuthorInput;
 }

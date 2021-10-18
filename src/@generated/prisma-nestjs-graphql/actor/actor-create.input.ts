@@ -1,6 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { MessageCreateNestedManyWithoutUserInput } from '../message/message-create-nested-many-without-user.input';
+import { ReplyCreateNestedManyWithoutUserInput } from '../reply/reply-create-nested-many-without-user.input';
 
 @InputType()
 export class ActorCreateInput {
@@ -17,6 +17,6 @@ export class ActorCreateInput {
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
 
-    @Field(() => MessageCreateNestedManyWithoutUserInput, {nullable:true})
-    messages?: MessageCreateNestedManyWithoutUserInput;
+    @Field(() => ReplyCreateNestedManyWithoutUserInput, {nullable:true})
+    replies?: ReplyCreateNestedManyWithoutUserInput;
 }

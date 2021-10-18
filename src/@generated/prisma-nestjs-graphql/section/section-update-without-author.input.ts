@@ -18,9 +18,6 @@ export class SectionUpdateWithoutAuthorInput {
     description?: NullableStringFieldUpdateOperationsInput;
 
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
-    audio?: NullableStringFieldUpdateOperationsInput;
-
-    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     image?: NullableStringFieldUpdateOperationsInput;
 
     @Field(() => NullableEnumTypeSectionFieldUpdateOperationsInput, {nullable:true})

@@ -18,6 +18,7 @@ const nullable_string_field_update_operations_input_1 = require("../prisma/nulla
 const enum_role_field_update_operations_input_1 = require("../prisma/enum-role-field-update-operations.input");
 const date_time_field_update_operations_input_1 = require("../prisma/date-time-field-update-operations.input");
 const post_unchecked_update_many_without_author_input_1 = require("../post/post-unchecked-update-many-without-author.input");
+const section_unchecked_update_many_without_author_input_1 = require("../section/section-unchecked-update-many-without-author.input");
 let UserUncheckedUpdateWithoutCoursesInput = class UserUncheckedUpdateWithoutCoursesInput {
 };
 __decorate([
@@ -56,6 +57,10 @@ __decorate([
     (0, graphql_1.Field)(() => post_unchecked_update_many_without_author_input_1.PostUncheckedUpdateManyWithoutAuthorInput, { nullable: true }),
     __metadata("design:type", post_unchecked_update_many_without_author_input_1.PostUncheckedUpdateManyWithoutAuthorInput)
 ], UserUncheckedUpdateWithoutCoursesInput.prototype, "posts", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => section_unchecked_update_many_without_author_input_1.SectionUncheckedUpdateManyWithoutAuthorInput, { nullable: true }),
+    __metadata("design:type", section_unchecked_update_many_without_author_input_1.SectionUncheckedUpdateManyWithoutAuthorInput)
+], UserUncheckedUpdateWithoutCoursesInput.prototype, "sections", void 0);
 UserUncheckedUpdateWithoutCoursesInput = __decorate([
     (0, graphql_2.InputType)()
 ], UserUncheckedUpdateWithoutCoursesInput);

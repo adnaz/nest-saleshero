@@ -6,5 +6,5 @@ import { Int } from '@nestjs/graphql';
 export class ActorCount {
 
     @Field(() => Int, {nullable:false})
-    messages!: number;
+    replies!: number;
 }

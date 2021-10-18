@@ -15,6 +15,7 @@ const graphql_2 = require("@nestjs/graphql");
 const sort_order_enum_1 = require("../prisma/sort-order.enum");
 const post_order_by_relation_aggregate_input_1 = require("../post/post-order-by-relation-aggregate.input");
 const course_order_by_relation_aggregate_input_1 = require("../course/course-order-by-relation-aggregate.input");
+const section_order_by_relation_aggregate_input_1 = require("../section/section-order-by-relation-aggregate.input");
 let UserOrderByWithRelationInput = class UserOrderByWithRelationInput {
 };
 __decorate([
@@ -45,6 +46,10 @@ __decorate([
     (0, graphql_1.Field)(() => course_order_by_relation_aggregate_input_1.CourseOrderByRelationAggregateInput, { nullable: true }),
     __metadata("design:type", course_order_by_relation_aggregate_input_1.CourseOrderByRelationAggregateInput)
 ], UserOrderByWithRelationInput.prototype, "courses", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => section_order_by_relation_aggregate_input_1.SectionOrderByRelationAggregateInput, { nullable: true }),
+    __metadata("design:type", section_order_by_relation_aggregate_input_1.SectionOrderByRelationAggregateInput)
+], UserOrderByWithRelationInput.prototype, "sections", void 0);
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)

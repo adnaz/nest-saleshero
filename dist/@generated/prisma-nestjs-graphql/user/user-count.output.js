@@ -23,6 +23,10 @@ __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
     __metadata("design:type", Number)
 ], UserCount.prototype, "courses", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
+    __metadata("design:type", Number)
+], UserCount.prototype, "sections", void 0);
 UserCount = __decorate([
     (0, graphql_2.ObjectType)()
 ], UserCount);

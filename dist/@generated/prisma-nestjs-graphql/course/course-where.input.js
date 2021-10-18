@@ -16,6 +16,7 @@ const graphql_2 = require("@nestjs/graphql");
 const int_filter_input_1 = require("../prisma/int-filter.input");
 const string_filter_input_1 = require("../prisma/string-filter.input");
 const string_nullable_filter_input_1 = require("../prisma/string-nullable-filter.input");
+const section_list_relation_filter_input_1 = require("../section/section-list-relation-filter.input");
 const bool_nullable_filter_input_1 = require("../prisma/bool-nullable-filter.input");
 const user_relation_filter_input_1 = require("../user/user-relation-filter.input");
 const graphql_3 = require("@nestjs/graphql");
@@ -55,6 +56,10 @@ __decorate([
     (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
     __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
 ], CourseWhereInput.prototype, "image", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => section_list_relation_filter_input_1.SectionListRelationFilter, { nullable: true }),
+    __metadata("design:type", section_list_relation_filter_input_1.SectionListRelationFilter)
+], CourseWhereInput.prototype, "sections", void 0);
 __decorate([
     (0, graphql_1.Field)(() => bool_nullable_filter_input_1.BoolNullableFilter, { nullable: true }),
     __metadata("design:type", bool_nullable_filter_input_1.BoolNullableFilter)

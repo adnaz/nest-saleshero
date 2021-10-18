@@ -31,9 +31,6 @@ export class SectionScalarWhereInput {
     description?: StringNullableFilter;
 
     @Field(() => StringNullableFilter, {nullable:true})
-    audio?: StringNullableFilter;
-
-    @Field(() => StringNullableFilter, {nullable:true})
     image?: StringNullableFilter;
 
     @Field(() => EnumTypeSectionNullableFilter, {nullable:true})

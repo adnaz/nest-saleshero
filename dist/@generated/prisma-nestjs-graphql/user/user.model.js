@@ -16,6 +16,7 @@ const graphql_3 = require("@nestjs/graphql");
 const graphql_4 = require("@nestjs/graphql");
 const post_model_1 = require("../post/post.model");
 const course_model_1 = require("../course/course.model");
+const section_model_1 = require("../section/section.model");
 const role_enum_1 = require("../prisma/role.enum");
 const user_count_output_1 = require("./user-count.output");
 let User = class User {
@@ -48,6 +49,10 @@ __decorate([
     (0, graphql_1.Field)(() => [course_model_1.Course], { nullable: true }),
     __metadata("design:type", Array)
 ], User.prototype, "courses", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => [section_model_1.Section], { nullable: true }),
+    __metadata("design:type", Array)
+], User.prototype, "sections", void 0);
 __decorate([
     (0, graphql_1.Field)(() => role_enum_1.Role, { nullable: false }),
     __metadata("design:type", Object)

@@ -3,6 +3,7 @@ import { StringFilter } from '../prisma/string-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 import { PostListRelationFilter } from '../post/post-list-relation-filter.input';
 import { CourseListRelationFilter } from '../course/course-list-relation-filter.input';
+import { SectionListRelationFilter } from '../section/section-list-relation-filter.input';
 import { EnumRoleFilter } from '../prisma/enum-role-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 export declare class UserWhereInput {
@@ -16,6 +17,7 @@ export declare class UserWhereInput {
     password?: StringFilter;
     posts?: PostListRelationFilter;
     courses?: CourseListRelationFilter;
+    sections?: SectionListRelationFilter;
     role?: EnumRoleFilter;
     createdAt?: DateTimeFilter;
     updatedAt?: DateTimeFilter;

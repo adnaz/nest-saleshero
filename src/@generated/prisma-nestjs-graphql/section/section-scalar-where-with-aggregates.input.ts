@@ -31,9 +31,6 @@ export class SectionScalarWhereWithAggregatesInput {
     description?: StringNullableWithAggregatesFilter;
 
     @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
-    audio?: StringNullableWithAggregatesFilter;
-
-    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
     image?: StringNullableWithAggregatesFilter;
 
     @Field(() => EnumTypeSectionNullableWithAggregatesFilter, {nullable:true})

@@ -14,9 +14,6 @@ export class SectionCreateWithoutAuthorInput {
     description?: string;
 
     @Field(() => String, {nullable:true})
-    audio?: string;
-
-    @Field(() => String, {nullable:true})
     image?: string;
 
     @Field(() => TypeSection, {nullable:true})

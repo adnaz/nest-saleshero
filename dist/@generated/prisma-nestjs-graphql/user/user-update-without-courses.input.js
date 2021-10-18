@@ -17,6 +17,7 @@ const nullable_string_field_update_operations_input_1 = require("../prisma/nulla
 const enum_role_field_update_operations_input_1 = require("../prisma/enum-role-field-update-operations.input");
 const date_time_field_update_operations_input_1 = require("../prisma/date-time-field-update-operations.input");
 const post_update_many_without_author_input_1 = require("../post/post-update-many-without-author.input");
+const section_update_many_without_author_input_1 = require("../section/section-update-many-without-author.input");
 let UserUpdateWithoutCoursesInput = class UserUpdateWithoutCoursesInput {
 };
 __decorate([
@@ -51,6 +52,10 @@ __decorate([
     (0, graphql_1.Field)(() => post_update_many_without_author_input_1.PostUpdateManyWithoutAuthorInput, { nullable: true }),
     __metadata("design:type", post_update_many_without_author_input_1.PostUpdateManyWithoutAuthorInput)
 ], UserUpdateWithoutCoursesInput.prototype, "posts", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => section_update_many_without_author_input_1.SectionUpdateManyWithoutAuthorInput, { nullable: true }),
+    __metadata("design:type", section_update_many_without_author_input_1.SectionUpdateManyWithoutAuthorInput)
+], UserUpdateWithoutCoursesInput.prototype, "sections", void 0);
 UserUpdateWithoutCoursesInput = __decorate([
     (0, graphql_2.InputType)()
 ], UserUpdateWithoutCoursesInput);

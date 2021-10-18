@@ -19,9 +19,6 @@ export class Section {
     description!: string | null;
 
     @Field(() => String, {nullable:true})
-    audio!: string | null;
-
-    @Field(() => String, {nullable:true})
     image!: string | null;
 
     @Field(() => TypeSection, {nullable:true})

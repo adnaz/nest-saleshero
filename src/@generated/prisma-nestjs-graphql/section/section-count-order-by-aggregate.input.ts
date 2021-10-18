@@ -16,9 +16,6 @@ export class SectionCountOrderByAggregateInput {
     description?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    audio?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
     image?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})

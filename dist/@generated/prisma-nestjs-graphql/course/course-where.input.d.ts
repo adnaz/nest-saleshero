@@ -1,6 +1,7 @@
 import { IntFilter } from '../prisma/int-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
+import { SectionListRelationFilter } from '../section/section-list-relation-filter.input';
 import { BoolNullableFilter } from '../prisma/bool-nullable-filter.input';
 import { UserRelationFilter } from '../user/user-relation-filter.input';
 import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
@@ -14,6 +15,7 @@ export declare class CourseWhereInput {
     description?: StringNullableFilter;
     audio?: StringNullableFilter;
     image?: StringNullableFilter;
+    sections?: SectionListRelationFilter;
     published?: BoolNullableFilter;
     author?: UserRelationFilter;
     authorId?: IntNullableFilter;

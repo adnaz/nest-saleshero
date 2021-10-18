@@ -3,6 +3,7 @@ import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-str
 import { EnumRoleFieldUpdateOperationsInput } from '../prisma/enum-role-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { CourseUpdateManyWithoutAuthorInput } from '../course/course-update-many-without-author.input';
+import { SectionUpdateManyWithoutAuthorInput } from '../section/section-update-many-without-author.input';
 export declare class UserUpdateWithoutPostsInput {
     email?: StringFieldUpdateOperationsInput;
     username?: NullableStringFieldUpdateOperationsInput;
@@ -12,4 +13,5 @@ export declare class UserUpdateWithoutPostsInput {
     createdAt?: DateTimeFieldUpdateOperationsInput;
     updatedAt?: DateTimeFieldUpdateOperationsInput;
     courses?: CourseUpdateManyWithoutAuthorInput;
+    sections?: SectionUpdateManyWithoutAuthorInput;
 }

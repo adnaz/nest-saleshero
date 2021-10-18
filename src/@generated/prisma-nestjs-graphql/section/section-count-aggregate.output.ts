@@ -15,9 +15,6 @@ export class SectionCountAggregate {
     description!: number;
 
     @Field(() => Int, {nullable:false})
-    audio!: number;
-
-    @Field(() => Int, {nullable:false})
     image!: number;
 
     @Field(() => Int, {nullable:false})

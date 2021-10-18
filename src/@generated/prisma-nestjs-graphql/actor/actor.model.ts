@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
-import { Message } from '../message/message.model';
+import { Reply } from '../reply/reply.model';
 import { ActorCount } from './actor-count.output';
 
 @ObjectType()
@@ -16,8 +16,8 @@ export class Actor {
     @Field(() => String, {nullable:true})
     avatar!: string | null;
 
-    @Field(() => [Message], {nullable:true})
-    messages?: Array<Message>;
+    @Field(() => [Reply], {nullable:true})
+    replies?: Array<Reply>;
 
     @Field(() => Date, {nullable:false})
     createdAt!: Date;

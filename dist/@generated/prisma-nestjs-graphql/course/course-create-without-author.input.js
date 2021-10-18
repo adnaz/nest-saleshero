@@ -13,6 +13,7 @@ exports.CourseCreateWithoutAuthorInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const graphql_3 = require("@nestjs/graphql");
+const section_create_nested_many_without_course_input_1 = require("../section/section-create-nested-many-without-course.input");
 let CourseCreateWithoutAuthorInput = class CourseCreateWithoutAuthorInput {
 };
 __decorate([
@@ -43,6 +44,10 @@ __decorate([
     (0, graphql_3.HideField)(),
     __metadata("design:type", Object)
 ], CourseCreateWithoutAuthorInput.prototype, "updatedAt", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => section_create_nested_many_without_course_input_1.SectionCreateNestedManyWithoutCourseInput, { nullable: true }),
+    __metadata("design:type", section_create_nested_many_without_course_input_1.SectionCreateNestedManyWithoutCourseInput)
+], CourseCreateWithoutAuthorInput.prototype, "sections", void 0);
 CourseCreateWithoutAuthorInput = __decorate([
     (0, graphql_2.InputType)()
 ], CourseCreateWithoutAuthorInput);

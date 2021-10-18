@@ -1,5 +1,6 @@
 import { Role } from '../prisma/role.enum';
 import { PostUncheckedCreateNestedManyWithoutAuthorInput } from '../post/post-unchecked-create-nested-many-without-author.input';
+import { SectionUncheckedCreateNestedManyWithoutAuthorInput } from '../section/section-unchecked-create-nested-many-without-author.input';
 export declare class UserUncheckedCreateWithoutCoursesInput {
     id?: number;
     email: string;
@@ -10,4 +11,5 @@ export declare class UserUncheckedCreateWithoutCoursesInput {
     createdAt?: Date | string;
     updatedAt?: Date | string;
     posts?: PostUncheckedCreateNestedManyWithoutAuthorInput;
+    sections?: SectionUncheckedCreateNestedManyWithoutAuthorInput;
 }

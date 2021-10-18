@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
-import { MessageUncheckedCreateNestedManyWithoutUserInput } from '../message/message-unchecked-create-nested-many-without-user.input';
+import { ReplyUncheckedCreateNestedManyWithoutUserInput } from '../reply/reply-unchecked-create-nested-many-without-user.input';
 
 @InputType()
 export class ActorUncheckedCreateInput {
@@ -21,6 +21,6 @@ export class ActorUncheckedCreateInput {
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
 
-    @Field(() => MessageUncheckedCreateNestedManyWithoutUserInput, {nullable:true})
-    messages?: MessageUncheckedCreateNestedManyWithoutUserInput;
+    @Field(() => ReplyUncheckedCreateNestedManyWithoutUserInput, {nullable:true})
+    replies?: ReplyUncheckedCreateNestedManyWithoutUserInput;
 }

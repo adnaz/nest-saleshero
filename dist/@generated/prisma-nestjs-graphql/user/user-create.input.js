@@ -16,6 +16,7 @@ const Validator = require("class-validator");
 const role_enum_1 = require("../prisma/role.enum");
 const post_create_nested_many_without_author_input_1 = require("../post/post-create-nested-many-without-author.input");
 const course_create_nested_many_without_author_input_1 = require("../course/course-create-nested-many-without-author.input");
+const section_create_nested_many_without_author_input_1 = require("../section/section-create-nested-many-without-author.input");
 let UserCreateInput = class UserCreateInput {
 };
 __decorate([
@@ -55,6 +56,10 @@ __decorate([
     (0, graphql_1.Field)(() => course_create_nested_many_without_author_input_1.CourseCreateNestedManyWithoutAuthorInput, { nullable: true }),
     __metadata("design:type", course_create_nested_many_without_author_input_1.CourseCreateNestedManyWithoutAuthorInput)
 ], UserCreateInput.prototype, "courses", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => section_create_nested_many_without_author_input_1.SectionCreateNestedManyWithoutAuthorInput, { nullable: true }),
+    __metadata("design:type", section_create_nested_many_without_author_input_1.SectionCreateNestedManyWithoutAuthorInput)
+], UserCreateInput.prototype, "sections", void 0);
 UserCreateInput = __decorate([
     (0, graphql_2.InputType)()
 ], UserCreateInput);
