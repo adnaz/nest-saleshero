@@ -21,6 +21,7 @@ scalar DateTime
 type UserCount {
   posts: Int!
   courses: Int!
+  sections: Int!
 }
 
 type User {
@@ -30,6 +31,7 @@ type User {
   name: String
   posts: [Post!]
   courses: [Course!]
+  sections: [Section!]
   role: Role!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -41,17 +43,43 @@ enum Role {
   ADMIN
 }
 
+type Section {
+  id: ID!
+  title: String!
+  description: String
+  image: String
+  type: TypeSection
+  course: Course
+  courseId: Int
+  published: Boolean
+  author: User
+  authorId: Int
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+enum TypeSection {
+  CHAT
+  ARTICLE
+}
+
+type CourseCount {
+  sections: Int!
+}
+
 type Course {
   id: ID!
   title: String!
   description: String
   audio: String
   image: String
+  sections: [Section!]
   published: Boolean
   author: User
   authorId: Int
   createdAt: DateTime!
   updatedAt: DateTime!
+  _count: CourseCount
 }
 
 type Query {
@@ -71,6 +99,7 @@ input CourseWhereInput {
   description: StringNullableFilter
   audio: StringNullableFilter
   image: StringNullableFilter
+  sections: SectionListRelationFilter
   published: BoolNullableFilter
 }
 
@@ -152,6 +181,67 @@ input NestedStringNullableFilter {
   not: NestedStringNullableFilter
 }
 
+input SectionListRelationFilter {
+  every: SectionWhereInput
+  some: SectionWhereInput
+  none: SectionWhereInput
+}
+
+input SectionWhereInput {
+  AND: [SectionWhereInput!]
+  OR: [SectionWhereInput!]
+  NOT: [SectionWhereInput!]
+  id: IntFilter
+  title: StringFilter
+  description: StringNullableFilter
+  image: StringNullableFilter
+  type: EnumTypeSectionNullableFilter
+  course: CourseRelationFilter
+  courseId: IntNullableFilter
+  published: BoolNullableFilter
+}
+
+input EnumTypeSectionNullableFilter {
+  equals: TypeSection
+  in: [TypeSection!]
+  notIn: [TypeSection!]
+  not: NestedEnumTypeSectionNullableFilter
+}
+
+input NestedEnumTypeSectionNullableFilter {
+  equals: TypeSection
+  in: [TypeSection!]
+  notIn: [TypeSection!]
+  not: NestedEnumTypeSectionNullableFilter
+}
+
+input CourseRelationFilter {
+  is: CourseWhereInput
+  isNot: CourseWhereInput
+}
+
+input IntNullableFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntNullableFilter
+}
+
+input NestedIntNullableFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntNullableFilter
+}
+
 input BoolNullableFilter {
   equals: Boolean
   not: NestedBoolNullableFilter
@@ -168,12 +258,17 @@ input CourseOrderByWithRelationInput {
   description: SortOrder
   audio: SortOrder
   image: SortOrder
+  sections: SectionOrderByRelationAggregateInput
   published: SortOrder
 }
 
 enum SortOrder {
   asc
   desc
+}
+
+input SectionOrderByRelationAggregateInput {
+  _count: SortOrder
 }
 
 input CourseWhereUniqueInput {
@@ -207,6 +302,45 @@ input CourseCreateInput {
   audio: String
   image: String
   published: Boolean
+  sections: SectionCreateNestedManyWithoutCourseInput
+}
+
+input SectionCreateNestedManyWithoutCourseInput {
+  create: [SectionCreateWithoutCourseInput!]
+  connectOrCreate: [SectionCreateOrConnectWithoutCourseInput!]
+  createMany: SectionCreateManyCourseInputEnvelope
+  connect: [SectionWhereUniqueInput!]
+}
+
+input SectionCreateWithoutCourseInput {
+  title: String!
+  description: String
+  image: String
+  type: TypeSection
+  published: Boolean
+}
+
+input SectionCreateOrConnectWithoutCourseInput {
+  where: SectionWhereUniqueInput!
+  create: SectionCreateWithoutCourseInput!
+}
+
+input SectionWhereUniqueInput {
+  id: Int
+}
+
+input SectionCreateManyCourseInputEnvelope {
+  data: [SectionCreateManyCourseInput!]!
+  skipDuplicates: Boolean
+}
+
+input SectionCreateManyCourseInput {
+  id: Int
+  title: String!
+  description: String
+  image: String
+  type: TypeSection
+  published: Boolean
 }
 
 input CourseUpdateInput {
@@ -215,6 +349,7 @@ input CourseUpdateInput {
   audio: NullableStringFieldUpdateOperationsInput
   image: NullableStringFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
+  sections: SectionUpdateManyWithoutCourseInput
 }
 
 input StringFieldUpdateOperationsInput {
@@ -227,6 +362,69 @@ input NullableStringFieldUpdateOperationsInput {
 
 input NullableBoolFieldUpdateOperationsInput {
   set: Boolean
+}
+
+input SectionUpdateManyWithoutCourseInput {
+  create: [SectionCreateWithoutCourseInput!]
+  connectOrCreate: [SectionCreateOrConnectWithoutCourseInput!]
+  upsert: [SectionUpsertWithWhereUniqueWithoutCourseInput!]
+  createMany: SectionCreateManyCourseInputEnvelope
+  connect: [SectionWhereUniqueInput!]
+  set: [SectionWhereUniqueInput!]
+  disconnect: [SectionWhereUniqueInput!]
+  delete: [SectionWhereUniqueInput!]
+  update: [SectionUpdateWithWhereUniqueWithoutCourseInput!]
+  updateMany: [SectionUpdateManyWithWhereWithoutCourseInput!]
+  deleteMany: [SectionScalarWhereInput!]
+}
+
+input SectionUpsertWithWhereUniqueWithoutCourseInput {
+  where: SectionWhereUniqueInput!
+  update: SectionUpdateWithoutCourseInput!
+  create: SectionCreateWithoutCourseInput!
+}
+
+input SectionUpdateWithoutCourseInput {
+  title: StringFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  image: NullableStringFieldUpdateOperationsInput
+  type: NullableEnumTypeSectionFieldUpdateOperationsInput
+  published: NullableBoolFieldUpdateOperationsInput
+}
+
+input NullableEnumTypeSectionFieldUpdateOperationsInput {
+  set: TypeSection
+}
+
+input SectionUpdateWithWhereUniqueWithoutCourseInput {
+  where: SectionWhereUniqueInput!
+  data: SectionUpdateWithoutCourseInput!
+}
+
+input SectionUpdateManyWithWhereWithoutCourseInput {
+  where: SectionScalarWhereInput!
+  data: SectionUpdateManyMutationInput!
+}
+
+input SectionScalarWhereInput {
+  AND: [SectionScalarWhereInput!]
+  OR: [SectionScalarWhereInput!]
+  NOT: [SectionScalarWhereInput!]
+  id: IntFilter
+  title: StringFilter
+  description: StringNullableFilter
+  image: StringNullableFilter
+  type: EnumTypeSectionNullableFilter
+  courseId: IntNullableFilter
+  published: BoolNullableFilter
+}
+
+input SectionUpdateManyMutationInput {
+  title: StringFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  image: NullableStringFieldUpdateOperationsInput
+  type: NullableEnumTypeSectionFieldUpdateOperationsInput
+  published: NullableBoolFieldUpdateOperationsInput
 }
 
 input CreatePostInput {

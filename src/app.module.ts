@@ -12,7 +12,6 @@ import { APP_GUARD } from '@nestjs/core';
 import { RolesGuard } from './auth/roles.guard';
 import { GraphQLUpload , graphqlUploadExpress } from "graphql-upload"
 import { MulterModule } from '@nestjs/platform-express';
-import { SectionsModule } from './sections/sections.module';
 
 @Module({
   imports: [
@@ -25,8 +24,8 @@ import { SectionsModule } from './sections/sections.module';
     CoursesModule,
     UsersModule,
     PostsModule,
-    AuthModule,
-    SectionsModule],
+    AuthModule
+  ],
   controllers: [AppController],
   providers: [AppService, PrismaService
   //   ,{

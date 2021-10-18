@@ -18,7 +18,6 @@ const users_module_1 = require("./users/users.module");
 const posts_module_1 = require("./posts/posts.module");
 const auth_module_1 = require("./auth/auth.module");
 const platform_express_1 = require("@nestjs/platform-express");
-const sections_module_1 = require("./sections/sections.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -33,8 +32,7 @@ AppModule = __decorate([
             courses_module_1.CoursesModule,
             users_module_1.UsersModule,
             posts_module_1.PostsModule,
-            auth_module_1.AuthModule,
-            sections_module_1.SectionsModule
+            auth_module_1.AuthModule
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService, prisma_service_1.PrismaService
