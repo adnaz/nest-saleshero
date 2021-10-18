@@ -6,5 +6,9 @@ module.exports = {
       // Delay between restart
       watch_delay: 1000,
       ignore_watch : ["node_modules", "files","src"],
+      env: {
+        "PORT": 3000,
+        "DATABASE_URL": "mysql://root:secret@127.0.0.1:3306/saleshero"
+    },
     }]
   }
