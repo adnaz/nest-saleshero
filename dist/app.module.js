@@ -18,6 +18,7 @@ const users_module_1 = require("./users/users.module");
 const posts_module_1 = require("./posts/posts.module");
 const auth_module_1 = require("./auth/auth.module");
 const platform_express_1 = require("@nestjs/platform-express");
+const whitelist = ['http://localhost:3000', 'https://holumbo.com'];
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -25,6 +26,10 @@ AppModule = __decorate([
         imports: [
             graphql_1.GraphQLModule.forRoot({
                 autoSchemaFile: (0, path_1.join)(process.cwd(), 'src/schema.gql'),
+                cors: {
+                    origin: '',
+                    credentials: true,
+                }
             }),
             platform_express_1.MulterModule.register({
                 dest: './files',
