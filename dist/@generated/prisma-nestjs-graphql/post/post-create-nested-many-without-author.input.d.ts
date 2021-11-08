@@ -1,0 +1,10 @@
+import { PostCreateWithoutAuthorInput } from './post-create-without-author.input';
+import { PostCreateOrConnectWithoutAuthorInput } from './post-create-or-connect-without-author.input';
+import { PostCreateManyAuthorInputEnvelope } from './post-create-many-author-input-envelope.input';
+import { PostWhereUniqueInput } from './post-where-unique.input';
+export declare class PostCreateNestedManyWithoutAuthorInput {
+    create?: Array<PostCreateWithoutAuthorInput>;
+    connectOrCreate?: Array<PostCreateOrConnectWithoutAuthorInput>;
+    createMany?: PostCreateManyAuthorInputEnvelope;
+    connect?: Array<PostWhereUniqueInput>;
+}
