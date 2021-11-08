@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "mysql"
-  url      =  "mysql://root:secret@127.0.0.1:3306/saleshero"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
