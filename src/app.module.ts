@@ -18,8 +18,14 @@ const whitelist = ['http://localhost:3000', 'https://holumbo.com'];
     GraphQLModule.forRoot({
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       cors: {
-        origin: '',
-        credentials: true,
+        origin: function (origin, callback) {
+          if (!origin || whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+          } else {
+            callback(new Error('Not allowed by CORS'))
+          }
+        },
+        credentials: true
       }
     }),
     MulterModule.register({
