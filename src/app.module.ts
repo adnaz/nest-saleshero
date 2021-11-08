@@ -12,11 +12,15 @@ import { APP_GUARD } from '@nestjs/core';
 import { RolesGuard } from './auth/roles.guard';
 import { GraphQLUpload , graphqlUploadExpress } from "graphql-upload"
 import { MulterModule } from '@nestjs/platform-express';
-
+const whitelist = ['http://localhost:3000', 'https://holumbo.com'];
 @Module({
   imports: [
     GraphQLModule.forRoot({
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      cors: {
+        origin: '',
+        credentials: true,
+      }
     }),
     MulterModule.register({
       dest: './files',
