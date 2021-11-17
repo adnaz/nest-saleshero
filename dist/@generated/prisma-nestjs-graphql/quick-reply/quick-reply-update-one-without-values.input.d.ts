@@ -7,8 +7,8 @@ export declare class QuickReplyUpdateOneWithoutValuesInput {
     create?: QuickReplyCreateWithoutValuesInput;
     connectOrCreate?: QuickReplyCreateOrConnectWithoutValuesInput;
     upsert?: QuickReplyUpsertWithoutValuesInput;
-    connect?: QuickReplyWhereUniqueInput;
     disconnect?: boolean;
     delete?: boolean;
+    connect?: QuickReplyWhereUniqueInput;
     update?: QuickReplyUpdateWithoutValuesInput;
 }

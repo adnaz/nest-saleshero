@@ -16,9 +16,11 @@ const graphql_2 = require("@nestjs/graphql");
 const int_filter_input_1 = require("../prisma/int-filter.input");
 const string_filter_input_1 = require("../prisma/string-filter.input");
 const string_nullable_filter_input_1 = require("../prisma/string-nullable-filter.input");
+const file_relation_filter_input_1 = require("../file/file-relation-filter.input");
+const int_nullable_filter_input_1 = require("../prisma/int-nullable-filter.input");
 const enum_type_section_nullable_filter_input_1 = require("../prisma/enum-type-section-nullable-filter.input");
 const course_relation_filter_input_1 = require("../course/course-relation-filter.input");
-const int_nullable_filter_input_1 = require("../prisma/int-nullable-filter.input");
+const reply_list_relation_filter_input_1 = require("../reply/reply-list-relation-filter.input");
 const bool_nullable_filter_input_1 = require("../prisma/bool-nullable-filter.input");
 const user_relation_filter_input_1 = require("../user/user-relation-filter.input");
 const graphql_3 = require("@nestjs/graphql");
@@ -50,9 +52,13 @@ __decorate([
     __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
 ], SectionWhereInput.prototype, "description", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
-    __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
+    (0, graphql_1.Field)(() => file_relation_filter_input_1.FileRelationFilter, { nullable: true }),
+    __metadata("design:type", file_relation_filter_input_1.FileRelationFilter)
 ], SectionWhereInput.prototype, "image", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => int_nullable_filter_input_1.IntNullableFilter, { nullable: true }),
+    __metadata("design:type", int_nullable_filter_input_1.IntNullableFilter)
+], SectionWhereInput.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => enum_type_section_nullable_filter_input_1.EnumTypeSectionNullableFilter, { nullable: true }),
     __metadata("design:type", enum_type_section_nullable_filter_input_1.EnumTypeSectionNullableFilter)
@@ -65,6 +71,10 @@ __decorate([
     (0, graphql_1.Field)(() => int_nullable_filter_input_1.IntNullableFilter, { nullable: true }),
     __metadata("design:type", int_nullable_filter_input_1.IntNullableFilter)
 ], SectionWhereInput.prototype, "courseId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => reply_list_relation_filter_input_1.ReplyListRelationFilter, { nullable: true }),
+    __metadata("design:type", reply_list_relation_filter_input_1.ReplyListRelationFilter)
+], SectionWhereInput.prototype, "replies", void 0);
 __decorate([
     (0, graphql_1.Field)(() => bool_nullable_filter_input_1.BoolNullableFilter, { nullable: true }),
     __metadata("design:type", bool_nullable_filter_input_1.BoolNullableFilter)

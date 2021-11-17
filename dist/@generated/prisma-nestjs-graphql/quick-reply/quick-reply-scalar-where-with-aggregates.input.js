@@ -14,6 +14,7 @@ exports.QuickReplyScalarWhereWithAggregatesInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const int_with_aggregates_filter_input_1 = require("../prisma/int-with-aggregates-filter.input");
+const bool_with_aggregates_filter_input_1 = require("../prisma/bool-with-aggregates-filter.input");
 const enum_type_reply_with_aggregates_filter_input_1 = require("../prisma/enum-type-reply-with-aggregates-filter.input");
 let QuickReplyScalarWhereWithAggregatesInput = QuickReplyScalarWhereWithAggregatesInput_1 = class QuickReplyScalarWhereWithAggregatesInput {
 };
@@ -33,6 +34,10 @@ __decorate([
     (0, graphql_1.Field)(() => int_with_aggregates_filter_input_1.IntWithAggregatesFilter, { nullable: true }),
     __metadata("design:type", int_with_aggregates_filter_input_1.IntWithAggregatesFilter)
 ], QuickReplyScalarWhereWithAggregatesInput.prototype, "id", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => bool_with_aggregates_filter_input_1.BoolWithAggregatesFilter, { nullable: true }),
+    __metadata("design:type", bool_with_aggregates_filter_input_1.BoolWithAggregatesFilter)
+], QuickReplyScalarWhereWithAggregatesInput.prototype, "keepIt", void 0);
 __decorate([
     (0, graphql_1.Field)(() => enum_type_reply_with_aggregates_filter_input_1.EnumTypeReplyWithAggregatesFilter, { nullable: true }),
     __metadata("design:type", enum_type_reply_with_aggregates_filter_input_1.EnumTypeReplyWithAggregatesFilter)

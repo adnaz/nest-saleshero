@@ -8,5 +8,14 @@ export class ReplySumAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
-    userId?: true;
+    fileId?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    sectionId?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    actorId?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    quickRepliesId?: true;
 }

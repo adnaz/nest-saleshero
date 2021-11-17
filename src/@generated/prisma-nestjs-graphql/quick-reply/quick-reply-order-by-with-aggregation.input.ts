@@ -14,6 +14,9 @@ export class QuickReplyOrderByWithAggregationInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    keepIt?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     type?: keyof typeof SortOrder;
 
     @Field(() => QuickReplyCountOrderByAggregateInput, {nullable:true})

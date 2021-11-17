@@ -1,8 +1,9 @@
 export declare class ReplyMinAggregateInput {
     id?: true;
-    text?: true;
-    audio?: true;
+    fileId?: true;
     createdAt?: true;
     updatedAt?: true;
-    userId?: true;
+    sectionId?: true;
+    actorId?: true;
+    quickRepliesId?: true;
 }

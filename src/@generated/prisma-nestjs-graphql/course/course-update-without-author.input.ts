@@ -5,6 +5,8 @@ import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-str
 import { NullableBoolFieldUpdateOperationsInput } from '../prisma/nullable-bool-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { HideField } from '@nestjs/graphql';
+import { FileUpdateOneWithoutCourseAudioInput } from '../file/file-update-one-without-course-audio.input';
+import { FileUpdateOneWithoutCourseImageInput } from '../file/file-update-one-without-course-image.input';
 import { SectionUpdateManyWithoutCourseInput } from '../section/section-update-many-without-course.input';
 
 @InputType()
@@ -16,12 +18,6 @@ export class CourseUpdateWithoutAuthorInput {
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     description?: NullableStringFieldUpdateOperationsInput;
 
-    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
-    audio?: NullableStringFieldUpdateOperationsInput;
-
-    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
-    image?: NullableStringFieldUpdateOperationsInput;
-
     @Field(() => NullableBoolFieldUpdateOperationsInput, {nullable:true})
     published?: NullableBoolFieldUpdateOperationsInput;
 
@@ -30,6 +26,12 @@ export class CourseUpdateWithoutAuthorInput {
 
     @HideField()
     updatedAt?: DateTimeFieldUpdateOperationsInput;
+
+    @Field(() => FileUpdateOneWithoutCourseAudioInput, {nullable:true})
+    audio?: FileUpdateOneWithoutCourseAudioInput;
+
+    @Field(() => FileUpdateOneWithoutCourseImageInput, {nullable:true})
+    image?: FileUpdateOneWithoutCourseImageInput;
 
     @Field(() => SectionUpdateManyWithoutCourseInput, {nullable:true})
     sections?: SectionUpdateManyWithoutCourseInput;

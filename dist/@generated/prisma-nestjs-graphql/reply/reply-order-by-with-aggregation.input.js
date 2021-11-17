@@ -27,11 +27,7 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
-], ReplyOrderByWithAggregationInput.prototype, "text", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
-    __metadata("design:type", Object)
-], ReplyOrderByWithAggregationInput.prototype, "audio", void 0);
+], ReplyOrderByWithAggregationInput.prototype, "fileId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
@@ -43,7 +39,15 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
-], ReplyOrderByWithAggregationInput.prototype, "userId", void 0);
+], ReplyOrderByWithAggregationInput.prototype, "sectionId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], ReplyOrderByWithAggregationInput.prototype, "actorId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], ReplyOrderByWithAggregationInput.prototype, "quickRepliesId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => reply_count_order_by_aggregate_input_1.ReplyCountOrderByAggregateInput, { nullable: true }),
     __metadata("design:type", reply_count_order_by_aggregate_input_1.ReplyCountOrderByAggregateInput)

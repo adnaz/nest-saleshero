@@ -1,7 +1,7 @@
 export declare class ActorMaxAggregateInput {
     id?: true;
     name?: true;
-    avatar?: true;
+    fileId?: true;
     createdAt?: true;
     updatedAt?: true;
 }

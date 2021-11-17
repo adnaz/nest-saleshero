@@ -13,11 +13,8 @@ export class ReplyGroupBy {
     @Field(() => Int, {nullable:false})
     id!: number;
 
-    @Field(() => String, {nullable:true})
-    text?: string;
-
-    @Field(() => String, {nullable:true})
-    audio?: string;
+    @Field(() => Int, {nullable:true})
+    fileId?: number;
 
     @Field(() => Date, {nullable:false})
     createdAt!: Date | string;
@@ -25,8 +22,14 @@ export class ReplyGroupBy {
     @Field(() => Date, {nullable:false})
     updatedAt!: Date | string;
 
+    @Field(() => Int, {nullable:false})
+    sectionId!: number;
+
     @Field(() => Int, {nullable:true})
-    userId?: number;
+    actorId?: number;
+
+    @Field(() => Int, {nullable:true})
+    quickRepliesId?: number;
 
     @Field(() => ReplyCountAggregate, {nullable:true})
     _count?: ReplyCountAggregate;

@@ -22,11 +22,7 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
-], ReplyMaxOrderByAggregateInput.prototype, "text", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
-    __metadata("design:type", Object)
-], ReplyMaxOrderByAggregateInput.prototype, "audio", void 0);
+], ReplyMaxOrderByAggregateInput.prototype, "fileId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
@@ -38,7 +34,15 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
-], ReplyMaxOrderByAggregateInput.prototype, "userId", void 0);
+], ReplyMaxOrderByAggregateInput.prototype, "sectionId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], ReplyMaxOrderByAggregateInput.prototype, "actorId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], ReplyMaxOrderByAggregateInput.prototype, "quickRepliesId", void 0);
 ReplyMaxOrderByAggregateInput = __decorate([
     (0, graphql_2.InputType)()
 ], ReplyMaxOrderByAggregateInput);

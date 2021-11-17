@@ -18,14 +18,14 @@ export class QuickReplyUpdateOneWithoutValuesInput {
     @Field(() => QuickReplyUpsertWithoutValuesInput, {nullable:true})
     upsert?: QuickReplyUpsertWithoutValuesInput;
 
-    @Field(() => QuickReplyWhereUniqueInput, {nullable:true})
-    connect?: QuickReplyWhereUniqueInput;
-
     @Field(() => Boolean, {nullable:true})
     disconnect?: boolean;
 
     @Field(() => Boolean, {nullable:true})
     delete?: boolean;
+
+    @Field(() => QuickReplyWhereUniqueInput, {nullable:true})
+    connect?: QuickReplyWhereUniqueInput;
 
     @Field(() => QuickReplyUpdateWithoutValuesInput, {nullable:true})
     update?: QuickReplyUpdateWithoutValuesInput;

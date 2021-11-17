@@ -32,10 +32,6 @@ __decorate([
     __metadata("design:type", actor_upsert_without_replies_input_1.ActorUpsertWithoutRepliesInput)
 ], ActorUpdateOneWithoutRepliesInput.prototype, "upsert", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => actor_where_unique_input_1.ActorWhereUniqueInput, { nullable: true }),
-    __metadata("design:type", actor_where_unique_input_1.ActorWhereUniqueInput)
-], ActorUpdateOneWithoutRepliesInput.prototype, "connect", void 0);
-__decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
 ], ActorUpdateOneWithoutRepliesInput.prototype, "disconnect", void 0);
@@ -43,6 +39,10 @@ __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
 ], ActorUpdateOneWithoutRepliesInput.prototype, "delete", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => actor_where_unique_input_1.ActorWhereUniqueInput, { nullable: true }),
+    __metadata("design:type", actor_where_unique_input_1.ActorWhereUniqueInput)
+], ActorUpdateOneWithoutRepliesInput.prototype, "connect", void 0);
 __decorate([
     (0, graphql_1.Field)(() => actor_update_without_replies_input_1.ActorUpdateWithoutRepliesInput, { nullable: true }),
     __metadata("design:type", actor_update_without_replies_input_1.ActorUpdateWithoutRepliesInput)

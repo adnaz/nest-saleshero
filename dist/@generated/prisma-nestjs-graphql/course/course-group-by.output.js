@@ -33,13 +33,13 @@ __decorate([
     __metadata("design:type", String)
 ], CourseGroupBy.prototype, "description", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], CourseGroupBy.prototype, "audio", void 0);
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], CourseGroupBy.prototype, "audioId", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], CourseGroupBy.prototype, "image", void 0);
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], CourseGroupBy.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)

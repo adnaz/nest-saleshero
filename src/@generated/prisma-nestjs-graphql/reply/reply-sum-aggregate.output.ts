@@ -9,5 +9,14 @@ export class ReplySumAggregate {
     id?: number;
 
     @Field(() => Int, {nullable:true})
-    userId?: number;
+    fileId?: number;
+
+    @Field(() => Int, {nullable:true})
+    sectionId?: number;
+
+    @Field(() => Int, {nullable:true})
+    actorId?: number;
+
+    @Field(() => Int, {nullable:true})
+    quickRepliesId?: number;
 }

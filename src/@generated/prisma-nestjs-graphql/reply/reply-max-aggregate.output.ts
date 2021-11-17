@@ -8,11 +8,8 @@ export class ReplyMaxAggregate {
     @Field(() => Int, {nullable:true})
     id?: number;
 
-    @Field(() => String, {nullable:true})
-    text?: string;
-
-    @Field(() => String, {nullable:true})
-    audio?: string;
+    @Field(() => Int, {nullable:true})
+    fileId?: number;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
@@ -21,5 +18,11 @@ export class ReplyMaxAggregate {
     updatedAt?: Date | string;
 
     @Field(() => Int, {nullable:true})
-    userId?: number;
+    sectionId?: number;
+
+    @Field(() => Int, {nullable:true})
+    actorId?: number;
+
+    @Field(() => Int, {nullable:true})
+    quickRepliesId?: number;
 }

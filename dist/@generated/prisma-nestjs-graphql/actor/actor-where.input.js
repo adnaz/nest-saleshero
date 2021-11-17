@@ -15,6 +15,8 @@ const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const int_filter_input_1 = require("../prisma/int-filter.input");
 const string_nullable_filter_input_1 = require("../prisma/string-nullable-filter.input");
+const file_relation_filter_input_1 = require("../file/file-relation-filter.input");
+const int_nullable_filter_input_1 = require("../prisma/int-nullable-filter.input");
 const reply_list_relation_filter_input_1 = require("../reply/reply-list-relation-filter.input");
 const date_time_filter_input_1 = require("../prisma/date-time-filter.input");
 let ActorWhereInput = ActorWhereInput_1 = class ActorWhereInput {
@@ -40,9 +42,13 @@ __decorate([
     __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
 ], ActorWhereInput.prototype, "name", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
-    __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
+    (0, graphql_1.Field)(() => file_relation_filter_input_1.FileRelationFilter, { nullable: true }),
+    __metadata("design:type", file_relation_filter_input_1.FileRelationFilter)
 ], ActorWhereInput.prototype, "avatar", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => int_nullable_filter_input_1.IntNullableFilter, { nullable: true }),
+    __metadata("design:type", int_nullable_filter_input_1.IntNullableFilter)
+], ActorWhereInput.prototype, "fileId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => reply_list_relation_filter_input_1.ReplyListRelationFilter, { nullable: true }),
     __metadata("design:type", reply_list_relation_filter_input_1.ReplyListRelationFilter)

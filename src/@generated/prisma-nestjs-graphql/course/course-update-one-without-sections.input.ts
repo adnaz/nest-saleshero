@@ -18,14 +18,14 @@ export class CourseUpdateOneWithoutSectionsInput {
     @Field(() => CourseUpsertWithoutSectionsInput, {nullable:true})
     upsert?: CourseUpsertWithoutSectionsInput;
 
-    @Field(() => CourseWhereUniqueInput, {nullable:true})
-    connect?: CourseWhereUniqueInput;
-
     @Field(() => Boolean, {nullable:true})
     disconnect?: boolean;
 
     @Field(() => Boolean, {nullable:true})
     delete?: boolean;
+
+    @Field(() => CourseWhereUniqueInput, {nullable:true})
+    connect?: CourseWhereUniqueInput;
 
     @Field(() => CourseUpdateWithoutSectionsInput, {nullable:true})
     update?: CourseUpdateWithoutSectionsInput;

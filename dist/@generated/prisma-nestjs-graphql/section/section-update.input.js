@@ -18,7 +18,9 @@ const nullable_enum_type_section_field_update_operations_input_1 = require("../p
 const nullable_bool_field_update_operations_input_1 = require("../prisma/nullable-bool-field-update-operations.input");
 const date_time_field_update_operations_input_1 = require("../prisma/date-time-field-update-operations.input");
 const graphql_3 = require("@nestjs/graphql");
+const file_update_one_without_section_input_1 = require("../file/file-update-one-without-section.input");
 const course_update_one_without_sections_input_1 = require("../course/course-update-one-without-sections.input");
+const reply_update_many_without_section_input_1 = require("../reply/reply-update-many-without-section.input");
 const user_update_one_without_sections_input_1 = require("../user/user-update-one-without-sections.input");
 let SectionUpdateInput = class SectionUpdateInput {
 };
@@ -30,10 +32,6 @@ __decorate([
     (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
     __metadata("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
 ], SectionUpdateInput.prototype, "description", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
-    __metadata("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
-], SectionUpdateInput.prototype, "image", void 0);
 __decorate([
     (0, graphql_1.Field)(() => nullable_enum_type_section_field_update_operations_input_1.NullableEnumTypeSectionFieldUpdateOperationsInput, { nullable: true }),
     __metadata("design:type", nullable_enum_type_section_field_update_operations_input_1.NullableEnumTypeSectionFieldUpdateOperationsInput)
@@ -51,9 +49,17 @@ __decorate([
     __metadata("design:type", date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput)
 ], SectionUpdateInput.prototype, "updatedAt", void 0);
 __decorate([
+    (0, graphql_1.Field)(() => file_update_one_without_section_input_1.FileUpdateOneWithoutSectionInput, { nullable: true }),
+    __metadata("design:type", file_update_one_without_section_input_1.FileUpdateOneWithoutSectionInput)
+], SectionUpdateInput.prototype, "image", void 0);
+__decorate([
     (0, graphql_1.Field)(() => course_update_one_without_sections_input_1.CourseUpdateOneWithoutSectionsInput, { nullable: true }),
     __metadata("design:type", course_update_one_without_sections_input_1.CourseUpdateOneWithoutSectionsInput)
 ], SectionUpdateInput.prototype, "course", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => reply_update_many_without_section_input_1.ReplyUpdateManyWithoutSectionInput, { nullable: true }),
+    __metadata("design:type", reply_update_many_without_section_input_1.ReplyUpdateManyWithoutSectionInput)
+], SectionUpdateInput.prototype, "replies", void 0);
 __decorate([
     (0, graphql_3.HideField)(),
     __metadata("design:type", user_update_one_without_sections_input_1.UserUpdateOneWithoutSectionsInput)

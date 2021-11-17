@@ -2,7 +2,7 @@ export declare class SectionMinAggregateInput {
     id?: true;
     title?: true;
     description?: true;
-    image?: true;
+    imageId?: true;
     type?: true;
     courseId?: true;
     published?: true;

@@ -1,7 +1,8 @@
 export declare class ReplyUncheckedCreateWithoutUserInput {
     id?: number;
-    text?: string;
-    audio?: string;
+    fileId?: number;
     createdAt?: Date | string;
     updatedAt?: Date | string;
+    sectionId: number;
+    quickRepliesId?: number;
 }

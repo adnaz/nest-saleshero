@@ -1,0 +1,17 @@
+import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
+import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
+import { EnumTypeFileFieldUpdateOperationsInput } from '../prisma/enum-type-file-field-update-operations.input';
+import { ReplyUpdateOneWithoutFileInput } from '../reply/reply-update-one-without-file.input';
+import { ActorUpdateOneWithoutAvatarInput } from '../actor/actor-update-one-without-avatar.input';
+import { CourseUpdateOneWithoutAudioInput } from '../course/course-update-one-without-audio.input';
+import { SectionUpdateOneWithoutImageInput } from '../section/section-update-one-without-image.input';
+export declare class FileUpdateWithoutCourseImageInput {
+    link?: StringFieldUpdateOperationsInput;
+    createdAt?: DateTimeFieldUpdateOperationsInput;
+    updatedAt?: DateTimeFieldUpdateOperationsInput;
+    type?: EnumTypeFileFieldUpdateOperationsInput;
+    reply?: ReplyUpdateOneWithoutFileInput;
+    actor?: ActorUpdateOneWithoutAvatarInput;
+    courseAudio?: CourseUpdateOneWithoutAudioInput;
+    section?: SectionUpdateOneWithoutImageInput;
+}

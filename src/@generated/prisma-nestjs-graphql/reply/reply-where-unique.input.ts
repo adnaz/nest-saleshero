@@ -7,4 +7,10 @@ export class ReplyWhereUniqueInput {
 
     @Field(() => Int, {nullable:true})
     id?: number;
+
+    @Field(() => Int, {nullable:true})
+    fileId?: number;
+
+    @Field(() => Int, {nullable:true})
+    quickRepliesId?: number;
 }

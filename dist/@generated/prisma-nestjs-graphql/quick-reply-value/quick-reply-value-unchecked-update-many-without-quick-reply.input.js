@@ -41,10 +41,6 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => [quick_reply_value_where_unique_input_1.QuickReplyValueWhereUniqueInput], { nullable: true }),
     __metadata("design:type", Array)
-], QuickReplyValueUncheckedUpdateManyWithoutQuickReplyInput.prototype, "connect", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => [quick_reply_value_where_unique_input_1.QuickReplyValueWhereUniqueInput], { nullable: true }),
-    __metadata("design:type", Array)
 ], QuickReplyValueUncheckedUpdateManyWithoutQuickReplyInput.prototype, "set", void 0);
 __decorate([
     (0, graphql_1.Field)(() => [quick_reply_value_where_unique_input_1.QuickReplyValueWhereUniqueInput], { nullable: true }),
@@ -54,6 +50,10 @@ __decorate([
     (0, graphql_1.Field)(() => [quick_reply_value_where_unique_input_1.QuickReplyValueWhereUniqueInput], { nullable: true }),
     __metadata("design:type", Array)
 ], QuickReplyValueUncheckedUpdateManyWithoutQuickReplyInput.prototype, "delete", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => [quick_reply_value_where_unique_input_1.QuickReplyValueWhereUniqueInput], { nullable: true }),
+    __metadata("design:type", Array)
+], QuickReplyValueUncheckedUpdateManyWithoutQuickReplyInput.prototype, "connect", void 0);
 __decorate([
     (0, graphql_1.Field)(() => [quick_reply_value_update_with_where_unique_without_quick_reply_input_1.QuickReplyValueUpdateWithWhereUniqueWithoutQuickReplyInput], { nullable: true }),
     __metadata("design:type", Array)

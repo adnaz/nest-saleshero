@@ -25,9 +25,6 @@ export class SectionUncheckedUpdateManyWithoutAuthorInput {
     createMany?: SectionCreateManyAuthorInputEnvelope;
 
     @Field(() => [SectionWhereUniqueInput], {nullable:true})
-    connect?: Array<SectionWhereUniqueInput>;
-
-    @Field(() => [SectionWhereUniqueInput], {nullable:true})
     set?: Array<SectionWhereUniqueInput>;
 
     @Field(() => [SectionWhereUniqueInput], {nullable:true})
@@ -35,6 +32,9 @@ export class SectionUncheckedUpdateManyWithoutAuthorInput {
 
     @Field(() => [SectionWhereUniqueInput], {nullable:true})
     delete?: Array<SectionWhereUniqueInput>;
+
+    @Field(() => [SectionWhereUniqueInput], {nullable:true})
+    connect?: Array<SectionWhereUniqueInput>;
 
     @Field(() => [SectionUpdateWithWhereUniqueWithoutAuthorInput], {nullable:true})
     update?: Array<SectionUpdateWithWhereUniqueWithoutAuthorInput>;

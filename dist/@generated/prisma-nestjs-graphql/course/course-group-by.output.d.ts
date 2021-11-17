@@ -7,8 +7,8 @@ export declare class CourseGroupBy {
     id: number;
     title: string;
     description?: string;
-    audio?: string;
-    image?: string;
+    audioId?: number;
+    imageId?: number;
     published?: boolean;
     authorId?: number;
     createdAt: Date | string;

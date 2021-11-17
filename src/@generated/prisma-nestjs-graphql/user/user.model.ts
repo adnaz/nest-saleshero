@@ -44,6 +44,6 @@ export class User {
     @Field(() => Date, {nullable:false})
     updatedAt!: Date;
 
-    @Field(() => UserCount, {nullable:true})
-    _count?: UserCount | null;
+    @Field(() => UserCount, {nullable:false})
+    _count?: UserCount;
 }

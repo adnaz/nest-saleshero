@@ -41,10 +41,6 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => [reply_where_unique_input_1.ReplyWhereUniqueInput], { nullable: true }),
     __metadata("design:type", Array)
-], ReplyUpdateManyWithoutUserInput.prototype, "connect", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => [reply_where_unique_input_1.ReplyWhereUniqueInput], { nullable: true }),
-    __metadata("design:type", Array)
 ], ReplyUpdateManyWithoutUserInput.prototype, "set", void 0);
 __decorate([
     (0, graphql_1.Field)(() => [reply_where_unique_input_1.ReplyWhereUniqueInput], { nullable: true }),
@@ -54,6 +50,10 @@ __decorate([
     (0, graphql_1.Field)(() => [reply_where_unique_input_1.ReplyWhereUniqueInput], { nullable: true }),
     __metadata("design:type", Array)
 ], ReplyUpdateManyWithoutUserInput.prototype, "delete", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => [reply_where_unique_input_1.ReplyWhereUniqueInput], { nullable: true }),
+    __metadata("design:type", Array)
+], ReplyUpdateManyWithoutUserInput.prototype, "connect", void 0);
 __decorate([
     (0, graphql_1.Field)(() => [reply_update_with_where_unique_without_user_input_1.ReplyUpdateWithWhereUniqueWithoutUserInput], { nullable: true }),
     __metadata("design:type", Array)

@@ -24,9 +24,9 @@ __decorate([
     __metadata("design:type", String)
 ], ActorCreateManyInput.prototype, "name", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], ActorCreateManyInput.prototype, "avatar", void 0);
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ActorCreateManyInput.prototype, "fileId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Date, { nullable: true }),
     __metadata("design:type", Object)

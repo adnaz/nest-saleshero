@@ -15,5 +15,5 @@ export declare class User {
     role: keyof typeof Role;
     createdAt: Date;
     updatedAt: Date;
-    _count?: UserCount | null;
+    _count?: UserCount;
 }

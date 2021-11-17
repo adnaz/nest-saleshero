@@ -3,7 +3,7 @@ export declare class SectionCreateManyCourseInput {
     id?: number;
     title: string;
     description?: string;
-    image?: string;
+    imageId?: number;
     type?: keyof typeof TypeSection;
     published?: boolean;
     authorId?: number;

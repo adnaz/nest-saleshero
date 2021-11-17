@@ -15,7 +15,7 @@ export class SectionMinAggregateInput {
     description?: true;
 
     @Field(() => Boolean, {nullable:true})
-    image?: true;
+    imageId?: true;
 
     @Field(() => Boolean, {nullable:true})
     type?: true;

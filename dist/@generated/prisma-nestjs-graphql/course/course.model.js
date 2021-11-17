@@ -13,9 +13,10 @@ exports.Course = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const graphql_3 = require("@nestjs/graphql");
+const file_model_1 = require("../file/file.model");
+const graphql_4 = require("@nestjs/graphql");
 const section_model_1 = require("../section/section.model");
 const user_model_1 = require("../user/user.model");
-const graphql_4 = require("@nestjs/graphql");
 const course_count_output_1 = require("./course-count.output");
 let Course = class Course {
 };
@@ -32,13 +33,21 @@ __decorate([
     __metadata("design:type", String)
 ], Course.prototype, "description", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
+    (0, graphql_1.Field)(() => file_model_1.File, { nullable: true }),
+    __metadata("design:type", file_model_1.File)
 ], Course.prototype, "audio", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
+    (0, graphql_1.Field)(() => graphql_4.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], Course.prototype, "audioId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => file_model_1.File, { nullable: true }),
+    __metadata("design:type", file_model_1.File)
 ], Course.prototype, "image", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_4.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], Course.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => [section_model_1.Section], { nullable: true }),
     __metadata("design:type", Array)
@@ -64,7 +73,7 @@ __decorate([
     __metadata("design:type", Date)
 ], Course.prototype, "updatedAt", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => course_count_output_1.CourseCount, { nullable: true }),
+    (0, graphql_1.Field)(() => course_count_output_1.CourseCount, { nullable: false }),
     __metadata("design:type", course_count_output_1.CourseCount)
 ], Course.prototype, "_count", void 0);
 Course = __decorate([

@@ -30,11 +30,11 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
     __metadata("design:type", Number)
-], CourseCountAggregate.prototype, "audio", void 0);
+], CourseCountAggregate.prototype, "audioId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
     __metadata("design:type", Number)
-], CourseCountAggregate.prototype, "image", void 0);
+], CourseCountAggregate.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
     __metadata("design:type", Number)

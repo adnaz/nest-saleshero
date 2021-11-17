@@ -11,10 +11,10 @@ export declare class QuickReplyValueUncheckedUpdateManyWithoutQuickReplyInput {
     connectOrCreate?: Array<QuickReplyValueCreateOrConnectWithoutQuickReplyInput>;
     upsert?: Array<QuickReplyValueUpsertWithWhereUniqueWithoutQuickReplyInput>;
     createMany?: QuickReplyValueCreateManyQuickReplyInputEnvelope;
-    connect?: Array<QuickReplyValueWhereUniqueInput>;
     set?: Array<QuickReplyValueWhereUniqueInput>;
     disconnect?: Array<QuickReplyValueWhereUniqueInput>;
     delete?: Array<QuickReplyValueWhereUniqueInput>;
+    connect?: Array<QuickReplyValueWhereUniqueInput>;
     update?: Array<QuickReplyValueUpdateWithWhereUniqueWithoutQuickReplyInput>;
     updateMany?: Array<QuickReplyValueUpdateManyWithWhereWithoutQuickReplyInput>;
     deleteMany?: Array<QuickReplyValueScalarWhereInput>;

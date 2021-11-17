@@ -29,13 +29,13 @@ __decorate([
     __metadata("design:type", String)
 ], CourseCreateManyInput.prototype, "description", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], CourseCreateManyInput.prototype, "audio", void 0);
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], CourseCreateManyInput.prototype, "audioId", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], CourseCreateManyInput.prototype, "image", void 0);
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], CourseCreateManyInput.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)

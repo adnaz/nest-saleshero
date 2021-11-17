@@ -1,9 +1,10 @@
 export declare class ReplyCountAggregate {
     id: number;
-    text: number;
-    audio: number;
+    fileId: number;
     createdAt: number;
     updatedAt: number;
-    userId: number;
+    sectionId: number;
+    actorId: number;
+    quickRepliesId: number;
     _all: number;
 }

@@ -3,8 +3,8 @@ import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
-import { EnumTypeSectionNullableFilter } from '../prisma/enum-type-section-nullable-filter.input';
 import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
+import { EnumTypeSectionNullableFilter } from '../prisma/enum-type-section-nullable-filter.input';
 import { BoolNullableFilter } from '../prisma/bool-nullable-filter.input';
 import { HideField } from '@nestjs/graphql';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
@@ -30,8 +30,8 @@ export class SectionScalarWhereInput {
     @Field(() => StringNullableFilter, {nullable:true})
     description?: StringNullableFilter;
 
-    @Field(() => StringNullableFilter, {nullable:true})
-    image?: StringNullableFilter;
+    @Field(() => IntNullableFilter, {nullable:true})
+    imageId?: IntNullableFilter;
 
     @Field(() => EnumTypeSectionNullableFilter, {nullable:true})
     type?: EnumTypeSectionNullableFilter;

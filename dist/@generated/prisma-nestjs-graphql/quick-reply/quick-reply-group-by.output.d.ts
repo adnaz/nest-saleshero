@@ -6,6 +6,7 @@ import { QuickReplyMinAggregate } from './quick-reply-min-aggregate.output';
 import { QuickReplyMaxAggregate } from './quick-reply-max-aggregate.output';
 export declare class QuickReplyGroupBy {
     id: number;
+    keepIt: boolean;
     type: keyof typeof TypeReply;
     _count?: QuickReplyCountAggregate;
     _avg?: QuickReplyAvgAggregate;

@@ -25,9 +25,6 @@ export class ReplyUncheckedUpdateManyWithoutUserInput {
     createMany?: ReplyCreateManyUserInputEnvelope;
 
     @Field(() => [ReplyWhereUniqueInput], {nullable:true})
-    connect?: Array<ReplyWhereUniqueInput>;
-
-    @Field(() => [ReplyWhereUniqueInput], {nullable:true})
     set?: Array<ReplyWhereUniqueInput>;
 
     @Field(() => [ReplyWhereUniqueInput], {nullable:true})
@@ -35,6 +32,9 @@ export class ReplyUncheckedUpdateManyWithoutUserInput {
 
     @Field(() => [ReplyWhereUniqueInput], {nullable:true})
     delete?: Array<ReplyWhereUniqueInput>;
+
+    @Field(() => [ReplyWhereUniqueInput], {nullable:true})
+    connect?: Array<ReplyWhereUniqueInput>;
 
     @Field(() => [ReplyUpdateWithWhereUniqueWithoutUserInput], {nullable:true})
     update?: Array<ReplyUpdateWithWhereUniqueWithoutUserInput>;

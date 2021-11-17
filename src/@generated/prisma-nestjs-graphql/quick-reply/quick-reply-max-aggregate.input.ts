@@ -8,5 +8,8 @@ export class QuickReplyMaxAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
+    keepIt?: true;
+
+    @Field(() => Boolean, {nullable:true})
     type?: true;
 }

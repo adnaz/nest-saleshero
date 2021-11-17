@@ -7,7 +7,7 @@ import { ActorSumOrderByAggregateInput } from './actor-sum-order-by-aggregate.in
 export declare class ActorOrderByWithAggregationInput {
     id?: keyof typeof SortOrder;
     name?: keyof typeof SortOrder;
-    avatar?: keyof typeof SortOrder;
+    fileId?: keyof typeof SortOrder;
     createdAt?: keyof typeof SortOrder;
     updatedAt?: keyof typeof SortOrder;
     _count?: ActorCountOrderByAggregateInput;

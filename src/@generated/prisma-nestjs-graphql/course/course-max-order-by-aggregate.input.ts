@@ -16,10 +16,10 @@ export class CourseMaxOrderByAggregateInput {
     description?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    audio?: keyof typeof SortOrder;
+    audioId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    image?: keyof typeof SortOrder;
+    imageId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     published?: keyof typeof SortOrder;

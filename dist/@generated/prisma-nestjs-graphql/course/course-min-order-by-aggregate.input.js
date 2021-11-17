@@ -31,11 +31,11 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
-], CourseMinOrderByAggregateInput.prototype, "audio", void 0);
+], CourseMinOrderByAggregateInput.prototype, "audioId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
-], CourseMinOrderByAggregateInput.prototype, "image", void 0);
+], CourseMinOrderByAggregateInput.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)

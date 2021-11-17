@@ -25,7 +25,7 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
-], ActorCountAggregateInput.prototype, "avatar", void 0);
+], ActorCountAggregateInput.prototype, "fileId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)

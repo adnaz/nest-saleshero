@@ -28,13 +28,13 @@ __decorate([
     __metadata("design:type", String)
 ], CourseMinAggregate.prototype, "description", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], CourseMinAggregate.prototype, "audio", void 0);
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], CourseMinAggregate.prototype, "audioId", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], CourseMinAggregate.prototype, "image", void 0);
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], CourseMinAggregate.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)

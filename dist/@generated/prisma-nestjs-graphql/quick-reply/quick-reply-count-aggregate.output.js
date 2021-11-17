@@ -22,6 +22,10 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
     __metadata("design:type", Number)
+], QuickReplyCountAggregate.prototype, "keepIt", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
+    __metadata("design:type", Number)
 ], QuickReplyCountAggregate.prototype, "type", void 0);
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),

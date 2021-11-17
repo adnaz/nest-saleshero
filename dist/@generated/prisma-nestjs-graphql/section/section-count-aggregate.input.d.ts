@@ -2,7 +2,7 @@ export declare class SectionCountAggregateInput {
     id?: true;
     title?: true;
     description?: true;
-    image?: true;
+    imageId?: true;
     type?: true;
     courseId?: true;
     published?: true;

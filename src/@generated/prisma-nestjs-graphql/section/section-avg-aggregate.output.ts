@@ -9,6 +9,9 @@ export class SectionAvgAggregate {
     id?: number;
 
     @Field(() => Float, {nullable:true})
+    imageId?: number;
+
+    @Field(() => Float, {nullable:true})
     courseId?: number;
 
     @Field(() => Float, {nullable:true})

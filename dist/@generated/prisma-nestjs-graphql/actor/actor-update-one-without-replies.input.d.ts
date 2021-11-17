@@ -7,8 +7,8 @@ export declare class ActorUpdateOneWithoutRepliesInput {
     create?: ActorCreateWithoutRepliesInput;
     connectOrCreate?: ActorCreateOrConnectWithoutRepliesInput;
     upsert?: ActorUpsertWithoutRepliesInput;
-    connect?: ActorWhereUniqueInput;
     disconnect?: boolean;
     delete?: boolean;
+    connect?: ActorWhereUniqueInput;
     update?: ActorUpdateWithoutRepliesInput;
 }

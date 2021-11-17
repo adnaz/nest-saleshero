@@ -17,6 +17,8 @@ const nullable_string_field_update_operations_input_1 = require("../prisma/nulla
 const nullable_bool_field_update_operations_input_1 = require("../prisma/nullable-bool-field-update-operations.input");
 const date_time_field_update_operations_input_1 = require("../prisma/date-time-field-update-operations.input");
 const graphql_3 = require("@nestjs/graphql");
+const file_update_one_without_course_audio_input_1 = require("../file/file-update-one-without-course-audio.input");
+const file_update_one_without_course_image_input_1 = require("../file/file-update-one-without-course-image.input");
 const section_update_many_without_course_input_1 = require("../section/section-update-many-without-course.input");
 let CourseUpdateWithoutAuthorInput = class CourseUpdateWithoutAuthorInput {
 };
@@ -29,14 +31,6 @@ __decorate([
     __metadata("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
 ], CourseUpdateWithoutAuthorInput.prototype, "description", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
-    __metadata("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
-], CourseUpdateWithoutAuthorInput.prototype, "audio", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
-    __metadata("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
-], CourseUpdateWithoutAuthorInput.prototype, "image", void 0);
-__decorate([
     (0, graphql_1.Field)(() => nullable_bool_field_update_operations_input_1.NullableBoolFieldUpdateOperationsInput, { nullable: true }),
     __metadata("design:type", nullable_bool_field_update_operations_input_1.NullableBoolFieldUpdateOperationsInput)
 ], CourseUpdateWithoutAuthorInput.prototype, "published", void 0);
@@ -48,6 +42,14 @@ __decorate([
     (0, graphql_3.HideField)(),
     __metadata("design:type", date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput)
 ], CourseUpdateWithoutAuthorInput.prototype, "updatedAt", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => file_update_one_without_course_audio_input_1.FileUpdateOneWithoutCourseAudioInput, { nullable: true }),
+    __metadata("design:type", file_update_one_without_course_audio_input_1.FileUpdateOneWithoutCourseAudioInput)
+], CourseUpdateWithoutAuthorInput.prototype, "audio", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => file_update_one_without_course_image_input_1.FileUpdateOneWithoutCourseImageInput, { nullable: true }),
+    __metadata("design:type", file_update_one_without_course_image_input_1.FileUpdateOneWithoutCourseImageInput)
+], CourseUpdateWithoutAuthorInput.prototype, "image", void 0);
 __decorate([
     (0, graphql_1.Field)(() => section_update_many_without_course_input_1.SectionUpdateManyWithoutCourseInput, { nullable: true }),
     __metadata("design:type", section_update_many_without_course_input_1.SectionUpdateManyWithoutCourseInput)

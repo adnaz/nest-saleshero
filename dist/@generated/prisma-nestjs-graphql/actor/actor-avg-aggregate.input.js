@@ -18,6 +18,10 @@ __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
 ], ActorAvgAggregateInput.prototype, "id", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
+], ActorAvgAggregateInput.prototype, "fileId", void 0);
 ActorAvgAggregateInput = __decorate([
     (0, graphql_2.InputType)()
 ], ActorAvgAggregateInput);

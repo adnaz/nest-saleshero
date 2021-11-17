@@ -2,7 +2,7 @@ export declare class SectionCountAggregate {
     id: number;
     title: number;
     description: number;
-    image: number;
+    imageId: number;
     type: number;
     courseId: number;
     published: number;

@@ -6,7 +6,9 @@ import { NullableEnumTypeSectionFieldUpdateOperationsInput } from '../prisma/nul
 import { NullableBoolFieldUpdateOperationsInput } from '../prisma/nullable-bool-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { HideField } from '@nestjs/graphql';
+import { FileUpdateOneWithoutSectionInput } from '../file/file-update-one-without-section.input';
 import { CourseUpdateOneWithoutSectionsInput } from '../course/course-update-one-without-sections.input';
+import { ReplyUpdateManyWithoutSectionInput } from '../reply/reply-update-many-without-section.input';
 
 @InputType()
 export class SectionUpdateWithoutAuthorInput {
@@ -16,9 +18,6 @@ export class SectionUpdateWithoutAuthorInput {
 
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     description?: NullableStringFieldUpdateOperationsInput;
-
-    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
-    image?: NullableStringFieldUpdateOperationsInput;
 
     @Field(() => NullableEnumTypeSectionFieldUpdateOperationsInput, {nullable:true})
     type?: NullableEnumTypeSectionFieldUpdateOperationsInput;
@@ -32,6 +31,12 @@ export class SectionUpdateWithoutAuthorInput {
     @HideField()
     updatedAt?: DateTimeFieldUpdateOperationsInput;
 
+    @Field(() => FileUpdateOneWithoutSectionInput, {nullable:true})
+    image?: FileUpdateOneWithoutSectionInput;
+
     @Field(() => CourseUpdateOneWithoutSectionsInput, {nullable:true})
     course?: CourseUpdateOneWithoutSectionsInput;
+
+    @Field(() => ReplyUpdateManyWithoutSectionInput, {nullable:true})
+    replies?: ReplyUpdateManyWithoutSectionInput;
 }

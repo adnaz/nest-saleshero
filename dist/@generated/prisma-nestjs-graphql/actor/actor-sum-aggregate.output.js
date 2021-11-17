@@ -19,6 +19,10 @@ __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
     __metadata("design:type", Number)
 ], ActorSumAggregate.prototype, "id", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ActorSumAggregate.prototype, "fileId", void 0);
 ActorSumAggregate = __decorate([
     (0, graphql_2.ObjectType)()
 ], ActorSumAggregate);

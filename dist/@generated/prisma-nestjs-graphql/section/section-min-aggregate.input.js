@@ -30,7 +30,7 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
-], SectionMinAggregateInput.prototype, "image", void 0);
+], SectionMinAggregateInput.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)

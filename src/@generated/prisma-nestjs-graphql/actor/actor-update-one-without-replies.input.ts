@@ -18,14 +18,14 @@ export class ActorUpdateOneWithoutRepliesInput {
     @Field(() => ActorUpsertWithoutRepliesInput, {nullable:true})
     upsert?: ActorUpsertWithoutRepliesInput;
 
-    @Field(() => ActorWhereUniqueInput, {nullable:true})
-    connect?: ActorWhereUniqueInput;
-
     @Field(() => Boolean, {nullable:true})
     disconnect?: boolean;
 
     @Field(() => Boolean, {nullable:true})
     delete?: boolean;
+
+    @Field(() => ActorWhereUniqueInput, {nullable:true})
+    connect?: ActorWhereUniqueInput;
 
     @Field(() => ActorUpdateWithoutRepliesInput, {nullable:true})
     update?: ActorUpdateWithoutRepliesInput;

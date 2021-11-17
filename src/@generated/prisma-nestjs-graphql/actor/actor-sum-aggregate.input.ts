@@ -6,4 +6,7 @@ export class ActorSumAggregateInput {
 
     @Field(() => Boolean, {nullable:true})
     id?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    fileId?: true;
 }

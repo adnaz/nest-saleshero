@@ -9,6 +9,9 @@ export class QuickReplyCountAggregate {
     id!: number;
 
     @Field(() => Int, {nullable:false})
+    keepIt!: number;
+
+    @Field(() => Int, {nullable:false})
     type!: number;
 
     @Field(() => Int, {nullable:false})

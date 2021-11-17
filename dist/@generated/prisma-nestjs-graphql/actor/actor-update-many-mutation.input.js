@@ -21,10 +21,6 @@ __decorate([
     __metadata("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
 ], ActorUpdateManyMutationInput.prototype, "name", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
-    __metadata("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
-], ActorUpdateManyMutationInput.prototype, "avatar", void 0);
-__decorate([
     (0, graphql_1.Field)(() => date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput, { nullable: true }),
     __metadata("design:type", date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput)
 ], ActorUpdateManyMutationInput.prototype, "createdAt", void 0);

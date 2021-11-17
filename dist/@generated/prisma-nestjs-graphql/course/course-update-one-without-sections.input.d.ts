@@ -7,8 +7,8 @@ export declare class CourseUpdateOneWithoutSectionsInput {
     create?: CourseCreateWithoutSectionsInput;
     connectOrCreate?: CourseCreateOrConnectWithoutSectionsInput;
     upsert?: CourseUpsertWithoutSectionsInput;
-    connect?: CourseWhereUniqueInput;
     disconnect?: boolean;
     delete?: boolean;
+    connect?: CourseWhereUniqueInput;
     update?: CourseUpdateWithoutSectionsInput;
 }

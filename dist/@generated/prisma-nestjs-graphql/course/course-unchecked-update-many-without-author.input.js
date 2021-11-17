@@ -41,10 +41,6 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => [course_where_unique_input_1.CourseWhereUniqueInput], { nullable: true }),
     __metadata("design:type", Array)
-], CourseUncheckedUpdateManyWithoutAuthorInput.prototype, "connect", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => [course_where_unique_input_1.CourseWhereUniqueInput], { nullable: true }),
-    __metadata("design:type", Array)
 ], CourseUncheckedUpdateManyWithoutAuthorInput.prototype, "set", void 0);
 __decorate([
     (0, graphql_1.Field)(() => [course_where_unique_input_1.CourseWhereUniqueInput], { nullable: true }),
@@ -54,6 +50,10 @@ __decorate([
     (0, graphql_1.Field)(() => [course_where_unique_input_1.CourseWhereUniqueInput], { nullable: true }),
     __metadata("design:type", Array)
 ], CourseUncheckedUpdateManyWithoutAuthorInput.prototype, "delete", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => [course_where_unique_input_1.CourseWhereUniqueInput], { nullable: true }),
+    __metadata("design:type", Array)
+], CourseUncheckedUpdateManyWithoutAuthorInput.prototype, "connect", void 0);
 __decorate([
     (0, graphql_1.Field)(() => [course_update_with_where_unique_without_author_input_1.CourseUpdateWithWhereUniqueWithoutAuthorInput], { nullable: true }),
     __metadata("design:type", Array)

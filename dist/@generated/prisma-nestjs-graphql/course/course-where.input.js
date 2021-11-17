@@ -16,11 +16,12 @@ const graphql_2 = require("@nestjs/graphql");
 const int_filter_input_1 = require("../prisma/int-filter.input");
 const string_filter_input_1 = require("../prisma/string-filter.input");
 const string_nullable_filter_input_1 = require("../prisma/string-nullable-filter.input");
+const file_relation_filter_input_1 = require("../file/file-relation-filter.input");
+const int_nullable_filter_input_1 = require("../prisma/int-nullable-filter.input");
 const section_list_relation_filter_input_1 = require("../section/section-list-relation-filter.input");
 const bool_nullable_filter_input_1 = require("../prisma/bool-nullable-filter.input");
 const user_relation_filter_input_1 = require("../user/user-relation-filter.input");
 const graphql_3 = require("@nestjs/graphql");
-const int_nullable_filter_input_1 = require("../prisma/int-nullable-filter.input");
 const date_time_filter_input_1 = require("../prisma/date-time-filter.input");
 let CourseWhereInput = CourseWhereInput_1 = class CourseWhereInput {
 };
@@ -49,13 +50,21 @@ __decorate([
     __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
 ], CourseWhereInput.prototype, "description", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
-    __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
+    (0, graphql_1.Field)(() => file_relation_filter_input_1.FileRelationFilter, { nullable: true }),
+    __metadata("design:type", file_relation_filter_input_1.FileRelationFilter)
 ], CourseWhereInput.prototype, "audio", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
-    __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
+    (0, graphql_1.Field)(() => int_nullable_filter_input_1.IntNullableFilter, { nullable: true }),
+    __metadata("design:type", int_nullable_filter_input_1.IntNullableFilter)
+], CourseWhereInput.prototype, "audioId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => file_relation_filter_input_1.FileRelationFilter, { nullable: true }),
+    __metadata("design:type", file_relation_filter_input_1.FileRelationFilter)
 ], CourseWhereInput.prototype, "image", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => int_nullable_filter_input_1.IntNullableFilter, { nullable: true }),
+    __metadata("design:type", int_nullable_filter_input_1.IntNullableFilter)
+], CourseWhereInput.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => section_list_relation_filter_input_1.SectionListRelationFilter, { nullable: true }),
     __metadata("design:type", section_list_relation_filter_input_1.SectionListRelationFilter)

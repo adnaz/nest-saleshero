@@ -30,11 +30,11 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
-], CourseMinAggregateInput.prototype, "audio", void 0);
+], CourseMinAggregateInput.prototype, "audioId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
-], CourseMinAggregateInput.prototype, "image", void 0);
+], CourseMinAggregateInput.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)

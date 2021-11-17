@@ -6,7 +6,7 @@ var ActorScalarFieldEnum;
 (function (ActorScalarFieldEnum) {
     ActorScalarFieldEnum["id"] = "id";
     ActorScalarFieldEnum["name"] = "name";
-    ActorScalarFieldEnum["avatar"] = "avatar";
+    ActorScalarFieldEnum["fileId"] = "fileId";
     ActorScalarFieldEnum["createdAt"] = "createdAt";
     ActorScalarFieldEnum["updatedAt"] = "updatedAt";
 })(ActorScalarFieldEnum = exports.ActorScalarFieldEnum || (exports.ActorScalarFieldEnum = {}));

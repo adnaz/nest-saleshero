@@ -1,4 +1,7 @@
 export declare class ReplyAvgAggregateInput {
     id?: true;
-    userId?: true;
+    fileId?: true;
+    sectionId?: true;
+    actorId?: true;
+    quickRepliesId?: true;
 }

@@ -22,7 +22,19 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
-], ReplySumOrderByAggregateInput.prototype, "userId", void 0);
+], ReplySumOrderByAggregateInput.prototype, "fileId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], ReplySumOrderByAggregateInput.prototype, "sectionId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], ReplySumOrderByAggregateInput.prototype, "actorId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], ReplySumOrderByAggregateInput.prototype, "quickRepliesId", void 0);
 ReplySumOrderByAggregateInput = __decorate([
     (0, graphql_2.InputType)()
 ], ReplySumOrderByAggregateInput);

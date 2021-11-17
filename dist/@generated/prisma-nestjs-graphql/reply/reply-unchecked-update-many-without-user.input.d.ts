@@ -11,10 +11,10 @@ export declare class ReplyUncheckedUpdateManyWithoutUserInput {
     connectOrCreate?: Array<ReplyCreateOrConnectWithoutUserInput>;
     upsert?: Array<ReplyUpsertWithWhereUniqueWithoutUserInput>;
     createMany?: ReplyCreateManyUserInputEnvelope;
-    connect?: Array<ReplyWhereUniqueInput>;
     set?: Array<ReplyWhereUniqueInput>;
     disconnect?: Array<ReplyWhereUniqueInput>;
     delete?: Array<ReplyWhereUniqueInput>;
+    connect?: Array<ReplyWhereUniqueInput>;
     update?: Array<ReplyUpdateWithWhereUniqueWithoutUserInput>;
     updateMany?: Array<ReplyUpdateManyWithWhereWithoutUserInput>;
     deleteMany?: Array<ReplyScalarWhereInput>;

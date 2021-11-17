@@ -21,6 +21,10 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
+], QuickReplyMaxAggregateInput.prototype, "keepIt", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
 ], QuickReplyMaxAggregateInput.prototype, "type", void 0);
 QuickReplyMaxAggregateInput = __decorate([
     (0, graphql_2.InputType)()

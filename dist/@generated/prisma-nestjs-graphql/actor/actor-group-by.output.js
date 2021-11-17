@@ -29,9 +29,9 @@ __decorate([
     __metadata("design:type", String)
 ], ActorGroupBy.prototype, "name", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], ActorGroupBy.prototype, "avatar", void 0);
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ActorGroupBy.prototype, "fileId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Date, { nullable: false }),
     __metadata("design:type", Object)

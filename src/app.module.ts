@@ -12,7 +12,13 @@ import { APP_GUARD } from '@nestjs/core';
 import { RolesGuard } from './auth/roles.guard';
 import { GraphQLUpload , graphqlUploadExpress } from "graphql-upload"
 import { MulterModule } from '@nestjs/platform-express';
-const whitelist = ['http://localhost:3000', 'https://holumbo.com'];
+import { FilesModule } from './files/files.module';
+import { ActorsModule } from './actors/actors.module';
+import { SectionsModule } from './sections/sections.module';
+import { RepliesModule } from './replies/replies.module';
+import { QuickRepliesModule } from './quick-replies/quick-replies.module';
+import { QuickReplyValuesModule } from './quick-reply-values/quick-reply-values.module';
+const whitelist = ['http://localhost:3000', 'https://holumbo.com','https://studio.apollographql.com'];
 @Module({
   imports: [
     GraphQLModule.forRoot({
@@ -22,6 +28,7 @@ const whitelist = ['http://localhost:3000', 'https://holumbo.com'];
           if (!origin || whitelist.indexOf(origin) !== -1) {
             callback(null, true)
           } else {
+            console.log(origin)
             callback(new Error('Not allowed by CORS'))
           }
         },
@@ -34,7 +41,13 @@ const whitelist = ['http://localhost:3000', 'https://holumbo.com'];
     CoursesModule,
     UsersModule,
     PostsModule,
-    AuthModule
+    AuthModule,
+    FilesModule,
+    ActorsModule,
+    SectionsModule,
+    RepliesModule,
+    QuickRepliesModule,
+    QuickReplyValuesModule
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService

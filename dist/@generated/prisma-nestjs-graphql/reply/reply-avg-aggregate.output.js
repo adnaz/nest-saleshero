@@ -22,7 +22,19 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Float, { nullable: true }),
     __metadata("design:type", Number)
-], ReplyAvgAggregate.prototype, "userId", void 0);
+], ReplyAvgAggregate.prototype, "fileId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Float, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplyAvgAggregate.prototype, "sectionId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Float, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplyAvgAggregate.prototype, "actorId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Float, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplyAvgAggregate.prototype, "quickRepliesId", void 0);
 ReplyAvgAggregate = __decorate([
     (0, graphql_2.ObjectType)()
 ], ReplyAvgAggregate);

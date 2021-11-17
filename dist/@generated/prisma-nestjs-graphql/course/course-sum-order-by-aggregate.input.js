@@ -21,6 +21,14 @@ __decorate([
     __metadata("design:type", Object)
 ], CourseSumOrderByAggregateInput.prototype, "id", void 0);
 __decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], CourseSumOrderByAggregateInput.prototype, "audioId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], CourseSumOrderByAggregateInput.prototype, "imageId", void 0);
+__decorate([
     (0, graphql_3.HideField)(),
     __metadata("design:type", Object)
 ], CourseSumOrderByAggregateInput.prototype, "authorId", void 0);

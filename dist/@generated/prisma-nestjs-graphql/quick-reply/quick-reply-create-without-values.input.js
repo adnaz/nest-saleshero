@@ -13,12 +13,21 @@ exports.QuickReplyCreateWithoutValuesInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const type_reply_enum_1 = require("../prisma/type-reply.enum");
+const reply_create_nested_one_without_quick_replies_input_1 = require("../reply/reply-create-nested-one-without-quick-replies.input");
 let QuickReplyCreateWithoutValuesInput = class QuickReplyCreateWithoutValuesInput {
 };
+__decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
+], QuickReplyCreateWithoutValuesInput.prototype, "keepIt", void 0);
 __decorate([
     (0, graphql_1.Field)(() => type_reply_enum_1.TypeReply, { nullable: false }),
     __metadata("design:type", Object)
 ], QuickReplyCreateWithoutValuesInput.prototype, "type", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => reply_create_nested_one_without_quick_replies_input_1.ReplyCreateNestedOneWithoutQuickRepliesInput, { nullable: true }),
+    __metadata("design:type", reply_create_nested_one_without_quick_replies_input_1.ReplyCreateNestedOneWithoutQuickRepliesInput)
+], QuickReplyCreateWithoutValuesInput.prototype, "reply", void 0);
 QuickReplyCreateWithoutValuesInput = __decorate([
     (0, graphql_2.InputType)()
 ], QuickReplyCreateWithoutValuesInput);

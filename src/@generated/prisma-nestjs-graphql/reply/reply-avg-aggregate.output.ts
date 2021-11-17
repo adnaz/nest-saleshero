@@ -9,5 +9,14 @@ export class ReplyAvgAggregate {
     id?: number;
 
     @Field(() => Float, {nullable:true})
-    userId?: number;
+    fileId?: number;
+
+    @Field(() => Float, {nullable:true})
+    sectionId?: number;
+
+    @Field(() => Float, {nullable:true})
+    actorId?: number;
+
+    @Field(() => Float, {nullable:true})
+    quickRepliesId?: number;
 }

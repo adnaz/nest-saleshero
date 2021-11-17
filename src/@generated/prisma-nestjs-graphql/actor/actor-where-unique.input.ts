@@ -7,4 +7,7 @@ export class ActorWhereUniqueInput {
 
     @Field(() => Int, {nullable:true})
     id?: number;
+
+    @Field(() => Int, {nullable:true})
+    fileId?: number;
 }

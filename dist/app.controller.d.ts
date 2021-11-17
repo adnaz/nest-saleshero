@@ -3,7 +3,7 @@ import { AuthService } from './auth/auth.service';
 export declare class AppController {
     private authService;
     constructor(authService: AuthService);
-    getHello(req: any): string;
+    getHello(req: any, res: any): void;
     login(req: any): Promise<{
         access_token: string;
     }>;

@@ -13,6 +13,7 @@ exports.CourseOrderByWithRelationInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const sort_order_enum_1 = require("../prisma/sort-order.enum");
+const file_order_by_with_relation_input_1 = require("../file/file-order-by-with-relation.input");
 const section_order_by_relation_aggregate_input_1 = require("../section/section-order-by-relation-aggregate.input");
 const user_order_by_with_relation_input_1 = require("../user/user-order-by-with-relation.input");
 const graphql_3 = require("@nestjs/graphql");
@@ -31,13 +32,21 @@ __decorate([
     __metadata("design:type", Object)
 ], CourseOrderByWithRelationInput.prototype, "description", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
-    __metadata("design:type", Object)
+    (0, graphql_1.Field)(() => file_order_by_with_relation_input_1.FileOrderByWithRelationInput, { nullable: true }),
+    __metadata("design:type", file_order_by_with_relation_input_1.FileOrderByWithRelationInput)
 ], CourseOrderByWithRelationInput.prototype, "audio", void 0);
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
+], CourseOrderByWithRelationInput.prototype, "audioId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => file_order_by_with_relation_input_1.FileOrderByWithRelationInput, { nullable: true }),
+    __metadata("design:type", file_order_by_with_relation_input_1.FileOrderByWithRelationInput)
 ], CourseOrderByWithRelationInput.prototype, "image", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], CourseOrderByWithRelationInput.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => section_order_by_relation_aggregate_input_1.SectionOrderByRelationAggregateInput, { nullable: true }),
     __metadata("design:type", section_order_by_relation_aggregate_input_1.SectionOrderByRelationAggregateInput)

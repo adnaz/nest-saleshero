@@ -16,8 +16,8 @@ const graphql_2 = require("@nestjs/graphql");
 const int_filter_input_1 = require("../prisma/int-filter.input");
 const string_filter_input_1 = require("../prisma/string-filter.input");
 const string_nullable_filter_input_1 = require("../prisma/string-nullable-filter.input");
-const enum_type_section_nullable_filter_input_1 = require("../prisma/enum-type-section-nullable-filter.input");
 const int_nullable_filter_input_1 = require("../prisma/int-nullable-filter.input");
+const enum_type_section_nullable_filter_input_1 = require("../prisma/enum-type-section-nullable-filter.input");
 const bool_nullable_filter_input_1 = require("../prisma/bool-nullable-filter.input");
 const graphql_3 = require("@nestjs/graphql");
 const date_time_filter_input_1 = require("../prisma/date-time-filter.input");
@@ -48,9 +48,9 @@ __decorate([
     __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
 ], SectionScalarWhereInput.prototype, "description", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
-    __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
-], SectionScalarWhereInput.prototype, "image", void 0);
+    (0, graphql_1.Field)(() => int_nullable_filter_input_1.IntNullableFilter, { nullable: true }),
+    __metadata("design:type", int_nullable_filter_input_1.IntNullableFilter)
+], SectionScalarWhereInput.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => enum_type_section_nullable_filter_input_1.EnumTypeSectionNullableFilter, { nullable: true }),
     __metadata("design:type", enum_type_section_nullable_filter_input_1.EnumTypeSectionNullableFilter)

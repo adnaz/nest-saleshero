@@ -20,13 +20,9 @@ __decorate([
     __metadata("design:type", Number)
 ], ReplyMaxAggregate.prototype, "id", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], ReplyMaxAggregate.prototype, "text", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], ReplyMaxAggregate.prototype, "audio", void 0);
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplyMaxAggregate.prototype, "fileId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Date, { nullable: true }),
     __metadata("design:type", Object)
@@ -38,7 +34,15 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
     __metadata("design:type", Number)
-], ReplyMaxAggregate.prototype, "userId", void 0);
+], ReplyMaxAggregate.prototype, "sectionId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplyMaxAggregate.prototype, "actorId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplyMaxAggregate.prototype, "quickRepliesId", void 0);
 ReplyMaxAggregate = __decorate([
     (0, graphql_2.ObjectType)()
 ], ReplyMaxAggregate);

@@ -11,7 +11,7 @@ export class ActorCountAggregateInput {
     name?: true;
 
     @Field(() => Boolean, {nullable:true})
-    avatar?: true;
+    fileId?: true;
 
     @Field(() => Boolean, {nullable:true})
     createdAt?: true;

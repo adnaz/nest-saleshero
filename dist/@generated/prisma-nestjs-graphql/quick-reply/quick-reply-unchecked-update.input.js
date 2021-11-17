@@ -13,7 +13,9 @@ exports.QuickReplyUncheckedUpdateInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const int_field_update_operations_input_1 = require("../prisma/int-field-update-operations.input");
+const bool_field_update_operations_input_1 = require("../prisma/bool-field-update-operations.input");
 const enum_type_reply_field_update_operations_input_1 = require("../prisma/enum-type-reply-field-update-operations.input");
+const reply_unchecked_update_one_without_quick_replies_input_1 = require("../reply/reply-unchecked-update-one-without-quick-replies.input");
 const quick_reply_value_unchecked_update_many_without_quick_reply_input_1 = require("../quick-reply-value/quick-reply-value-unchecked-update-many-without-quick-reply.input");
 let QuickReplyUncheckedUpdateInput = class QuickReplyUncheckedUpdateInput {
 };
@@ -22,9 +24,17 @@ __decorate([
     __metadata("design:type", int_field_update_operations_input_1.IntFieldUpdateOperationsInput)
 ], QuickReplyUncheckedUpdateInput.prototype, "id", void 0);
 __decorate([
+    (0, graphql_1.Field)(() => bool_field_update_operations_input_1.BoolFieldUpdateOperationsInput, { nullable: true }),
+    __metadata("design:type", bool_field_update_operations_input_1.BoolFieldUpdateOperationsInput)
+], QuickReplyUncheckedUpdateInput.prototype, "keepIt", void 0);
+__decorate([
     (0, graphql_1.Field)(() => enum_type_reply_field_update_operations_input_1.EnumTypeReplyFieldUpdateOperationsInput, { nullable: true }),
     __metadata("design:type", enum_type_reply_field_update_operations_input_1.EnumTypeReplyFieldUpdateOperationsInput)
 ], QuickReplyUncheckedUpdateInput.prototype, "type", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => reply_unchecked_update_one_without_quick_replies_input_1.ReplyUncheckedUpdateOneWithoutQuickRepliesInput, { nullable: true }),
+    __metadata("design:type", reply_unchecked_update_one_without_quick_replies_input_1.ReplyUncheckedUpdateOneWithoutQuickRepliesInput)
+], QuickReplyUncheckedUpdateInput.prototype, "reply", void 0);
 __decorate([
     (0, graphql_1.Field)(() => quick_reply_value_unchecked_update_many_without_quick_reply_input_1.QuickReplyValueUncheckedUpdateManyWithoutQuickReplyInput, { nullable: true }),
     __metadata("design:type", quick_reply_value_unchecked_update_many_without_quick_reply_input_1.QuickReplyValueUncheckedUpdateManyWithoutQuickReplyInput)

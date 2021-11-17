@@ -14,6 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersResolver = void 0;
 const client_1 = require(".prisma/client");
+const common_1 = require("@nestjs/common");
 const graphql_1 = require("@nestjs/graphql");
 const user_model_1 = require("../@generated/prisma-nestjs-graphql/user/user.model");
 const current_user_decorator_1 = require("../auth/current-user.decorator");
@@ -31,7 +32,8 @@ let UsersResolver = class UsersResolver {
 };
 __decorate([
     (0, graphql_1.Query)(returns => user_model_1.User),
-    (0, roles_decorator_1.Authorize)(client_1.Role.USER),
+    (0, common_1.UseGuards)(gql_auth_guard_1.GqlAuthGuard),
+    (0, roles_decorator_1.Authorize)(client_1.Role.ADMIN),
     __param(0, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [user_model_1.User]),

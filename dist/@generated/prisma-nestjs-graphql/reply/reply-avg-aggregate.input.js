@@ -21,7 +21,19 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
-], ReplyAvgAggregateInput.prototype, "userId", void 0);
+], ReplyAvgAggregateInput.prototype, "fileId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
+], ReplyAvgAggregateInput.prototype, "sectionId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
+], ReplyAvgAggregateInput.prototype, "actorId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
+], ReplyAvgAggregateInput.prototype, "quickRepliesId", void 0);
 ReplyAvgAggregateInput = __decorate([
     (0, graphql_2.InputType)()
 ], ReplyAvgAggregateInput);

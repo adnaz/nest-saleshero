@@ -23,6 +23,10 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
+], SectionAvgOrderByAggregateInput.prototype, "imageId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
 ], SectionAvgOrderByAggregateInput.prototype, "courseId", void 0);
 __decorate([
     (0, graphql_3.HideField)(),

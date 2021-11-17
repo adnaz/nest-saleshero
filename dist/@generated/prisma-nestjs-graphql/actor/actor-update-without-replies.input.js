@@ -14,16 +14,13 @@ const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const nullable_string_field_update_operations_input_1 = require("../prisma/nullable-string-field-update-operations.input");
 const date_time_field_update_operations_input_1 = require("../prisma/date-time-field-update-operations.input");
+const file_update_one_without_actor_input_1 = require("../file/file-update-one-without-actor.input");
 let ActorUpdateWithoutRepliesInput = class ActorUpdateWithoutRepliesInput {
 };
 __decorate([
     (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
     __metadata("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
 ], ActorUpdateWithoutRepliesInput.prototype, "name", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
-    __metadata("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
-], ActorUpdateWithoutRepliesInput.prototype, "avatar", void 0);
 __decorate([
     (0, graphql_1.Field)(() => date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput, { nullable: true }),
     __metadata("design:type", date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput)
@@ -32,6 +29,10 @@ __decorate([
     (0, graphql_1.Field)(() => date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput, { nullable: true }),
     __metadata("design:type", date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput)
 ], ActorUpdateWithoutRepliesInput.prototype, "updatedAt", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => file_update_one_without_actor_input_1.FileUpdateOneWithoutActorInput, { nullable: true }),
+    __metadata("design:type", file_update_one_without_actor_input_1.FileUpdateOneWithoutActorInput)
+], ActorUpdateWithoutRepliesInput.prototype, "avatar", void 0);
 ActorUpdateWithoutRepliesInput = __decorate([
     (0, graphql_2.InputType)()
 ], ActorUpdateWithoutRepliesInput);

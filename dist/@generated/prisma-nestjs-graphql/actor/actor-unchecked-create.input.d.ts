@@ -2,7 +2,7 @@ import { ReplyUncheckedCreateNestedManyWithoutUserInput } from '../reply/reply-u
 export declare class ActorUncheckedCreateInput {
     id?: number;
     name?: string;
-    avatar?: string;
+    fileId?: number;
     createdAt?: Date | string;
     updatedAt?: Date | string;
     replies?: ReplyUncheckedCreateNestedManyWithoutUserInput;

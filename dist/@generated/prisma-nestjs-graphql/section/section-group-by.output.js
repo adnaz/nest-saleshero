@@ -34,9 +34,9 @@ __decorate([
     __metadata("design:type", String)
 ], SectionGroupBy.prototype, "description", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], SectionGroupBy.prototype, "image", void 0);
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], SectionGroupBy.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => type_section_enum_1.TypeSection, { nullable: true }),
     __metadata("design:type", Object)

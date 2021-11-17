@@ -14,6 +14,8 @@ const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const type_section_enum_1 = require("../prisma/type-section.enum");
 const graphql_3 = require("@nestjs/graphql");
+const file_create_nested_one_without_section_input_1 = require("../file/file-create-nested-one-without-section.input");
+const reply_create_nested_many_without_section_input_1 = require("../reply/reply-create-nested-many-without-section.input");
 const user_create_nested_one_without_sections_input_1 = require("../user/user-create-nested-one-without-sections.input");
 let SectionCreateWithoutCourseInput = class SectionCreateWithoutCourseInput {
 };
@@ -25,10 +27,6 @@ __decorate([
     (0, graphql_1.Field)(() => String, { nullable: true }),
     __metadata("design:type", String)
 ], SectionCreateWithoutCourseInput.prototype, "description", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], SectionCreateWithoutCourseInput.prototype, "image", void 0);
 __decorate([
     (0, graphql_1.Field)(() => type_section_enum_1.TypeSection, { nullable: true }),
     __metadata("design:type", Object)
@@ -45,6 +43,14 @@ __decorate([
     (0, graphql_3.HideField)(),
     __metadata("design:type", Object)
 ], SectionCreateWithoutCourseInput.prototype, "updatedAt", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => file_create_nested_one_without_section_input_1.FileCreateNestedOneWithoutSectionInput, { nullable: true }),
+    __metadata("design:type", file_create_nested_one_without_section_input_1.FileCreateNestedOneWithoutSectionInput)
+], SectionCreateWithoutCourseInput.prototype, "image", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => reply_create_nested_many_without_section_input_1.ReplyCreateNestedManyWithoutSectionInput, { nullable: true }),
+    __metadata("design:type", reply_create_nested_many_without_section_input_1.ReplyCreateNestedManyWithoutSectionInput)
+], SectionCreateWithoutCourseInput.prototype, "replies", void 0);
 __decorate([
     (0, graphql_3.HideField)(),
     __metadata("design:type", user_create_nested_one_without_sections_input_1.UserCreateNestedOneWithoutSectionsInput)

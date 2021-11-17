@@ -1,7 +1,7 @@
 export declare class ActorMinAggregateInput {
     id?: true;
     name?: true;
-    avatar?: true;
+    fileId?: true;
     createdAt?: true;
     updatedAt?: true;
 }

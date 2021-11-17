@@ -11,10 +11,10 @@ export declare class SectionUncheckedUpdateManyWithoutCourseInput {
     connectOrCreate?: Array<SectionCreateOrConnectWithoutCourseInput>;
     upsert?: Array<SectionUpsertWithWhereUniqueWithoutCourseInput>;
     createMany?: SectionCreateManyCourseInputEnvelope;
-    connect?: Array<SectionWhereUniqueInput>;
     set?: Array<SectionWhereUniqueInput>;
     disconnect?: Array<SectionWhereUniqueInput>;
     delete?: Array<SectionWhereUniqueInput>;
+    connect?: Array<SectionWhereUniqueInput>;
     update?: Array<SectionUpdateWithWhereUniqueWithoutCourseInput>;
     updateMany?: Array<SectionUpdateManyWithWhereWithoutCourseInput>;
     deleteMany?: Array<SectionScalarWhereInput>;

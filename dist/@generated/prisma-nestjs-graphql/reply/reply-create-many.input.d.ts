@@ -1,8 +1,9 @@
 export declare class ReplyCreateManyInput {
     id?: number;
-    text?: string;
-    audio?: string;
+    fileId?: number;
     createdAt?: Date | string;
     updatedAt?: Date | string;
-    userId?: number;
+    sectionId: number;
+    actorId?: number;
+    quickRepliesId?: number;
 }

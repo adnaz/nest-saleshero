@@ -13,7 +13,9 @@ exports.SectionOrderByWithRelationInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const sort_order_enum_1 = require("../prisma/sort-order.enum");
+const file_order_by_with_relation_input_1 = require("../file/file-order-by-with-relation.input");
 const course_order_by_with_relation_input_1 = require("../course/course-order-by-with-relation.input");
+const reply_order_by_relation_aggregate_input_1 = require("../reply/reply-order-by-relation-aggregate.input");
 const user_order_by_with_relation_input_1 = require("../user/user-order-by-with-relation.input");
 const graphql_3 = require("@nestjs/graphql");
 let SectionOrderByWithRelationInput = class SectionOrderByWithRelationInput {
@@ -31,9 +33,13 @@ __decorate([
     __metadata("design:type", Object)
 ], SectionOrderByWithRelationInput.prototype, "description", void 0);
 __decorate([
+    (0, graphql_1.Field)(() => file_order_by_with_relation_input_1.FileOrderByWithRelationInput, { nullable: true }),
+    __metadata("design:type", file_order_by_with_relation_input_1.FileOrderByWithRelationInput)
+], SectionOrderByWithRelationInput.prototype, "image", void 0);
+__decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
-], SectionOrderByWithRelationInput.prototype, "image", void 0);
+], SectionOrderByWithRelationInput.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
@@ -46,6 +52,10 @@ __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
 ], SectionOrderByWithRelationInput.prototype, "courseId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => reply_order_by_relation_aggregate_input_1.ReplyOrderByRelationAggregateInput, { nullable: true }),
+    __metadata("design:type", reply_order_by_relation_aggregate_input_1.ReplyOrderByRelationAggregateInput)
+], SectionOrderByWithRelationInput.prototype, "replies", void 0);
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)

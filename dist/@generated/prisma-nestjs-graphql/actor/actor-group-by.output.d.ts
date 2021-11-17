@@ -6,7 +6,7 @@ import { ActorMaxAggregate } from './actor-max-aggregate.output';
 export declare class ActorGroupBy {
     id: number;
     name?: string;
-    avatar?: string;
+    fileId?: number;
     createdAt: Date | string;
     updatedAt: Date | string;
     _count?: ActorCountAggregate;

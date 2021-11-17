@@ -1,6 +1,8 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
+import { ReplyRelationFilter } from '../reply/reply-relation-filter.input';
+import { BoolFilter } from '../prisma/bool-filter.input';
 import { EnumTypeReplyFilter } from '../prisma/enum-type-reply-filter.input';
 import { QuickReplyValueListRelationFilter } from '../quick-reply-value/quick-reply-value-list-relation-filter.input';
 
@@ -18,6 +20,12 @@ export class QuickReplyWhereInput {
 
     @Field(() => IntFilter, {nullable:true})
     id?: IntFilter;
+
+    @Field(() => ReplyRelationFilter, {nullable:true})
+    reply?: ReplyRelationFilter;
+
+    @Field(() => BoolFilter, {nullable:true})
+    keepIt?: BoolFilter;
 
     @Field(() => EnumTypeReplyFilter, {nullable:true})
     type?: EnumTypeReplyFilter;

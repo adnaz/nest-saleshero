@@ -8,15 +8,18 @@ export class ReplyUncheckedCreateWithoutUserInput {
     @Field(() => Int, {nullable:true})
     id?: number;
 
-    @Field(() => String, {nullable:true})
-    text?: string;
-
-    @Field(() => String, {nullable:true})
-    audio?: string;
+    @Field(() => Int, {nullable:true})
+    fileId?: number;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
+
+    @Field(() => Int, {nullable:false})
+    sectionId!: number;
+
+    @Field(() => Int, {nullable:true})
+    quickRepliesId?: number;
 }

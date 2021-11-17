@@ -16,8 +16,8 @@ export class SectionCreateManyAuthorInput {
     @Field(() => String, {nullable:true})
     description?: string;
 
-    @Field(() => String, {nullable:true})
-    image?: string;
+    @Field(() => Int, {nullable:true})
+    imageId?: number;
 
     @Field(() => TypeSection, {nullable:true})
     type?: keyof typeof TypeSection;

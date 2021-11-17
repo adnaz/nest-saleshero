@@ -16,8 +16,8 @@ export class ActorGroupBy {
     @Field(() => String, {nullable:true})
     name?: string;
 
-    @Field(() => String, {nullable:true})
-    avatar?: string;
+    @Field(() => Int, {nullable:true})
+    fileId?: number;
 
     @Field(() => Date, {nullable:false})
     createdAt!: Date | string;

@@ -22,6 +22,14 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Float, { nullable: true }),
     __metadata("design:type", Number)
+], CourseAvgAggregate.prototype, "audioId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Float, { nullable: true }),
+    __metadata("design:type", Number)
+], CourseAvgAggregate.prototype, "imageId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Float, { nullable: true }),
+    __metadata("design:type", Number)
 ], CourseAvgAggregate.prototype, "authorId", void 0);
 CourseAvgAggregate = __decorate([
     (0, graphql_2.ObjectType)()

@@ -41,10 +41,6 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => [section_where_unique_input_1.SectionWhereUniqueInput], { nullable: true }),
     __metadata("design:type", Array)
-], SectionUncheckedUpdateManyWithoutCourseInput.prototype, "connect", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => [section_where_unique_input_1.SectionWhereUniqueInput], { nullable: true }),
-    __metadata("design:type", Array)
 ], SectionUncheckedUpdateManyWithoutCourseInput.prototype, "set", void 0);
 __decorate([
     (0, graphql_1.Field)(() => [section_where_unique_input_1.SectionWhereUniqueInput], { nullable: true }),
@@ -54,6 +50,10 @@ __decorate([
     (0, graphql_1.Field)(() => [section_where_unique_input_1.SectionWhereUniqueInput], { nullable: true }),
     __metadata("design:type", Array)
 ], SectionUncheckedUpdateManyWithoutCourseInput.prototype, "delete", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => [section_where_unique_input_1.SectionWhereUniqueInput], { nullable: true }),
+    __metadata("design:type", Array)
+], SectionUncheckedUpdateManyWithoutCourseInput.prototype, "connect", void 0);
 __decorate([
     (0, graphql_1.Field)(() => [section_update_with_where_unique_without_course_input_1.SectionUpdateWithWhereUniqueWithoutCourseInput], { nullable: true }),
     __metadata("design:type", Array)

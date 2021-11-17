@@ -2,7 +2,7 @@ export declare enum SectionScalarFieldEnum {
     id = "id",
     title = "title",
     description = "description",
-    image = "image",
+    imageId = "imageId",
     type = "type",
     courseId = "courseId",
     published = "published",

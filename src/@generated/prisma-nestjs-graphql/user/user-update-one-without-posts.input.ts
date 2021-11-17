@@ -18,14 +18,14 @@ export class UserUpdateOneWithoutPostsInput {
     @Field(() => UserUpsertWithoutPostsInput, {nullable:true})
     upsert?: UserUpsertWithoutPostsInput;
 
-    @Field(() => UserWhereUniqueInput, {nullable:true})
-    connect?: UserWhereUniqueInput;
-
     @Field(() => Boolean, {nullable:true})
     disconnect?: boolean;
 
     @Field(() => Boolean, {nullable:true})
     delete?: boolean;
+
+    @Field(() => UserWhereUniqueInput, {nullable:true})
+    connect?: UserWhereUniqueInput;
 
     @Field(() => UserUpdateWithoutPostsInput, {nullable:true})
     update?: UserUpdateWithoutPostsInput;

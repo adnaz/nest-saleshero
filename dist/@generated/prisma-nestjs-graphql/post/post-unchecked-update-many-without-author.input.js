@@ -41,10 +41,6 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => [post_where_unique_input_1.PostWhereUniqueInput], { nullable: true }),
     __metadata("design:type", Array)
-], PostUncheckedUpdateManyWithoutAuthorInput.prototype, "connect", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => [post_where_unique_input_1.PostWhereUniqueInput], { nullable: true }),
-    __metadata("design:type", Array)
 ], PostUncheckedUpdateManyWithoutAuthorInput.prototype, "set", void 0);
 __decorate([
     (0, graphql_1.Field)(() => [post_where_unique_input_1.PostWhereUniqueInput], { nullable: true }),
@@ -54,6 +50,10 @@ __decorate([
     (0, graphql_1.Field)(() => [post_where_unique_input_1.PostWhereUniqueInput], { nullable: true }),
     __metadata("design:type", Array)
 ], PostUncheckedUpdateManyWithoutAuthorInput.prototype, "delete", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => [post_where_unique_input_1.PostWhereUniqueInput], { nullable: true }),
+    __metadata("design:type", Array)
+], PostUncheckedUpdateManyWithoutAuthorInput.prototype, "connect", void 0);
 __decorate([
     (0, graphql_1.Field)(() => [post_update_with_where_unique_without_author_input_1.PostUpdateWithWhereUniqueWithoutAuthorInput], { nullable: true }),
     __metadata("design:type", Array)

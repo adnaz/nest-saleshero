@@ -66,7 +66,7 @@ __decorate([
     __metadata("design:type", Date)
 ], User.prototype, "updatedAt", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => user_count_output_1.UserCount, { nullable: true }),
+    (0, graphql_1.Field)(() => user_count_output_1.UserCount, { nullable: false }),
     __metadata("design:type", user_count_output_1.UserCount)
 ], User.prototype, "_count", void 0);
 User = __decorate([

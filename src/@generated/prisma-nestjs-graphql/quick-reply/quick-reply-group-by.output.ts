@@ -14,6 +14,9 @@ export class QuickReplyGroupBy {
     @Field(() => Int, {nullable:false})
     id!: number;
 
+    @Field(() => Boolean, {nullable:false})
+    keepIt!: boolean;
+
     @Field(() => TypeReply, {nullable:false})
     type!: keyof typeof TypeReply;
 

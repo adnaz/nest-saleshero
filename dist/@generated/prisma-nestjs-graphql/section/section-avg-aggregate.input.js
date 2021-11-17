@@ -22,6 +22,10 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
+], SectionAvgAggregateInput.prototype, "imageId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
 ], SectionAvgAggregateInput.prototype, "courseId", void 0);
 __decorate([
     (0, graphql_3.HideField)(),

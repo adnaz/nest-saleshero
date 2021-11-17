@@ -22,6 +22,10 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Float, { nullable: true }),
     __metadata("design:type", Number)
+], SectionAvgAggregate.prototype, "imageId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Float, { nullable: true }),
+    __metadata("design:type", Number)
 ], SectionAvgAggregate.prototype, "courseId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Float, { nullable: true }),

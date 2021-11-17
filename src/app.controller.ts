@@ -1,4 +1,4 @@
-import { Controller, Request, Post,Get, UseGuards, UseInterceptors, UploadedFile } from '@nestjs/common';
+import { Controller, Request, Post,Get, UseGuards, UseInterceptors, UploadedFile, Redirect, Response, Logger } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { AppService } from './app.service';
@@ -11,8 +11,8 @@ export class AppController {
   constructor(private authService: AuthService) {}
 
   @Get()
-  getHello(@Request() req): string {
-    return "hello";
+  getHello(@Request() req,@Response() res) {
+     res.redirect('https://holumbo.com');
   }
 
   @UseGuards(LocalAuthGuard)

@@ -9,5 +9,11 @@ export class CourseAvgAggregate {
     id?: number;
 
     @Field(() => Float, {nullable:true})
+    audioId?: number;
+
+    @Field(() => Float, {nullable:true})
+    imageId?: number;
+
+    @Field(() => Float, {nullable:true})
     authorId?: number;
 }

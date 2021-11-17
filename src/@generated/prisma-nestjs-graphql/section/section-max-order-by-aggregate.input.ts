@@ -16,7 +16,7 @@ export class SectionMaxOrderByAggregateInput {
     description?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    image?: keyof typeof SortOrder;
+    imageId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     type?: keyof typeof SortOrder;

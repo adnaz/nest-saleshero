@@ -18,7 +18,9 @@ const users_module_1 = require("./users/users.module");
 const posts_module_1 = require("./posts/posts.module");
 const auth_module_1 = require("./auth/auth.module");
 const platform_express_1 = require("@nestjs/platform-express");
-const whitelist = ['http://localhost:3000', 'https://holumbo.com'];
+const files_module_1 = require("./files/files.module");
+const actors_module_1 = require("./actors/actors.module");
+const whitelist = ['http://localhost:3000', 'https://holumbo.com', 'https://studio.apollographql.com'];
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -32,6 +34,7 @@ AppModule = __decorate([
                             callback(null, true);
                         }
                         else {
+                            console.log(origin);
                             callback(new Error('Not allowed by CORS'));
                         }
                     },
@@ -44,7 +47,9 @@ AppModule = __decorate([
             courses_module_1.CoursesModule,
             users_module_1.UsersModule,
             posts_module_1.PostsModule,
-            auth_module_1.AuthModule
+            auth_module_1.AuthModule,
+            files_module_1.FilesModule,
+            actors_module_1.ActorsModule
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService, prisma_service_1.PrismaService

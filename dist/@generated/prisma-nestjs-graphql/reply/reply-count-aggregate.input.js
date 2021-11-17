@@ -21,11 +21,7 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
-], ReplyCountAggregateInput.prototype, "text", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
-    __metadata("design:type", Boolean)
-], ReplyCountAggregateInput.prototype, "audio", void 0);
+], ReplyCountAggregateInput.prototype, "fileId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
@@ -37,7 +33,15 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
-], ReplyCountAggregateInput.prototype, "userId", void 0);
+], ReplyCountAggregateInput.prototype, "sectionId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
+], ReplyCountAggregateInput.prototype, "actorId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
+], ReplyCountAggregateInput.prototype, "quickRepliesId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)

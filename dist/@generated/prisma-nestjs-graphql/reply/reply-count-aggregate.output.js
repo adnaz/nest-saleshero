@@ -22,11 +22,7 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
     __metadata("design:type", Number)
-], ReplyCountAggregate.prototype, "text", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
-    __metadata("design:type", Number)
-], ReplyCountAggregate.prototype, "audio", void 0);
+], ReplyCountAggregate.prototype, "fileId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
     __metadata("design:type", Number)
@@ -38,7 +34,15 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
     __metadata("design:type", Number)
-], ReplyCountAggregate.prototype, "userId", void 0);
+], ReplyCountAggregate.prototype, "sectionId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
+    __metadata("design:type", Number)
+], ReplyCountAggregate.prototype, "actorId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
+    __metadata("design:type", Number)
+], ReplyCountAggregate.prototype, "quickRepliesId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
     __metadata("design:type", Number)

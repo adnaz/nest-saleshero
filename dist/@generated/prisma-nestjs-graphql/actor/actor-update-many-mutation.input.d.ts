@@ -2,7 +2,6 @@ import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-str
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 export declare class ActorUpdateManyMutationInput {
     name?: NullableStringFieldUpdateOperationsInput;
-    avatar?: NullableStringFieldUpdateOperationsInput;
     createdAt?: DateTimeFieldUpdateOperationsInput;
     updatedAt?: DateTimeFieldUpdateOperationsInput;
 }

@@ -19,6 +19,10 @@ __decorate([
     (0, graphql_1.Field)(() => graphql_3.Float, { nullable: true }),
     __metadata("design:type", Number)
 ], ActorAvgAggregate.prototype, "id", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Float, { nullable: true }),
+    __metadata("design:type", Number)
+], ActorAvgAggregate.prototype, "fileId", void 0);
 ActorAvgAggregate = __decorate([
     (0, graphql_2.ObjectType)()
 ], ActorAvgAggregate);

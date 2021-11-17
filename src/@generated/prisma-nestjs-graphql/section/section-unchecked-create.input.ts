@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { TypeSection } from '../prisma/type-section.enum';
 import { HideField } from '@nestjs/graphql';
+import { ReplyUncheckedCreateNestedManyWithoutSectionInput } from '../reply/reply-unchecked-create-nested-many-without-section.input';
 
 @InputType()
 export class SectionUncheckedCreateInput {
@@ -16,8 +17,8 @@ export class SectionUncheckedCreateInput {
     @Field(() => String, {nullable:true})
     description?: string;
 
-    @Field(() => String, {nullable:true})
-    image?: string;
+    @Field(() => Int, {nullable:true})
+    imageId?: number;
 
     @Field(() => TypeSection, {nullable:true})
     type?: keyof typeof TypeSection;
@@ -36,4 +37,7 @@ export class SectionUncheckedCreateInput {
 
     @HideField()
     updatedAt?: Date | string;
+
+    @Field(() => ReplyUncheckedCreateNestedManyWithoutSectionInput, {nullable:true})
+    replies?: ReplyUncheckedCreateNestedManyWithoutSectionInput;
 }

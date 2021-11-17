@@ -19,6 +19,10 @@ __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
     __metadata("design:type", Number)
 ], ActorWhereUniqueInput.prototype, "id", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ActorWhereUniqueInput.prototype, "fileId", void 0);
 ActorWhereUniqueInput = __decorate([
     (0, graphql_2.InputType)()
 ], ActorWhereUniqueInput);

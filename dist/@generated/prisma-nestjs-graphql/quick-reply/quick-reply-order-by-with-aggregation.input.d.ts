@@ -6,6 +6,7 @@ import { QuickReplyMinOrderByAggregateInput } from './quick-reply-min-order-by-a
 import { QuickReplySumOrderByAggregateInput } from './quick-reply-sum-order-by-aggregate.input';
 export declare class QuickReplyOrderByWithAggregationInput {
     id?: keyof typeof SortOrder;
+    keepIt?: keyof typeof SortOrder;
     type?: keyof typeof SortOrder;
     _count?: QuickReplyCountOrderByAggregateInput;
     _avg?: QuickReplyAvgOrderByAggregateInput;

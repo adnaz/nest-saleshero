@@ -32,10 +32,6 @@ __decorate([
     __metadata("design:type", user_upsert_without_sections_input_1.UserUpsertWithoutSectionsInput)
 ], UserUpdateOneWithoutSectionsInput.prototype, "upsert", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => user_where_unique_input_1.UserWhereUniqueInput, { nullable: true }),
-    __metadata("design:type", user_where_unique_input_1.UserWhereUniqueInput)
-], UserUpdateOneWithoutSectionsInput.prototype, "connect", void 0);
-__decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
 ], UserUpdateOneWithoutSectionsInput.prototype, "disconnect", void 0);
@@ -43,6 +39,10 @@ __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
 ], UserUpdateOneWithoutSectionsInput.prototype, "delete", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => user_where_unique_input_1.UserWhereUniqueInput, { nullable: true }),
+    __metadata("design:type", user_where_unique_input_1.UserWhereUniqueInput)
+], UserUpdateOneWithoutSectionsInput.prototype, "connect", void 0);
 __decorate([
     (0, graphql_1.Field)(() => user_update_without_sections_input_1.UserUpdateWithoutSectionsInput, { nullable: true }),
     __metadata("design:type", user_update_without_sections_input_1.UserUpdateWithoutSectionsInput)

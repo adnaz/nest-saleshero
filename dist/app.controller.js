@@ -22,8 +22,8 @@ let AppController = class AppController {
     constructor(authService) {
         this.authService = authService;
     }
-    getHello(req) {
-        return "hello";
+    getHello(req, res) {
+        res.redirect('https://holumbo.com');
     }
     async login(req) {
         return this.authService.login(req.user);
@@ -42,9 +42,10 @@ let AppController = class AppController {
 __decorate([
     (0, common_1.Get)(),
     __param(0, (0, common_1.Request)()),
+    __param(1, (0, common_1.Response)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", String)
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", void 0)
 ], AppController.prototype, "getHello", null);
 __decorate([
     (0, common_1.UseGuards)(local_auth_guard_1.LocalAuthGuard),

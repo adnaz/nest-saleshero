@@ -31,7 +31,7 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
-], ActorOrderByWithAggregationInput.prototype, "avatar", void 0);
+], ActorOrderByWithAggregationInput.prototype, "fileId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)

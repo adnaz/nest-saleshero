@@ -10,6 +10,9 @@ export class SectionSumOrderByAggregateInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    imageId?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     courseId?: keyof typeof SortOrder;
 
     @HideField()

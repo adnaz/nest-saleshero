@@ -26,6 +26,10 @@ __decorate([
     __metadata("design:type", Number)
 ], QuickReplyGroupBy.prototype, "id", void 0);
 __decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: false }),
+    __metadata("design:type", Boolean)
+], QuickReplyGroupBy.prototype, "keepIt", void 0);
+__decorate([
     (0, graphql_1.Field)(() => type_reply_enum_1.TypeReply, { nullable: false }),
     __metadata("design:type", Object)
 ], QuickReplyGroupBy.prototype, "type", void 0);

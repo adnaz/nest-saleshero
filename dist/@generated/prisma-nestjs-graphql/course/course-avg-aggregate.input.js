@@ -20,6 +20,14 @@ __decorate([
     __metadata("design:type", Boolean)
 ], CourseAvgAggregateInput.prototype, "id", void 0);
 __decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
+], CourseAvgAggregateInput.prototype, "audioId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
+], CourseAvgAggregateInput.prototype, "imageId", void 0);
+__decorate([
     (0, graphql_3.HideField)(),
     __metadata("design:type", Boolean)
 ], CourseAvgAggregateInput.prototype, "authorId", void 0);

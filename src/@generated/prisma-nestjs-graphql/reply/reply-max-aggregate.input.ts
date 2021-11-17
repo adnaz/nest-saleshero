@@ -8,10 +8,7 @@ export class ReplyMaxAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
-    text?: true;
-
-    @Field(() => Boolean, {nullable:true})
-    audio?: true;
+    fileId?: true;
 
     @Field(() => Boolean, {nullable:true})
     createdAt?: true;
@@ -20,5 +17,11 @@ export class ReplyMaxAggregateInput {
     updatedAt?: true;
 
     @Field(() => Boolean, {nullable:true})
-    userId?: true;
+    sectionId?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    actorId?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    quickRepliesId?: true;
 }

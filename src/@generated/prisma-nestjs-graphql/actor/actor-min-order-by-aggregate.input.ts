@@ -12,7 +12,7 @@ export class ActorMinOrderByAggregateInput {
     name?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    avatar?: keyof typeof SortOrder;
+    fileId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     createdAt?: keyof typeof SortOrder;

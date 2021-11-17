@@ -1,4 +1,7 @@
 export declare class ReplyAvgAggregate {
     id?: number;
-    userId?: number;
+    fileId?: number;
+    sectionId?: number;
+    actorId?: number;
+    quickRepliesId?: number;
 }

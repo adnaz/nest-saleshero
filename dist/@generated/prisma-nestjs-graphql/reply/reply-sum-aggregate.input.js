@@ -21,7 +21,19 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
-], ReplySumAggregateInput.prototype, "userId", void 0);
+], ReplySumAggregateInput.prototype, "fileId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
+], ReplySumAggregateInput.prototype, "sectionId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
+], ReplySumAggregateInput.prototype, "actorId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
+], ReplySumAggregateInput.prototype, "quickRepliesId", void 0);
 ReplySumAggregateInput = __decorate([
     (0, graphql_2.InputType)()
 ], ReplySumAggregateInput);

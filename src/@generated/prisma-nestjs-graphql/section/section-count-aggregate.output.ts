@@ -15,7 +15,7 @@ export class SectionCountAggregate {
     description!: number;
 
     @Field(() => Int, {nullable:false})
-    image!: number;
+    imageId!: number;
 
     @Field(() => Int, {nullable:false})
     type!: number;

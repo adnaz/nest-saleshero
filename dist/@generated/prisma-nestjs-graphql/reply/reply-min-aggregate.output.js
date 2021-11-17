@@ -20,13 +20,9 @@ __decorate([
     __metadata("design:type", Number)
 ], ReplyMinAggregate.prototype, "id", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], ReplyMinAggregate.prototype, "text", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], ReplyMinAggregate.prototype, "audio", void 0);
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplyMinAggregate.prototype, "fileId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Date, { nullable: true }),
     __metadata("design:type", Object)
@@ -38,7 +34,15 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
     __metadata("design:type", Number)
-], ReplyMinAggregate.prototype, "userId", void 0);
+], ReplyMinAggregate.prototype, "sectionId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplyMinAggregate.prototype, "actorId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplyMinAggregate.prototype, "quickRepliesId", void 0);
 ReplyMinAggregate = __decorate([
     (0, graphql_2.ObjectType)()
 ], ReplyMinAggregate);

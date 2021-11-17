@@ -21,11 +21,7 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
-], ReplyMinAggregateInput.prototype, "text", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
-    __metadata("design:type", Boolean)
-], ReplyMinAggregateInput.prototype, "audio", void 0);
+], ReplyMinAggregateInput.prototype, "fileId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
@@ -37,7 +33,15 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
-], ReplyMinAggregateInput.prototype, "userId", void 0);
+], ReplyMinAggregateInput.prototype, "sectionId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
+], ReplyMinAggregateInput.prototype, "actorId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
+], ReplyMinAggregateInput.prototype, "quickRepliesId", void 0);
 ReplyMinAggregateInput = __decorate([
     (0, graphql_2.InputType)()
 ], ReplyMinAggregateInput);

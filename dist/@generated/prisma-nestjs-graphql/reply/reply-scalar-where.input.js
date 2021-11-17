@@ -14,9 +14,8 @@ exports.ReplyScalarWhereInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const int_filter_input_1 = require("../prisma/int-filter.input");
-const string_nullable_filter_input_1 = require("../prisma/string-nullable-filter.input");
-const date_time_filter_input_1 = require("../prisma/date-time-filter.input");
 const int_nullable_filter_input_1 = require("../prisma/int-nullable-filter.input");
+const date_time_filter_input_1 = require("../prisma/date-time-filter.input");
 let ReplyScalarWhereInput = ReplyScalarWhereInput_1 = class ReplyScalarWhereInput {
 };
 __decorate([
@@ -36,13 +35,9 @@ __decorate([
     __metadata("design:type", int_filter_input_1.IntFilter)
 ], ReplyScalarWhereInput.prototype, "id", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
-    __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
-], ReplyScalarWhereInput.prototype, "text", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
-    __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
-], ReplyScalarWhereInput.prototype, "audio", void 0);
+    (0, graphql_1.Field)(() => int_nullable_filter_input_1.IntNullableFilter, { nullable: true }),
+    __metadata("design:type", int_nullable_filter_input_1.IntNullableFilter)
+], ReplyScalarWhereInput.prototype, "fileId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => date_time_filter_input_1.DateTimeFilter, { nullable: true }),
     __metadata("design:type", date_time_filter_input_1.DateTimeFilter)
@@ -52,9 +47,17 @@ __decorate([
     __metadata("design:type", date_time_filter_input_1.DateTimeFilter)
 ], ReplyScalarWhereInput.prototype, "updatedAt", void 0);
 __decorate([
+    (0, graphql_1.Field)(() => int_filter_input_1.IntFilter, { nullable: true }),
+    __metadata("design:type", int_filter_input_1.IntFilter)
+], ReplyScalarWhereInput.prototype, "sectionId", void 0);
+__decorate([
     (0, graphql_1.Field)(() => int_nullable_filter_input_1.IntNullableFilter, { nullable: true }),
     __metadata("design:type", int_nullable_filter_input_1.IntNullableFilter)
-], ReplyScalarWhereInput.prototype, "userId", void 0);
+], ReplyScalarWhereInput.prototype, "actorId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => int_nullable_filter_input_1.IntNullableFilter, { nullable: true }),
+    __metadata("design:type", int_nullable_filter_input_1.IntNullableFilter)
+], ReplyScalarWhereInput.prototype, "quickRepliesId", void 0);
 ReplyScalarWhereInput = ReplyScalarWhereInput_1 = __decorate([
     (0, graphql_2.InputType)()
 ], ReplyScalarWhereInput);

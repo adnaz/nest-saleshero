@@ -15,12 +15,6 @@ export class CourseUpdateManyMutationInput {
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     description?: NullableStringFieldUpdateOperationsInput;
 
-    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
-    audio?: NullableStringFieldUpdateOperationsInput;
-
-    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
-    image?: NullableStringFieldUpdateOperationsInput;
-
     @Field(() => NullableBoolFieldUpdateOperationsInput, {nullable:true})
     published?: NullableBoolFieldUpdateOperationsInput;
 

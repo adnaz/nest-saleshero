@@ -12,7 +12,7 @@ export class ActorCountAggregate {
     name!: number;
 
     @Field(() => Int, {nullable:false})
-    avatar!: number;
+    fileId!: number;
 
     @Field(() => Int, {nullable:false})
     createdAt!: number;

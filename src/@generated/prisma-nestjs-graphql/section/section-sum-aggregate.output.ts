@@ -9,6 +9,9 @@ export class SectionSumAggregate {
     id?: number;
 
     @Field(() => Int, {nullable:true})
+    imageId?: number;
+
+    @Field(() => Int, {nullable:true})
     courseId?: number;
 
     @Field(() => Int, {nullable:true})

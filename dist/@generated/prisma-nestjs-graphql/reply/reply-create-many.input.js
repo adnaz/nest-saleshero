@@ -20,13 +20,9 @@ __decorate([
     __metadata("design:type", Number)
 ], ReplyCreateManyInput.prototype, "id", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], ReplyCreateManyInput.prototype, "text", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], ReplyCreateManyInput.prototype, "audio", void 0);
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplyCreateManyInput.prototype, "fileId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Date, { nullable: true }),
     __metadata("design:type", Object)
@@ -36,9 +32,17 @@ __decorate([
     __metadata("design:type", Object)
 ], ReplyCreateManyInput.prototype, "updatedAt", void 0);
 __decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
+    __metadata("design:type", Number)
+], ReplyCreateManyInput.prototype, "sectionId", void 0);
+__decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
     __metadata("design:type", Number)
-], ReplyCreateManyInput.prototype, "userId", void 0);
+], ReplyCreateManyInput.prototype, "actorId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplyCreateManyInput.prototype, "quickRepliesId", void 0);
 ReplyCreateManyInput = __decorate([
     (0, graphql_2.InputType)()
 ], ReplyCreateManyInput);

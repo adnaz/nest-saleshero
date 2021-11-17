@@ -30,13 +30,13 @@ __decorate([
     __metadata("design:type", String)
 ], CourseUncheckedCreateWithoutAuthorInput.prototype, "description", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], CourseUncheckedCreateWithoutAuthorInput.prototype, "audio", void 0);
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], CourseUncheckedCreateWithoutAuthorInput.prototype, "audioId", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], CourseUncheckedCreateWithoutAuthorInput.prototype, "image", void 0);
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], CourseUncheckedCreateWithoutAuthorInput.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)

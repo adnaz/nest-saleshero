@@ -7,8 +7,8 @@ export declare class UserUpdateOneWithoutSectionsInput {
     create?: UserCreateWithoutSectionsInput;
     connectOrCreate?: UserCreateOrConnectWithoutSectionsInput;
     upsert?: UserUpsertWithoutSectionsInput;
-    connect?: UserWhereUniqueInput;
     disconnect?: boolean;
     delete?: boolean;
+    connect?: UserWhereUniqueInput;
     update?: UserUpdateWithoutSectionsInput;
 }

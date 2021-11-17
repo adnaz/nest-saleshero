@@ -9,6 +9,9 @@ export class QuickReplyCreateManyInput {
     @Field(() => Int, {nullable:true})
     id?: number;
 
+    @Field(() => Boolean, {nullable:true})
+    keepIt?: boolean;
+
     @Field(() => TypeReply, {nullable:false})
     type!: keyof typeof TypeReply;
 }

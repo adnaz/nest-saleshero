@@ -9,5 +9,11 @@ export class CourseSumAggregate {
     id?: number;
 
     @Field(() => Int, {nullable:true})
+    audioId?: number;
+
+    @Field(() => Int, {nullable:true})
+    imageId?: number;
+
+    @Field(() => Int, {nullable:true})
     authorId?: number;
 }

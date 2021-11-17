@@ -11,10 +11,10 @@ export declare class CourseUpdateManyWithoutAuthorInput {
     connectOrCreate?: Array<CourseCreateOrConnectWithoutAuthorInput>;
     upsert?: Array<CourseUpsertWithWhereUniqueWithoutAuthorInput>;
     createMany?: CourseCreateManyAuthorInputEnvelope;
-    connect?: Array<CourseWhereUniqueInput>;
     set?: Array<CourseWhereUniqueInput>;
     disconnect?: Array<CourseWhereUniqueInput>;
     delete?: Array<CourseWhereUniqueInput>;
+    connect?: Array<CourseWhereUniqueInput>;
     update?: Array<CourseUpdateWithWhereUniqueWithoutAuthorInput>;
     updateMany?: Array<CourseUpdateManyWithWhereWithoutAuthorInput>;
     deleteMany?: Array<CourseScalarWhereInput>;

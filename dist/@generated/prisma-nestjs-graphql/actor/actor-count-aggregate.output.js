@@ -26,7 +26,7 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
     __metadata("design:type", Number)
-], ActorCountAggregate.prototype, "avatar", void 0);
+], ActorCountAggregate.prototype, "fileId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
     __metadata("design:type", Number)

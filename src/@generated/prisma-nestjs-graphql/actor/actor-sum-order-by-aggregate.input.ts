@@ -7,4 +7,7 @@ export class ActorSumOrderByAggregateInput {
 
     @Field(() => SortOrder, {nullable:true})
     id?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    fileId?: keyof typeof SortOrder;
 }

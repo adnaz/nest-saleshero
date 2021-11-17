@@ -7,7 +7,7 @@ var SectionScalarFieldEnum;
     SectionScalarFieldEnum["id"] = "id";
     SectionScalarFieldEnum["title"] = "title";
     SectionScalarFieldEnum["description"] = "description";
-    SectionScalarFieldEnum["image"] = "image";
+    SectionScalarFieldEnum["imageId"] = "imageId";
     SectionScalarFieldEnum["type"] = "type";
     SectionScalarFieldEnum["courseId"] = "courseId";
     SectionScalarFieldEnum["published"] = "published";

@@ -1,7 +1,7 @@
 export declare class ActorMaxAggregate {
     id?: number;
     name?: string;
-    avatar?: string;
+    fileId?: number;
     createdAt?: Date | string;
     updatedAt?: Date | string;
 }

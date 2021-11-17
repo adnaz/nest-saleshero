@@ -25,9 +25,6 @@ export class QuickReplyValueUncheckedUpdateManyWithoutQuickReplyInput {
     createMany?: QuickReplyValueCreateManyQuickReplyInputEnvelope;
 
     @Field(() => [QuickReplyValueWhereUniqueInput], {nullable:true})
-    connect?: Array<QuickReplyValueWhereUniqueInput>;
-
-    @Field(() => [QuickReplyValueWhereUniqueInput], {nullable:true})
     set?: Array<QuickReplyValueWhereUniqueInput>;
 
     @Field(() => [QuickReplyValueWhereUniqueInput], {nullable:true})
@@ -35,6 +32,9 @@ export class QuickReplyValueUncheckedUpdateManyWithoutQuickReplyInput {
 
     @Field(() => [QuickReplyValueWhereUniqueInput], {nullable:true})
     delete?: Array<QuickReplyValueWhereUniqueInput>;
+
+    @Field(() => [QuickReplyValueWhereUniqueInput], {nullable:true})
+    connect?: Array<QuickReplyValueWhereUniqueInput>;
 
     @Field(() => [QuickReplyValueUpdateWithWhereUniqueWithoutQuickReplyInput], {nullable:true})
     update?: Array<QuickReplyValueUpdateWithWhereUniqueWithoutQuickReplyInput>;

@@ -22,7 +22,19 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
     __metadata("design:type", Number)
-], ReplySumAggregate.prototype, "userId", void 0);
+], ReplySumAggregate.prototype, "fileId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplySumAggregate.prototype, "sectionId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplySumAggregate.prototype, "actorId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplySumAggregate.prototype, "quickRepliesId", void 0);
 ReplySumAggregate = __decorate([
     (0, graphql_2.ObjectType)()
 ], ReplySumAggregate);

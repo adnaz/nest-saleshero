@@ -20,13 +20,9 @@ __decorate([
     __metadata("design:type", Number)
 ], ReplyUncheckedCreateWithoutUserInput.prototype, "id", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], ReplyUncheckedCreateWithoutUserInput.prototype, "text", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], ReplyUncheckedCreateWithoutUserInput.prototype, "audio", void 0);
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplyUncheckedCreateWithoutUserInput.prototype, "fileId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Date, { nullable: true }),
     __metadata("design:type", Object)
@@ -35,6 +31,14 @@ __decorate([
     (0, graphql_1.Field)(() => Date, { nullable: true }),
     __metadata("design:type", Object)
 ], ReplyUncheckedCreateWithoutUserInput.prototype, "updatedAt", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
+    __metadata("design:type", Number)
+], ReplyUncheckedCreateWithoutUserInput.prototype, "sectionId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplyUncheckedCreateWithoutUserInput.prototype, "quickRepliesId", void 0);
 ReplyUncheckedCreateWithoutUserInput = __decorate([
     (0, graphql_2.InputType)()
 ], ReplyUncheckedCreateWithoutUserInput);

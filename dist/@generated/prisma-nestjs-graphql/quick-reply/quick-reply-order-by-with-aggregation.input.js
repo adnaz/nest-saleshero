@@ -27,6 +27,10 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
+], QuickReplyOrderByWithAggregationInput.prototype, "keepIt", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
 ], QuickReplyOrderByWithAggregationInput.prototype, "type", void 0);
 __decorate([
     (0, graphql_1.Field)(() => quick_reply_count_order_by_aggregate_input_1.QuickReplyCountOrderByAggregateInput, { nullable: true }),

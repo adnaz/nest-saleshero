@@ -15,10 +15,10 @@ export class CourseCountAggregate {
     description!: number;
 
     @Field(() => Int, {nullable:false})
-    audio!: number;
+    audioId!: number;
 
     @Field(() => Int, {nullable:false})
-    image!: number;
+    imageId!: number;
 
     @Field(() => Int, {nullable:false})
     published!: number;

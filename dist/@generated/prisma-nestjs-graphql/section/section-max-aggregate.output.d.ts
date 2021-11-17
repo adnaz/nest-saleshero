@@ -3,7 +3,7 @@ export declare class SectionMaxAggregate {
     id?: number;
     title?: string;
     description?: string;
-    image?: string;
+    imageId?: number;
     type?: keyof typeof TypeSection;
     courseId?: number;
     published?: boolean;

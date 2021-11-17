@@ -6,7 +6,6 @@ import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-up
 export declare class SectionUpdateManyMutationInput {
     title?: StringFieldUpdateOperationsInput;
     description?: NullableStringFieldUpdateOperationsInput;
-    image?: NullableStringFieldUpdateOperationsInput;
     type?: NullableEnumTypeSectionFieldUpdateOperationsInput;
     published?: NullableBoolFieldUpdateOperationsInput;
     createdAt?: DateTimeFieldUpdateOperationsInput;

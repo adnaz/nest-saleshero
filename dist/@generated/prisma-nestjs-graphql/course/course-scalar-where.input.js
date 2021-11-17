@@ -16,8 +16,8 @@ const graphql_2 = require("@nestjs/graphql");
 const int_filter_input_1 = require("../prisma/int-filter.input");
 const string_filter_input_1 = require("../prisma/string-filter.input");
 const string_nullable_filter_input_1 = require("../prisma/string-nullable-filter.input");
-const bool_nullable_filter_input_1 = require("../prisma/bool-nullable-filter.input");
 const int_nullable_filter_input_1 = require("../prisma/int-nullable-filter.input");
+const bool_nullable_filter_input_1 = require("../prisma/bool-nullable-filter.input");
 const graphql_3 = require("@nestjs/graphql");
 const date_time_filter_input_1 = require("../prisma/date-time-filter.input");
 let CourseScalarWhereInput = CourseScalarWhereInput_1 = class CourseScalarWhereInput {
@@ -47,13 +47,13 @@ __decorate([
     __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
 ], CourseScalarWhereInput.prototype, "description", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
-    __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
-], CourseScalarWhereInput.prototype, "audio", void 0);
+    (0, graphql_1.Field)(() => int_nullable_filter_input_1.IntNullableFilter, { nullable: true }),
+    __metadata("design:type", int_nullable_filter_input_1.IntNullableFilter)
+], CourseScalarWhereInput.prototype, "audioId", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
-    __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
-], CourseScalarWhereInput.prototype, "image", void 0);
+    (0, graphql_1.Field)(() => int_nullable_filter_input_1.IntNullableFilter, { nullable: true }),
+    __metadata("design:type", int_nullable_filter_input_1.IntNullableFilter)
+], CourseScalarWhereInput.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => bool_nullable_filter_input_1.BoolNullableFilter, { nullable: true }),
     __metadata("design:type", bool_nullable_filter_input_1.BoolNullableFilter)

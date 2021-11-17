@@ -25,9 +25,6 @@ export class CourseUncheckedUpdateManyWithoutAuthorInput {
     createMany?: CourseCreateManyAuthorInputEnvelope;
 
     @Field(() => [CourseWhereUniqueInput], {nullable:true})
-    connect?: Array<CourseWhereUniqueInput>;
-
-    @Field(() => [CourseWhereUniqueInput], {nullable:true})
     set?: Array<CourseWhereUniqueInput>;
 
     @Field(() => [CourseWhereUniqueInput], {nullable:true})
@@ -35,6 +32,9 @@ export class CourseUncheckedUpdateManyWithoutAuthorInput {
 
     @Field(() => [CourseWhereUniqueInput], {nullable:true})
     delete?: Array<CourseWhereUniqueInput>;
+
+    @Field(() => [CourseWhereUniqueInput], {nullable:true})
+    connect?: Array<CourseWhereUniqueInput>;
 
     @Field(() => [CourseUpdateWithWhereUniqueWithoutAuthorInput], {nullable:true})
     update?: Array<CourseUpdateWithWhereUniqueWithoutAuthorInput>;

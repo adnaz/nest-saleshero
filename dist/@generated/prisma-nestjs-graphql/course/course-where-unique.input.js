@@ -19,6 +19,14 @@ __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
     __metadata("design:type", Number)
 ], CourseWhereUniqueInput.prototype, "id", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], CourseWhereUniqueInput.prototype, "audioId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], CourseWhereUniqueInput.prototype, "imageId", void 0);
 CourseWhereUniqueInput = __decorate([
     (0, graphql_2.InputType)()
 ], CourseWhereUniqueInput);

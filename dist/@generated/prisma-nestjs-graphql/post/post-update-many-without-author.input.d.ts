@@ -11,10 +11,10 @@ export declare class PostUpdateManyWithoutAuthorInput {
     connectOrCreate?: Array<PostCreateOrConnectWithoutAuthorInput>;
     upsert?: Array<PostUpsertWithWhereUniqueWithoutAuthorInput>;
     createMany?: PostCreateManyAuthorInputEnvelope;
-    connect?: Array<PostWhereUniqueInput>;
     set?: Array<PostWhereUniqueInput>;
     disconnect?: Array<PostWhereUniqueInput>;
     delete?: Array<PostWhereUniqueInput>;
+    connect?: Array<PostWhereUniqueInput>;
     update?: Array<PostUpdateWithWhereUniqueWithoutAuthorInput>;
     updateMany?: Array<PostUpdateManyWithWhereWithoutAuthorInput>;
     deleteMany?: Array<PostScalarWhereInput>;

@@ -19,6 +19,10 @@ __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
 ], ActorAvgOrderByAggregateInput.prototype, "id", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], ActorAvgOrderByAggregateInput.prototype, "fileId", void 0);
 ActorAvgOrderByAggregateInput = __decorate([
     (0, graphql_2.InputType)()
 ], ActorAvgOrderByAggregateInput);

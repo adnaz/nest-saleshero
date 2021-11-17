@@ -7,4 +7,7 @@ export class ActorSumAggregate {
 
     @Field(() => Int, {nullable:true})
     id?: number;
+
+    @Field(() => Int, {nullable:true})
+    fileId?: number;
 }

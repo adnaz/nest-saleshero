@@ -1,9 +1,10 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
+import { File } from '../file/file.model';
+import { Int } from '@nestjs/graphql';
 import { Section } from '../section/section.model';
 import { User } from '../user/user.model';
-import { Int } from '@nestjs/graphql';
 import { CourseCount } from './course-count.output';
 
 @ObjectType()
@@ -18,11 +19,17 @@ export class Course {
     @Field(() => String, {nullable:true})
     description!: string | null;
 
-    @Field(() => String, {nullable:true})
-    audio!: string | null;
+    @Field(() => File, {nullable:true})
+    audio?: File | null;
 
-    @Field(() => String, {nullable:true})
-    image!: string | null;
+    @Field(() => Int, {nullable:true})
+    audioId!: number | null;
+
+    @Field(() => File, {nullable:true})
+    image?: File | null;
+
+    @Field(() => Int, {nullable:true})
+    imageId!: number | null;
 
     @Field(() => [Section], {nullable:true})
     sections?: Array<Section>;
@@ -42,6 +49,6 @@ export class Course {
     @Field(() => Date, {nullable:false})
     updatedAt!: Date;
 
-    @Field(() => CourseCount, {nullable:true})
-    _count?: CourseCount | null;
+    @Field(() => CourseCount, {nullable:false})
+    _count?: CourseCount;
 }

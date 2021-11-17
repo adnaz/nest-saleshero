@@ -15,10 +15,10 @@ export class CourseCountAggregateInput {
     description?: true;
 
     @Field(() => Boolean, {nullable:true})
-    audio?: true;
+    audioId?: true;
 
     @Field(() => Boolean, {nullable:true})
-    image?: true;
+    imageId?: true;
 
     @Field(() => Boolean, {nullable:true})
     published?: true;

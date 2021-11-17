@@ -7,4 +7,10 @@ export class CourseWhereUniqueInput {
 
     @Field(() => Int, {nullable:true})
     id?: number;
+
+    @Field(() => Int, {nullable:true})
+    audioId?: number;
+
+    @Field(() => Int, {nullable:true})
+    imageId?: number;
 }

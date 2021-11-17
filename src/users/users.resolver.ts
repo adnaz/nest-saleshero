@@ -12,9 +12,9 @@ import { UsersService } from './users.service';
 export class UsersResolver {
   constructor(private usersService: UsersService) { }
   @Query(returns => User)
-  // @UseGuards(GqlAuthGuard)
-  @Authorize(Role.USER)
-  // @Roles(Role.USER,'ADMIN')
+  @UseGuards(GqlAuthGuard)
+  @Authorize(Role.ADMIN)
+  // @Roles(Role.USER,Role.ADMIN)
   whoAmI(@CurrentUser() user: User) {
     return this.usersService.findOne(user.username);
   }

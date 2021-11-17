@@ -15,6 +15,7 @@ const graphql_2 = require("@nestjs/graphql");
 const int_field_update_operations_input_1 = require("../prisma/int-field-update-operations.input");
 const string_field_update_operations_input_1 = require("../prisma/string-field-update-operations.input");
 const nullable_string_field_update_operations_input_1 = require("../prisma/nullable-string-field-update-operations.input");
+const nullable_int_field_update_operations_input_1 = require("../prisma/nullable-int-field-update-operations.input");
 const nullable_bool_field_update_operations_input_1 = require("../prisma/nullable-bool-field-update-operations.input");
 const date_time_field_update_operations_input_1 = require("../prisma/date-time-field-update-operations.input");
 const graphql_3 = require("@nestjs/graphql");
@@ -33,13 +34,13 @@ __decorate([
     __metadata("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
 ], CourseUncheckedUpdateManyWithoutCoursesInput.prototype, "description", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
-    __metadata("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
-], CourseUncheckedUpdateManyWithoutCoursesInput.prototype, "audio", void 0);
+    (0, graphql_1.Field)(() => nullable_int_field_update_operations_input_1.NullableIntFieldUpdateOperationsInput, { nullable: true }),
+    __metadata("design:type", nullable_int_field_update_operations_input_1.NullableIntFieldUpdateOperationsInput)
+], CourseUncheckedUpdateManyWithoutCoursesInput.prototype, "audioId", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
-    __metadata("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
-], CourseUncheckedUpdateManyWithoutCoursesInput.prototype, "image", void 0);
+    (0, graphql_1.Field)(() => nullable_int_field_update_operations_input_1.NullableIntFieldUpdateOperationsInput, { nullable: true }),
+    __metadata("design:type", nullable_int_field_update_operations_input_1.NullableIntFieldUpdateOperationsInput)
+], CourseUncheckedUpdateManyWithoutCoursesInput.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => nullable_bool_field_update_operations_input_1.NullableBoolFieldUpdateOperationsInput, { nullable: true }),
     __metadata("design:type", nullable_bool_field_update_operations_input_1.NullableBoolFieldUpdateOperationsInput)

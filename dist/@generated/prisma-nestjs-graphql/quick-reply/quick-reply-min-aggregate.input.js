@@ -21,6 +21,10 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
+], QuickReplyMinAggregateInput.prototype, "keepIt", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
 ], QuickReplyMinAggregateInput.prototype, "type", void 0);
 QuickReplyMinAggregateInput = __decorate([
     (0, graphql_2.InputType)()

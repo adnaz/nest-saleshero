@@ -32,10 +32,6 @@ __decorate([
     __metadata("design:type", quick_reply_upsert_without_values_input_1.QuickReplyUpsertWithoutValuesInput)
 ], QuickReplyUpdateOneWithoutValuesInput.prototype, "upsert", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => quick_reply_where_unique_input_1.QuickReplyWhereUniqueInput, { nullable: true }),
-    __metadata("design:type", quick_reply_where_unique_input_1.QuickReplyWhereUniqueInput)
-], QuickReplyUpdateOneWithoutValuesInput.prototype, "connect", void 0);
-__decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
 ], QuickReplyUpdateOneWithoutValuesInput.prototype, "disconnect", void 0);
@@ -43,6 +39,10 @@ __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
 ], QuickReplyUpdateOneWithoutValuesInput.prototype, "delete", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => quick_reply_where_unique_input_1.QuickReplyWhereUniqueInput, { nullable: true }),
+    __metadata("design:type", quick_reply_where_unique_input_1.QuickReplyWhereUniqueInput)
+], QuickReplyUpdateOneWithoutValuesInput.prototype, "connect", void 0);
 __decorate([
     (0, graphql_1.Field)(() => quick_reply_update_without_values_input_1.QuickReplyUpdateWithoutValuesInput, { nullable: true }),
     __metadata("design:type", quick_reply_update_without_values_input_1.QuickReplyUpdateWithoutValuesInput)

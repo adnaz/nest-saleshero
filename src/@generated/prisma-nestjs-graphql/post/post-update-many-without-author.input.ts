@@ -25,9 +25,6 @@ export class PostUpdateManyWithoutAuthorInput {
     createMany?: PostCreateManyAuthorInputEnvelope;
 
     @Field(() => [PostWhereUniqueInput], {nullable:true})
-    connect?: Array<PostWhereUniqueInput>;
-
-    @Field(() => [PostWhereUniqueInput], {nullable:true})
     set?: Array<PostWhereUniqueInput>;
 
     @Field(() => [PostWhereUniqueInput], {nullable:true})
@@ -35,6 +32,9 @@ export class PostUpdateManyWithoutAuthorInput {
 
     @Field(() => [PostWhereUniqueInput], {nullable:true})
     delete?: Array<PostWhereUniqueInput>;
+
+    @Field(() => [PostWhereUniqueInput], {nullable:true})
+    connect?: Array<PostWhereUniqueInput>;
 
     @Field(() => [PostUpdateWithWhereUniqueWithoutAuthorInput], {nullable:true})
     update?: Array<PostUpdateWithWhereUniqueWithoutAuthorInput>;

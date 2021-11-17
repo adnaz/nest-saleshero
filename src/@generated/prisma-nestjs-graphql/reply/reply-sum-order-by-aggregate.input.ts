@@ -9,5 +9,14 @@ export class ReplySumOrderByAggregateInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    userId?: keyof typeof SortOrder;
+    fileId?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    sectionId?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    actorId?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    quickRepliesId?: keyof typeof SortOrder;
 }

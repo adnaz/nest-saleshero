@@ -2,11 +2,12 @@ import { registerEnumType } from '@nestjs/graphql';
 
 export enum ReplyScalarFieldEnum {
     id = "id",
-    text = "text",
-    audio = "audio",
+    fileId = "fileId",
     createdAt = "createdAt",
     updatedAt = "updatedAt",
-    userId = "userId"
+    sectionId = "sectionId",
+    actorId = "actorId",
+    quickRepliesId = "quickRepliesId"
 }
 
 

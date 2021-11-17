@@ -25,9 +25,6 @@ export class SectionUpdateManyWithoutCourseInput {
     createMany?: SectionCreateManyCourseInputEnvelope;
 
     @Field(() => [SectionWhereUniqueInput], {nullable:true})
-    connect?: Array<SectionWhereUniqueInput>;
-
-    @Field(() => [SectionWhereUniqueInput], {nullable:true})
     set?: Array<SectionWhereUniqueInput>;
 
     @Field(() => [SectionWhereUniqueInput], {nullable:true})
@@ -35,6 +32,9 @@ export class SectionUpdateManyWithoutCourseInput {
 
     @Field(() => [SectionWhereUniqueInput], {nullable:true})
     delete?: Array<SectionWhereUniqueInput>;
+
+    @Field(() => [SectionWhereUniqueInput], {nullable:true})
+    connect?: Array<SectionWhereUniqueInput>;
 
     @Field(() => [SectionUpdateWithWhereUniqueWithoutCourseInput], {nullable:true})
     update?: Array<SectionUpdateWithWhereUniqueWithoutCourseInput>;

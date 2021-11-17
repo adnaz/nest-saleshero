@@ -25,13 +25,9 @@ __decorate([
     __metadata("design:type", Number)
 ], ReplyGroupBy.prototype, "id", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], ReplyGroupBy.prototype, "text", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], ReplyGroupBy.prototype, "audio", void 0);
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplyGroupBy.prototype, "fileId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Date, { nullable: false }),
     __metadata("design:type", Object)
@@ -41,9 +37,17 @@ __decorate([
     __metadata("design:type", Object)
 ], ReplyGroupBy.prototype, "updatedAt", void 0);
 __decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
+    __metadata("design:type", Number)
+], ReplyGroupBy.prototype, "sectionId", void 0);
+__decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
     __metadata("design:type", Number)
-], ReplyGroupBy.prototype, "userId", void 0);
+], ReplyGroupBy.prototype, "actorId", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], ReplyGroupBy.prototype, "quickRepliesId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => reply_count_aggregate_output_1.ReplyCountAggregate, { nullable: true }),
     __metadata("design:type", reply_count_aggregate_output_1.ReplyCountAggregate)

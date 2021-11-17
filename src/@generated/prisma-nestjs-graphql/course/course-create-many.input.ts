@@ -15,11 +15,11 @@ export class CourseCreateManyInput {
     @Field(() => String, {nullable:true})
     description?: string;
 
-    @Field(() => String, {nullable:true})
-    audio?: string;
+    @Field(() => Int, {nullable:true})
+    audioId?: number;
 
-    @Field(() => String, {nullable:true})
-    image?: string;
+    @Field(() => Int, {nullable:true})
+    imageId?: number;
 
     @Field(() => Boolean, {nullable:true})
     published?: boolean;

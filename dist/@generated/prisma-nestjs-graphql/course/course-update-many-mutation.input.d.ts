@@ -5,8 +5,6 @@ import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-up
 export declare class CourseUpdateManyMutationInput {
     title?: StringFieldUpdateOperationsInput;
     description?: NullableStringFieldUpdateOperationsInput;
-    audio?: NullableStringFieldUpdateOperationsInput;
-    image?: NullableStringFieldUpdateOperationsInput;
     published?: NullableBoolFieldUpdateOperationsInput;
     createdAt?: DateTimeFieldUpdateOperationsInput;
     updatedAt?: DateTimeFieldUpdateOperationsInput;

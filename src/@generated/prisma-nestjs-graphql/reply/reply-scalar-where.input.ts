@@ -1,9 +1,8 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
-import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
-import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
+import { DateTimeFilter } from '../prisma/date-time-filter.input';
 
 @InputType()
 export class ReplyScalarWhereInput {
@@ -20,11 +19,8 @@ export class ReplyScalarWhereInput {
     @Field(() => IntFilter, {nullable:true})
     id?: IntFilter;
 
-    @Field(() => StringNullableFilter, {nullable:true})
-    text?: StringNullableFilter;
-
-    @Field(() => StringNullableFilter, {nullable:true})
-    audio?: StringNullableFilter;
+    @Field(() => IntNullableFilter, {nullable:true})
+    fileId?: IntNullableFilter;
 
     @Field(() => DateTimeFilter, {nullable:true})
     createdAt?: DateTimeFilter;
@@ -32,6 +28,12 @@ export class ReplyScalarWhereInput {
     @Field(() => DateTimeFilter, {nullable:true})
     updatedAt?: DateTimeFilter;
 
+    @Field(() => IntFilter, {nullable:true})
+    sectionId?: IntFilter;
+
     @Field(() => IntNullableFilter, {nullable:true})
-    userId?: IntNullableFilter;
+    actorId?: IntNullableFilter;
+
+    @Field(() => IntNullableFilter, {nullable:true})
+    quickRepliesId?: IntNullableFilter;
 }

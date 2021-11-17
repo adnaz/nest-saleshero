@@ -16,9 +16,6 @@ export class SectionUpdateManyMutationInput {
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     description?: NullableStringFieldUpdateOperationsInput;
 
-    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
-    image?: NullableStringFieldUpdateOperationsInput;
-
     @Field(() => NullableEnumTypeSectionFieldUpdateOperationsInput, {nullable:true})
     type?: NullableEnumTypeSectionFieldUpdateOperationsInput;
 

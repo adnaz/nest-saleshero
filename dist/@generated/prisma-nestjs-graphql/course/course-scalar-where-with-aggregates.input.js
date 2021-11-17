@@ -16,8 +16,8 @@ const graphql_2 = require("@nestjs/graphql");
 const int_with_aggregates_filter_input_1 = require("../prisma/int-with-aggregates-filter.input");
 const string_with_aggregates_filter_input_1 = require("../prisma/string-with-aggregates-filter.input");
 const string_nullable_with_aggregates_filter_input_1 = require("../prisma/string-nullable-with-aggregates-filter.input");
-const bool_nullable_with_aggregates_filter_input_1 = require("../prisma/bool-nullable-with-aggregates-filter.input");
 const int_nullable_with_aggregates_filter_input_1 = require("../prisma/int-nullable-with-aggregates-filter.input");
+const bool_nullable_with_aggregates_filter_input_1 = require("../prisma/bool-nullable-with-aggregates-filter.input");
 const graphql_3 = require("@nestjs/graphql");
 const date_time_with_aggregates_filter_input_1 = require("../prisma/date-time-with-aggregates-filter.input");
 let CourseScalarWhereWithAggregatesInput = CourseScalarWhereWithAggregatesInput_1 = class CourseScalarWhereWithAggregatesInput {
@@ -47,13 +47,13 @@ __decorate([
     __metadata("design:type", string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter)
 ], CourseScalarWhereWithAggregatesInput.prototype, "description", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter, { nullable: true }),
-    __metadata("design:type", string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter)
-], CourseScalarWhereWithAggregatesInput.prototype, "audio", void 0);
+    (0, graphql_1.Field)(() => int_nullable_with_aggregates_filter_input_1.IntNullableWithAggregatesFilter, { nullable: true }),
+    __metadata("design:type", int_nullable_with_aggregates_filter_input_1.IntNullableWithAggregatesFilter)
+], CourseScalarWhereWithAggregatesInput.prototype, "audioId", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter, { nullable: true }),
-    __metadata("design:type", string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter)
-], CourseScalarWhereWithAggregatesInput.prototype, "image", void 0);
+    (0, graphql_1.Field)(() => int_nullable_with_aggregates_filter_input_1.IntNullableWithAggregatesFilter, { nullable: true }),
+    __metadata("design:type", int_nullable_with_aggregates_filter_input_1.IntNullableWithAggregatesFilter)
+], CourseScalarWhereWithAggregatesInput.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => bool_nullable_with_aggregates_filter_input_1.BoolNullableWithAggregatesFilter, { nullable: true }),
     __metadata("design:type", bool_nullable_with_aggregates_filter_input_1.BoolNullableWithAggregatesFilter)

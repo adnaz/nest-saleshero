@@ -15,6 +15,7 @@ const graphql_2 = require("@nestjs/graphql");
 const graphql_3 = require("@nestjs/graphql");
 const type_section_enum_1 = require("../prisma/type-section.enum");
 const graphql_4 = require("@nestjs/graphql");
+const reply_unchecked_create_nested_many_without_section_input_1 = require("../reply/reply-unchecked-create-nested-many-without-section.input");
 let SectionUncheckedCreateWithoutCourseInput = class SectionUncheckedCreateWithoutCourseInput {
 };
 __decorate([
@@ -30,9 +31,9 @@ __decorate([
     __metadata("design:type", String)
 ], SectionUncheckedCreateWithoutCourseInput.prototype, "description", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
-], SectionUncheckedCreateWithoutCourseInput.prototype, "image", void 0);
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], SectionUncheckedCreateWithoutCourseInput.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => type_section_enum_1.TypeSection, { nullable: true }),
     __metadata("design:type", Object)
@@ -53,6 +54,10 @@ __decorate([
     (0, graphql_4.HideField)(),
     __metadata("design:type", Object)
 ], SectionUncheckedCreateWithoutCourseInput.prototype, "updatedAt", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => reply_unchecked_create_nested_many_without_section_input_1.ReplyUncheckedCreateNestedManyWithoutSectionInput, { nullable: true }),
+    __metadata("design:type", reply_unchecked_create_nested_many_without_section_input_1.ReplyUncheckedCreateNestedManyWithoutSectionInput)
+], SectionUncheckedCreateWithoutCourseInput.prototype, "replies", void 0);
 SectionUncheckedCreateWithoutCourseInput = __decorate([
     (0, graphql_2.InputType)()
 ], SectionUncheckedCreateWithoutCourseInput);

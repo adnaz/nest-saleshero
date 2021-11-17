@@ -3,7 +3,7 @@ import { registerEnumType } from '@nestjs/graphql';
 export enum ActorScalarFieldEnum {
     id = "id",
     name = "name",
-    avatar = "avatar",
+    fileId = "fileId",
     createdAt = "createdAt",
     updatedAt = "updatedAt"
 }

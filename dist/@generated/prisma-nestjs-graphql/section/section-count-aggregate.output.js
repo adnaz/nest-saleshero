@@ -30,7 +30,7 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
     __metadata("design:type", Number)
-], SectionCountAggregate.prototype, "image", void 0);
+], SectionCountAggregate.prototype, "imageId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
     __metadata("design:type", Number)

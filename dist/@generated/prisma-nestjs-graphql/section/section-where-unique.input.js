@@ -19,6 +19,10 @@ __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
     __metadata("design:type", Number)
 ], SectionWhereUniqueInput.prototype, "id", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], SectionWhereUniqueInput.prototype, "imageId", void 0);
 SectionWhereUniqueInput = __decorate([
     (0, graphql_2.InputType)()
 ], SectionWhereUniqueInput);

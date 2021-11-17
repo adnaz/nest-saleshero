@@ -21,6 +21,10 @@ __decorate([
     __metadata("design:type", Number)
 ], QuickReplyMaxAggregate.prototype, "id", void 0);
 __decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
+], QuickReplyMaxAggregate.prototype, "keepIt", void 0);
+__decorate([
     (0, graphql_1.Field)(() => type_reply_enum_1.TypeReply, { nullable: true }),
     __metadata("design:type", Object)
 ], QuickReplyMaxAggregate.prototype, "type", void 0);

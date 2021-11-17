@@ -22,6 +22,10 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
+], QuickReplyMinOrderByAggregateInput.prototype, "keepIt", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
 ], QuickReplyMinOrderByAggregateInput.prototype, "type", void 0);
 QuickReplyMinOrderByAggregateInput = __decorate([
     (0, graphql_2.InputType)()
