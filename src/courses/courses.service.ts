@@ -18,7 +18,7 @@ export class CoursesService {
         });
       }
     
-      async courses(params: FindManyCourseArgs): Promise<Course[]> {
+      async courses(params: Prisma.CourseFindManyArgs): Promise<Course[]> {
         const { skip, take, cursor, where, orderBy } = params;
         return this.prisma.course.findMany({
           skip,
