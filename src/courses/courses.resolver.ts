@@ -52,7 +52,9 @@ export class CoursesResolver {
     @ResolveField()
     async author(@Parent() course: Course) {
         const { authorId } = course;
-        return this.usersService.user({ id:authorId });
+        if(authorId){
+            return this.usersService.user({ id:authorId });
+        }
     }
 
     @ResolveField()
