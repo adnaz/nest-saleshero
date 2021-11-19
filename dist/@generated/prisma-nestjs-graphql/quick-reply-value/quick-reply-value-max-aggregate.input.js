@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.QuickReplyValueMaxAggregateInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
+const graphql_3 = require("@nestjs/graphql");
 let QuickReplyValueMaxAggregateInput = class QuickReplyValueMaxAggregateInput {
 };
 __decorate([
@@ -27,7 +28,7 @@ __decorate([
     __metadata("design:type", Boolean)
 ], QuickReplyValueMaxAggregateInput.prototype, "value", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", Boolean)
 ], QuickReplyValueMaxAggregateInput.prototype, "quickReplyId", void 0);
 QuickReplyValueMaxAggregateInput = __decorate([

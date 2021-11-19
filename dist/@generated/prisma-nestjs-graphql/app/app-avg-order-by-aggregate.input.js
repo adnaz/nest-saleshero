@@ -19,6 +19,10 @@ __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
 ], AppAvgOrderByAggregateInput.prototype, "id", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], AppAvgOrderByAggregateInput.prototype, "authorId", void 0);
 AppAvgOrderByAggregateInput = __decorate([
     (0, graphql_2.InputType)()
 ], AppAvgOrderByAggregateInput);

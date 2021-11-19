@@ -17,6 +17,18 @@ export class FileOrderByWithAggregationInput {
     link?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    location?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    key?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    bucket?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    etag?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     createdAt?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})

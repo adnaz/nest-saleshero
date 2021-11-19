@@ -4,18 +4,18 @@ import * as AWS from "aws-sdk";
 @Injectable()
 export class S3Service
 {
-    AWS_S3_BUCKET = process.env.AWS_S3_BUCKET;
+    AWS_S3_BUCKET = "holumbo";
     s3 = new AWS.S3
     ({
-        accessKeyId: 'iUNdcMygq2uTa+VforhYMo5IMiWJP0nD7p23AmPM',
-        secretAccessKey: 'AKIAUTPZM47FPHCOYOE5',
+        accessKeyId: 'AKIAUTPZM47FPHCOYOE5',
+        secretAccessKey: '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',
     });
 
     async uploadFile(file)
     {
         const { originalname } = file;
 
-        await this.s3_upload(file.buffer, this.AWS_S3_BUCKET, originalname, file.mimetype);
+        return await this.s3_upload(file.buffer, this.AWS_S3_BUCKET, originalname, file.mimetype);
     }
 
     async s3_upload(file, bucket, name, mimetype)
@@ -34,12 +34,12 @@ export class S3Service
             }
         };
 
-        console.log(params);
+        // console.log(params);
 
         try
         {
             let s3Response = await this.s3.upload(params).promise();
-
+            return s3Response
             console.log(s3Response);
         }
         catch (e)

@@ -18,8 +18,8 @@ const string_with_aggregates_filter_input_1 = require("../prisma/string-with-agg
 const string_nullable_with_aggregates_filter_input_1 = require("../prisma/string-nullable-with-aggregates-filter.input");
 const int_nullable_with_aggregates_filter_input_1 = require("../prisma/int-nullable-with-aggregates-filter.input");
 const bool_nullable_with_aggregates_filter_input_1 = require("../prisma/bool-nullable-with-aggregates-filter.input");
-const graphql_3 = require("@nestjs/graphql");
 const date_time_with_aggregates_filter_input_1 = require("../prisma/date-time-with-aggregates-filter.input");
+const graphql_3 = require("@nestjs/graphql");
 let CourseScalarWhereWithAggregatesInput = CourseScalarWhereWithAggregatesInput_1 = class CourseScalarWhereWithAggregatesInput {
 };
 __decorate([
@@ -59,7 +59,7 @@ __decorate([
     __metadata("design:type", bool_nullable_with_aggregates_filter_input_1.BoolNullableWithAggregatesFilter)
 ], CourseScalarWhereWithAggregatesInput.prototype, "published", void 0);
 __decorate([
-    (0, graphql_3.HideField)(),
+    (0, graphql_1.Field)(() => int_nullable_with_aggregates_filter_input_1.IntNullableWithAggregatesFilter, { nullable: true }),
     __metadata("design:type", int_nullable_with_aggregates_filter_input_1.IntNullableWithAggregatesFilter)
 ], CourseScalarWhereWithAggregatesInput.prototype, "authorId", void 0);
 __decorate([

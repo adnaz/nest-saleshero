@@ -11,6 +11,9 @@ export class AppMinAggregate {
     @Field(() => String, {nullable:true})
     name?: string;
 
+    @Field(() => Int, {nullable:true})
+    authorId?: number;
+
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 

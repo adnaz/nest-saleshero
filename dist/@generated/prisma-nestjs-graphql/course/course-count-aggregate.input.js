@@ -40,7 +40,7 @@ __decorate([
     __metadata("design:type", Boolean)
 ], CourseCountAggregateInput.prototype, "published", void 0);
 __decorate([
-    (0, graphql_3.HideField)(),
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
 ], CourseCountAggregateInput.prototype, "authorId", void 0);
 __decorate([

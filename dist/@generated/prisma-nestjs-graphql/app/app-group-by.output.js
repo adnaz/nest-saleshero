@@ -29,6 +29,10 @@ __decorate([
     __metadata("design:type", String)
 ], AppGroupBy.prototype, "name", void 0);
 __decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], AppGroupBy.prototype, "authorId", void 0);
+__decorate([
     (0, graphql_1.Field)(() => Date, { nullable: false }),
     __metadata("design:type", Object)
 ], AppGroupBy.prototype, "createdAt", void 0);

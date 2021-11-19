@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
-import { StringFilter } from '../prisma/string-filter.input';
+import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 import { ReplyRelationFilter } from '../reply/reply-relation-filter.input';
 import { ActorRelationFilter } from '../actor/actor-relation-filter.input';
 import { CourseRelationFilter } from '../course/course-relation-filter.input';
@@ -24,8 +24,20 @@ export class FileWhereInput {
     @Field(() => IntFilter, {nullable:true})
     id?: IntFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    link?: StringFilter;
+    @Field(() => StringNullableFilter, {nullable:true})
+    link?: StringNullableFilter;
+
+    @Field(() => StringNullableFilter, {nullable:true})
+    location?: StringNullableFilter;
+
+    @Field(() => StringNullableFilter, {nullable:true})
+    key?: StringNullableFilter;
+
+    @Field(() => StringNullableFilter, {nullable:true})
+    bucket?: StringNullableFilter;
+
+    @Field(() => StringNullableFilter, {nullable:true})
+    etag?: StringNullableFilter;
 
     @Field(() => ReplyRelationFilter, {nullable:true})
     reply?: ReplyRelationFilter;

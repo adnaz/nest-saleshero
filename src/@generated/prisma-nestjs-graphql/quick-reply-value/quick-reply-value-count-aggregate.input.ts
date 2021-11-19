@@ -1,5 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
+import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class QuickReplyValueCountAggregateInput {
@@ -13,7 +14,7 @@ export class QuickReplyValueCountAggregateInput {
     @Field(() => Boolean, {nullable:true})
     value?: true;
 
-    @Field(() => Boolean, {nullable:true})
+    @HideField()
     quickReplyId?: true;
 
     @Field(() => Boolean, {nullable:true})

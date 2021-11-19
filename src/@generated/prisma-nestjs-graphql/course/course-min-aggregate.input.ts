@@ -23,7 +23,7 @@ export class CourseMinAggregateInput {
     @Field(() => Boolean, {nullable:true})
     published?: true;
 
-    @HideField()
+    @Field(() => Boolean, {nullable:true})
     authorId?: true;
 
     @HideField()

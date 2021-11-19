@@ -11,15 +11,15 @@ const common_1 = require("@nestjs/common");
 const AWS = require("aws-sdk");
 let S3Service = class S3Service {
     constructor() {
-        this.AWS_S3_BUCKET = process.env.AWS_S3_BUCKET;
+        this.AWS_S3_BUCKET = "holumbo";
         this.s3 = new AWS.S3({
-            accessKeyId: 'iUNdcMygq2uTa+VforhYMo5IMiWJP0nD7p23AmPM',
-            secretAccessKey: 'AKIAUTPZM47FPHCOYOE5',
+            accessKeyId: 'AKIAUTPZM47FPHCOYOE5',
+            secretAccessKey: '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',
         });
     }
     async uploadFile(file) {
         const { originalname } = file;
-        await this.s3_upload(file.buffer, this.AWS_S3_BUCKET, originalname, file.mimetype);
+        return await this.s3_upload(file.buffer, this.AWS_S3_BUCKET, originalname, file.mimetype);
     }
     async s3_upload(file, bucket, name, mimetype) {
         const params = {
@@ -33,9 +33,9 @@ let S3Service = class S3Service {
                 LocationConstraint: "eu-west-1"
             }
         };
-        console.log(params);
         try {
             let s3Response = await this.s3.upload(params).promise();
+            return s3Response;
             console.log(s3Response);
         }
         catch (e) {

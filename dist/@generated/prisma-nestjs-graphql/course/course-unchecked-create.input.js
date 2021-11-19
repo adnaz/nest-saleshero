@@ -42,7 +42,7 @@ __decorate([
     __metadata("design:type", Boolean)
 ], CourseUncheckedCreateInput.prototype, "published", void 0);
 __decorate([
-    (0, graphql_4.HideField)(),
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
     __metadata("design:type", Number)
 ], CourseUncheckedCreateInput.prototype, "authorId", void 0);
 __decorate([

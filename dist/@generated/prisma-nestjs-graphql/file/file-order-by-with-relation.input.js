@@ -28,6 +28,22 @@ __decorate([
     __metadata("design:type", Object)
 ], FileOrderByWithRelationInput.prototype, "link", void 0);
 __decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], FileOrderByWithRelationInput.prototype, "location", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], FileOrderByWithRelationInput.prototype, "key", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], FileOrderByWithRelationInput.prototype, "bucket", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], FileOrderByWithRelationInput.prototype, "etag", void 0);
+__decorate([
     (0, graphql_1.Field)(() => reply_order_by_with_relation_input_1.ReplyOrderByWithRelationInput, { nullable: true }),
     __metadata("design:type", reply_order_by_with_relation_input_1.ReplyOrderByWithRelationInput)
 ], FileOrderByWithRelationInput.prototype, "reply", void 0);

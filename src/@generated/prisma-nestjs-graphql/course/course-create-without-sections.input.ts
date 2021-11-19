@@ -29,6 +29,6 @@ export class CourseCreateWithoutSectionsInput {
     @Field(() => FileCreateNestedOneWithoutCourseImageInput, {nullable:true})
     image?: FileCreateNestedOneWithoutCourseImageInput;
 
-    @HideField()
+    @Field(() => UserCreateNestedOneWithoutCoursesInput, {nullable:true})
     author?: UserCreateNestedOneWithoutCoursesInput;
 }

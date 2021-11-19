@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
 import { QuickReplyRelationFilter } from '../quick-reply/quick-reply-relation-filter.input';
+import { HideField } from '@nestjs/graphql';
 import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
 
 @InputType()
@@ -26,9 +27,9 @@ export class QuickReplyValueWhereInput {
     @Field(() => StringFilter, {nullable:true})
     value?: StringFilter;
 
-    @Field(() => QuickReplyRelationFilter, {nullable:true})
+    @HideField()
     quickReply?: QuickReplyRelationFilter;
 
-    @Field(() => IntNullableFilter, {nullable:true})
+    @HideField()
     quickReplyId?: IntNullableFilter;
 }

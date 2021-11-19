@@ -6,6 +6,7 @@ var AppScalarFieldEnum;
 (function (AppScalarFieldEnum) {
     AppScalarFieldEnum["id"] = "id";
     AppScalarFieldEnum["name"] = "name";
+    AppScalarFieldEnum["authorId"] = "authorId";
     AppScalarFieldEnum["createdAt"] = "createdAt";
     AppScalarFieldEnum["updatedAt"] = "updatedAt";
 })(AppScalarFieldEnum = exports.AppScalarFieldEnum || (exports.AppScalarFieldEnum = {}));

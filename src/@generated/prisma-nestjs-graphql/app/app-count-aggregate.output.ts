@@ -12,6 +12,9 @@ export class AppCountAggregate {
     name!: number;
 
     @Field(() => Int, {nullable:false})
+    authorId!: number;
+
+    @Field(() => Int, {nullable:false})
     createdAt!: number;
 
     @Field(() => Int, {nullable:false})

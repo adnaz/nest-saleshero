@@ -15,6 +15,8 @@ const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const int_filter_input_1 = require("../prisma/int-filter.input");
 const string_nullable_filter_input_1 = require("../prisma/string-nullable-filter.input");
+const user_relation_filter_input_1 = require("../user/user-relation-filter.input");
+const int_nullable_filter_input_1 = require("../prisma/int-nullable-filter.input");
 const date_time_filter_input_1 = require("../prisma/date-time-filter.input");
 let AppWhereInput = AppWhereInput_1 = class AppWhereInput {
 };
@@ -38,6 +40,14 @@ __decorate([
     (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
     __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
 ], AppWhereInput.prototype, "name", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => user_relation_filter_input_1.UserRelationFilter, { nullable: true }),
+    __metadata("design:type", user_relation_filter_input_1.UserRelationFilter)
+], AppWhereInput.prototype, "author", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => int_nullable_filter_input_1.IntNullableFilter, { nullable: true }),
+    __metadata("design:type", int_nullable_filter_input_1.IntNullableFilter)
+], AppWhereInput.prototype, "authorId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => date_time_filter_input_1.DateTimeFilter, { nullable: true }),
     __metadata("design:type", date_time_filter_input_1.DateTimeFilter)

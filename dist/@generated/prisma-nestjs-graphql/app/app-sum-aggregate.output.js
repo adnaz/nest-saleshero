@@ -19,6 +19,10 @@ __decorate([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
     __metadata("design:type", Number)
 ], AppSumAggregate.prototype, "id", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], AppSumAggregate.prototype, "authorId", void 0);
 AppSumAggregate = __decorate([
     (0, graphql_2.ObjectType)()
 ], AppSumAggregate);

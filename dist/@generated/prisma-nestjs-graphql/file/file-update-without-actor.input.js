@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FileUpdateWithoutActorInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
-const string_field_update_operations_input_1 = require("../prisma/string-field-update-operations.input");
+const nullable_string_field_update_operations_input_1 = require("../prisma/nullable-string-field-update-operations.input");
 const date_time_field_update_operations_input_1 = require("../prisma/date-time-field-update-operations.input");
 const enum_type_file_field_update_operations_input_1 = require("../prisma/enum-type-file-field-update-operations.input");
 const reply_update_one_without_file_input_1 = require("../reply/reply-update-one-without-file.input");
@@ -22,9 +22,25 @@ const section_update_one_without_image_input_1 = require("../section/section-upd
 let FileUpdateWithoutActorInput = class FileUpdateWithoutActorInput {
 };
 __decorate([
-    (0, graphql_1.Field)(() => string_field_update_operations_input_1.StringFieldUpdateOperationsInput, { nullable: true }),
-    __metadata("design:type", string_field_update_operations_input_1.StringFieldUpdateOperationsInput)
+    (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
+    __metadata("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
 ], FileUpdateWithoutActorInput.prototype, "link", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
+    __metadata("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
+], FileUpdateWithoutActorInput.prototype, "location", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
+    __metadata("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
+], FileUpdateWithoutActorInput.prototype, "key", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
+    __metadata("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
+], FileUpdateWithoutActorInput.prototype, "bucket", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
+    __metadata("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
+], FileUpdateWithoutActorInput.prototype, "etag", void 0);
 __decorate([
     (0, graphql_1.Field)(() => date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput, { nullable: true }),
     __metadata("design:type", date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput)

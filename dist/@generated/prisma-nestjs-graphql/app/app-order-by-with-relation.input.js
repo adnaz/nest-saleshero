@@ -13,6 +13,7 @@ exports.AppOrderByWithRelationInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const sort_order_enum_1 = require("../prisma/sort-order.enum");
+const user_order_by_with_relation_input_1 = require("../user/user-order-by-with-relation.input");
 let AppOrderByWithRelationInput = class AppOrderByWithRelationInput {
 };
 __decorate([
@@ -23,6 +24,14 @@ __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
 ], AppOrderByWithRelationInput.prototype, "name", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => user_order_by_with_relation_input_1.UserOrderByWithRelationInput, { nullable: true }),
+    __metadata("design:type", user_order_by_with_relation_input_1.UserOrderByWithRelationInput)
+], AppOrderByWithRelationInput.prototype, "author", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], AppOrderByWithRelationInput.prototype, "authorId", void 0);
 __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)

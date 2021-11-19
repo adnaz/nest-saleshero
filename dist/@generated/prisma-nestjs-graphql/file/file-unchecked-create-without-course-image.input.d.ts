@@ -5,7 +5,11 @@ import { CourseUncheckedCreateNestedOneWithoutAudioInput } from '../course/cours
 import { SectionUncheckedCreateNestedOneWithoutImageInput } from '../section/section-unchecked-create-nested-one-without-image.input';
 export declare class FileUncheckedCreateWithoutCourseImageInput {
     id?: number;
-    link: string;
+    link?: string;
+    location?: string;
+    key?: string;
+    bucket?: string;
+    etag?: string;
     createdAt?: Date | string;
     updatedAt?: Date | string;
     type: keyof typeof TypeFile;

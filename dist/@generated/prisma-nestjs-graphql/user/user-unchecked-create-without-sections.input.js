@@ -15,6 +15,8 @@ const graphql_2 = require("@nestjs/graphql");
 const graphql_3 = require("@nestjs/graphql");
 const Validator = require("class-validator");
 const role_enum_1 = require("../prisma/role.enum");
+const app_unchecked_create_nested_many_without_author_input_1 = require("../app/app-unchecked-create-nested-many-without-author.input");
+const graphql_4 = require("@nestjs/graphql");
 const post_unchecked_create_nested_many_without_author_input_1 = require("../post/post-unchecked-create-nested-many-without-author.input");
 const course_unchecked_create_nested_many_without_author_input_1 = require("../course/course-unchecked-create-nested-many-without-author.input");
 let UserUncheckedCreateWithoutSectionsInput = class UserUncheckedCreateWithoutSectionsInput {
@@ -53,11 +55,15 @@ __decorate([
     __metadata("design:type", Object)
 ], UserUncheckedCreateWithoutSectionsInput.prototype, "updatedAt", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => post_unchecked_create_nested_many_without_author_input_1.PostUncheckedCreateNestedManyWithoutAuthorInput, { nullable: true }),
+    (0, graphql_4.HideField)(),
+    __metadata("design:type", app_unchecked_create_nested_many_without_author_input_1.AppUncheckedCreateNestedManyWithoutAuthorInput)
+], UserUncheckedCreateWithoutSectionsInput.prototype, "apps", void 0);
+__decorate([
+    (0, graphql_4.HideField)(),
     __metadata("design:type", post_unchecked_create_nested_many_without_author_input_1.PostUncheckedCreateNestedManyWithoutAuthorInput)
 ], UserUncheckedCreateWithoutSectionsInput.prototype, "posts", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => course_unchecked_create_nested_many_without_author_input_1.CourseUncheckedCreateNestedManyWithoutAuthorInput, { nullable: true }),
+    (0, graphql_4.HideField)(),
     __metadata("design:type", course_unchecked_create_nested_many_without_author_input_1.CourseUncheckedCreateNestedManyWithoutAuthorInput)
 ], UserUncheckedCreateWithoutSectionsInput.prototype, "courses", void 0);
 UserUncheckedCreateWithoutSectionsInput = __decorate([

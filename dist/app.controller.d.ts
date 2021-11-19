@@ -12,4 +12,8 @@ export declare class AppController {
         originalname: string;
         filename: string;
     };
+    uploadFileS3(file: Express.Multer.File): {
+        originalname: string;
+        filename: string;
+    };
 }

@@ -24,6 +24,10 @@ __decorate([
     __metadata("design:type", String)
 ], AppMaxAggregate.prototype, "name", void 0);
 __decorate([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    __metadata("design:type", Number)
+], AppMaxAggregate.prototype, "authorId", void 0);
+__decorate([
     (0, graphql_1.Field)(() => Date, { nullable: true }),
     __metadata("design:type", Object)
 ], AppMaxAggregate.prototype, "createdAt", void 0);

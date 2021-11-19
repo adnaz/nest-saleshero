@@ -17,8 +17,8 @@ const string_field_update_operations_input_1 = require("../prisma/string-field-u
 const nullable_string_field_update_operations_input_1 = require("../prisma/nullable-string-field-update-operations.input");
 const nullable_int_field_update_operations_input_1 = require("../prisma/nullable-int-field-update-operations.input");
 const nullable_bool_field_update_operations_input_1 = require("../prisma/nullable-bool-field-update-operations.input");
-const graphql_3 = require("@nestjs/graphql");
 const date_time_field_update_operations_input_1 = require("../prisma/date-time-field-update-operations.input");
+const graphql_3 = require("@nestjs/graphql");
 let CourseUncheckedUpdateManyInput = class CourseUncheckedUpdateManyInput {
 };
 __decorate([
@@ -46,7 +46,7 @@ __decorate([
     __metadata("design:type", nullable_bool_field_update_operations_input_1.NullableBoolFieldUpdateOperationsInput)
 ], CourseUncheckedUpdateManyInput.prototype, "published", void 0);
 __decorate([
-    (0, graphql_3.HideField)(),
+    (0, graphql_1.Field)(() => nullable_int_field_update_operations_input_1.NullableIntFieldUpdateOperationsInput, { nullable: true }),
     __metadata("design:type", nullable_int_field_update_operations_input_1.NullableIntFieldUpdateOperationsInput)
 ], CourseUncheckedUpdateManyInput.prototype, "authorId", void 0);
 __decorate([

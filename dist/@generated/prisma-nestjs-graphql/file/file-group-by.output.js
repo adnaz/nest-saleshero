@@ -26,9 +26,25 @@ __decorate([
     __metadata("design:type", Number)
 ], FileGroupBy.prototype, "id", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: false }),
+    (0, graphql_1.Field)(() => String, { nullable: true }),
     __metadata("design:type", String)
 ], FileGroupBy.prototype, "link", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => String, { nullable: true }),
+    __metadata("design:type", String)
+], FileGroupBy.prototype, "location", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => String, { nullable: true }),
+    __metadata("design:type", String)
+], FileGroupBy.prototype, "key", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => String, { nullable: true }),
+    __metadata("design:type", String)
+], FileGroupBy.prototype, "bucket", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => String, { nullable: true }),
+    __metadata("design:type", String)
+], FileGroupBy.prototype, "etag", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Date, { nullable: false }),
     __metadata("design:type", Object)

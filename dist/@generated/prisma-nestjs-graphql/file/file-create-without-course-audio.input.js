@@ -20,9 +20,25 @@ const section_create_nested_one_without_image_input_1 = require("../section/sect
 let FileCreateWithoutCourseAudioInput = class FileCreateWithoutCourseAudioInput {
 };
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: false }),
+    (0, graphql_1.Field)(() => String, { nullable: true }),
     __metadata("design:type", String)
 ], FileCreateWithoutCourseAudioInput.prototype, "link", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => String, { nullable: true }),
+    __metadata("design:type", String)
+], FileCreateWithoutCourseAudioInput.prototype, "location", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => String, { nullable: true }),
+    __metadata("design:type", String)
+], FileCreateWithoutCourseAudioInput.prototype, "key", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => String, { nullable: true }),
+    __metadata("design:type", String)
+], FileCreateWithoutCourseAudioInput.prototype, "bucket", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => String, { nullable: true }),
+    __metadata("design:type", String)
+], FileCreateWithoutCourseAudioInput.prototype, "etag", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Date, { nullable: true }),
     __metadata("design:type", Object)

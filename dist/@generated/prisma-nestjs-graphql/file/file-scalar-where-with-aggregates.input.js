@@ -14,7 +14,7 @@ exports.FileScalarWhereWithAggregatesInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const int_with_aggregates_filter_input_1 = require("../prisma/int-with-aggregates-filter.input");
-const string_with_aggregates_filter_input_1 = require("../prisma/string-with-aggregates-filter.input");
+const string_nullable_with_aggregates_filter_input_1 = require("../prisma/string-nullable-with-aggregates-filter.input");
 const date_time_with_aggregates_filter_input_1 = require("../prisma/date-time-with-aggregates-filter.input");
 const enum_type_file_with_aggregates_filter_input_1 = require("../prisma/enum-type-file-with-aggregates-filter.input");
 let FileScalarWhereWithAggregatesInput = FileScalarWhereWithAggregatesInput_1 = class FileScalarWhereWithAggregatesInput {
@@ -36,9 +36,25 @@ __decorate([
     __metadata("design:type", int_with_aggregates_filter_input_1.IntWithAggregatesFilter)
 ], FileScalarWhereWithAggregatesInput.prototype, "id", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => string_with_aggregates_filter_input_1.StringWithAggregatesFilter, { nullable: true }),
-    __metadata("design:type", string_with_aggregates_filter_input_1.StringWithAggregatesFilter)
+    (0, graphql_1.Field)(() => string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter, { nullable: true }),
+    __metadata("design:type", string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter)
 ], FileScalarWhereWithAggregatesInput.prototype, "link", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter, { nullable: true }),
+    __metadata("design:type", string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter)
+], FileScalarWhereWithAggregatesInput.prototype, "location", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter, { nullable: true }),
+    __metadata("design:type", string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter)
+], FileScalarWhereWithAggregatesInput.prototype, "key", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter, { nullable: true }),
+    __metadata("design:type", string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter)
+], FileScalarWhereWithAggregatesInput.prototype, "bucket", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter, { nullable: true }),
+    __metadata("design:type", string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter)
+], FileScalarWhereWithAggregatesInput.prototype, "etag", void 0);
 __decorate([
     (0, graphql_1.Field)(() => date_time_with_aggregates_filter_input_1.DateTimeWithAggregatesFilter, { nullable: true }),
     __metadata("design:type", date_time_with_aggregates_filter_input_1.DateTimeWithAggregatesFilter)

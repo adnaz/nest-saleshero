@@ -6,6 +6,7 @@ import {
   Prisma,
 } from '@prisma/client';
 import { FindManyCourseArgs } from 'src/@generated/prisma-nestjs-graphql/course/find-many-course.args';
+import { CourseCreateInput } from 'src/@generated/prisma-nestjs-graphql/course/course-create.input';
 @Injectable()
 export class CoursesService {
     constructor(private prisma: PrismaService) {}
@@ -28,7 +29,7 @@ export class CoursesService {
         });
       }
     
-      async createCourse(data: Prisma.CourseCreateInput): Promise<Course> {
+      async createCourse(data: CourseCreateInput): Promise<Course> {
         return this.prisma.course.create({
           data,
         });

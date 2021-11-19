@@ -29,6 +29,6 @@ export class CourseCreateWithoutAudioInput {
     @Field(() => SectionCreateNestedManyWithoutCourseInput, {nullable:true})
     sections?: SectionCreateNestedManyWithoutCourseInput;
 
-    @HideField()
+    @Field(() => UserCreateNestedOneWithoutCoursesInput, {nullable:true})
     author?: UserCreateNestedOneWithoutCoursesInput;
 }

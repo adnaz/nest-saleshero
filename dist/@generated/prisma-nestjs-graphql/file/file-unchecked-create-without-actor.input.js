@@ -25,9 +25,25 @@ __decorate([
     __metadata("design:type", Number)
 ], FileUncheckedCreateWithoutActorInput.prototype, "id", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => String, { nullable: false }),
+    (0, graphql_1.Field)(() => String, { nullable: true }),
     __metadata("design:type", String)
 ], FileUncheckedCreateWithoutActorInput.prototype, "link", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => String, { nullable: true }),
+    __metadata("design:type", String)
+], FileUncheckedCreateWithoutActorInput.prototype, "location", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => String, { nullable: true }),
+    __metadata("design:type", String)
+], FileUncheckedCreateWithoutActorInput.prototype, "key", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => String, { nullable: true }),
+    __metadata("design:type", String)
+], FileUncheckedCreateWithoutActorInput.prototype, "bucket", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => String, { nullable: true }),
+    __metadata("design:type", String)
+], FileUncheckedCreateWithoutActorInput.prototype, "etag", void 0);
 __decorate([
     (0, graphql_1.Field)(() => Date, { nullable: true }),
     __metadata("design:type", Object)

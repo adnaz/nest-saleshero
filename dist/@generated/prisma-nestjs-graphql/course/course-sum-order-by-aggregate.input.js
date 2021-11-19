@@ -13,7 +13,6 @@ exports.CourseSumOrderByAggregateInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const sort_order_enum_1 = require("../prisma/sort-order.enum");
-const graphql_3 = require("@nestjs/graphql");
 let CourseSumOrderByAggregateInput = class CourseSumOrderByAggregateInput {
 };
 __decorate([
@@ -29,7 +28,7 @@ __decorate([
     __metadata("design:type", Object)
 ], CourseSumOrderByAggregateInput.prototype, "imageId", void 0);
 __decorate([
-    (0, graphql_3.HideField)(),
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
 ], CourseSumOrderByAggregateInput.prototype, "authorId", void 0);
 CourseSumOrderByAggregateInput = __decorate([

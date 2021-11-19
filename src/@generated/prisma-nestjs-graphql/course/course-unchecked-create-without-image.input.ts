@@ -22,7 +22,7 @@ export class CourseUncheckedCreateWithoutImageInput {
     @Field(() => Boolean, {nullable:true})
     published?: boolean;
 
-    @HideField()
+    @Field(() => Int, {nullable:true})
     authorId?: number;
 
     @HideField()

@@ -10,11 +10,13 @@ exports.ActorsModule = void 0;
 const common_1 = require("@nestjs/common");
 const actors_service_1 = require("./actors.service");
 const actors_resolver_1 = require("./actors.resolver");
+const prisma_service_1 = require("../prisma.service");
+const files_service_1 = require("../files/files.service");
 let ActorsModule = class ActorsModule {
 };
 ActorsModule = __decorate([
     (0, common_1.Module)({
-        providers: [actors_resolver_1.ActorsResolver, actors_service_1.ActorsService]
+        providers: [actors_resolver_1.ActorsResolver, actors_service_1.ActorsService, prisma_service_1.PrismaService, files_service_1.FilesService]
     })
 ], ActorsModule);
 exports.ActorsModule = ActorsModule;

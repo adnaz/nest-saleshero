@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { QuickReplyCreateNestedOneWithoutValuesInput } from '../quick-reply/quick-reply-create-nested-one-without-values.input';
+import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class QuickReplyValueCreateInput {
@@ -11,6 +12,6 @@ export class QuickReplyValueCreateInput {
     @Field(() => String, {nullable:false})
     value!: string;
 
-    @Field(() => QuickReplyCreateNestedOneWithoutValuesInput, {nullable:true})
+    @HideField()
     quickReply?: QuickReplyCreateNestedOneWithoutValuesInput;
 }

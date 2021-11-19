@@ -6,6 +6,10 @@ import { SectionOrderByWithRelationInput } from '../section/section-order-by-wit
 export declare class FileOrderByWithRelationInput {
     id?: keyof typeof SortOrder;
     link?: keyof typeof SortOrder;
+    location?: keyof typeof SortOrder;
+    key?: keyof typeof SortOrder;
+    bucket?: keyof typeof SortOrder;
+    etag?: keyof typeof SortOrder;
     reply?: ReplyOrderByWithRelationInput;
     actor?: ActorOrderByWithRelationInput;
     courseImage?: CourseOrderByWithRelationInput;

@@ -10,8 +10,20 @@ import { SectionCreateNestedOneWithoutImageInput } from '../section/section-crea
 @InputType()
 export class FileCreateInput {
 
-    @Field(() => String, {nullable:false})
-    link!: string;
+    @Field(() => String, {nullable:true})
+    link?: string;
+
+    @Field(() => String, {nullable:true})
+    location?: string;
+
+    @Field(() => String, {nullable:true})
+    key?: string;
+
+    @Field(() => String, {nullable:true})
+    bucket?: string;
+
+    @Field(() => String, {nullable:true})
+    etag?: string;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;

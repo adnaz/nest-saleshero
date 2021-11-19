@@ -7,4 +7,7 @@ export class AppSumAggregate {
 
     @Field(() => Int, {nullable:true})
     id?: number;
+
+    @Field(() => Int, {nullable:true})
+    authorId?: number;
 }

@@ -13,6 +13,7 @@ exports.QuickReplyValueMaxOrderByAggregateInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const sort_order_enum_1 = require("../prisma/sort-order.enum");
+const graphql_3 = require("@nestjs/graphql");
 let QuickReplyValueMaxOrderByAggregateInput = class QuickReplyValueMaxOrderByAggregateInput {
 };
 __decorate([
@@ -28,7 +29,7 @@ __decorate([
     __metadata("design:type", Object)
 ], QuickReplyValueMaxOrderByAggregateInput.prototype, "value", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", Object)
 ], QuickReplyValueMaxOrderByAggregateInput.prototype, "quickReplyId", void 0);
 QuickReplyValueMaxOrderByAggregateInput = __decorate([

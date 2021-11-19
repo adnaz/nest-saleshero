@@ -1,26 +1,53 @@
 import { Injectable } from '@nestjs/common';
-import { CreateActorInput } from './dto/create-actor.input';
-import { UpdateActorInput } from './dto/update-actor.input';
-
+import { PrismaService } from '../prisma.service';
+import {
+  Actor,
+  Prisma,
+} from '@prisma/client';
+import { FindManyActorArgs } from 'src/@generated/prisma-nestjs-graphql/actor/find-many-actor.args';
+import { ActorCreateInput } from 'src/@generated/prisma-nestjs-graphql/actor/actor-create.input';
 @Injectable()
 export class ActorsService {
-  create(createActorInput: CreateActorInput) {
-    return 'This action adds a new actor';
-  }
+    constructor(private prisma: PrismaService) {}
 
-  findAll() {
-    return `This action returns all actors`;
-  }
 
-  findOne(id: number) {
-    return `This action returns a #${id} actor`;
-  }
-
-  update(id: number, updateActorInput: UpdateActorInput) {
-    return `This action updates a #${id} actor`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} actor`;
-  }
+    async actor(actorWhereUniqueInput: Prisma.ActorWhereUniqueInput): Promise<Actor | null> {
+        return this.prisma.actor.findUnique({
+          where: actorWhereUniqueInput,
+        });
+      }
+    
+      async actors(params: FindManyActorArgs): Promise<Actor[]> {
+        const { skip, take, cursor, where, orderBy } = params;
+        return this.prisma.actor.findMany({
+          skip,
+          take,
+          cursor,
+          where,
+          orderBy,
+        });
+      }
+    
+      async createActor(data: ActorCreateInput): Promise<Actor> {
+        return this.prisma.actor.create({
+          data,
+        });
+      }
+    
+      async updateActor(params: {
+        where: Prisma.ActorWhereUniqueInput;
+        data: Prisma.ActorUpdateInput;
+      }): Promise<Actor> {
+        const { data, where } = params;
+        return this.prisma.actor.update({
+          data,
+          where,
+        });
+      }
+    
+      async deleteActor(where: Prisma.ActorWhereUniqueInput): Promise<Actor> {
+        return this.prisma.actor.delete({
+          where,
+        });
+      }
 }

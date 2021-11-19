@@ -4,7 +4,11 @@ import { CourseCreateNestedOneWithoutImageInput } from '../course/course-create-
 import { CourseCreateNestedOneWithoutAudioInput } from '../course/course-create-nested-one-without-audio.input';
 import { SectionCreateNestedOneWithoutImageInput } from '../section/section-create-nested-one-without-image.input';
 export declare class FileCreateWithoutReplyInput {
-    link: string;
+    link?: string;
+    location?: string;
+    key?: string;
+    bucket?: string;
+    etag?: string;
     createdAt?: Date | string;
     updatedAt?: Date | string;
     type: keyof typeof TypeFile;

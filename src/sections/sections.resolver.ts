@@ -1,35 +1,52 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import { Args, Int, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
+import { SectionCreateInput } from 'src/@generated/prisma-nestjs-graphql/section/section-create.input';
+import { Section } from 'src/@generated/prisma-nestjs-graphql/section/section.model';
+import { FindManySectionArgs } from 'src/@generated/prisma-nestjs-graphql/section/find-many-section.args';
+import { UpdateOneSectionArgs } from 'src/@generated/prisma-nestjs-graphql/section/update-one-section.args';
+import { UsersService } from 'src/users/users.service';
 import { SectionsService } from './sections.service';
-import { Section } from './entities/section.entity';
-import { CreateSectionInput } from './dto/create-section.input';
-import { UpdateSectionInput } from './dto/update-section.input';
-
-@Resolver(() => Section)
+import { CoursesService } from 'src/courses/courses.service';
+@Resolver( Section)
 export class SectionsResolver {
-  constructor(private readonly sectionsService: SectionsService) {}
 
-  @Mutation(() => Section)
-  createSection(@Args('createSectionInput') createSectionInput: CreateSectionInput) {
-    return this.sectionsService.create(createSectionInput);
-  }
+    constructor(private sectionsService: SectionsService, private usersService: UsersService,private coursesService:CoursesService) { }
 
-  @Query(() => [Section], { name: 'sections' })
-  findAll() {
-    return this.sectionsService.findAll();
-  }
 
-  @Query(() => Section, { name: 'section' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
-    return this.sectionsService.findOne(id);
-  }
+    @Query(returns => [Section])
+    sections(@Args() findManySectionArgs : FindManySectionArgs): Promise<Section[]> {
+        return this.sectionsService.sections(findManySectionArgs);
+    }
 
-  @Mutation(() => Section)
-  updateSection(@Args('updateSectionInput') updateSectionInput: UpdateSectionInput) {
-    return this.sectionsService.update(updateSectionInput.id, updateSectionInput);
-  }
+    @Query(retuns => Section)
+    async section(@Args('id', { type: () => Int }) id: number) {
+        return this.sectionsService.section({ id })
+    }
 
-  @Mutation(() => Section)
-  removeSection(@Args('id', { type: () => Int }) id: number) {
-    return this.sectionsService.remove(id);
-  }
+    @Mutation(returns =>Section)
+    createSection(@Args('sectionCreateInput') sectionCreateInput:SectionCreateInput ){
+        return this.sectionsService.createSection(sectionCreateInput)
+    }
+    
+    @Mutation(()=>Section)
+    updateSection(@Args() updateOneSectionArgs:UpdateOneSectionArgs){
+        return this.sectionsService.updateSection(updateOneSectionArgs)
+    }
+
+    @Mutation(()=>Section)
+    removeSection(@Args('id', { type: () => Int }) id: number){
+        return this.sectionsService.deleteSection({id});
+    }
+
+    @ResolveField()
+    async author(@Parent() section: Section) {
+        const { authorId } = section;
+        return this.usersService.user({ id:authorId });
+    }
+    
+    @ResolveField()
+    async course(@Parent() section: Section) {
+        const { courseId } = section;
+        return this.coursesService.course({ id:courseId });
+    }
+
 }

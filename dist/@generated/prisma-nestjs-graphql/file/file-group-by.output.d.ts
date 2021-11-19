@@ -6,7 +6,11 @@ import { FileMinAggregate } from './file-min-aggregate.output';
 import { FileMaxAggregate } from './file-max-aggregate.output';
 export declare class FileGroupBy {
     id: number;
-    link: string;
+    link?: string;
+    location?: string;
+    key?: string;
+    bucket?: string;
+    etag?: string;
     createdAt: Date | string;
     updatedAt: Date | string;
     type: keyof typeof TypeFile;

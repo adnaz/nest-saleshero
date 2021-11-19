@@ -1,26 +1,53 @@
 import { Injectable } from '@nestjs/common';
-import { CreateSectionInput } from './dto/create-section.input';
-import { UpdateSectionInput } from './dto/update-section.input';
-
+// import { Section } from './section.entity';
+import { PrismaService } from '../prisma.service';
+import {
+  Section,
+  Prisma,
+} from '@prisma/client';
+import { FindManySectionArgs } from 'src/@generated/prisma-nestjs-graphql/section/find-many-section.args';
 @Injectable()
 export class SectionsService {
-  create(createSectionInput: CreateSectionInput) {
-    return 'This action adds a new section';
-  }
+    constructor(private prisma: PrismaService) {}
 
-  findAll() {
-    return `This action returns all sections`;
-  }
 
-  findOne(id: number) {
-    return `This action returns a #${id} section`;
-  }
-
-  update(id: number, updateSectionInput: UpdateSectionInput) {
-    return `This action updates a #${id} section`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} section`;
-  }
+    async section(sectionWhereUniqueInput: Prisma.SectionWhereUniqueInput): Promise<Section | null> {
+        return this.prisma.section.findUnique({
+          where: sectionWhereUniqueInput,
+        });
+      }
+    
+      async sections(params: FindManySectionArgs): Promise<Section[]> {
+        const { skip, take, cursor, where, orderBy } = params;
+        return this.prisma.section.findMany({
+          skip,
+          take,
+          cursor,
+          where,
+          orderBy,
+        });
+      }
+    
+      async createSection(data: Prisma.SectionCreateInput): Promise<Section> {
+        return this.prisma.section.create({
+          data,
+        });
+      }
+    
+      async updateSection(params: {
+        where: Prisma.SectionWhereUniqueInput;
+        data: Prisma.SectionUpdateInput;
+      }): Promise<Section> {
+        const { data, where } = params;
+        return this.prisma.section.update({
+          data,
+          where,
+        });
+      }
+    
+      async deleteSection(where: Prisma.SectionWhereUniqueInput): Promise<Section> {
+        return this.prisma.section.delete({
+          where,
+        });
+      }
 }

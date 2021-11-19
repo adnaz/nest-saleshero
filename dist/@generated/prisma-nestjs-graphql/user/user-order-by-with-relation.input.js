@@ -13,6 +13,8 @@ exports.UserOrderByWithRelationInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const sort_order_enum_1 = require("../prisma/sort-order.enum");
+const app_order_by_relation_aggregate_input_1 = require("../app/app-order-by-relation-aggregate.input");
+const graphql_3 = require("@nestjs/graphql");
 const post_order_by_relation_aggregate_input_1 = require("../post/post-order-by-relation-aggregate.input");
 const course_order_by_relation_aggregate_input_1 = require("../course/course-order-by-relation-aggregate.input");
 const section_order_by_relation_aggregate_input_1 = require("../section/section-order-by-relation-aggregate.input");
@@ -39,15 +41,19 @@ __decorate([
     __metadata("design:type", Object)
 ], UserOrderByWithRelationInput.prototype, "password", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => post_order_by_relation_aggregate_input_1.PostOrderByRelationAggregateInput, { nullable: true }),
+    (0, graphql_3.HideField)(),
+    __metadata("design:type", app_order_by_relation_aggregate_input_1.AppOrderByRelationAggregateInput)
+], UserOrderByWithRelationInput.prototype, "apps", void 0);
+__decorate([
+    (0, graphql_3.HideField)(),
     __metadata("design:type", post_order_by_relation_aggregate_input_1.PostOrderByRelationAggregateInput)
 ], UserOrderByWithRelationInput.prototype, "posts", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => course_order_by_relation_aggregate_input_1.CourseOrderByRelationAggregateInput, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", course_order_by_relation_aggregate_input_1.CourseOrderByRelationAggregateInput)
 ], UserOrderByWithRelationInput.prototype, "courses", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => section_order_by_relation_aggregate_input_1.SectionOrderByRelationAggregateInput, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", section_order_by_relation_aggregate_input_1.SectionOrderByRelationAggregateInput)
 ], UserOrderByWithRelationInput.prototype, "sections", void 0);
 __decorate([

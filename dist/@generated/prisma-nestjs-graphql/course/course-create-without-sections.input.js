@@ -47,7 +47,7 @@ __decorate([
     __metadata("design:type", file_create_nested_one_without_course_image_input_1.FileCreateNestedOneWithoutCourseImageInput)
 ], CourseCreateWithoutSectionsInput.prototype, "image", void 0);
 __decorate([
-    (0, graphql_3.HideField)(),
+    (0, graphql_1.Field)(() => user_create_nested_one_without_courses_input_1.UserCreateNestedOneWithoutCoursesInput, { nullable: true }),
     __metadata("design:type", user_create_nested_one_without_courses_input_1.UserCreateNestedOneWithoutCoursesInput)
 ], CourseCreateWithoutSectionsInput.prototype, "author", void 0);
 CourseCreateWithoutSectionsInput = __decorate([

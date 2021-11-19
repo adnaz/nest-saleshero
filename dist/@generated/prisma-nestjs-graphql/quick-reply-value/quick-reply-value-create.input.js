@@ -13,6 +13,7 @@ exports.QuickReplyValueCreateInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const quick_reply_create_nested_one_without_values_input_1 = require("../quick-reply/quick-reply-create-nested-one-without-values.input");
+const graphql_3 = require("@nestjs/graphql");
 let QuickReplyValueCreateInput = class QuickReplyValueCreateInput {
 };
 __decorate([
@@ -24,7 +25,7 @@ __decorate([
     __metadata("design:type", String)
 ], QuickReplyValueCreateInput.prototype, "value", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => quick_reply_create_nested_one_without_values_input_1.QuickReplyCreateNestedOneWithoutValuesInput, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", quick_reply_create_nested_one_without_values_input_1.QuickReplyCreateNestedOneWithoutValuesInput)
 ], QuickReplyValueCreateInput.prototype, "quickReply", void 0);
 QuickReplyValueCreateInput = __decorate([

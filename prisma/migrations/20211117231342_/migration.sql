@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE `App` ADD COLUMN `authorId` INTEGER NULL;
+
+-- AddForeignKey
+ALTER TABLE `App` ADD CONSTRAINT `App_authorId_fkey` FOREIGN KEY (`authorId`) REFERENCES `User`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;

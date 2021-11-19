@@ -33,6 +33,6 @@ export class CourseUpdateWithoutSectionsInput {
     @Field(() => FileUpdateOneWithoutCourseImageInput, {nullable:true})
     image?: FileUpdateOneWithoutCourseImageInput;
 
-    @HideField()
+    @Field(() => UserUpdateOneWithoutCoursesInput, {nullable:true})
     author?: UserUpdateOneWithoutCoursesInput;
 }

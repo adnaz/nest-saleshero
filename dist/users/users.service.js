@@ -11,21 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersService = void 0;
 const common_1 = require("@nestjs/common");
+const find_many_user_args_1 = require("../@generated/prisma-nestjs-graphql/user/find-many-user.args");
+const update_one_user_args_1 = require("../@generated/prisma-nestjs-graphql/user/update-one-user.args");
 const prisma_service_1 = require("../prisma.service");
 let UsersService = class UsersService {
     constructor(prisma) {
         this.prisma = prisma;
-    }
-    async user(userWhereUniqueInput) {
-        return this.prisma.user.findUnique({
-            where: userWhereUniqueInput,
-        });
     }
     async findOne(username) {
         return this.prisma.user.findUnique({
             where: {
                 username: username
             }
+        });
+    }
+    async user(userWhereUniqueInput) {
+        return this.prisma.user.findUnique({
+            where: userWhereUniqueInput,
         });
     }
     async users(params) {
@@ -44,7 +46,7 @@ let UsersService = class UsersService {
         });
     }
     async updateUser(params) {
-        const { where, data } = params;
+        const { data, where } = params;
         return this.prisma.user.update({
             data,
             where,

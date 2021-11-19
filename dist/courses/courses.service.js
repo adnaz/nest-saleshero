@@ -13,6 +13,7 @@ exports.CoursesService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma.service");
 const find_many_course_args_1 = require("../@generated/prisma-nestjs-graphql/course/find-many-course.args");
+const course_create_input_1 = require("../@generated/prisma-nestjs-graphql/course/course-create.input");
 let CoursesService = class CoursesService {
     constructor(prisma) {
         this.prisma = prisma;

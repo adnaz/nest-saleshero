@@ -3,6 +3,8 @@ import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
+import { AppListRelationFilter } from '../app/app-list-relation-filter.input';
+import { HideField } from '@nestjs/graphql';
 import { PostListRelationFilter } from '../post/post-list-relation-filter.input';
 import { CourseListRelationFilter } from '../course/course-list-relation-filter.input';
 import { SectionListRelationFilter } from '../section/section-list-relation-filter.input';
@@ -36,13 +38,16 @@ export class UserWhereInput {
     @Field(() => StringFilter, {nullable:true})
     password?: StringFilter;
 
-    @Field(() => PostListRelationFilter, {nullable:true})
+    @HideField()
+    apps?: AppListRelationFilter;
+
+    @HideField()
     posts?: PostListRelationFilter;
 
-    @Field(() => CourseListRelationFilter, {nullable:true})
+    @HideField()
     courses?: CourseListRelationFilter;
 
-    @Field(() => SectionListRelationFilter, {nullable:true})
+    @HideField()
     sections?: SectionListRelationFilter;
 
     @Field(() => EnumRoleFilter, {nullable:true})

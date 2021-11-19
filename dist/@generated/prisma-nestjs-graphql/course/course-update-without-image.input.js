@@ -51,7 +51,7 @@ __decorate([
     __metadata("design:type", section_update_many_without_course_input_1.SectionUpdateManyWithoutCourseInput)
 ], CourseUpdateWithoutImageInput.prototype, "sections", void 0);
 __decorate([
-    (0, graphql_3.HideField)(),
+    (0, graphql_1.Field)(() => user_update_one_without_courses_input_1.UserUpdateOneWithoutCoursesInput, { nullable: true }),
     __metadata("design:type", user_update_one_without_courses_input_1.UserUpdateOneWithoutCoursesInput)
 ], CourseUpdateWithoutImageInput.prototype, "author", void 0);
 CourseUpdateWithoutImageInput = __decorate([

@@ -14,6 +14,7 @@ const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const sort_order_enum_1 = require("../prisma/sort-order.enum");
 const reply_order_by_with_relation_input_1 = require("../reply/reply-order-by-with-relation.input");
+const graphql_3 = require("@nestjs/graphql");
 const quick_reply_value_order_by_relation_aggregate_input_1 = require("../quick-reply-value/quick-reply-value-order-by-relation-aggregate.input");
 let QuickReplyOrderByWithRelationInput = class QuickReplyOrderByWithRelationInput {
 };
@@ -22,7 +23,7 @@ __decorate([
     __metadata("design:type", Object)
 ], QuickReplyOrderByWithRelationInput.prototype, "id", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => reply_order_by_with_relation_input_1.ReplyOrderByWithRelationInput, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", reply_order_by_with_relation_input_1.ReplyOrderByWithRelationInput)
 ], QuickReplyOrderByWithRelationInput.prototype, "reply", void 0);
 __decorate([
@@ -34,7 +35,7 @@ __decorate([
     __metadata("design:type", Object)
 ], QuickReplyOrderByWithRelationInput.prototype, "type", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => quick_reply_value_order_by_relation_aggregate_input_1.QuickReplyValueOrderByRelationAggregateInput, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", quick_reply_value_order_by_relation_aggregate_input_1.QuickReplyValueOrderByRelationAggregateInput)
 ], QuickReplyOrderByWithRelationInput.prototype, "values", void 0);
 QuickReplyOrderByWithRelationInput = __decorate([

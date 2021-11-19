@@ -1,5 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
+import { UserCreateNestedOneWithoutAppsInput } from '../user/user-create-nested-one-without-apps.input';
 
 @InputType()
 export class AppCreateInput {
@@ -12,4 +13,7 @@ export class AppCreateInput {
 
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
+
+    @Field(() => UserCreateNestedOneWithoutAppsInput, {nullable:true})
+    author?: UserCreateNestedOneWithoutAppsInput;
 }

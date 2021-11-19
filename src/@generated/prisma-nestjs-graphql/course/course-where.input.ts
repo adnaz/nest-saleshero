@@ -8,8 +8,8 @@ import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
 import { SectionListRelationFilter } from '../section/section-list-relation-filter.input';
 import { BoolNullableFilter } from '../prisma/bool-nullable-filter.input';
 import { UserRelationFilter } from '../user/user-relation-filter.input';
-import { HideField } from '@nestjs/graphql';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
+import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class CourseWhereInput {
@@ -50,10 +50,10 @@ export class CourseWhereInput {
     @Field(() => BoolNullableFilter, {nullable:true})
     published?: BoolNullableFilter;
 
-    @HideField()
+    @Field(() => UserRelationFilter, {nullable:true})
     author?: UserRelationFilter;
 
-    @HideField()
+    @Field(() => IntNullableFilter, {nullable:true})
     authorId?: IntNullableFilter;
 
     @HideField()

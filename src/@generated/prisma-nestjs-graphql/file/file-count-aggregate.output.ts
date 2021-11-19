@@ -12,6 +12,18 @@ export class FileCountAggregate {
     link!: number;
 
     @Field(() => Int, {nullable:false})
+    location!: number;
+
+    @Field(() => Int, {nullable:false})
+    key!: number;
+
+    @Field(() => Int, {nullable:false})
+    bucket!: number;
+
+    @Field(() => Int, {nullable:false})
+    etag!: number;
+
+    @Field(() => Int, {nullable:false})
     createdAt!: number;
 
     @Field(() => Int, {nullable:false})

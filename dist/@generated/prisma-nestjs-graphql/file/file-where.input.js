@@ -14,7 +14,7 @@ exports.FileWhereInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const int_filter_input_1 = require("../prisma/int-filter.input");
-const string_filter_input_1 = require("../prisma/string-filter.input");
+const string_nullable_filter_input_1 = require("../prisma/string-nullable-filter.input");
 const reply_relation_filter_input_1 = require("../reply/reply-relation-filter.input");
 const actor_relation_filter_input_1 = require("../actor/actor-relation-filter.input");
 const course_relation_filter_input_1 = require("../course/course-relation-filter.input");
@@ -40,9 +40,25 @@ __decorate([
     __metadata("design:type", int_filter_input_1.IntFilter)
 ], FileWhereInput.prototype, "id", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => string_filter_input_1.StringFilter, { nullable: true }),
-    __metadata("design:type", string_filter_input_1.StringFilter)
+    (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
+    __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
 ], FileWhereInput.prototype, "link", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
+    __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
+], FileWhereInput.prototype, "location", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
+    __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
+], FileWhereInput.prototype, "key", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
+    __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
+], FileWhereInput.prototype, "bucket", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
+    __metadata("design:type", string_nullable_filter_input_1.StringNullableFilter)
+], FileWhereInput.prototype, "etag", void 0);
 __decorate([
     (0, graphql_1.Field)(() => reply_relation_filter_input_1.ReplyRelationFilter, { nullable: true }),
     __metadata("design:type", reply_relation_filter_input_1.ReplyRelationFilter)

@@ -16,6 +16,7 @@ const graphql_2 = require("@nestjs/graphql");
 const int_filter_input_1 = require("../prisma/int-filter.input");
 const string_filter_input_1 = require("../prisma/string-filter.input");
 const quick_reply_relation_filter_input_1 = require("../quick-reply/quick-reply-relation-filter.input");
+const graphql_3 = require("@nestjs/graphql");
 const int_nullable_filter_input_1 = require("../prisma/int-nullable-filter.input");
 let QuickReplyValueWhereInput = QuickReplyValueWhereInput_1 = class QuickReplyValueWhereInput {
 };
@@ -44,11 +45,11 @@ __decorate([
     __metadata("design:type", string_filter_input_1.StringFilter)
 ], QuickReplyValueWhereInput.prototype, "value", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => quick_reply_relation_filter_input_1.QuickReplyRelationFilter, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", quick_reply_relation_filter_input_1.QuickReplyRelationFilter)
 ], QuickReplyValueWhereInput.prototype, "quickReply", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => int_nullable_filter_input_1.IntNullableFilter, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", int_nullable_filter_input_1.IntNullableFilter)
 ], QuickReplyValueWhereInput.prototype, "quickReplyId", void 0);
 QuickReplyValueWhereInput = QuickReplyValueWhereInput_1 = __decorate([

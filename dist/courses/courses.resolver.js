@@ -13,17 +13,25 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CoursesResolver = void 0;
+const common_1 = require("@nestjs/common");
 const graphql_1 = require("@nestjs/graphql");
 const course_create_input_1 = require("../@generated/prisma-nestjs-graphql/course/course-create.input");
 const course_model_1 = require("../@generated/prisma-nestjs-graphql/course/course.model");
 const find_many_course_args_1 = require("../@generated/prisma-nestjs-graphql/course/find-many-course.args");
 const update_one_course_args_1 = require("../@generated/prisma-nestjs-graphql/course/update-one-course.args");
+const role_enum_1 = require("../@generated/prisma-nestjs-graphql/prisma/role.enum");
+const user_model_1 = require("../@generated/prisma-nestjs-graphql/user/user.model");
+const current_user_decorator_1 = require("../auth/current-user.decorator");
+const gql_auth_guard_1 = require("../auth/gql-auth.guard");
+const roles_decorator_1 = require("../auth/roles.decorator");
+const files_service_1 = require("../files/files.service");
 const users_service_1 = require("../users/users.service");
 const courses_service_1 = require("./courses.service");
 let CoursesResolver = class CoursesResolver {
-    constructor(coursesService, usersService) {
+    constructor(coursesService, usersService, filesService) {
         this.coursesService = coursesService;
         this.usersService = usersService;
+        this.filesService = filesService;
     }
     courses(findManyCourseArgs) {
         return this.coursesService.courses(findManyCourseArgs);
@@ -31,8 +39,12 @@ let CoursesResolver = class CoursesResolver {
     async course(id) {
         return this.coursesService.course({ id });
     }
-    createCourse(courseCreateInput) {
-        return this.coursesService.createCourse(courseCreateInput);
+    createCourse(user, courseCreateInput) {
+        return this.coursesService.createCourse(Object.assign(Object.assign({}, courseCreateInput), { "author": {
+                "connect": {
+                    "username": user.username
+                }
+            } }));
     }
     updateCourse(updateOneCourseArgs) {
         return this.coursesService.updateCourse(updateOneCourseArgs);
@@ -41,8 +53,14 @@ let CoursesResolver = class CoursesResolver {
         return this.coursesService.deleteCourse({ id });
     }
     async author(course) {
-        const { id } = course;
-        return this.usersService.user({ id });
+        const { authorId } = course;
+        return this.usersService.user({ id: authorId });
+    }
+    async image(course) {
+        const { imageId } = course;
+        if (imageId) {
+            return this.filesService.file({ id: imageId });
+        }
     }
 };
 __decorate([
@@ -60,10 +78,13 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CoursesResolver.prototype, "course", null);
 __decorate([
-    (0, graphql_1.Mutation)(returns => course_model_1.Course),
-    __param(0, (0, graphql_1.Args)('courseCreateInput')),
+    (0, common_1.UseGuards)(gql_auth_guard_1.GqlAuthGuard),
+    (0, roles_decorator_1.Authorize)(role_enum_1.Role.ADMIN),
+    (0, graphql_1.Mutation)(returns => user_model_1.User),
+    __param(0, (0, current_user_decorator_1.CurrentUser)()),
+    __param(1, (0, graphql_1.Args)('courseCreateInput')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [course_create_input_1.CourseCreateInput]),
+    __metadata("design:paramtypes", [user_model_1.User, course_create_input_1.CourseCreateInput]),
     __metadata("design:returntype", void 0)
 ], CoursesResolver.prototype, "createCourse", null);
 __decorate([
@@ -87,9 +108,16 @@ __decorate([
     __metadata("design:paramtypes", [course_model_1.Course]),
     __metadata("design:returntype", Promise)
 ], CoursesResolver.prototype, "author", null);
+__decorate([
+    (0, graphql_1.ResolveField)(),
+    __param(0, (0, graphql_1.Parent)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [course_model_1.Course]),
+    __metadata("design:returntype", Promise)
+], CoursesResolver.prototype, "image", null);
 CoursesResolver = __decorate([
     (0, graphql_1.Resolver)(course_model_1.Course),
-    __metadata("design:paramtypes", [courses_service_1.CoursesService, users_service_1.UsersService])
+    __metadata("design:paramtypes", [courses_service_1.CoursesService, users_service_1.UsersService, files_service_1.FilesService])
 ], CoursesResolver);
 exports.CoursesResolver = CoursesResolver;
 //# sourceMappingURL=courses.resolver.js.map

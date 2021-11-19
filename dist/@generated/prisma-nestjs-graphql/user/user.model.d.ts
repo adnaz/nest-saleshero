@@ -1,3 +1,4 @@
+import { App } from '../app/app.model';
 import { Post } from '../post/post.model';
 import { Course } from '../course/course.model';
 import { Section } from '../section/section.model';
@@ -9,6 +10,7 @@ export declare class User {
     username: string | null;
     name: string | null;
     password: string;
+    apps?: Array<App>;
     posts?: Array<Post>;
     courses?: Array<Course>;
     sections?: Array<Section>;

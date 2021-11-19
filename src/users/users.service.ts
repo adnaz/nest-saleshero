@@ -1,5 +1,7 @@
 import { Prisma, User } from '.prisma/client';
 import { Injectable } from '@nestjs/common';
+import { FindManyUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/find-many-user.args';
+import { UpdateOneUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/update-one-user.args';
 import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
@@ -7,11 +9,6 @@ export class UsersService {
 
     constructor(private prisma: PrismaService) {}
 
-  async user(userWhereUniqueInput: Prisma.UserWhereUniqueInput): Promise<User | null> {
-    return this.prisma.user.findUnique({
-      where: userWhereUniqueInput,
-    });
-  }
   async findOne(username: string): Promise<User | undefined> {
     return  this.prisma.user.findUnique({
       where: {
@@ -20,13 +17,14 @@ export class UsersService {
     });
   }
 
-  async users(params: {
-    skip?: number;
-    take?: number;
-    cursor?: Prisma.UserWhereUniqueInput;
-    where?: Prisma.UserWhereInput;
-    orderBy?: Prisma.UserOrderByWithRelationInput;
-  }): Promise<User[]> {
+
+  async user(userWhereUniqueInput: Prisma.UserWhereUniqueInput): Promise<User | null> {
+    return this.prisma.user.findUnique({
+      where: userWhereUniqueInput,
+    });
+  }
+//type from @generated 
+  async users(params: FindManyUserArgs): Promise<User[]> {
     const { skip, take, cursor, where, orderBy } = params;
     return this.prisma.user.findMany({
       skip,
@@ -43,11 +41,8 @@ export class UsersService {
     });
   }
 
-  async updateUser(params: {
-    where: Prisma.UserWhereUniqueInput;
-    data: Prisma.UserUpdateInput;
-  }): Promise<User> {
-    const { where, data } = params;
+  async updateUser(params: UpdateOneUserArgs): Promise<User> {
+    const { data, where } = params;
     return this.prisma.user.update({
       data,
       where,

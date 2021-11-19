@@ -15,33 +15,40 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FilesController = void 0;
 const common_1 = require("@nestjs/common");
 const files_service_1 = require("./files.service");
-const create_file_dto_1 = require("./dto/create-file.dto");
-const update_file_dto_1 = require("./dto/update-file.dto");
+const platform_express_1 = require("@nestjs/platform-express");
+const s3_service_1 = require("./s3.service");
+const file_create_input_1 = require("../@generated/prisma-nestjs-graphql/file/file-create.input");
 let FilesController = class FilesController {
-    constructor(filesService) {
+    constructor(filesService, s3Service) {
         this.filesService = filesService;
+        this.s3Service = s3Service;
     }
-    create(createFileDto) {
-        return this.filesService.create(createFileDto);
+    create(fileCreateInput) {
+        return this.filesService.createFile(fileCreateInput);
     }
     findAll() {
-        return this.filesService.findAll();
+        return this.filesService.files({});
     }
     findOne(id) {
-        return this.filesService.findOne(+id);
-    }
-    update(id, updateFileDto) {
-        return this.filesService.update(+id, updateFileDto);
+        return this.filesService.file({ id });
     }
     remove(id) {
-        return this.filesService.remove(+id);
+        return this.filesService.deleteFile({ id });
+    }
+    async sendFileToS3(file) {
+        let response = await this.s3Service.uploadFile(file);
+        return this.filesService.createFile({ type: 'IMAGE', link: response.Location, location: response.Location, key: response.Key, etag: response.ETag, bucket: response.Bucket });
+    }
+    async sendFileReplyToS3(file) {
+        let response = await this.s3Service.uploadFile(file);
+        return this.filesService.createFile({ type: 'AUDIO', link: response.Location, location: response.Location, key: response.Key, etag: response.ETag, bucket: response.Bucket });
     }
 };
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_file_dto_1.CreateFileDto]),
+    __metadata("design:paramtypes", [file_create_input_1.FileCreateInput]),
     __metadata("design:returntype", void 0)
 ], FilesController.prototype, "create", null);
 __decorate([
@@ -54,27 +61,35 @@ __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], FilesController.prototype, "findOne", null);
-__decorate([
-    (0, common_1.Patch)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __param(1, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_file_dto_1.UpdateFileDto]),
-    __metadata("design:returntype", void 0)
-], FilesController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], FilesController.prototype, "remove", null);
+__decorate([
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file')),
+    (0, common_1.Post)('/send-file-actor'),
+    __param(0, (0, common_1.UploadedFile)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], FilesController.prototype, "sendFileToS3", null);
+__decorate([
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file')),
+    (0, common_1.Post)('/send-file-reply'),
+    __param(0, (0, common_1.UploadedFile)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], FilesController.prototype, "sendFileReplyToS3", null);
 FilesController = __decorate([
     (0, common_1.Controller)('files'),
-    __metadata("design:paramtypes", [files_service_1.FilesService])
+    __metadata("design:paramtypes", [files_service_1.FilesService, s3_service_1.S3Service])
 ], FilesController);
 exports.FilesController = FilesController;
 //# sourceMappingURL=files.controller.js.map

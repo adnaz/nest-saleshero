@@ -36,10 +36,10 @@ export class CourseOrderByWithRelationInput {
     @Field(() => SortOrder, {nullable:true})
     published?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => UserOrderByWithRelationInput, {nullable:true})
     author?: UserOrderByWithRelationInput;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     authorId?: keyof typeof SortOrder;
 
     @HideField()

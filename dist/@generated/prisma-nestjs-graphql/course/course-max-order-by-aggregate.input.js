@@ -41,7 +41,7 @@ __decorate([
     __metadata("design:type", Object)
 ], CourseMaxOrderByAggregateInput.prototype, "published", void 0);
 __decorate([
-    (0, graphql_3.HideField)(),
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
 ], CourseMaxOrderByAggregateInput.prototype, "authorId", void 0);
 __decorate([

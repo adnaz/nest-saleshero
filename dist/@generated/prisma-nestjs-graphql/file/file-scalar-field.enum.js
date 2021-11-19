@@ -6,6 +6,10 @@ var FileScalarFieldEnum;
 (function (FileScalarFieldEnum) {
     FileScalarFieldEnum["id"] = "id";
     FileScalarFieldEnum["link"] = "link";
+    FileScalarFieldEnum["location"] = "location";
+    FileScalarFieldEnum["key"] = "key";
+    FileScalarFieldEnum["bucket"] = "bucket";
+    FileScalarFieldEnum["etag"] = "etag";
     FileScalarFieldEnum["createdAt"] = "createdAt";
     FileScalarFieldEnum["updatedAt"] = "updatedAt";
     FileScalarFieldEnum["type"] = "type";

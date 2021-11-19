@@ -24,7 +24,7 @@ export class CourseCountOrderByAggregateInput {
     @Field(() => SortOrder, {nullable:true})
     published?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     authorId?: keyof typeof SortOrder;
 
     @HideField()

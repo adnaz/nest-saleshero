@@ -4,6 +4,7 @@ import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operat
 import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
 import { EnumTypeReplyFieldUpdateOperationsInput } from '../prisma/enum-type-reply-field-update-operations.input';
 import { QuickReplyValueUncheckedUpdateManyWithoutQuickReplyInput } from '../quick-reply-value/quick-reply-value-unchecked-update-many-without-quick-reply.input';
+import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class QuickReplyUncheckedUpdateWithoutReplyInput {
@@ -17,6 +18,6 @@ export class QuickReplyUncheckedUpdateWithoutReplyInput {
     @Field(() => EnumTypeReplyFieldUpdateOperationsInput, {nullable:true})
     type?: EnumTypeReplyFieldUpdateOperationsInput;
 
-    @Field(() => QuickReplyValueUncheckedUpdateManyWithoutQuickReplyInput, {nullable:true})
+    @HideField()
     values?: QuickReplyValueUncheckedUpdateManyWithoutQuickReplyInput;
 }

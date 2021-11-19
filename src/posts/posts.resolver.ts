@@ -1,35 +1,44 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
-import { PostsService } from './posts.service';
-import { CreatePostInput } from './dto/create-post.input';
-import { UpdatePostInput } from './dto/update-post.input';
+import { Args, Int, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
+import { PostCreateInput } from 'src/@generated/prisma-nestjs-graphql/post/post-create.input';
 import { Post } from 'src/@generated/prisma-nestjs-graphql/post/post.model';
-
-@Resolver(() => Post)
+import { FindManyPostArgs } from 'src/@generated/prisma-nestjs-graphql/post/find-many-post.args';
+import { UpdateOnePostArgs } from 'src/@generated/prisma-nestjs-graphql/post/update-one-post.args';
+import { UsersService } from 'src/users/users.service';
+import { PostsService } from './posts.service';
+@Resolver( Post)
 export class PostsResolver {
-  constructor(private readonly postsService: PostsService) {}
 
-  @Mutation(() => Post)
-  createPost(@Args('createPostInput') createPostInput: CreatePostInput) {
-    return this.postsService.create(createPostInput);
-  }
+    constructor(private postsService: PostsService, private usersService: UsersService) { }
 
-  @Query(() => [Post], { name: 'posts' })
-  findAll() {
-    return this.postsService.findAll();
-  }
 
-  @Query(() => Post, { name: 'post' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
-    return this.postsService.findOne(id);
-  }
+    @Query(returns => [Post])
+    posts(@Args() findManyPostArgs : FindManyPostArgs): Promise<Post[]> {
+        return this.postsService.posts(findManyPostArgs);
+    }
 
-  @Mutation(() => Post)
-  updatePost(@Args('updatePostInput') updatePostInput: UpdatePostInput) {
-    return this.postsService.update(updatePostInput.id, updatePostInput);
-  }
+    @Query(retuns => Post)
+    async post(@Args('id', { type: () => Int }) id: number) {
+        return this.postsService.post({ id })
+    }
 
-  @Mutation(() => Post)
-  removePost(@Args('id', { type: () => Int }) id: number) {
-    return this.postsService.remove(id);
-  }
+    @Mutation(returns =>Post)
+    createPost(@Args('postCreateInput') postCreateInput:PostCreateInput ){
+        return this.postsService.createPost(postCreateInput)
+    }
+    
+    @Mutation(()=>Post)
+    updatePost(@Args() updateOnePostArgs:UpdateOnePostArgs){
+        return this.postsService.updatePost(updateOnePostArgs)
+    }
+
+    @Mutation(()=>Post)
+    removePost(@Args('id', { type: () => Int }) id: number){
+        return this.postsService.deletePost({id});
+    }
+
+    @ResolveField()
+    async author(@Parent() post: Post) {
+        const { id } = post;
+        return this.usersService.user({ id });
+    }
 }

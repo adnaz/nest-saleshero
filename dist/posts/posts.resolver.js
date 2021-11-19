@@ -14,55 +14,63 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PostsResolver = void 0;
 const graphql_1 = require("@nestjs/graphql");
-const posts_service_1 = require("./posts.service");
-const create_post_input_1 = require("./dto/create-post.input");
-const update_post_input_1 = require("./dto/update-post.input");
+const post_create_input_1 = require("../@generated/prisma-nestjs-graphql/post/post-create.input");
 const post_model_1 = require("../@generated/prisma-nestjs-graphql/post/post.model");
+const find_many_post_args_1 = require("../@generated/prisma-nestjs-graphql/post/find-many-post.args");
+const update_one_post_args_1 = require("../@generated/prisma-nestjs-graphql/post/update-one-post.args");
+const users_service_1 = require("../users/users.service");
+const posts_service_1 = require("./posts.service");
 let PostsResolver = class PostsResolver {
-    constructor(postsService) {
+    constructor(postsService, usersService) {
         this.postsService = postsService;
+        this.usersService = usersService;
     }
-    createPost(createPostInput) {
-        return this.postsService.create(createPostInput);
+    posts(findManyPostArgs) {
+        return this.postsService.posts(findManyPostArgs);
     }
-    findAll() {
-        return this.postsService.findAll();
+    async post(id) {
+        return this.postsService.post({ id });
     }
-    findOne(id) {
-        return this.postsService.findOne(id);
+    createPost(postCreateInput) {
+        return this.postsService.createPost(postCreateInput);
     }
-    updatePost(updatePostInput) {
-        return this.postsService.update(updatePostInput.id, updatePostInput);
+    updatePost(updateOnePostArgs) {
+        return this.postsService.updatePost(updateOnePostArgs);
     }
     removePost(id) {
-        return this.postsService.remove(id);
+        return this.postsService.deletePost({ id });
+    }
+    async author(post) {
+        const { id } = post;
+        return this.usersService.user({ id });
     }
 };
 __decorate([
-    (0, graphql_1.Mutation)(() => post_model_1.Post),
-    __param(0, (0, graphql_1.Args)('createPostInput')),
+    (0, graphql_1.Query)(returns => [post_model_1.Post]),
+    __param(0, (0, graphql_1.Args)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_post_input_1.CreatePostInput]),
-    __metadata("design:returntype", void 0)
-], PostsResolver.prototype, "createPost", null);
+    __metadata("design:paramtypes", [find_many_post_args_1.FindManyPostArgs]),
+    __metadata("design:returntype", Promise)
+], PostsResolver.prototype, "posts", null);
 __decorate([
-    (0, graphql_1.Query)(() => [post_model_1.Post], { name: 'posts' }),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], PostsResolver.prototype, "findAll", null);
-__decorate([
-    (0, graphql_1.Query)(() => post_model_1.Post, { name: 'post' }),
+    (0, graphql_1.Query)(retuns => post_model_1.Post),
     __param(0, (0, graphql_1.Args)('id', { type: () => graphql_1.Int })),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], PostsResolver.prototype, "post", null);
+__decorate([
+    (0, graphql_1.Mutation)(returns => post_model_1.Post),
+    __param(0, (0, graphql_1.Args)('postCreateInput')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [post_create_input_1.PostCreateInput]),
     __metadata("design:returntype", void 0)
-], PostsResolver.prototype, "findOne", null);
+], PostsResolver.prototype, "createPost", null);
 __decorate([
     (0, graphql_1.Mutation)(() => post_model_1.Post),
-    __param(0, (0, graphql_1.Args)('updatePostInput')),
+    __param(0, (0, graphql_1.Args)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [update_post_input_1.UpdatePostInput]),
+    __metadata("design:paramtypes", [update_one_post_args_1.UpdateOnePostArgs]),
     __metadata("design:returntype", void 0)
 ], PostsResolver.prototype, "updatePost", null);
 __decorate([
@@ -72,9 +80,16 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], PostsResolver.prototype, "removePost", null);
+__decorate([
+    (0, graphql_1.ResolveField)(),
+    __param(0, (0, graphql_1.Parent)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [post_model_1.Post]),
+    __metadata("design:returntype", Promise)
+], PostsResolver.prototype, "author", null);
 PostsResolver = __decorate([
-    (0, graphql_1.Resolver)(() => post_model_1.Post),
-    __metadata("design:paramtypes", [posts_service_1.PostsService])
+    (0, graphql_1.Resolver)(post_model_1.Post),
+    __metadata("design:paramtypes", [posts_service_1.PostsService, users_service_1.UsersService])
 ], PostsResolver);
 exports.PostsResolver = PostsResolver;
 //# sourceMappingURL=posts.resolver.js.map

@@ -18,6 +18,10 @@ __decorate([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
 ], AppSumAggregateInput.prototype, "id", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    __metadata("design:type", Boolean)
+], AppSumAggregateInput.prototype, "authorId", void 0);
 AppSumAggregateInput = __decorate([
     (0, graphql_2.InputType)()
 ], AppSumAggregateInput);

@@ -16,6 +16,8 @@ const string_field_update_operations_input_1 = require("../prisma/string-field-u
 const nullable_string_field_update_operations_input_1 = require("../prisma/nullable-string-field-update-operations.input");
 const enum_role_field_update_operations_input_1 = require("../prisma/enum-role-field-update-operations.input");
 const date_time_field_update_operations_input_1 = require("../prisma/date-time-field-update-operations.input");
+const app_update_many_without_author_input_1 = require("../app/app-update-many-without-author.input");
+const graphql_3 = require("@nestjs/graphql");
 const post_update_many_without_author_input_1 = require("../post/post-update-many-without-author.input");
 const section_update_many_without_author_input_1 = require("../section/section-update-many-without-author.input");
 let UserUpdateWithoutCoursesInput = class UserUpdateWithoutCoursesInput {
@@ -49,11 +51,15 @@ __decorate([
     __metadata("design:type", date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput)
 ], UserUpdateWithoutCoursesInput.prototype, "updatedAt", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => post_update_many_without_author_input_1.PostUpdateManyWithoutAuthorInput, { nullable: true }),
+    (0, graphql_3.HideField)(),
+    __metadata("design:type", app_update_many_without_author_input_1.AppUpdateManyWithoutAuthorInput)
+], UserUpdateWithoutCoursesInput.prototype, "apps", void 0);
+__decorate([
+    (0, graphql_3.HideField)(),
     __metadata("design:type", post_update_many_without_author_input_1.PostUpdateManyWithoutAuthorInput)
 ], UserUpdateWithoutCoursesInput.prototype, "posts", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => section_update_many_without_author_input_1.SectionUpdateManyWithoutAuthorInput, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", section_update_many_without_author_input_1.SectionUpdateManyWithoutAuthorInput)
 ], UserUpdateWithoutCoursesInput.prototype, "sections", void 0);
 UserUpdateWithoutCoursesInput = __decorate([

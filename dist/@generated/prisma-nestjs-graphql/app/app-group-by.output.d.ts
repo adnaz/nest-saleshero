@@ -6,6 +6,7 @@ import { AppMaxAggregate } from './app-max-aggregate.output';
 export declare class AppGroupBy {
     id: number;
     name?: string;
+    authorId?: number;
     createdAt: Date | string;
     updatedAt: Date | string;
     _count?: AppCountAggregate;

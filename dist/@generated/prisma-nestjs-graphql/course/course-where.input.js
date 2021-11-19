@@ -21,8 +21,8 @@ const int_nullable_filter_input_1 = require("../prisma/int-nullable-filter.input
 const section_list_relation_filter_input_1 = require("../section/section-list-relation-filter.input");
 const bool_nullable_filter_input_1 = require("../prisma/bool-nullable-filter.input");
 const user_relation_filter_input_1 = require("../user/user-relation-filter.input");
-const graphql_3 = require("@nestjs/graphql");
 const date_time_filter_input_1 = require("../prisma/date-time-filter.input");
+const graphql_3 = require("@nestjs/graphql");
 let CourseWhereInput = CourseWhereInput_1 = class CourseWhereInput {
 };
 __decorate([
@@ -74,11 +74,11 @@ __decorate([
     __metadata("design:type", bool_nullable_filter_input_1.BoolNullableFilter)
 ], CourseWhereInput.prototype, "published", void 0);
 __decorate([
-    (0, graphql_3.HideField)(),
+    (0, graphql_1.Field)(() => user_relation_filter_input_1.UserRelationFilter, { nullable: true }),
     __metadata("design:type", user_relation_filter_input_1.UserRelationFilter)
 ], CourseWhereInput.prototype, "author", void 0);
 __decorate([
-    (0, graphql_3.HideField)(),
+    (0, graphql_1.Field)(() => int_nullable_filter_input_1.IntNullableFilter, { nullable: true }),
     __metadata("design:type", int_nullable_filter_input_1.IntNullableFilter)
 ], CourseWhereInput.prototype, "authorId", void 0);
 __decorate([

@@ -37,4 +37,13 @@ uploadFile(@UploadedFile() file: Express.Multer.File) {
   };
   return response;
 }
+  @Post('uploads3')
+@UseInterceptors(FileInterceptor('file'))
+uploadFileS3(@UploadedFile() file: Express.Multer.File) {
+  const response = {
+    originalname: file.originalname,
+    filename: file.filename,
+  };
+  return response;
+}
 }

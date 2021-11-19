@@ -13,6 +13,7 @@ exports.QuickReplyValueSumOrderByAggregateInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const sort_order_enum_1 = require("../prisma/sort-order.enum");
+const graphql_3 = require("@nestjs/graphql");
 let QuickReplyValueSumOrderByAggregateInput = class QuickReplyValueSumOrderByAggregateInput {
 };
 __decorate([
@@ -20,7 +21,7 @@ __decorate([
     __metadata("design:type", Object)
 ], QuickReplyValueSumOrderByAggregateInput.prototype, "id", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", Object)
 ], QuickReplyValueSumOrderByAggregateInput.prototype, "quickReplyId", void 0);
 QuickReplyValueSumOrderByAggregateInput = __decorate([

@@ -1,26 +1,53 @@
 import { Injectable } from '@nestjs/common';
-import { CreateQuickReplyInput } from './dto/create-quick-reply.input';
-import { UpdateQuickReplyInput } from './dto/update-quick-reply.input';
-
+// import { QuickReply } from './quickReply.entity';
+import { PrismaService } from '../prisma.service';
+import {
+  QuickReply,
+  Prisma,
+} from '@prisma/client';
+import { FindManyQuickReplyArgs } from 'src/@generated/prisma-nestjs-graphql/quick-reply/find-many-quick-reply.args';
 @Injectable()
 export class QuickRepliesService {
-  create(createQuickReplyInput: CreateQuickReplyInput) {
-    return 'This action adds a new quickReply';
-  }
+    constructor(private prisma: PrismaService) {}
 
-  findAll() {
-    return `This action returns all quickReplies`;
-  }
 
-  findOne(id: number) {
-    return `This action returns a #${id} quickReply`;
-  }
-
-  update(id: number, updateQuickReplyInput: UpdateQuickReplyInput) {
-    return `This action updates a #${id} quickReply`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} quickReply`;
-  }
+    async quickReply(quickReplyWhereUniqueInput: Prisma.QuickReplyWhereUniqueInput): Promise<QuickReply | null> {
+        return this.prisma.quickReply.findUnique({
+          where: quickReplyWhereUniqueInput,
+        });
+      }
+    
+      async quickReplies(params: FindManyQuickReplyArgs): Promise<QuickReply[]> {
+        const { skip, take, cursor, where, orderBy } = params;
+        return this.prisma.quickReply.findMany({
+          skip,
+          take,
+          cursor,
+          where,
+          orderBy,
+        });
+      }
+    
+      async createQuickReply(data: Prisma.QuickReplyCreateInput): Promise<QuickReply> {
+        return this.prisma.quickReply.create({
+          data,
+        });
+      }
+    
+      async updateQuickReply(params: {
+        where: Prisma.QuickReplyWhereUniqueInput;
+        data: Prisma.QuickReplyUpdateInput;
+      }): Promise<QuickReply> {
+        const { data, where } = params;
+        return this.prisma.quickReply.update({
+          data,
+          where,
+        });
+      }
+    
+      async deleteQuickReply(where: Prisma.QuickReplyWhereUniqueInput): Promise<QuickReply> {
+        return this.prisma.quickReply.delete({
+          where,
+        });
+      }
 }

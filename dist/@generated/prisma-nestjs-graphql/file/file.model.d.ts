@@ -5,7 +5,11 @@ import { Section } from '../section/section.model';
 import { TypeFile } from '../prisma/type-file.enum';
 export declare class File {
     id: number;
-    link: string;
+    link: string | null;
+    location: string | null;
+    key: string | null;
+    bucket: string | null;
+    etag: string | null;
     reply?: Reply | null;
     actor?: Actor | null;
     courseImage?: Course | null;

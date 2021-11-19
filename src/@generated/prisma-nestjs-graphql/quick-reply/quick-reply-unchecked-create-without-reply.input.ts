@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { TypeReply } from '../prisma/type-reply.enum';
 import { QuickReplyValueUncheckedCreateNestedManyWithoutQuickReplyInput } from '../quick-reply-value/quick-reply-value-unchecked-create-nested-many-without-quick-reply.input';
+import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class QuickReplyUncheckedCreateWithoutReplyInput {
@@ -16,6 +17,6 @@ export class QuickReplyUncheckedCreateWithoutReplyInput {
     @Field(() => TypeReply, {nullable:false})
     type!: keyof typeof TypeReply;
 
-    @Field(() => QuickReplyValueUncheckedCreateNestedManyWithoutQuickReplyInput, {nullable:true})
+    @HideField()
     values?: QuickReplyValueUncheckedCreateNestedManyWithoutQuickReplyInput;
 }

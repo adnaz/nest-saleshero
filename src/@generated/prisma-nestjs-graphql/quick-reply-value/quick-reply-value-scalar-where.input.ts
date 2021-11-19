@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
 import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
+import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class QuickReplyValueScalarWhereInput {
@@ -25,6 +26,6 @@ export class QuickReplyValueScalarWhereInput {
     @Field(() => StringFilter, {nullable:true})
     value?: StringFilter;
 
-    @Field(() => IntNullableFilter, {nullable:true})
+    @HideField()
     quickReplyId?: IntNullableFilter;
 }

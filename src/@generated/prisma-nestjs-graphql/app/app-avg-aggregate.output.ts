@@ -7,4 +7,7 @@ export class AppAvgAggregate {
 
     @Field(() => Float, {nullable:true})
     id?: number;
+
+    @Field(() => Float, {nullable:true})
+    authorId?: number;
 }

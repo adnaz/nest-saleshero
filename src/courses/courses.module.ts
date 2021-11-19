@@ -4,9 +4,10 @@ import { CoursesResolver } from './courses.resolver';
 import { PrismaService } from 'src/prisma.service';
 import { UsersService } from 'src/users/users.service';
 import { UsersModule } from 'src/users/users.module';
+import { FilesService } from 'src/files/files.service';
 
 @Module({
   imports: [UsersModule],
-  providers: [CoursesService, CoursesResolver,PrismaService]
+  providers: [CoursesService, CoursesResolver,PrismaService,FilesService]
 })
 export class CoursesModule {}

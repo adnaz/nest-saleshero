@@ -33,6 +33,6 @@ export class CourseCreateInput {
     @Field(() => SectionCreateNestedManyWithoutCourseInput, {nullable:true})
     sections?: SectionCreateNestedManyWithoutCourseInput;
 
-    @HideField()
+    @Field(() => UserCreateNestedOneWithoutCoursesInput, {nullable:true})
     author?: UserCreateNestedOneWithoutCoursesInput;
 }

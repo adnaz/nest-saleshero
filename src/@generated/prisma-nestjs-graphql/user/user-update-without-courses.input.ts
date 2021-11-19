@@ -4,6 +4,8 @@ import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-
 import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input';
 import { EnumRoleFieldUpdateOperationsInput } from '../prisma/enum-role-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
+import { AppUpdateManyWithoutAuthorInput } from '../app/app-update-many-without-author.input';
+import { HideField } from '@nestjs/graphql';
 import { PostUpdateManyWithoutAuthorInput } from '../post/post-update-many-without-author.input';
 import { SectionUpdateManyWithoutAuthorInput } from '../section/section-update-many-without-author.input';
 
@@ -31,9 +33,12 @@ export class UserUpdateWithoutCoursesInput {
     @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     updatedAt?: DateTimeFieldUpdateOperationsInput;
 
-    @Field(() => PostUpdateManyWithoutAuthorInput, {nullable:true})
+    @HideField()
+    apps?: AppUpdateManyWithoutAuthorInput;
+
+    @HideField()
     posts?: PostUpdateManyWithoutAuthorInput;
 
-    @Field(() => SectionUpdateManyWithoutAuthorInput, {nullable:true})
+    @HideField()
     sections?: SectionUpdateManyWithoutAuthorInput;
 }

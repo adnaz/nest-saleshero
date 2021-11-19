@@ -7,6 +7,7 @@ import { AppSumOrderByAggregateInput } from './app-sum-order-by-aggregate.input'
 export declare class AppOrderByWithAggregationInput {
     id?: keyof typeof SortOrder;
     name?: keyof typeof SortOrder;
+    authorId?: keyof typeof SortOrder;
     createdAt?: keyof typeof SortOrder;
     updatedAt?: keyof typeof SortOrder;
     _count?: AppCountOrderByAggregateInput;

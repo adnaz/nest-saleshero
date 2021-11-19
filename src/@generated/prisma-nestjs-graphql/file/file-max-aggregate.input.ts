@@ -11,6 +11,18 @@ export class FileMaxAggregateInput {
     link?: true;
 
     @Field(() => Boolean, {nullable:true})
+    location?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    key?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    bucket?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    etag?: true;
+
+    @Field(() => Boolean, {nullable:true})
     createdAt?: true;
 
     @Field(() => Boolean, {nullable:true})

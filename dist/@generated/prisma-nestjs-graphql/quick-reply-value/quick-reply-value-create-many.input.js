@@ -13,6 +13,7 @@ exports.QuickReplyValueCreateManyInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const graphql_3 = require("@nestjs/graphql");
+const graphql_4 = require("@nestjs/graphql");
 let QuickReplyValueCreateManyInput = class QuickReplyValueCreateManyInput {
 };
 __decorate([
@@ -28,7 +29,7 @@ __decorate([
     __metadata("design:type", String)
 ], QuickReplyValueCreateManyInput.prototype, "value", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
+    (0, graphql_4.HideField)(),
     __metadata("design:type", Number)
 ], QuickReplyValueCreateManyInput.prototype, "quickReplyId", void 0);
 QuickReplyValueCreateManyInput = __decorate([

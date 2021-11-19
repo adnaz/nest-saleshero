@@ -12,7 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CourseAvgAggregateInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
-const graphql_3 = require("@nestjs/graphql");
 let CourseAvgAggregateInput = class CourseAvgAggregateInput {
 };
 __decorate([
@@ -28,7 +27,7 @@ __decorate([
     __metadata("design:type", Boolean)
 ], CourseAvgAggregateInput.prototype, "imageId", void 0);
 __decorate([
-    (0, graphql_3.HideField)(),
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     __metadata("design:type", Boolean)
 ], CourseAvgAggregateInput.prototype, "authorId", void 0);
 CourseAvgAggregateInput = __decorate([

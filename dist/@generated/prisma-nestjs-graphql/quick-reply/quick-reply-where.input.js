@@ -15,6 +15,7 @@ const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const int_filter_input_1 = require("../prisma/int-filter.input");
 const reply_relation_filter_input_1 = require("../reply/reply-relation-filter.input");
+const graphql_3 = require("@nestjs/graphql");
 const bool_filter_input_1 = require("../prisma/bool-filter.input");
 const enum_type_reply_filter_input_1 = require("../prisma/enum-type-reply-filter.input");
 const quick_reply_value_list_relation_filter_input_1 = require("../quick-reply-value/quick-reply-value-list-relation-filter.input");
@@ -37,7 +38,7 @@ __decorate([
     __metadata("design:type", int_filter_input_1.IntFilter)
 ], QuickReplyWhereInput.prototype, "id", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => reply_relation_filter_input_1.ReplyRelationFilter, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", reply_relation_filter_input_1.ReplyRelationFilter)
 ], QuickReplyWhereInput.prototype, "reply", void 0);
 __decorate([
@@ -49,7 +50,7 @@ __decorate([
     __metadata("design:type", enum_type_reply_filter_input_1.EnumTypeReplyFilter)
 ], QuickReplyWhereInput.prototype, "type", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => quick_reply_value_list_relation_filter_input_1.QuickReplyValueListRelationFilter, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", quick_reply_value_list_relation_filter_input_1.QuickReplyValueListRelationFilter)
 ], QuickReplyWhereInput.prototype, "values", void 0);
 QuickReplyWhereInput = QuickReplyWhereInput_1 = __decorate([

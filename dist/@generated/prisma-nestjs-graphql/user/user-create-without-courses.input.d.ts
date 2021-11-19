@@ -1,4 +1,5 @@
 import { Role } from '../prisma/role.enum';
+import { AppCreateNestedManyWithoutAuthorInput } from '../app/app-create-nested-many-without-author.input';
 import { PostCreateNestedManyWithoutAuthorInput } from '../post/post-create-nested-many-without-author.input';
 import { SectionCreateNestedManyWithoutAuthorInput } from '../section/section-create-nested-many-without-author.input';
 export declare class UserCreateWithoutCoursesInput {
@@ -9,6 +10,7 @@ export declare class UserCreateWithoutCoursesInput {
     role: keyof typeof Role;
     createdAt?: Date | string;
     updatedAt?: Date | string;
+    apps?: AppCreateNestedManyWithoutAuthorInput;
     posts?: PostCreateNestedManyWithoutAuthorInput;
     sections?: SectionCreateNestedManyWithoutAuthorInput;
 }

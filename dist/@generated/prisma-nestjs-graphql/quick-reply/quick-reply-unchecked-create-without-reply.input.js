@@ -15,6 +15,7 @@ const graphql_2 = require("@nestjs/graphql");
 const graphql_3 = require("@nestjs/graphql");
 const type_reply_enum_1 = require("../prisma/type-reply.enum");
 const quick_reply_value_unchecked_create_nested_many_without_quick_reply_input_1 = require("../quick-reply-value/quick-reply-value-unchecked-create-nested-many-without-quick-reply.input");
+const graphql_4 = require("@nestjs/graphql");
 let QuickReplyUncheckedCreateWithoutReplyInput = class QuickReplyUncheckedCreateWithoutReplyInput {
 };
 __decorate([
@@ -30,7 +31,7 @@ __decorate([
     __metadata("design:type", Object)
 ], QuickReplyUncheckedCreateWithoutReplyInput.prototype, "type", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => quick_reply_value_unchecked_create_nested_many_without_quick_reply_input_1.QuickReplyValueUncheckedCreateNestedManyWithoutQuickReplyInput, { nullable: true }),
+    (0, graphql_4.HideField)(),
     __metadata("design:type", quick_reply_value_unchecked_create_nested_many_without_quick_reply_input_1.QuickReplyValueUncheckedCreateNestedManyWithoutQuickReplyInput)
 ], QuickReplyUncheckedCreateWithoutReplyInput.prototype, "values", void 0);
 QuickReplyUncheckedCreateWithoutReplyInput = __decorate([

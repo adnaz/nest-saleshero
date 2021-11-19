@@ -6,6 +6,9 @@ import { Int } from '@nestjs/graphql';
 export class UserCount {
 
     @Field(() => Int, {nullable:false})
+    apps!: number;
+
+    @Field(() => Int, {nullable:false})
     posts!: number;
 
     @Field(() => Int, {nullable:false})

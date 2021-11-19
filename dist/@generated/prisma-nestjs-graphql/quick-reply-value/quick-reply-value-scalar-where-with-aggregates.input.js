@@ -16,6 +16,7 @@ const graphql_2 = require("@nestjs/graphql");
 const int_with_aggregates_filter_input_1 = require("../prisma/int-with-aggregates-filter.input");
 const string_with_aggregates_filter_input_1 = require("../prisma/string-with-aggregates-filter.input");
 const int_nullable_with_aggregates_filter_input_1 = require("../prisma/int-nullable-with-aggregates-filter.input");
+const graphql_3 = require("@nestjs/graphql");
 let QuickReplyValueScalarWhereWithAggregatesInput = QuickReplyValueScalarWhereWithAggregatesInput_1 = class QuickReplyValueScalarWhereWithAggregatesInput {
 };
 __decorate([
@@ -43,7 +44,7 @@ __decorate([
     __metadata("design:type", string_with_aggregates_filter_input_1.StringWithAggregatesFilter)
 ], QuickReplyValueScalarWhereWithAggregatesInput.prototype, "value", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => int_nullable_with_aggregates_filter_input_1.IntNullableWithAggregatesFilter, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", int_nullable_with_aggregates_filter_input_1.IntNullableWithAggregatesFilter)
 ], QuickReplyValueScalarWhereWithAggregatesInput.prototype, "quickReplyId", void 0);
 QuickReplyValueScalarWhereWithAggregatesInput = QuickReplyValueScalarWhereWithAggregatesInput_1 = __decorate([

@@ -1,35 +1,40 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import { Args, Int, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
+import { FindManyQuickReplyArgs } from 'src/@generated/prisma-nestjs-graphql/quick-reply/find-many-quick-reply.args';
+import { QuickReplyCreateInput } from 'src/@generated/prisma-nestjs-graphql/quick-reply/quick-reply-create.input';
+import { QuickReply } from 'src/@generated/prisma-nestjs-graphql/quick-reply/quick-reply.model';
+import { UpdateOneQuickReplyArgs } from 'src/@generated/prisma-nestjs-graphql/quick-reply/update-one-quick-reply.args';
+import { UsersService } from 'src/users/users.service';
 import { QuickRepliesService } from './quick-replies.service';
-import { QuickReply } from './entities/quick-reply.entity';
-import { CreateQuickReplyInput } from './dto/create-quick-reply.input';
-import { UpdateQuickReplyInput } from './dto/update-quick-reply.input';
-
-@Resolver(() => QuickReply)
+@Resolver( QuickReply)
 export class QuickRepliesResolver {
-  constructor(private readonly quickRepliesService: QuickRepliesService) {}
 
-  @Mutation(() => QuickReply)
-  createQuickReply(@Args('createQuickReplyInput') createQuickReplyInput: CreateQuickReplyInput) {
-    return this.quickRepliesService.create(createQuickReplyInput);
-  }
+    constructor(private quickRepliesService: QuickRepliesService, private usersService: UsersService) { }
 
-  @Query(() => [QuickReply], { name: 'quickReplies' })
-  findAll() {
-    return this.quickRepliesService.findAll();
-  }
 
-  @Query(() => QuickReply, { name: 'quickReply' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
-    return this.quickRepliesService.findOne(id);
-  }
+    @Query(returns => [QuickReply])
+    quickReplies(@Args() findManyQuickReplyArgs : FindManyQuickReplyArgs): Promise<QuickReply[]> {
+        return this.quickRepliesService.quickReplies(findManyQuickReplyArgs);
+    }
 
-  @Mutation(() => QuickReply)
-  updateQuickReply(@Args('updateQuickReplyInput') updateQuickReplyInput: UpdateQuickReplyInput) {
-    return this.quickRepliesService.update(updateQuickReplyInput.id, updateQuickReplyInput);
-  }
+    @Query(retuns => QuickReply)
+    async quickReply(@Args('id', { type: () => Int }) id: number) {
+        return this.quickRepliesService.quickReply({ id })
+    }
 
-  @Mutation(() => QuickReply)
-  removeQuickReply(@Args('id', { type: () => Int }) id: number) {
-    return this.quickRepliesService.remove(id);
-  }
+    @Mutation(returns =>QuickReply)
+    createQuickReply(@Args('quickReplyCreateInput') quickReplyCreateInput:QuickReplyCreateInput ){
+        return this.quickRepliesService.createQuickReply(quickReplyCreateInput)
+    }
+    
+    @Mutation(()=>QuickReply)
+    updateQuickReply(@Args() updateOneQuickReplyArgs:UpdateOneQuickReplyArgs){
+        return this.quickRepliesService.updateQuickReply(updateOneQuickReplyArgs)
+    }
+
+    @Mutation(()=>QuickReply)
+    removeQuickReply(@Args('id', { type: () => Int }) id: number){
+        return this.quickRepliesService.deleteQuickReply({id});
+    }
+
+   
 }

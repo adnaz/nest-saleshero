@@ -1,4 +1,4 @@
-import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
+import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { EnumTypeFileFieldUpdateOperationsInput } from '../prisma/enum-type-file-field-update-operations.input';
 import { ReplyUpdateOneWithoutFileInput } from '../reply/reply-update-one-without-file.input';
@@ -6,7 +6,11 @@ import { ActorUpdateOneWithoutAvatarInput } from '../actor/actor-update-one-with
 import { CourseUpdateOneWithoutAudioInput } from '../course/course-update-one-without-audio.input';
 import { SectionUpdateOneWithoutImageInput } from '../section/section-update-one-without-image.input';
 export declare class FileUpdateWithoutCourseImageInput {
-    link?: StringFieldUpdateOperationsInput;
+    link?: NullableStringFieldUpdateOperationsInput;
+    location?: NullableStringFieldUpdateOperationsInput;
+    key?: NullableStringFieldUpdateOperationsInput;
+    bucket?: NullableStringFieldUpdateOperationsInput;
+    etag?: NullableStringFieldUpdateOperationsInput;
     createdAt?: DateTimeFieldUpdateOperationsInput;
     updatedAt?: DateTimeFieldUpdateOperationsInput;
     type?: EnumTypeFileFieldUpdateOperationsInput;

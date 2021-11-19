@@ -13,8 +13,20 @@ export class File {
     @Field(() => ID, {nullable:false})
     id!: number;
 
-    @Field(() => String, {nullable:false})
-    link!: string;
+    @Field(() => String, {nullable:true})
+    link!: string | null;
+
+    @Field(() => String, {nullable:true})
+    location!: string | null;
+
+    @Field(() => String, {nullable:true})
+    key!: string | null;
+
+    @Field(() => String, {nullable:true})
+    bucket!: string | null;
+
+    @Field(() => String, {nullable:true})
+    etag!: string | null;
 
     @Field(() => Reply, {nullable:true})
     reply?: Reply | null;

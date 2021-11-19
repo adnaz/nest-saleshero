@@ -1,4 +1,5 @@
 import { SortOrder } from '../prisma/sort-order.enum';
+import { AppOrderByRelationAggregateInput } from '../app/app-order-by-relation-aggregate.input';
 import { PostOrderByRelationAggregateInput } from '../post/post-order-by-relation-aggregate.input';
 import { CourseOrderByRelationAggregateInput } from '../course/course-order-by-relation-aggregate.input';
 import { SectionOrderByRelationAggregateInput } from '../section/section-order-by-relation-aggregate.input';
@@ -8,6 +9,7 @@ export declare class UserOrderByWithRelationInput {
     username?: keyof typeof SortOrder;
     name?: keyof typeof SortOrder;
     password?: keyof typeof SortOrder;
+    apps?: AppOrderByRelationAggregateInput;
     posts?: PostOrderByRelationAggregateInput;
     courses?: CourseOrderByRelationAggregateInput;
     sections?: SectionOrderByRelationAggregateInput;

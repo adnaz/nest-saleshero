@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.QuickReplyValueAvgAggregateInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
+const graphql_3 = require("@nestjs/graphql");
 let QuickReplyValueAvgAggregateInput = class QuickReplyValueAvgAggregateInput {
 };
 __decorate([
@@ -19,7 +20,7 @@ __decorate([
     __metadata("design:type", Boolean)
 ], QuickReplyValueAvgAggregateInput.prototype, "id", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", Boolean)
 ], QuickReplyValueAvgAggregateInput.prototype, "quickReplyId", void 0);
 QuickReplyValueAvgAggregateInput = __decorate([

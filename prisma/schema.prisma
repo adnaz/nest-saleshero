@@ -19,6 +19,8 @@ generator nestgraphql {
 model App {
   id    Int     @default(autoincrement()) @id
   name  String?
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  Int?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -30,8 +32,13 @@ model User {
   name  String?
   /// @HideField()
   password String
+    ///@HideField({ input: true, output: false })
+  apps App[]
+    ///@HideField({ input: true, output: false })
   posts Post[]
+    ///@HideField({ input: true, output: false })
   courses Course[]
+    ///@HideField({ input: true, output: false })
   sections Section[]
   role      Role
 
@@ -62,9 +69,7 @@ model Course {
   imageId Int?
   sections Section[]
   published Boolean? @default(false)
-  ///@HideField({ input: true, output: false })
   author    User?    @relation(fields: [authorId], references: [id])
-  ///@HideField({ input: true, output: false })
   authorId  Int?
   ///@HideField({ input: true, output: false })
   createdAt DateTime @default(now())
@@ -106,16 +111,20 @@ model Reply {
 }
 model QuickReply {
     id        Int      @default(autoincrement()) @id
+    ///@HideField({ input: true, output: false })
     reply Reply?
     keepIt Boolean @default(true)
     type TypeReply
+    ///@HideField({ input: true, output: false })
     values QuickReplyValue[]
 }
 model QuickReplyValue {
       id        Int      @default(autoincrement()) @id
       title String
       value String
+       ///@HideField({ input: true, output: false })
       quickReply QuickReply? @relation(fields: [quickReplyId], references: [id])
+      ///@HideField({ input: true, output: false })
       quickReplyId Int?
 }
 
@@ -130,7 +139,11 @@ model Actor {
 }
 model File {
     id    Int     @default(autoincrement()) @id
-    link String 
+    link String? 
+    location String?
+    key String?
+    bucket String?
+    etag String?
     reply Reply?
     actor Actor?
     courseImage Course? @relation("image")

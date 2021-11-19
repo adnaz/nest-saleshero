@@ -1,35 +1,51 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import { Args, Int, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
+import { ActorCreateInput } from 'src/@generated/prisma-nestjs-graphql/actor/actor-create.input';
 import { Actor } from 'src/@generated/prisma-nestjs-graphql/actor/actor.model';
+import { FindManyActorArgs } from 'src/@generated/prisma-nestjs-graphql/actor/find-many-actor.args';
+import { UpdateOneActorArgs } from 'src/@generated/prisma-nestjs-graphql/actor/update-one-actor.args';
+import { UsersService } from 'src/users/users.service';
 import { ActorsService } from './actors.service';
-import { CreateActorInput } from './dto/create-actor.input';
-import { UpdateActorInput } from './dto/update-actor.input';
-
-@Resolver(() => Actor)
+import { CoursesService } from 'src/courses/courses.service';
+import { File } from 'src/@generated/prisma-nestjs-graphql/file/file.model';
+import { FilesService } from 'src/files/files.service';
+@Resolver( Actor)
 export class ActorsResolver {
-  constructor(private readonly actorsService: ActorsService) {}
 
-  @Mutation(() => Actor)
-  createActor(@Args('createActorInput') createActorInput: CreateActorInput) {
-    return this.actorsService.create(createActorInput);
-  }
+    constructor(private actorsService: ActorsService,private filesService: FilesService) { }
 
-  @Query(() => [Actor], { name: 'actors' })
-  findAll() {
-    return this.actorsService.findAll();
-  }
 
-  @Query(() => Actor, { name: 'actor' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
-    return this.actorsService.findOne(id);
-  }
+    @Query(returns => [Actor])
+    actors(@Args() findManyActorArgs : FindManyActorArgs): Promise<Actor[]> {
+        return this.actorsService.actors(findManyActorArgs);
+    }
 
-  @Mutation(() => Actor)
-  updateActor(@Args('updateActorInput') updateActorInput: UpdateActorInput) {
-    return this.actorsService.update(updateActorInput.id, updateActorInput);
-  }
+    @Query(retuns => Actor)
+    async actor(@Args('id', { type: () => Int }) id: number) {
+        return this.actorsService.actor({ id })
+    }
 
-  @Mutation(() => Actor)
-  removeActor(@Args('id', { type: () => Int }) id: number) {
-    return this.actorsService.remove(id);
-  }
+    @Mutation(returns =>Actor)
+    createActor(@Args('actorCreateInput') actorCreateInput:ActorCreateInput ){
+        return this.actorsService.createActor(actorCreateInput)
+    }
+    
+    @Mutation(()=>Actor)
+    updateActor(@Args() updateOneActorArgs:UpdateOneActorArgs){
+        return this.actorsService.updateActor(updateOneActorArgs)
+    }
+
+    @Mutation(()=>Actor)
+    removeActor(@Args('id', { type: () => Int }) id: number){
+        return this.actorsService.deleteActor({id});
+    }
+
+    @ResolveField(()=>File)
+    async avatar(@Parent() actor: Actor) {
+        const { fileId } = actor;
+        if(fileId){
+            return this.filesService.file({id:fileId})
+        }
+        return null
+    }
+
 }

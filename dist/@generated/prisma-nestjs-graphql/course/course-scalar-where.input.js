@@ -18,8 +18,8 @@ const string_filter_input_1 = require("../prisma/string-filter.input");
 const string_nullable_filter_input_1 = require("../prisma/string-nullable-filter.input");
 const int_nullable_filter_input_1 = require("../prisma/int-nullable-filter.input");
 const bool_nullable_filter_input_1 = require("../prisma/bool-nullable-filter.input");
-const graphql_3 = require("@nestjs/graphql");
 const date_time_filter_input_1 = require("../prisma/date-time-filter.input");
+const graphql_3 = require("@nestjs/graphql");
 let CourseScalarWhereInput = CourseScalarWhereInput_1 = class CourseScalarWhereInput {
 };
 __decorate([
@@ -59,7 +59,7 @@ __decorate([
     __metadata("design:type", bool_nullable_filter_input_1.BoolNullableFilter)
 ], CourseScalarWhereInput.prototype, "published", void 0);
 __decorate([
-    (0, graphql_3.HideField)(),
+    (0, graphql_1.Field)(() => int_nullable_filter_input_1.IntNullableFilter, { nullable: true }),
     __metadata("design:type", int_nullable_filter_input_1.IntNullableFilter)
 ], CourseScalarWhereInput.prototype, "authorId", void 0);
 __decorate([

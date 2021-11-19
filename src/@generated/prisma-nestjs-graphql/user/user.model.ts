@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { HideField } from '@nestjs/graphql';
+import { App } from '../app/app.model';
 import { Post } from '../post/post.model';
 import { Course } from '../course/course.model';
 import { Section } from '../section/section.model';
@@ -25,6 +26,9 @@ export class User {
 
     @HideField()
     password!: string;
+
+    @Field(() => [App], {nullable:true})
+    apps?: Array<App>;
 
     @Field(() => [Post], {nullable:true})
     posts?: Array<Post>;

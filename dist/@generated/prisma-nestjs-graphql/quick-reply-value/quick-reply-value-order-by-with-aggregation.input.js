@@ -13,6 +13,7 @@ exports.QuickReplyValueOrderByWithAggregationInput = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const sort_order_enum_1 = require("../prisma/sort-order.enum");
+const graphql_3 = require("@nestjs/graphql");
 const quick_reply_value_count_order_by_aggregate_input_1 = require("./quick-reply-value-count-order-by-aggregate.input");
 const quick_reply_value_avg_order_by_aggregate_input_1 = require("./quick-reply-value-avg-order-by-aggregate.input");
 const quick_reply_value_max_order_by_aggregate_input_1 = require("./quick-reply-value-max-order-by-aggregate.input");
@@ -33,7 +34,7 @@ __decorate([
     __metadata("design:type", Object)
 ], QuickReplyValueOrderByWithAggregationInput.prototype, "value", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", Object)
 ], QuickReplyValueOrderByWithAggregationInput.prototype, "quickReplyId", void 0);
 __decorate([

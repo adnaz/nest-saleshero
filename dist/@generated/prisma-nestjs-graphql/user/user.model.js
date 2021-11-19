@@ -14,6 +14,7 @@ const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const graphql_3 = require("@nestjs/graphql");
 const graphql_4 = require("@nestjs/graphql");
+const app_model_1 = require("../app/app.model");
 const post_model_1 = require("../post/post.model");
 const course_model_1 = require("../course/course.model");
 const section_model_1 = require("../section/section.model");
@@ -41,6 +42,10 @@ __decorate([
     (0, graphql_4.HideField)(),
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => [app_model_1.App], { nullable: true }),
+    __metadata("design:type", Array)
+], User.prototype, "apps", void 0);
 __decorate([
     (0, graphql_1.Field)(() => [post_model_1.Post], { nullable: true }),
     __metadata("design:type", Array)

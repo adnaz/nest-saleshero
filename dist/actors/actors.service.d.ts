@@ -1,9 +1,16 @@
-import { CreateActorInput } from './dto/create-actor.input';
-import { UpdateActorInput } from './dto/update-actor.input';
+import { PrismaService } from '../prisma.service';
+import { Actor, Prisma } from '@prisma/client';
+import { FindManyActorArgs } from 'src/@generated/prisma-nestjs-graphql/actor/find-many-actor.args';
+import { ActorCreateInput } from 'src/@generated/prisma-nestjs-graphql/actor/actor-create.input';
 export declare class ActorsService {
-    create(createActorInput: CreateActorInput): string;
-    findAll(): string;
-    findOne(id: number): string;
-    update(id: number, updateActorInput: UpdateActorInput): string;
-    remove(id: number): string;
+    private prisma;
+    constructor(prisma: PrismaService);
+    actor(actorWhereUniqueInput: Prisma.ActorWhereUniqueInput): Promise<Actor | null>;
+    actors(params: FindManyActorArgs): Promise<Actor[]>;
+    createActor(data: ActorCreateInput): Promise<Actor>;
+    updateActor(params: {
+        where: Prisma.ActorWhereUniqueInput;
+        data: Prisma.ActorUpdateInput;
+    }): Promise<Actor>;
+    deleteActor(where: Prisma.ActorWhereUniqueInput): Promise<Actor>;
 }

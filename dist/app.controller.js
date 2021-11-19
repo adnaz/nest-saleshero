@@ -38,6 +38,13 @@ let AppController = class AppController {
         };
         return response;
     }
+    uploadFileS3(file) {
+        const response = {
+            originalname: file.originalname,
+            filename: file.filename,
+        };
+        return response;
+    }
 };
 __decorate([
     (0, common_1.Get)(),
@@ -71,6 +78,14 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "uploadFile", null);
+__decorate([
+    (0, common_1.Post)('uploads3'),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file')),
+    __param(0, (0, common_1.UploadedFile)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "uploadFileS3", null);
 AppController = __decorate([
     (0, common_1.Controller)(),
     __metadata("design:paramtypes", [auth_service_1.AuthService])

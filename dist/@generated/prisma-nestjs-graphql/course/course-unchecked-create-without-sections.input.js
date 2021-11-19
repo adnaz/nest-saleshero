@@ -41,7 +41,7 @@ __decorate([
     __metadata("design:type", Boolean)
 ], CourseUncheckedCreateWithoutSectionsInput.prototype, "published", void 0);
 __decorate([
-    (0, graphql_4.HideField)(),
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
     __metadata("design:type", Number)
 ], CourseUncheckedCreateWithoutSectionsInput.prototype, "authorId", void 0);
 __decorate([

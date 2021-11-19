@@ -37,6 +37,6 @@ export class CourseUpdateInput {
     @Field(() => SectionUpdateManyWithoutCourseInput, {nullable:true})
     sections?: SectionUpdateManyWithoutCourseInput;
 
-    @HideField()
+    @Field(() => UserUpdateOneWithoutCoursesInput, {nullable:true})
     author?: UserUpdateOneWithoutCoursesInput;
 }

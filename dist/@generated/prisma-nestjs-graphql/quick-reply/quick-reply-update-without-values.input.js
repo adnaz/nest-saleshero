@@ -15,6 +15,7 @@ const graphql_2 = require("@nestjs/graphql");
 const bool_field_update_operations_input_1 = require("../prisma/bool-field-update-operations.input");
 const enum_type_reply_field_update_operations_input_1 = require("../prisma/enum-type-reply-field-update-operations.input");
 const reply_update_one_without_quick_replies_input_1 = require("../reply/reply-update-one-without-quick-replies.input");
+const graphql_3 = require("@nestjs/graphql");
 let QuickReplyUpdateWithoutValuesInput = class QuickReplyUpdateWithoutValuesInput {
 };
 __decorate([
@@ -26,7 +27,7 @@ __decorate([
     __metadata("design:type", enum_type_reply_field_update_operations_input_1.EnumTypeReplyFieldUpdateOperationsInput)
 ], QuickReplyUpdateWithoutValuesInput.prototype, "type", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => reply_update_one_without_quick_replies_input_1.ReplyUpdateOneWithoutQuickRepliesInput, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", reply_update_one_without_quick_replies_input_1.ReplyUpdateOneWithoutQuickRepliesInput)
 ], QuickReplyUpdateWithoutValuesInput.prototype, "reply", void 0);
 QuickReplyUpdateWithoutValuesInput = __decorate([

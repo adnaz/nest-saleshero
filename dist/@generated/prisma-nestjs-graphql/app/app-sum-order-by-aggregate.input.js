@@ -19,6 +19,10 @@ __decorate([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     __metadata("design:type", Object)
 ], AppSumOrderByAggregateInput.prototype, "id", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    __metadata("design:type", Object)
+], AppSumOrderByAggregateInput.prototype, "authorId", void 0);
 AppSumOrderByAggregateInput = __decorate([
     (0, graphql_2.InputType)()
 ], AppSumOrderByAggregateInput);

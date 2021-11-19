@@ -15,6 +15,7 @@ const graphql_2 = require("@nestjs/graphql");
 const int_field_update_operations_input_1 = require("../prisma/int-field-update-operations.input");
 const string_field_update_operations_input_1 = require("../prisma/string-field-update-operations.input");
 const nullable_int_field_update_operations_input_1 = require("../prisma/nullable-int-field-update-operations.input");
+const graphql_3 = require("@nestjs/graphql");
 let QuickReplyValueUncheckedUpdateInput = class QuickReplyValueUncheckedUpdateInput {
 };
 __decorate([
@@ -30,7 +31,7 @@ __decorate([
     __metadata("design:type", string_field_update_operations_input_1.StringFieldUpdateOperationsInput)
 ], QuickReplyValueUncheckedUpdateInput.prototype, "value", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => nullable_int_field_update_operations_input_1.NullableIntFieldUpdateOperationsInput, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", nullable_int_field_update_operations_input_1.NullableIntFieldUpdateOperationsInput)
 ], QuickReplyValueUncheckedUpdateInput.prototype, "quickReplyId", void 0);
 QuickReplyValueUncheckedUpdateInput = __decorate([

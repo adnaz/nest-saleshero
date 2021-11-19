@@ -5,8 +5,8 @@ import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-fil
 import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-with-aggregates-filter.input';
 import { IntNullableWithAggregatesFilter } from '../prisma/int-nullable-with-aggregates-filter.input';
 import { BoolNullableWithAggregatesFilter } from '../prisma/bool-nullable-with-aggregates-filter.input';
-import { HideField } from '@nestjs/graphql';
 import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input';
+import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class CourseScalarWhereWithAggregatesInput {
@@ -38,7 +38,7 @@ export class CourseScalarWhereWithAggregatesInput {
     @Field(() => BoolNullableWithAggregatesFilter, {nullable:true})
     published?: BoolNullableWithAggregatesFilter;
 
-    @HideField()
+    @Field(() => IntNullableWithAggregatesFilter, {nullable:true})
     authorId?: IntNullableWithAggregatesFilter;
 
     @HideField()

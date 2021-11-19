@@ -16,6 +16,8 @@ const graphql_2 = require("@nestjs/graphql");
 const int_filter_input_1 = require("../prisma/int-filter.input");
 const string_filter_input_1 = require("../prisma/string-filter.input");
 const string_nullable_filter_input_1 = require("../prisma/string-nullable-filter.input");
+const app_list_relation_filter_input_1 = require("../app/app-list-relation-filter.input");
+const graphql_3 = require("@nestjs/graphql");
 const post_list_relation_filter_input_1 = require("../post/post-list-relation-filter.input");
 const course_list_relation_filter_input_1 = require("../course/course-list-relation-filter.input");
 const section_list_relation_filter_input_1 = require("../section/section-list-relation-filter.input");
@@ -56,15 +58,19 @@ __decorate([
     __metadata("design:type", string_filter_input_1.StringFilter)
 ], UserWhereInput.prototype, "password", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => post_list_relation_filter_input_1.PostListRelationFilter, { nullable: true }),
+    (0, graphql_3.HideField)(),
+    __metadata("design:type", app_list_relation_filter_input_1.AppListRelationFilter)
+], UserWhereInput.prototype, "apps", void 0);
+__decorate([
+    (0, graphql_3.HideField)(),
     __metadata("design:type", post_list_relation_filter_input_1.PostListRelationFilter)
 ], UserWhereInput.prototype, "posts", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => course_list_relation_filter_input_1.CourseListRelationFilter, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", course_list_relation_filter_input_1.CourseListRelationFilter)
 ], UserWhereInput.prototype, "courses", void 0);
 __decorate([
-    (0, graphql_1.Field)(() => section_list_relation_filter_input_1.SectionListRelationFilter, { nullable: true }),
+    (0, graphql_3.HideField)(),
     __metadata("design:type", section_list_relation_filter_input_1.SectionListRelationFilter)
 ], UserWhereInput.prototype, "sections", void 0);
 __decorate([
