@@ -17,7 +17,7 @@ export class ActorsService {
         });
       }
     
-      async actors(params: FindManyActorArgs): Promise<Actor[]> {
+      async actors(params: Prisma.ActorFindManyArgs): Promise<Actor[]> {
         const { skip, take, cursor, where, orderBy } = params;
         return this.prisma.actor.findMany({
           skip,
