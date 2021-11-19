@@ -25,7 +25,7 @@ const replies_module_1 = require("./replies/replies.module");
 const quick_replies_module_1 = require("./quick-replies/quick-replies.module");
 const quick_reply_values_module_1 = require("./quick-reply-values/quick-reply-values.module");
 const apps_module_1 = require("./apps/apps.module");
-const whitelist = ['http://localhost:3000', 'http://localhost:3001', 'https://holumbo.com', 'https://studio.apollographql.com'];
+const whitelist = ['http://localhost:3000', 'http://localhost:3001', 'https://www.holumbo.com', 'https://holumbo.com', 'https://studio.apollographql.com'];
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
