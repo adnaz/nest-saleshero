@@ -40,7 +40,9 @@ export class SectionsResolver {
     @ResolveField()
     async author(@Parent() section: Section) {
         const { authorId } = section;
-        return this.usersService.user({ id:authorId });
+        if(authorId){
+            return this.usersService.user({ id:authorId });
+        }
     }
     
     @ResolveField()

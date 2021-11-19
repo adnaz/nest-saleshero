@@ -38,7 +38,9 @@ export class PostsResolver {
 
     @ResolveField()
     async author(@Parent() post: Post) {
-        const { id } = post;
-        return this.usersService.user({ id });
+        const { authorId } = post;
+        if(authorId){
+            return this.usersService.user({ id:authorId });
+        }
     }
 }
