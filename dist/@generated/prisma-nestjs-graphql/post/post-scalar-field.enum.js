@@ -13,4 +13,3 @@ var PostScalarFieldEnum;
     PostScalarFieldEnum["updatedAt"] = "updatedAt";
 })(PostScalarFieldEnum = exports.PostScalarFieldEnum || (exports.PostScalarFieldEnum = {}));
 (0, graphql_1.registerEnumType)(PostScalarFieldEnum, { name: 'PostScalarFieldEnum', description: undefined });
-//# sourceMappingURL=post-scalar-field.enum.js.map

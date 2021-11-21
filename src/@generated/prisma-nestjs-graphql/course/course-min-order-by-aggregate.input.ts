@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { SortOrder } from '../prisma/sort-order.enum';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class CourseMinOrderByAggregateInput {
@@ -27,9 +26,9 @@ export class CourseMinOrderByAggregateInput {
     @Field(() => SortOrder, {nullable:true})
     authorId?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     createdAt?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     updatedAt?: keyof typeof SortOrder;
 }

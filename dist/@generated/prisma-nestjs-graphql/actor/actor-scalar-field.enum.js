@@ -11,4 +11,3 @@ var ActorScalarFieldEnum;
     ActorScalarFieldEnum["updatedAt"] = "updatedAt";
 })(ActorScalarFieldEnum = exports.ActorScalarFieldEnum || (exports.ActorScalarFieldEnum = {}));
 (0, graphql_1.registerEnumType)(ActorScalarFieldEnum, { name: 'ActorScalarFieldEnum', description: undefined });
-//# sourceMappingURL=actor-scalar-field.enum.js.map

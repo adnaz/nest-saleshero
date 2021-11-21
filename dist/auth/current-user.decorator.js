@@ -10,4 +10,3 @@ exports.CurrentUser = (0, common_1.createParamDecorator)((_data, context) => {
     const ctx = graphql_1.GqlExecutionContext.create(context);
     return ctx.getContext().req.user;
 });
-//# sourceMappingURL=current-user.decorator.js.map

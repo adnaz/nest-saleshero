@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class QuickReplyValueCreateManyInput {
@@ -9,12 +8,12 @@ export class QuickReplyValueCreateManyInput {
     @Field(() => Int, {nullable:true})
     id?: number;
 
-    @Field(() => String, {nullable:false})
-    title!: string;
+    @Field(() => String, {nullable:true})
+    title?: string;
 
-    @Field(() => String, {nullable:false})
-    value!: string;
+    @Field(() => String, {nullable:true})
+    value?: string;
 
-    @HideField()
+    @Field(() => Int, {nullable:true})
     quickReplyId?: number;
 }

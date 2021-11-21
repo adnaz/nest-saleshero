@@ -98,8 +98,8 @@ type Actor {
 
 type QuickReplyValue {
   id: ID!
-  title: String!
-  value: String!
+  title: String
+  value: String
   quickReply: QuickReply
   quickReplyId: Int
 }
@@ -111,8 +111,8 @@ type QuickReplyCount {
 type QuickReply {
   id: ID!
   reply: Reply
-  keepIt: Boolean!
-  type: TypeReply!
+  keepIt: Boolean
+  type: TypeReply
   values: [QuickReplyValue!]
   _count: QuickReplyCount!
 }
@@ -126,14 +126,15 @@ type Reply {
   id: ID!
   file: File
   fileId: Int
+  text: String
   createdAt: DateTime!
   updatedAt: DateTime!
-  section: Section!
-  sectionId: Int!
+  section: Section
+  sectionId: Int
   user: Actor
   actorId: Int
-  quickReplies: QuickReply
-  quickRepliesId: Int
+  quickReply: QuickReply
+  quickReplyId: Int
 }
 
 type File {
@@ -150,7 +151,7 @@ type File {
   section: Section
   createdAt: DateTime!
   updatedAt: DateTime!
-  type: TypeFile!
+  type: TypeFile
 }
 
 enum TypeFile {
@@ -194,7 +195,7 @@ type Query {
   actor(id: Int!): Actor!
   sections(where: SectionWhereInput, orderBy: [SectionOrderByWithRelationInput!], cursor: SectionWhereUniqueInput, take: Int, skip: Int, distinct: [SectionScalarFieldEnum!]): [Section!]!
   section(id: Int!): Section!
-  replies: [Reply!]!
+  replies(where: ReplyWhereInput, orderBy: [ReplyOrderByWithRelationInput!], cursor: ReplyWhereUniqueInput, take: Int, skip: Int, distinct: [ReplyScalarFieldEnum!]): [Reply!]!
   reply(id: Int!): Reply!
   quickReplies(where: QuickReplyWhereInput, orderBy: [QuickReplyOrderByWithRelationInput!], cursor: QuickReplyWhereUniqueInput, take: Int, skip: Int, distinct: [QuickReplyScalarFieldEnum!]): [QuickReply!]!
   quickReply(id: Int!): QuickReply!
@@ -219,6 +220,8 @@ input CourseWhereInput {
   published: BoolNullableFilter
   author: UserRelationFilter
   authorId: IntNullableFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
 }
 
 input IntFilter {
@@ -321,7 +324,7 @@ input FileWhereInput {
   section: SectionRelationFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
-  type: EnumTypeFileFilter
+  type: EnumTypeFileNullableFilter
 }
 
 input ReplyRelationFilter {
@@ -336,14 +339,15 @@ input ReplyWhereInput {
   id: IntFilter
   file: FileRelationFilter
   fileId: IntNullableFilter
+  text: StringNullableFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
   section: SectionRelationFilter
-  sectionId: IntFilter
+  sectionId: IntNullableFilter
   user: ActorRelationFilter
   actorId: IntNullableFilter
-  quickReplies: QuickReplyRelationFilter
-  quickRepliesId: IntNullableFilter
+  quickReply: QuickReplyRelationFilter
+  quickReplyId: IntNullableFilter
 }
 
 input IntNullableFilter {
@@ -409,6 +413,10 @@ input SectionWhereInput {
   courseId: IntNullableFilter
   replies: ReplyListRelationFilter
   published: BoolNullableFilter
+  author: UserRelationFilter
+  authorId: IntNullableFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
 }
 
 input EnumTypeSectionNullableFilter {
@@ -446,6 +454,93 @@ input NestedBoolNullableFilter {
   not: NestedBoolNullableFilter
 }
 
+input UserRelationFilter {
+  is: UserWhereInput
+  isNot: UserWhereInput
+}
+
+input UserWhereInput {
+  AND: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+  id: IntFilter
+  email: StringFilter
+  username: StringNullableFilter
+  name: StringNullableFilter
+  password: StringFilter
+  apps: AppListRelationFilter
+  posts: PostListRelationFilter
+  courses: CourseListRelationFilter
+  sections: SectionListRelationFilter
+  role: EnumRoleFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input AppListRelationFilter {
+  every: AppWhereInput
+  some: AppWhereInput
+  none: AppWhereInput
+}
+
+input AppWhereInput {
+  AND: [AppWhereInput!]
+  OR: [AppWhereInput!]
+  NOT: [AppWhereInput!]
+  id: IntFilter
+  name: StringNullableFilter
+  author: UserRelationFilter
+  authorId: IntNullableFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input PostListRelationFilter {
+  every: PostWhereInput
+  some: PostWhereInput
+  none: PostWhereInput
+}
+
+input PostWhereInput {
+  AND: [PostWhereInput!]
+  OR: [PostWhereInput!]
+  NOT: [PostWhereInput!]
+  id: IntFilter
+  title: StringFilter
+  content: StringNullableFilter
+  published: BoolNullableFilter
+  author: UserRelationFilter
+  authorId: IntNullableFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input CourseListRelationFilter {
+  every: CourseWhereInput
+  some: CourseWhereInput
+  none: CourseWhereInput
+}
+
+input SectionListRelationFilter {
+  every: SectionWhereInput
+  some: SectionWhereInput
+  none: SectionWhereInput
+}
+
+input EnumRoleFilter {
+  equals: Role
+  in: [Role!]
+  notIn: [Role!]
+  not: NestedEnumRoleFilter
+}
+
+input NestedEnumRoleFilter {
+  equals: Role
+  in: [Role!]
+  notIn: [Role!]
+  not: NestedEnumRoleFilter
+}
+
 input ActorRelationFilter {
   is: ActorWhereInput
   isNot: ActorWhereInput
@@ -474,85 +569,55 @@ input QuickReplyWhereInput {
   OR: [QuickReplyWhereInput!]
   NOT: [QuickReplyWhereInput!]
   id: IntFilter
-  keepIt: BoolFilter
-  type: EnumTypeReplyFilter
+  reply: ReplyRelationFilter
+  keepIt: BoolNullableFilter
+  type: EnumTypeReplyNullableFilter
+  values: QuickReplyValueListRelationFilter
 }
 
-input BoolFilter {
-  equals: Boolean
-  not: NestedBoolFilter
-}
-
-input NestedBoolFilter {
-  equals: Boolean
-  not: NestedBoolFilter
-}
-
-input EnumTypeReplyFilter {
+input EnumTypeReplyNullableFilter {
   equals: TypeReply
   in: [TypeReply!]
   notIn: [TypeReply!]
-  not: NestedEnumTypeReplyFilter
+  not: NestedEnumTypeReplyNullableFilter
 }
 
-input NestedEnumTypeReplyFilter {
+input NestedEnumTypeReplyNullableFilter {
   equals: TypeReply
   in: [TypeReply!]
   notIn: [TypeReply!]
-  not: NestedEnumTypeReplyFilter
+  not: NestedEnumTypeReplyNullableFilter
 }
 
-input EnumTypeFileFilter {
-  equals: TypeFile
-  in: [TypeFile!]
-  notIn: [TypeFile!]
-  not: NestedEnumTypeFileFilter
+input QuickReplyValueListRelationFilter {
+  every: QuickReplyValueWhereInput
+  some: QuickReplyValueWhereInput
+  none: QuickReplyValueWhereInput
 }
 
-input NestedEnumTypeFileFilter {
-  equals: TypeFile
-  in: [TypeFile!]
-  notIn: [TypeFile!]
-  not: NestedEnumTypeFileFilter
-}
-
-input SectionListRelationFilter {
-  every: SectionWhereInput
-  some: SectionWhereInput
-  none: SectionWhereInput
-}
-
-input UserRelationFilter {
-  is: UserWhereInput
-  isNot: UserWhereInput
-}
-
-input UserWhereInput {
-  AND: [UserWhereInput!]
-  OR: [UserWhereInput!]
-  NOT: [UserWhereInput!]
+input QuickReplyValueWhereInput {
+  AND: [QuickReplyValueWhereInput!]
+  OR: [QuickReplyValueWhereInput!]
+  NOT: [QuickReplyValueWhereInput!]
   id: IntFilter
-  email: StringFilter
-  username: StringNullableFilter
-  name: StringNullableFilter
-  password: StringFilter
-  role: EnumRoleFilter
-  createdAt: DateTimeFilter
-  updatedAt: DateTimeFilter
+  title: StringNullableFilter
+  value: StringNullableFilter
+  quickReply: QuickReplyRelationFilter
+  quickReplyId: IntNullableFilter
 }
 
-input EnumRoleFilter {
-  equals: Role
-  in: [Role!]
-  notIn: [Role!]
-  not: NestedEnumRoleFilter
+input EnumTypeFileNullableFilter {
+  equals: TypeFile
+  in: [TypeFile!]
+  notIn: [TypeFile!]
+  not: NestedEnumTypeFileNullableFilter
 }
 
-input NestedEnumRoleFilter {
-  equals: Role
-  in: [Role!]
-  notIn: [Role!]
-  not: NestedEnumRoleFilter
+input NestedEnumTypeFileNullableFilter {
+  equals: TypeFile
+  in: [TypeFile!]
+  notIn: [TypeFile!]
+  not: NestedEnumTypeFileNullableFilter
 }
 
 input CourseOrderByWithRelationInput {
@@ -567,6 +632,8 @@ input CourseOrderByWithRelationInput {
   published: SortOrder
   author: UserOrderByWithRelationInput
   authorId: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
 }
 
 enum SortOrder {
@@ -595,14 +662,15 @@ input ReplyOrderByWithRelationInput {
   id: SortOrder
   file: FileOrderByWithRelationInput
   fileId: SortOrder
+  text: SortOrder
   createdAt: SortOrder
   updatedAt: SortOrder
   section: SectionOrderByWithRelationInput
   sectionId: SortOrder
   user: ActorOrderByWithRelationInput
   actorId: SortOrder
-  quickReplies: QuickReplyOrderByWithRelationInput
-  quickRepliesId: SortOrder
+  quickReply: QuickReplyOrderByWithRelationInput
+  quickReplyId: SortOrder
 }
 
 input SectionOrderByWithRelationInput {
@@ -616,9 +684,44 @@ input SectionOrderByWithRelationInput {
   courseId: SortOrder
   replies: ReplyOrderByRelationAggregateInput
   published: SortOrder
+  author: UserOrderByWithRelationInput
+  authorId: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
 }
 
 input ReplyOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input UserOrderByWithRelationInput {
+  id: SortOrder
+  email: SortOrder
+  username: SortOrder
+  name: SortOrder
+  password: SortOrder
+  apps: AppOrderByRelationAggregateInput
+  posts: PostOrderByRelationAggregateInput
+  courses: CourseOrderByRelationAggregateInput
+  sections: SectionOrderByRelationAggregateInput
+  role: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input AppOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input PostOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input CourseOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input SectionOrderByRelationAggregateInput {
   _count: SortOrder
 }
 
@@ -634,23 +737,14 @@ input ActorOrderByWithRelationInput {
 
 input QuickReplyOrderByWithRelationInput {
   id: SortOrder
+  reply: ReplyOrderByWithRelationInput
   keepIt: SortOrder
   type: SortOrder
+  values: QuickReplyValueOrderByRelationAggregateInput
 }
 
-input SectionOrderByRelationAggregateInput {
+input QuickReplyValueOrderByRelationAggregateInput {
   _count: SortOrder
-}
-
-input UserOrderByWithRelationInput {
-  id: SortOrder
-  email: SortOrder
-  username: SortOrder
-  name: SortOrder
-  password: SortOrder
-  role: SortOrder
-  createdAt: SortOrder
-  updatedAt: SortOrder
 }
 
 input CourseWhereUniqueInput {
@@ -686,20 +780,6 @@ enum UserScalarFieldEnum {
   role
   createdAt
   updatedAt
-}
-
-input PostWhereInput {
-  AND: [PostWhereInput!]
-  OR: [PostWhereInput!]
-  NOT: [PostWhereInput!]
-  id: IntFilter
-  title: StringFilter
-  content: StringNullableFilter
-  published: BoolNullableFilter
-  author: UserRelationFilter
-  authorId: IntNullableFilter
-  createdAt: DateTimeFilter
-  updatedAt: DateTimeFilter
 }
 
 input PostOrderByWithRelationInput {
@@ -774,6 +854,23 @@ enum SectionScalarFieldEnum {
   updatedAt
 }
 
+input ReplyWhereUniqueInput {
+  id: Int
+  fileId: Int
+  quickReplyId: Int
+}
+
+enum ReplyScalarFieldEnum {
+  id
+  fileId
+  text
+  createdAt
+  updatedAt
+  sectionId
+  actorId
+  quickReplyId
+}
+
 input QuickReplyWhereUniqueInput {
   id: Int
 }
@@ -784,19 +881,12 @@ enum QuickReplyScalarFieldEnum {
   type
 }
 
-input QuickReplyValueWhereInput {
-  AND: [QuickReplyValueWhereInput!]
-  OR: [QuickReplyValueWhereInput!]
-  NOT: [QuickReplyValueWhereInput!]
-  id: IntFilter
-  title: StringFilter
-  value: StringFilter
-}
-
 input QuickReplyValueOrderByWithRelationInput {
   id: SortOrder
   title: SortOrder
   value: SortOrder
+  quickReply: QuickReplyOrderByWithRelationInput
+  quickReplyId: SortOrder
 }
 
 input QuickReplyValueWhereUniqueInput {
@@ -808,18 +898,6 @@ enum QuickReplyValueScalarFieldEnum {
   title
   value
   quickReplyId
-}
-
-input AppWhereInput {
-  AND: [AppWhereInput!]
-  OR: [AppWhereInput!]
-  NOT: [AppWhereInput!]
-  id: IntFilter
-  name: StringNullableFilter
-  author: UserRelationFilter
-  authorId: IntNullableFilter
-  createdAt: DateTimeFilter
-  updatedAt: DateTimeFilter
 }
 
 input AppOrderByWithRelationInput {
@@ -844,7 +922,7 @@ enum AppScalarFieldEnum {
 }
 
 type Mutation {
-  createCourse(courseCreateInput: CourseCreateInput!): User!
+  createCourse(courseCreateInput: CourseCreateInput!): Course!
   updateCourse(data: CourseUpdateInput!, where: CourseWhereUniqueInput!): Course!
   removeCourse(id: Int!): Course!
   createUser(userCreateInput: UserCreateInput!): User!
@@ -862,8 +940,8 @@ type Mutation {
   createSection(sectionCreateInput: SectionCreateInput!): Section!
   updateSection(data: SectionUpdateInput!, where: SectionWhereUniqueInput!): Section!
   removeSection(id: Int!): Section!
-  createReply(createReplyInput: CreateReplyInput!): Reply!
-  updateReply(updateReplyInput: UpdateReplyInput!): Reply!
+  createReply(replyCreateInput: ReplyCreateInput!): Reply!
+  updateReply(data: ReplyUpdateInput!, where: ReplyWhereUniqueInput!): Reply!
   removeReply(id: Int!): Reply!
   createQuickReply(quickReplyCreateInput: QuickReplyCreateInput!): QuickReply!
   updateQuickReply(data: QuickReplyUpdateInput!, where: QuickReplyWhereUniqueInput!): QuickReply!
@@ -880,6 +958,8 @@ input CourseCreateInput {
   title: String!
   description: String
   published: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
   audio: FileCreateNestedOneWithoutCourseAudioInput
   image: FileCreateNestedOneWithoutCourseImageInput
   sections: SectionCreateNestedManyWithoutCourseInput
@@ -900,7 +980,7 @@ input FileCreateWithoutCourseAudioInput {
   etag: String
   createdAt: DateTime
   updatedAt: DateTime
-  type: TypeFile!
+  type: TypeFile
   reply: ReplyCreateNestedOneWithoutFileInput
   actor: ActorCreateNestedOneWithoutAvatarInput
   courseImage: CourseCreateNestedOneWithoutImageInput
@@ -914,11 +994,12 @@ input ReplyCreateNestedOneWithoutFileInput {
 }
 
 input ReplyCreateWithoutFileInput {
+  text: String
   createdAt: DateTime
   updatedAt: DateTime
-  section: SectionCreateNestedOneWithoutRepliesInput!
+  section: SectionCreateNestedOneWithoutRepliesInput
   user: ActorCreateNestedOneWithoutRepliesInput
-  quickReplies: QuickReplyCreateNestedOneWithoutReplyInput
+  quickReply: QuickReplyCreateNestedOneWithoutReplyInput
 }
 
 input SectionCreateNestedOneWithoutRepliesInput {
@@ -932,8 +1013,11 @@ input SectionCreateWithoutRepliesInput {
   description: String
   type: TypeSection
   published: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
   image: FileCreateNestedOneWithoutSectionInput
   course: CourseCreateNestedOneWithoutSectionsInput
+  author: UserCreateNestedOneWithoutSectionsInput
 }
 
 input FileCreateNestedOneWithoutSectionInput {
@@ -950,7 +1034,7 @@ input FileCreateWithoutSectionInput {
   etag: String
   createdAt: DateTime
   updatedAt: DateTime
-  type: TypeFile!
+  type: TypeFile
   reply: ReplyCreateNestedOneWithoutFileInput
   actor: ActorCreateNestedOneWithoutAvatarInput
   courseImage: CourseCreateNestedOneWithoutImageInput
@@ -978,11 +1062,12 @@ input ReplyCreateNestedManyWithoutUserInput {
 }
 
 input ReplyCreateWithoutUserInput {
+  text: String
   createdAt: DateTime
   updatedAt: DateTime
   file: FileCreateNestedOneWithoutReplyInput
-  section: SectionCreateNestedOneWithoutRepliesInput!
-  quickReplies: QuickReplyCreateNestedOneWithoutReplyInput
+  section: SectionCreateNestedOneWithoutRepliesInput
+  quickReply: QuickReplyCreateNestedOneWithoutReplyInput
 }
 
 input FileCreateNestedOneWithoutReplyInput {
@@ -999,7 +1084,7 @@ input FileCreateWithoutReplyInput {
   etag: String
   createdAt: DateTime
   updatedAt: DateTime
-  type: TypeFile!
+  type: TypeFile
   actor: ActorCreateNestedOneWithoutAvatarInput
   courseImage: CourseCreateNestedOneWithoutImageInput
   courseAudio: CourseCreateNestedOneWithoutAudioInput
@@ -1016,6 +1101,8 @@ input CourseCreateWithoutImageInput {
   title: String!
   description: String
   published: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
   audio: FileCreateNestedOneWithoutCourseAudioInput
   sections: SectionCreateNestedManyWithoutCourseInput
   author: UserCreateNestedOneWithoutCoursesInput
@@ -1033,8 +1120,11 @@ input SectionCreateWithoutCourseInput {
   description: String
   type: TypeSection
   published: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
   image: FileCreateNestedOneWithoutSectionInput
   replies: ReplyCreateNestedManyWithoutSectionInput
+  author: UserCreateNestedOneWithoutSectionsInput
 }
 
 input ReplyCreateNestedManyWithoutSectionInput {
@@ -1045,11 +1135,12 @@ input ReplyCreateNestedManyWithoutSectionInput {
 }
 
 input ReplyCreateWithoutSectionInput {
+  text: String
   createdAt: DateTime
   updatedAt: DateTime
   file: FileCreateNestedOneWithoutReplyInput
   user: ActorCreateNestedOneWithoutRepliesInput
-  quickReplies: QuickReplyCreateNestedOneWithoutReplyInput
+  quickReply: QuickReplyCreateNestedOneWithoutReplyInput
 }
 
 input ActorCreateNestedOneWithoutRepliesInput {
@@ -1079,7 +1170,7 @@ input FileCreateWithoutActorInput {
   etag: String
   createdAt: DateTime
   updatedAt: DateTime
-  type: TypeFile!
+  type: TypeFile
   reply: ReplyCreateNestedOneWithoutFileInput
   courseImage: CourseCreateNestedOneWithoutImageInput
   courseAudio: CourseCreateNestedOneWithoutAudioInput
@@ -1096,6 +1187,8 @@ input CourseCreateWithoutAudioInput {
   title: String!
   description: String
   published: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
   image: FileCreateNestedOneWithoutCourseImageInput
   sections: SectionCreateNestedManyWithoutCourseInput
   author: UserCreateNestedOneWithoutCoursesInput
@@ -1115,7 +1208,7 @@ input FileCreateWithoutCourseImageInput {
   etag: String
   createdAt: DateTime
   updatedAt: DateTime
-  type: TypeFile!
+  type: TypeFile
   reply: ReplyCreateNestedOneWithoutFileInput
   actor: ActorCreateNestedOneWithoutAvatarInput
   courseAudio: CourseCreateNestedOneWithoutAudioInput
@@ -1133,8 +1226,11 @@ input SectionCreateWithoutImageInput {
   description: String
   type: TypeSection
   published: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
   course: CourseCreateNestedOneWithoutSectionsInput
   replies: ReplyCreateNestedManyWithoutSectionInput
+  author: UserCreateNestedOneWithoutSectionsInput
 }
 
 input CourseCreateNestedOneWithoutSectionsInput {
@@ -1147,6 +1243,8 @@ input CourseCreateWithoutSectionsInput {
   title: String!
   description: String
   published: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
   audio: FileCreateNestedOneWithoutCourseAudioInput
   image: FileCreateNestedOneWithoutCourseImageInput
   author: UserCreateNestedOneWithoutCoursesInput
@@ -1166,6 +1264,114 @@ input UserCreateWithoutCoursesInput {
   role: Role!
   createdAt: DateTime
   updatedAt: DateTime
+  apps: AppCreateNestedManyWithoutAuthorInput
+  posts: PostCreateNestedManyWithoutAuthorInput
+  sections: SectionCreateNestedManyWithoutAuthorInput
+}
+
+input AppCreateNestedManyWithoutAuthorInput {
+  create: [AppCreateWithoutAuthorInput!]
+  connectOrCreate: [AppCreateOrConnectWithoutAuthorInput!]
+  createMany: AppCreateManyAuthorInputEnvelope
+  connect: [AppWhereUniqueInput!]
+}
+
+input AppCreateWithoutAuthorInput {
+  name: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input AppCreateOrConnectWithoutAuthorInput {
+  where: AppWhereUniqueInput!
+  create: AppCreateWithoutAuthorInput!
+}
+
+input AppCreateManyAuthorInputEnvelope {
+  data: [AppCreateManyAuthorInput!]!
+  skipDuplicates: Boolean
+}
+
+input AppCreateManyAuthorInput {
+  id: Int
+  name: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input PostCreateNestedManyWithoutAuthorInput {
+  create: [PostCreateWithoutAuthorInput!]
+  connectOrCreate: [PostCreateOrConnectWithoutAuthorInput!]
+  createMany: PostCreateManyAuthorInputEnvelope
+  connect: [PostWhereUniqueInput!]
+}
+
+input PostCreateWithoutAuthorInput {
+  title: String!
+  content: String
+  published: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input PostCreateOrConnectWithoutAuthorInput {
+  where: PostWhereUniqueInput!
+  create: PostCreateWithoutAuthorInput!
+}
+
+input PostCreateManyAuthorInputEnvelope {
+  data: [PostCreateManyAuthorInput!]!
+  skipDuplicates: Boolean
+}
+
+input PostCreateManyAuthorInput {
+  id: Int
+  title: String!
+  content: String
+  published: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input SectionCreateNestedManyWithoutAuthorInput {
+  create: [SectionCreateWithoutAuthorInput!]
+  connectOrCreate: [SectionCreateOrConnectWithoutAuthorInput!]
+  createMany: SectionCreateManyAuthorInputEnvelope
+  connect: [SectionWhereUniqueInput!]
+}
+
+input SectionCreateWithoutAuthorInput {
+  title: String!
+  description: String
+  type: TypeSection
+  published: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
+  image: FileCreateNestedOneWithoutSectionInput
+  course: CourseCreateNestedOneWithoutSectionsInput
+  replies: ReplyCreateNestedManyWithoutSectionInput
+}
+
+input SectionCreateOrConnectWithoutAuthorInput {
+  where: SectionWhereUniqueInput!
+  create: SectionCreateWithoutAuthorInput!
+}
+
+input SectionCreateManyAuthorInputEnvelope {
+  data: [SectionCreateManyAuthorInput!]!
+  skipDuplicates: Boolean
+}
+
+input SectionCreateManyAuthorInput {
+  id: Int
+  title: String!
+  description: String
+  imageId: Int
+  type: TypeSection
+  courseId: Int
+  published: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
 }
 
 input UserCreateOrConnectWithoutCoursesInput {
@@ -1176,6 +1382,69 @@ input UserCreateOrConnectWithoutCoursesInput {
 input CourseCreateOrConnectWithoutSectionsInput {
   where: CourseWhereUniqueInput!
   create: CourseCreateWithoutSectionsInput!
+}
+
+input UserCreateNestedOneWithoutSectionsInput {
+  create: UserCreateWithoutSectionsInput
+  connectOrCreate: UserCreateOrConnectWithoutSectionsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateWithoutSectionsInput {
+  email: String!
+  username: String
+  name: String
+  password: String!
+  role: Role!
+  createdAt: DateTime
+  updatedAt: DateTime
+  apps: AppCreateNestedManyWithoutAuthorInput
+  posts: PostCreateNestedManyWithoutAuthorInput
+  courses: CourseCreateNestedManyWithoutAuthorInput
+}
+
+input CourseCreateNestedManyWithoutAuthorInput {
+  create: [CourseCreateWithoutAuthorInput!]
+  connectOrCreate: [CourseCreateOrConnectWithoutAuthorInput!]
+  createMany: CourseCreateManyAuthorInputEnvelope
+  connect: [CourseWhereUniqueInput!]
+}
+
+input CourseCreateWithoutAuthorInput {
+  title: String!
+  description: String
+  published: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
+  audio: FileCreateNestedOneWithoutCourseAudioInput
+  image: FileCreateNestedOneWithoutCourseImageInput
+  sections: SectionCreateNestedManyWithoutCourseInput
+}
+
+input CourseCreateOrConnectWithoutAuthorInput {
+  where: CourseWhereUniqueInput!
+  create: CourseCreateWithoutAuthorInput!
+}
+
+input CourseCreateManyAuthorInputEnvelope {
+  data: [CourseCreateManyAuthorInput!]!
+  skipDuplicates: Boolean
+}
+
+input CourseCreateManyAuthorInput {
+  id: Int
+  title: String!
+  description: String
+  audioId: Int
+  imageId: Int
+  published: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input UserCreateOrConnectWithoutSectionsInput {
+  where: UserWhereUniqueInput!
+  create: UserCreateWithoutSectionsInput!
 }
 
 input SectionCreateOrConnectWithoutImageInput {
@@ -1211,7 +1480,36 @@ input QuickReplyCreateNestedOneWithoutReplyInput {
 
 input QuickReplyCreateWithoutReplyInput {
   keepIt: Boolean
-  type: TypeReply!
+  type: TypeReply
+  values: QuickReplyValueCreateNestedManyWithoutQuickReplyInput
+}
+
+input QuickReplyValueCreateNestedManyWithoutQuickReplyInput {
+  create: [QuickReplyValueCreateWithoutQuickReplyInput!]
+  connectOrCreate: [QuickReplyValueCreateOrConnectWithoutQuickReplyInput!]
+  createMany: QuickReplyValueCreateManyQuickReplyInputEnvelope
+  connect: [QuickReplyValueWhereUniqueInput!]
+}
+
+input QuickReplyValueCreateWithoutQuickReplyInput {
+  title: String
+  value: String
+}
+
+input QuickReplyValueCreateOrConnectWithoutQuickReplyInput {
+  where: QuickReplyValueWhereUniqueInput!
+  create: QuickReplyValueCreateWithoutQuickReplyInput!
+}
+
+input QuickReplyValueCreateManyQuickReplyInputEnvelope {
+  data: [QuickReplyValueCreateManyQuickReplyInput!]!
+  skipDuplicates: Boolean
+}
+
+input QuickReplyValueCreateManyQuickReplyInput {
+  id: Int
+  title: String
+  value: String
 }
 
 input QuickReplyCreateOrConnectWithoutReplyInput {
@@ -1224,12 +1522,6 @@ input ReplyCreateOrConnectWithoutSectionInput {
   create: ReplyCreateWithoutSectionInput!
 }
 
-input ReplyWhereUniqueInput {
-  id: Int
-  fileId: Int
-  quickRepliesId: Int
-}
-
 input ReplyCreateManySectionInputEnvelope {
   data: [ReplyCreateManySectionInput!]!
   skipDuplicates: Boolean
@@ -1238,10 +1530,11 @@ input ReplyCreateManySectionInputEnvelope {
 input ReplyCreateManySectionInput {
   id: Int
   fileId: Int
+  text: String
   createdAt: DateTime
   updatedAt: DateTime
   actorId: Int
-  quickRepliesId: Int
+  quickReplyId: Int
 }
 
 input SectionCreateOrConnectWithoutCourseInput {
@@ -1261,6 +1554,9 @@ input SectionCreateManyCourseInput {
   imageId: Int
   type: TypeSection
   published: Boolean
+  authorId: Int
+  createdAt: DateTime
+  updatedAt: DateTime
 }
 
 input CourseCreateOrConnectWithoutImageInput {
@@ -1286,10 +1582,11 @@ input ReplyCreateManyUserInputEnvelope {
 input ReplyCreateManyUserInput {
   id: Int
   fileId: Int
+  text: String
   createdAt: DateTime
   updatedAt: DateTime
-  sectionId: Int!
-  quickRepliesId: Int
+  sectionId: Int
+  quickReplyId: Int
 }
 
 input ActorCreateOrConnectWithoutAvatarInput {
@@ -1321,6 +1618,8 @@ input CourseUpdateInput {
   title: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
   audio: FileUpdateOneWithoutCourseAudioInput
   image: FileUpdateOneWithoutCourseImageInput
   sections: SectionUpdateManyWithoutCourseInput
@@ -1337,6 +1636,10 @@ input NullableStringFieldUpdateOperationsInput {
 
 input NullableBoolFieldUpdateOperationsInput {
   set: Boolean
+}
+
+input DateTimeFieldUpdateOperationsInput {
+  set: DateTime
 }
 
 input FileUpdateOneWithoutCourseAudioInput {
@@ -1362,18 +1665,14 @@ input FileUpdateWithoutCourseAudioInput {
   etag: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  type: EnumTypeFileFieldUpdateOperationsInput
+  type: NullableEnumTypeFileFieldUpdateOperationsInput
   reply: ReplyUpdateOneWithoutFileInput
   actor: ActorUpdateOneWithoutAvatarInput
   courseImage: CourseUpdateOneWithoutImageInput
   section: SectionUpdateOneWithoutImageInput
 }
 
-input DateTimeFieldUpdateOperationsInput {
-  set: DateTime
-}
-
-input EnumTypeFileFieldUpdateOperationsInput {
+input NullableEnumTypeFileFieldUpdateOperationsInput {
   set: TypeFile
 }
 
@@ -1393,17 +1692,20 @@ input ReplyUpsertWithoutFileInput {
 }
 
 input ReplyUpdateWithoutFileInput {
+  text: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  section: SectionUpdateOneRequiredWithoutRepliesInput
+  section: SectionUpdateOneWithoutRepliesInput
   user: ActorUpdateOneWithoutRepliesInput
-  quickReplies: QuickReplyUpdateOneWithoutReplyInput
+  quickReply: QuickReplyUpdateOneWithoutReplyInput
 }
 
-input SectionUpdateOneRequiredWithoutRepliesInput {
+input SectionUpdateOneWithoutRepliesInput {
   create: SectionCreateWithoutRepliesInput
   connectOrCreate: SectionCreateOrConnectWithoutRepliesInput
   upsert: SectionUpsertWithoutRepliesInput
+  disconnect: Boolean
+  delete: Boolean
   connect: SectionWhereUniqueInput
   update: SectionUpdateWithoutRepliesInput
 }
@@ -1418,8 +1720,11 @@ input SectionUpdateWithoutRepliesInput {
   description: NullableStringFieldUpdateOperationsInput
   type: NullableEnumTypeSectionFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
   image: FileUpdateOneWithoutSectionInput
   course: CourseUpdateOneWithoutSectionsInput
+  author: UserUpdateOneWithoutSectionsInput
 }
 
 input NullableEnumTypeSectionFieldUpdateOperationsInput {
@@ -1449,7 +1754,7 @@ input FileUpdateWithoutSectionInput {
   etag: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  type: EnumTypeFileFieldUpdateOperationsInput
+  type: NullableEnumTypeFileFieldUpdateOperationsInput
   reply: ReplyUpdateOneWithoutFileInput
   actor: ActorUpdateOneWithoutAvatarInput
   courseImage: CourseUpdateOneWithoutImageInput
@@ -1499,11 +1804,12 @@ input ReplyUpsertWithWhereUniqueWithoutUserInput {
 }
 
 input ReplyUpdateWithoutUserInput {
+  text: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   file: FileUpdateOneWithoutReplyInput
-  section: SectionUpdateOneRequiredWithoutRepliesInput
-  quickReplies: QuickReplyUpdateOneWithoutReplyInput
+  section: SectionUpdateOneWithoutRepliesInput
+  quickReply: QuickReplyUpdateOneWithoutReplyInput
 }
 
 input FileUpdateOneWithoutReplyInput {
@@ -1529,7 +1835,7 @@ input FileUpdateWithoutReplyInput {
   etag: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  type: EnumTypeFileFieldUpdateOperationsInput
+  type: NullableEnumTypeFileFieldUpdateOperationsInput
   actor: ActorUpdateOneWithoutAvatarInput
   courseImage: CourseUpdateOneWithoutImageInput
   courseAudio: CourseUpdateOneWithoutAudioInput
@@ -1555,6 +1861,8 @@ input CourseUpdateWithoutImageInput {
   title: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
   audio: FileUpdateOneWithoutCourseAudioInput
   sections: SectionUpdateManyWithoutCourseInput
   author: UserUpdateOneWithoutCoursesInput
@@ -1585,8 +1893,11 @@ input SectionUpdateWithoutCourseInput {
   description: NullableStringFieldUpdateOperationsInput
   type: NullableEnumTypeSectionFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
   image: FileUpdateOneWithoutSectionInput
   replies: ReplyUpdateManyWithoutSectionInput
+  author: UserUpdateOneWithoutSectionsInput
 }
 
 input ReplyUpdateManyWithoutSectionInput {
@@ -1610,11 +1921,12 @@ input ReplyUpsertWithWhereUniqueWithoutSectionInput {
 }
 
 input ReplyUpdateWithoutSectionInput {
+  text: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   file: FileUpdateOneWithoutReplyInput
   user: ActorUpdateOneWithoutRepliesInput
-  quickReplies: QuickReplyUpdateOneWithoutReplyInput
+  quickReply: QuickReplyUpdateOneWithoutReplyInput
 }
 
 input ActorUpdateOneWithoutRepliesInput {
@@ -1662,7 +1974,7 @@ input FileUpdateWithoutActorInput {
   etag: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  type: EnumTypeFileFieldUpdateOperationsInput
+  type: NullableEnumTypeFileFieldUpdateOperationsInput
   reply: ReplyUpdateOneWithoutFileInput
   courseImage: CourseUpdateOneWithoutImageInput
   courseAudio: CourseUpdateOneWithoutAudioInput
@@ -1688,6 +2000,8 @@ input CourseUpdateWithoutAudioInput {
   title: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
   image: FileUpdateOneWithoutCourseImageInput
   sections: SectionUpdateManyWithoutCourseInput
   author: UserUpdateOneWithoutCoursesInput
@@ -1716,7 +2030,7 @@ input FileUpdateWithoutCourseImageInput {
   etag: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  type: EnumTypeFileFieldUpdateOperationsInput
+  type: NullableEnumTypeFileFieldUpdateOperationsInput
   reply: ReplyUpdateOneWithoutFileInput
   actor: ActorUpdateOneWithoutAvatarInput
   courseAudio: CourseUpdateOneWithoutAudioInput
@@ -1743,8 +2057,11 @@ input SectionUpdateWithoutImageInput {
   description: NullableStringFieldUpdateOperationsInput
   type: NullableEnumTypeSectionFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
   course: CourseUpdateOneWithoutSectionsInput
   replies: ReplyUpdateManyWithoutSectionInput
+  author: UserUpdateOneWithoutSectionsInput
 }
 
 input CourseUpdateOneWithoutSectionsInput {
@@ -1766,6 +2083,8 @@ input CourseUpdateWithoutSectionsInput {
   title: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
   audio: FileUpdateOneWithoutCourseAudioInput
   image: FileUpdateOneWithoutCourseImageInput
   author: UserUpdateOneWithoutCoursesInput
@@ -1794,10 +2113,284 @@ input UserUpdateWithoutCoursesInput {
   role: EnumRoleFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+  apps: AppUpdateManyWithoutAuthorInput
+  posts: PostUpdateManyWithoutAuthorInput
+  sections: SectionUpdateManyWithoutAuthorInput
 }
 
 input EnumRoleFieldUpdateOperationsInput {
   set: Role
+}
+
+input AppUpdateManyWithoutAuthorInput {
+  create: [AppCreateWithoutAuthorInput!]
+  connectOrCreate: [AppCreateOrConnectWithoutAuthorInput!]
+  upsert: [AppUpsertWithWhereUniqueWithoutAuthorInput!]
+  createMany: AppCreateManyAuthorInputEnvelope
+  set: [AppWhereUniqueInput!]
+  disconnect: [AppWhereUniqueInput!]
+  delete: [AppWhereUniqueInput!]
+  connect: [AppWhereUniqueInput!]
+  update: [AppUpdateWithWhereUniqueWithoutAuthorInput!]
+  updateMany: [AppUpdateManyWithWhereWithoutAuthorInput!]
+  deleteMany: [AppScalarWhereInput!]
+}
+
+input AppUpsertWithWhereUniqueWithoutAuthorInput {
+  where: AppWhereUniqueInput!
+  update: AppUpdateWithoutAuthorInput!
+  create: AppCreateWithoutAuthorInput!
+}
+
+input AppUpdateWithoutAuthorInput {
+  name: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input AppUpdateWithWhereUniqueWithoutAuthorInput {
+  where: AppWhereUniqueInput!
+  data: AppUpdateWithoutAuthorInput!
+}
+
+input AppUpdateManyWithWhereWithoutAuthorInput {
+  where: AppScalarWhereInput!
+  data: AppUpdateManyMutationInput!
+}
+
+input AppScalarWhereInput {
+  AND: [AppScalarWhereInput!]
+  OR: [AppScalarWhereInput!]
+  NOT: [AppScalarWhereInput!]
+  id: IntFilter
+  name: StringNullableFilter
+  authorId: IntNullableFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input AppUpdateManyMutationInput {
+  name: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PostUpdateManyWithoutAuthorInput {
+  create: [PostCreateWithoutAuthorInput!]
+  connectOrCreate: [PostCreateOrConnectWithoutAuthorInput!]
+  upsert: [PostUpsertWithWhereUniqueWithoutAuthorInput!]
+  createMany: PostCreateManyAuthorInputEnvelope
+  set: [PostWhereUniqueInput!]
+  disconnect: [PostWhereUniqueInput!]
+  delete: [PostWhereUniqueInput!]
+  connect: [PostWhereUniqueInput!]
+  update: [PostUpdateWithWhereUniqueWithoutAuthorInput!]
+  updateMany: [PostUpdateManyWithWhereWithoutAuthorInput!]
+  deleteMany: [PostScalarWhereInput!]
+}
+
+input PostUpsertWithWhereUniqueWithoutAuthorInput {
+  where: PostWhereUniqueInput!
+  update: PostUpdateWithoutAuthorInput!
+  create: PostCreateWithoutAuthorInput!
+}
+
+input PostUpdateWithoutAuthorInput {
+  title: StringFieldUpdateOperationsInput
+  content: NullableStringFieldUpdateOperationsInput
+  published: NullableBoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input PostUpdateWithWhereUniqueWithoutAuthorInput {
+  where: PostWhereUniqueInput!
+  data: PostUpdateWithoutAuthorInput!
+}
+
+input PostUpdateManyWithWhereWithoutAuthorInput {
+  where: PostScalarWhereInput!
+  data: PostUpdateManyMutationInput!
+}
+
+input PostScalarWhereInput {
+  AND: [PostScalarWhereInput!]
+  OR: [PostScalarWhereInput!]
+  NOT: [PostScalarWhereInput!]
+  id: IntFilter
+  title: StringFilter
+  content: StringNullableFilter
+  published: BoolNullableFilter
+  authorId: IntNullableFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input PostUpdateManyMutationInput {
+  title: StringFieldUpdateOperationsInput
+  content: NullableStringFieldUpdateOperationsInput
+  published: NullableBoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input SectionUpdateManyWithoutAuthorInput {
+  create: [SectionCreateWithoutAuthorInput!]
+  connectOrCreate: [SectionCreateOrConnectWithoutAuthorInput!]
+  upsert: [SectionUpsertWithWhereUniqueWithoutAuthorInput!]
+  createMany: SectionCreateManyAuthorInputEnvelope
+  set: [SectionWhereUniqueInput!]
+  disconnect: [SectionWhereUniqueInput!]
+  delete: [SectionWhereUniqueInput!]
+  connect: [SectionWhereUniqueInput!]
+  update: [SectionUpdateWithWhereUniqueWithoutAuthorInput!]
+  updateMany: [SectionUpdateManyWithWhereWithoutAuthorInput!]
+  deleteMany: [SectionScalarWhereInput!]
+}
+
+input SectionUpsertWithWhereUniqueWithoutAuthorInput {
+  where: SectionWhereUniqueInput!
+  update: SectionUpdateWithoutAuthorInput!
+  create: SectionCreateWithoutAuthorInput!
+}
+
+input SectionUpdateWithoutAuthorInput {
+  title: StringFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  type: NullableEnumTypeSectionFieldUpdateOperationsInput
+  published: NullableBoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  image: FileUpdateOneWithoutSectionInput
+  course: CourseUpdateOneWithoutSectionsInput
+  replies: ReplyUpdateManyWithoutSectionInput
+}
+
+input SectionUpdateWithWhereUniqueWithoutAuthorInput {
+  where: SectionWhereUniqueInput!
+  data: SectionUpdateWithoutAuthorInput!
+}
+
+input SectionUpdateManyWithWhereWithoutAuthorInput {
+  where: SectionScalarWhereInput!
+  data: SectionUpdateManyMutationInput!
+}
+
+input SectionScalarWhereInput {
+  AND: [SectionScalarWhereInput!]
+  OR: [SectionScalarWhereInput!]
+  NOT: [SectionScalarWhereInput!]
+  id: IntFilter
+  title: StringFilter
+  description: StringNullableFilter
+  imageId: IntNullableFilter
+  type: EnumTypeSectionNullableFilter
+  courseId: IntNullableFilter
+  published: BoolNullableFilter
+  authorId: IntNullableFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input SectionUpdateManyMutationInput {
+  title: StringFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  type: NullableEnumTypeSectionFieldUpdateOperationsInput
+  published: NullableBoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input UserUpdateOneWithoutSectionsInput {
+  create: UserCreateWithoutSectionsInput
+  connectOrCreate: UserCreateOrConnectWithoutSectionsInput
+  upsert: UserUpsertWithoutSectionsInput
+  disconnect: Boolean
+  delete: Boolean
+  connect: UserWhereUniqueInput
+  update: UserUpdateWithoutSectionsInput
+}
+
+input UserUpsertWithoutSectionsInput {
+  update: UserUpdateWithoutSectionsInput!
+  create: UserCreateWithoutSectionsInput!
+}
+
+input UserUpdateWithoutSectionsInput {
+  email: StringFieldUpdateOperationsInput
+  username: NullableStringFieldUpdateOperationsInput
+  name: NullableStringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  role: EnumRoleFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  apps: AppUpdateManyWithoutAuthorInput
+  posts: PostUpdateManyWithoutAuthorInput
+  courses: CourseUpdateManyWithoutAuthorInput
+}
+
+input CourseUpdateManyWithoutAuthorInput {
+  create: [CourseCreateWithoutAuthorInput!]
+  connectOrCreate: [CourseCreateOrConnectWithoutAuthorInput!]
+  upsert: [CourseUpsertWithWhereUniqueWithoutAuthorInput!]
+  createMany: CourseCreateManyAuthorInputEnvelope
+  set: [CourseWhereUniqueInput!]
+  disconnect: [CourseWhereUniqueInput!]
+  delete: [CourseWhereUniqueInput!]
+  connect: [CourseWhereUniqueInput!]
+  update: [CourseUpdateWithWhereUniqueWithoutAuthorInput!]
+  updateMany: [CourseUpdateManyWithWhereWithoutAuthorInput!]
+  deleteMany: [CourseScalarWhereInput!]
+}
+
+input CourseUpsertWithWhereUniqueWithoutAuthorInput {
+  where: CourseWhereUniqueInput!
+  update: CourseUpdateWithoutAuthorInput!
+  create: CourseCreateWithoutAuthorInput!
+}
+
+input CourseUpdateWithoutAuthorInput {
+  title: StringFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  published: NullableBoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  audio: FileUpdateOneWithoutCourseAudioInput
+  image: FileUpdateOneWithoutCourseImageInput
+  sections: SectionUpdateManyWithoutCourseInput
+}
+
+input CourseUpdateWithWhereUniqueWithoutAuthorInput {
+  where: CourseWhereUniqueInput!
+  data: CourseUpdateWithoutAuthorInput!
+}
+
+input CourseUpdateManyWithWhereWithoutAuthorInput {
+  where: CourseScalarWhereInput!
+  data: CourseUpdateManyMutationInput!
+}
+
+input CourseScalarWhereInput {
+  AND: [CourseScalarWhereInput!]
+  OR: [CourseScalarWhereInput!]
+  NOT: [CourseScalarWhereInput!]
+  id: IntFilter
+  title: StringFilter
+  description: StringNullableFilter
+  audioId: IntNullableFilter
+  imageId: IntNullableFilter
+  published: BoolNullableFilter
+  authorId: IntNullableFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input CourseUpdateManyMutationInput {
+  title: StringFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  published: NullableBoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input QuickReplyUpdateOneWithoutReplyInput {
@@ -1816,16 +2409,63 @@ input QuickReplyUpsertWithoutReplyInput {
 }
 
 input QuickReplyUpdateWithoutReplyInput {
-  keepIt: BoolFieldUpdateOperationsInput
-  type: EnumTypeReplyFieldUpdateOperationsInput
+  keepIt: NullableBoolFieldUpdateOperationsInput
+  type: NullableEnumTypeReplyFieldUpdateOperationsInput
+  values: QuickReplyValueUpdateManyWithoutQuickReplyInput
 }
 
-input BoolFieldUpdateOperationsInput {
-  set: Boolean
-}
-
-input EnumTypeReplyFieldUpdateOperationsInput {
+input NullableEnumTypeReplyFieldUpdateOperationsInput {
   set: TypeReply
+}
+
+input QuickReplyValueUpdateManyWithoutQuickReplyInput {
+  create: [QuickReplyValueCreateWithoutQuickReplyInput!]
+  connectOrCreate: [QuickReplyValueCreateOrConnectWithoutQuickReplyInput!]
+  upsert: [QuickReplyValueUpsertWithWhereUniqueWithoutQuickReplyInput!]
+  createMany: QuickReplyValueCreateManyQuickReplyInputEnvelope
+  set: [QuickReplyValueWhereUniqueInput!]
+  disconnect: [QuickReplyValueWhereUniqueInput!]
+  delete: [QuickReplyValueWhereUniqueInput!]
+  connect: [QuickReplyValueWhereUniqueInput!]
+  update: [QuickReplyValueUpdateWithWhereUniqueWithoutQuickReplyInput!]
+  updateMany: [QuickReplyValueUpdateManyWithWhereWithoutQuickReplyInput!]
+  deleteMany: [QuickReplyValueScalarWhereInput!]
+}
+
+input QuickReplyValueUpsertWithWhereUniqueWithoutQuickReplyInput {
+  where: QuickReplyValueWhereUniqueInput!
+  update: QuickReplyValueUpdateWithoutQuickReplyInput!
+  create: QuickReplyValueCreateWithoutQuickReplyInput!
+}
+
+input QuickReplyValueUpdateWithoutQuickReplyInput {
+  title: NullableStringFieldUpdateOperationsInput
+  value: NullableStringFieldUpdateOperationsInput
+}
+
+input QuickReplyValueUpdateWithWhereUniqueWithoutQuickReplyInput {
+  where: QuickReplyValueWhereUniqueInput!
+  data: QuickReplyValueUpdateWithoutQuickReplyInput!
+}
+
+input QuickReplyValueUpdateManyWithWhereWithoutQuickReplyInput {
+  where: QuickReplyValueScalarWhereInput!
+  data: QuickReplyValueUpdateManyMutationInput!
+}
+
+input QuickReplyValueScalarWhereInput {
+  AND: [QuickReplyValueScalarWhereInput!]
+  OR: [QuickReplyValueScalarWhereInput!]
+  NOT: [QuickReplyValueScalarWhereInput!]
+  id: IntFilter
+  title: StringNullableFilter
+  value: StringNullableFilter
+  quickReplyId: IntNullableFilter
+}
+
+input QuickReplyValueUpdateManyMutationInput {
+  title: NullableStringFieldUpdateOperationsInput
+  value: NullableStringFieldUpdateOperationsInput
 }
 
 input ReplyUpdateWithWhereUniqueWithoutSectionInput {
@@ -1844,14 +2484,16 @@ input ReplyScalarWhereInput {
   NOT: [ReplyScalarWhereInput!]
   id: IntFilter
   fileId: IntNullableFilter
+  text: StringNullableFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
-  sectionId: IntFilter
+  sectionId: IntNullableFilter
   actorId: IntNullableFilter
-  quickRepliesId: IntNullableFilter
+  quickReplyId: IntNullableFilter
 }
 
 input ReplyUpdateManyMutationInput {
+  text: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -1864,26 +2506,6 @@ input SectionUpdateWithWhereUniqueWithoutCourseInput {
 input SectionUpdateManyWithWhereWithoutCourseInput {
   where: SectionScalarWhereInput!
   data: SectionUpdateManyMutationInput!
-}
-
-input SectionScalarWhereInput {
-  AND: [SectionScalarWhereInput!]
-  OR: [SectionScalarWhereInput!]
-  NOT: [SectionScalarWhereInput!]
-  id: IntFilter
-  title: StringFilter
-  description: StringNullableFilter
-  imageId: IntNullableFilter
-  type: EnumTypeSectionNullableFilter
-  courseId: IntNullableFilter
-  published: BoolNullableFilter
-}
-
-input SectionUpdateManyMutationInput {
-  title: StringFieldUpdateOperationsInput
-  description: NullableStringFieldUpdateOperationsInput
-  type: NullableEnumTypeSectionFieldUpdateOperationsInput
-  published: NullableBoolFieldUpdateOperationsInput
 }
 
 input ReplyUpdateWithWhereUniqueWithoutUserInput {
@@ -1904,6 +2526,10 @@ input UserCreateInput {
   role: Role!
   createdAt: DateTime
   updatedAt: DateTime
+  apps: AppCreateNestedManyWithoutAuthorInput
+  posts: PostCreateNestedManyWithoutAuthorInput
+  courses: CourseCreateNestedManyWithoutAuthorInput
+  sections: SectionCreateNestedManyWithoutAuthorInput
 }
 
 input UserUpdateInput {
@@ -1914,6 +2540,10 @@ input UserUpdateInput {
   role: EnumRoleFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+  apps: AppUpdateManyWithoutAuthorInput
+  posts: PostUpdateManyWithoutAuthorInput
+  courses: CourseUpdateManyWithoutAuthorInput
+  sections: SectionUpdateManyWithoutAuthorInput
 }
 
 input PostCreateInput {
@@ -1939,6 +2569,9 @@ input UserCreateWithoutPostsInput {
   role: Role!
   createdAt: DateTime
   updatedAt: DateTime
+  apps: AppCreateNestedManyWithoutAuthorInput
+  courses: CourseCreateNestedManyWithoutAuthorInput
+  sections: SectionCreateNestedManyWithoutAuthorInput
 }
 
 input UserCreateOrConnectWithoutPostsInput {
@@ -1978,6 +2611,9 @@ input UserUpdateWithoutPostsInput {
   role: EnumRoleFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+  apps: AppUpdateManyWithoutAuthorInput
+  courses: CourseUpdateManyWithoutAuthorInput
+  sections: SectionUpdateManyWithoutAuthorInput
 }
 
 input FileCreateInput {
@@ -1988,7 +2624,7 @@ input FileCreateInput {
   etag: String
   createdAt: DateTime
   updatedAt: DateTime
-  type: TypeFile!
+  type: TypeFile
   reply: ReplyCreateNestedOneWithoutFileInput
   actor: ActorCreateNestedOneWithoutAvatarInput
   courseImage: CourseCreateNestedOneWithoutImageInput
@@ -2004,7 +2640,7 @@ input FileUpdateInput {
   etag: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-  type: EnumTypeFileFieldUpdateOperationsInput
+  type: NullableEnumTypeFileFieldUpdateOperationsInput
   reply: ReplyUpdateOneWithoutFileInput
   actor: ActorUpdateOneWithoutAvatarInput
   courseImage: CourseUpdateOneWithoutImageInput
@@ -2033,9 +2669,12 @@ input SectionCreateInput {
   description: String
   type: TypeSection
   published: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
   image: FileCreateNestedOneWithoutSectionInput
   course: CourseCreateNestedOneWithoutSectionsInput
   replies: ReplyCreateNestedManyWithoutSectionInput
+  author: UserCreateNestedOneWithoutSectionsInput
 }
 
 input SectionUpdateInput {
@@ -2043,40 +2682,140 @@ input SectionUpdateInput {
   description: NullableStringFieldUpdateOperationsInput
   type: NullableEnumTypeSectionFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
   image: FileUpdateOneWithoutSectionInput
   course: CourseUpdateOneWithoutSectionsInput
   replies: ReplyUpdateManyWithoutSectionInput
+  author: UserUpdateOneWithoutSectionsInput
 }
 
-input CreateReplyInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+input ReplyCreateInput {
+  text: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  file: FileCreateNestedOneWithoutReplyInput
+  section: SectionCreateNestedOneWithoutRepliesInput
+  user: ActorCreateNestedOneWithoutRepliesInput
+  quickReply: QuickReplyCreateNestedOneWithoutReplyInput
 }
 
-input UpdateReplyInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
+input ReplyUpdateInput {
+  text: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  file: FileUpdateOneWithoutReplyInput
+  section: SectionUpdateOneWithoutRepliesInput
+  user: ActorUpdateOneWithoutRepliesInput
+  quickReply: QuickReplyUpdateOneWithoutReplyInput
 }
 
 input QuickReplyCreateInput {
   keepIt: Boolean
-  type: TypeReply!
+  type: TypeReply
+  reply: ReplyCreateNestedOneWithoutQuickReplyInput
+  values: QuickReplyValueCreateNestedManyWithoutQuickReplyInput
+}
+
+input ReplyCreateNestedOneWithoutQuickReplyInput {
+  create: ReplyCreateWithoutQuickReplyInput
+  connectOrCreate: ReplyCreateOrConnectWithoutQuickReplyInput
+  connect: ReplyWhereUniqueInput
+}
+
+input ReplyCreateWithoutQuickReplyInput {
+  text: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  file: FileCreateNestedOneWithoutReplyInput
+  section: SectionCreateNestedOneWithoutRepliesInput
+  user: ActorCreateNestedOneWithoutRepliesInput
+}
+
+input ReplyCreateOrConnectWithoutQuickReplyInput {
+  where: ReplyWhereUniqueInput!
+  create: ReplyCreateWithoutQuickReplyInput!
 }
 
 input QuickReplyUpdateInput {
-  keepIt: BoolFieldUpdateOperationsInput
-  type: EnumTypeReplyFieldUpdateOperationsInput
+  keepIt: NullableBoolFieldUpdateOperationsInput
+  type: NullableEnumTypeReplyFieldUpdateOperationsInput
+  reply: ReplyUpdateOneWithoutQuickReplyInput
+  values: QuickReplyValueUpdateManyWithoutQuickReplyInput
+}
+
+input ReplyUpdateOneWithoutQuickReplyInput {
+  create: ReplyCreateWithoutQuickReplyInput
+  connectOrCreate: ReplyCreateOrConnectWithoutQuickReplyInput
+  upsert: ReplyUpsertWithoutQuickReplyInput
+  disconnect: Boolean
+  delete: Boolean
+  connect: ReplyWhereUniqueInput
+  update: ReplyUpdateWithoutQuickReplyInput
+}
+
+input ReplyUpsertWithoutQuickReplyInput {
+  update: ReplyUpdateWithoutQuickReplyInput!
+  create: ReplyCreateWithoutQuickReplyInput!
+}
+
+input ReplyUpdateWithoutQuickReplyInput {
+  text: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  file: FileUpdateOneWithoutReplyInput
+  section: SectionUpdateOneWithoutRepliesInput
+  user: ActorUpdateOneWithoutRepliesInput
 }
 
 input QuickReplyValueCreateInput {
-  title: String!
-  value: String!
+  title: String
+  value: String
+  quickReply: QuickReplyCreateNestedOneWithoutValuesInput
+}
+
+input QuickReplyCreateNestedOneWithoutValuesInput {
+  create: QuickReplyCreateWithoutValuesInput
+  connectOrCreate: QuickReplyCreateOrConnectWithoutValuesInput
+  connect: QuickReplyWhereUniqueInput
+}
+
+input QuickReplyCreateWithoutValuesInput {
+  keepIt: Boolean
+  type: TypeReply
+  reply: ReplyCreateNestedOneWithoutQuickReplyInput
+}
+
+input QuickReplyCreateOrConnectWithoutValuesInput {
+  where: QuickReplyWhereUniqueInput!
+  create: QuickReplyCreateWithoutValuesInput!
 }
 
 input QuickReplyValueUpdateInput {
-  title: StringFieldUpdateOperationsInput
-  value: StringFieldUpdateOperationsInput
+  title: NullableStringFieldUpdateOperationsInput
+  value: NullableStringFieldUpdateOperationsInput
+  quickReply: QuickReplyUpdateOneWithoutValuesInput
+}
+
+input QuickReplyUpdateOneWithoutValuesInput {
+  create: QuickReplyCreateWithoutValuesInput
+  connectOrCreate: QuickReplyCreateOrConnectWithoutValuesInput
+  upsert: QuickReplyUpsertWithoutValuesInput
+  disconnect: Boolean
+  delete: Boolean
+  connect: QuickReplyWhereUniqueInput
+  update: QuickReplyUpdateWithoutValuesInput
+}
+
+input QuickReplyUpsertWithoutValuesInput {
+  update: QuickReplyUpdateWithoutValuesInput!
+  create: QuickReplyCreateWithoutValuesInput!
+}
+
+input QuickReplyUpdateWithoutValuesInput {
+  keepIt: NullableBoolFieldUpdateOperationsInput
+  type: NullableEnumTypeReplyFieldUpdateOperationsInput
+  reply: ReplyUpdateOneWithoutQuickReplyInput
 }
 
 input AppCreateInput {
@@ -2100,6 +2839,9 @@ input UserCreateWithoutAppsInput {
   role: Role!
   createdAt: DateTime
   updatedAt: DateTime
+  posts: PostCreateNestedManyWithoutAuthorInput
+  courses: CourseCreateNestedManyWithoutAuthorInput
+  sections: SectionCreateNestedManyWithoutAuthorInput
 }
 
 input UserCreateOrConnectWithoutAppsInput {
@@ -2137,4 +2879,7 @@ input UserUpdateWithoutAppsInput {
   role: EnumRoleFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+  posts: PostUpdateManyWithoutAuthorInput
+  courses: CourseUpdateManyWithoutAuthorInput
+  sections: SectionUpdateManyWithoutAuthorInput
 }

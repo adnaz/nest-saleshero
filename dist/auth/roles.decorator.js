@@ -9,4 +9,3 @@ const Roles = (...roles) => (0, common_1.SetMetadata)(exports.ROLES_KEY, roles);
 exports.Roles = Roles;
 const Authorize = (roles) => (0, common_1.applyDecorators)((0, common_1.SetMetadata)('roles', [roles].flat()), (0, common_1.UseGuards)(gql_auth_guard_1.GqlAuthGuard, roles_guard_1.RolesGuard));
 exports.Authorize = Authorize;
-//# sourceMappingURL=roles.decorator.js.map

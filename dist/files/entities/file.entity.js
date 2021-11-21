@@ -4,4 +4,3 @@ exports.File = void 0;
 class File {
 }
 exports.File = File;
-//# sourceMappingURL=file.entity.js.map

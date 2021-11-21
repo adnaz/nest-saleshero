@@ -11,6 +11,9 @@ export class ReplyUncheckedCreateWithoutSectionInput {
     @Field(() => Int, {nullable:true})
     fileId?: number;
 
+    @Field(() => String, {nullable:true})
+    text?: string;
+
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 
@@ -21,5 +24,5 @@ export class ReplyUncheckedCreateWithoutSectionInput {
     actorId?: number;
 
     @Field(() => Int, {nullable:true})
-    quickRepliesId?: number;
+    quickReplyId?: number;
 }

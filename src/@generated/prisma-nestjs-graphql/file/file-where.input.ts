@@ -7,7 +7,7 @@ import { ActorRelationFilter } from '../actor/actor-relation-filter.input';
 import { CourseRelationFilter } from '../course/course-relation-filter.input';
 import { SectionRelationFilter } from '../section/section-relation-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
-import { EnumTypeFileFilter } from '../prisma/enum-type-file-filter.input';
+import { EnumTypeFileNullableFilter } from '../prisma/enum-type-file-nullable-filter.input';
 
 @InputType()
 export class FileWhereInput {
@@ -60,6 +60,6 @@ export class FileWhereInput {
     @Field(() => DateTimeFilter, {nullable:true})
     updatedAt?: DateTimeFilter;
 
-    @Field(() => EnumTypeFileFilter, {nullable:true})
-    type?: EnumTypeFileFilter;
+    @Field(() => EnumTypeFileNullableFilter, {nullable:true})
+    type?: EnumTypeFileNullableFilter;
 }

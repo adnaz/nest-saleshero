@@ -16,4 +16,3 @@ var SectionScalarFieldEnum;
     SectionScalarFieldEnum["updatedAt"] = "updatedAt";
 })(SectionScalarFieldEnum = exports.SectionScalarFieldEnum || (exports.SectionScalarFieldEnum = {}));
 (0, graphql_1.registerEnumType)(SectionScalarFieldEnum, { name: 'SectionScalarFieldEnum', description: undefined });
-//# sourceMappingURL=section-scalar-field.enum.js.map

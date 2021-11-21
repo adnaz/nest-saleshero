@@ -6,6 +6,7 @@ import { UpdateOneAppArgs } from 'src/@generated/prisma-nestjs-graphql/app/updat
 import { UsersService } from 'src/users/users.service';
 import { AppsService } from './apps.service';
 import { CoursesService } from 'src/courses/courses.service';
+import { Prisma } from '@prisma/client';
 @Resolver( App)
 export class AppsResolver {
 
@@ -28,7 +29,7 @@ export class AppsResolver {
     }
     
     @Mutation(()=>App)
-    updateApp(@Args() updateOneAppArgs:UpdateOneAppArgs){
+    updateApp(@Args() updateOneAppArgs: UpdateOneAppArgs ){
         return this.appsService.updateApp(updateOneAppArgs)
     }
 

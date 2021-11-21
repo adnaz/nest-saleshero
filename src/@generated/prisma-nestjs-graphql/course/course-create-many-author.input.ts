@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class CourseCreateManyAuthorInput {
@@ -24,9 +23,9 @@ export class CourseCreateManyAuthorInput {
     @Field(() => Boolean, {nullable:true})
     published?: boolean;
 
-    @HideField()
+    @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 
-    @HideField()
+    @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
 }

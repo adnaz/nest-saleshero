@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { SortOrder } from '../prisma/sort-order.enum';
-import { HideField } from '@nestjs/graphql';
 import { QuickReplyValueCountOrderByAggregateInput } from './quick-reply-value-count-order-by-aggregate.input';
 import { QuickReplyValueAvgOrderByAggregateInput } from './quick-reply-value-avg-order-by-aggregate.input';
 import { QuickReplyValueMaxOrderByAggregateInput } from './quick-reply-value-max-order-by-aggregate.input';
@@ -20,7 +19,7 @@ export class QuickReplyValueOrderByWithAggregationInput {
     @Field(() => SortOrder, {nullable:true})
     value?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     quickReplyId?: keyof typeof SortOrder;
 
     @Field(() => QuickReplyValueCountOrderByAggregateInput, {nullable:true})

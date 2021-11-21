@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class SectionCountAggregateInput {
@@ -26,13 +25,13 @@ export class SectionCountAggregateInput {
     @Field(() => Boolean, {nullable:true})
     published?: true;
 
-    @HideField()
+    @Field(() => Boolean, {nullable:true})
     authorId?: true;
 
-    @HideField()
+    @Field(() => Boolean, {nullable:true})
     createdAt?: true;
 
-    @HideField()
+    @Field(() => Boolean, {nullable:true})
     updatedAt?: true;
 
     @Field(() => Boolean, {nullable:true})

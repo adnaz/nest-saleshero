@@ -5,7 +5,6 @@ import { FileOrderByWithRelationInput } from '../file/file-order-by-with-relatio
 import { CourseOrderByWithRelationInput } from '../course/course-order-by-with-relation.input';
 import { ReplyOrderByRelationAggregateInput } from '../reply/reply-order-by-relation-aggregate.input';
 import { UserOrderByWithRelationInput } from '../user/user-order-by-with-relation.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class SectionOrderByWithRelationInput {
@@ -40,15 +39,15 @@ export class SectionOrderByWithRelationInput {
     @Field(() => SortOrder, {nullable:true})
     published?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => UserOrderByWithRelationInput, {nullable:true})
     author?: UserOrderByWithRelationInput;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     authorId?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     createdAt?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     updatedAt?: keyof typeof SortOrder;
 }

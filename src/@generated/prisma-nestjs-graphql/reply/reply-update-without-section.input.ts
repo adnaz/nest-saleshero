@@ -1,5 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
+import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { FileUpdateOneWithoutReplyInput } from '../file/file-update-one-without-reply.input';
 import { ActorUpdateOneWithoutRepliesInput } from '../actor/actor-update-one-without-replies.input';
@@ -7,6 +8,9 @@ import { QuickReplyUpdateOneWithoutReplyInput } from '../quick-reply/quick-reply
 
 @InputType()
 export class ReplyUpdateWithoutSectionInput {
+
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    text?: NullableStringFieldUpdateOperationsInput;
 
     @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     createdAt?: DateTimeFieldUpdateOperationsInput;
@@ -21,5 +25,5 @@ export class ReplyUpdateWithoutSectionInput {
     user?: ActorUpdateOneWithoutRepliesInput;
 
     @Field(() => QuickReplyUpdateOneWithoutReplyInput, {nullable:true})
-    quickReplies?: QuickReplyUpdateOneWithoutReplyInput;
+    quickReply?: QuickReplyUpdateOneWithoutReplyInput;
 }

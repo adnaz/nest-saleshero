@@ -6,7 +6,6 @@ import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
 import { BoolNullableFilter } from '../prisma/bool-nullable-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class CourseScalarWhereInput {
@@ -41,9 +40,9 @@ export class CourseScalarWhereInput {
     @Field(() => IntNullableFilter, {nullable:true})
     authorId?: IntNullableFilter;
 
-    @HideField()
+    @Field(() => DateTimeFilter, {nullable:true})
     createdAt?: DateTimeFilter;
 
-    @HideField()
+    @Field(() => DateTimeFilter, {nullable:true})
     updatedAt?: DateTimeFilter;
 }

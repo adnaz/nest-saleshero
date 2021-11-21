@@ -30,8 +30,8 @@ export class FileCreateWithoutReplyInput {
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
 
-    @Field(() => TypeFile, {nullable:false})
-    type!: keyof typeof TypeFile;
+    @Field(() => TypeFile, {nullable:true})
+    type?: keyof typeof TypeFile;
 
     @Field(() => ActorCreateNestedOneWithoutAvatarInput, {nullable:true})
     actor?: ActorCreateNestedOneWithoutAvatarInput;

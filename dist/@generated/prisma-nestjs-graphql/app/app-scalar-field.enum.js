@@ -11,4 +11,3 @@ var AppScalarFieldEnum;
     AppScalarFieldEnum["updatedAt"] = "updatedAt";
 })(AppScalarFieldEnum = exports.AppScalarFieldEnum || (exports.AppScalarFieldEnum = {}));
 (0, graphql_1.registerEnumType)(AppScalarFieldEnum, { name: 'AppScalarFieldEnum', description: undefined });
-//# sourceMappingURL=app-scalar-field.enum.js.map

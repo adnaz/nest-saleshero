@@ -9,4 +9,3 @@ var TypeFile;
     TypeFile["VIDEO"] = "VIDEO";
 })(TypeFile = exports.TypeFile || (exports.TypeFile = {}));
 (0, graphql_1.registerEnumType)(TypeFile, { name: 'TypeFile', description: undefined });
-//# sourceMappingURL=type-file.enum.js.map

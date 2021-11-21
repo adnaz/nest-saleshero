@@ -8,4 +8,3 @@ var SortOrder;
     SortOrder["desc"] = "desc";
 })(SortOrder = exports.SortOrder || (exports.SortOrder = {}));
 (0, graphql_1.registerEnumType)(SortOrder, { name: 'SortOrder', description: undefined });
-//# sourceMappingURL=sort-order.enum.js.map

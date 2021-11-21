@@ -6,11 +6,11 @@ var ReplyScalarFieldEnum;
 (function (ReplyScalarFieldEnum) {
     ReplyScalarFieldEnum["id"] = "id";
     ReplyScalarFieldEnum["fileId"] = "fileId";
+    ReplyScalarFieldEnum["text"] = "text";
     ReplyScalarFieldEnum["createdAt"] = "createdAt";
     ReplyScalarFieldEnum["updatedAt"] = "updatedAt";
     ReplyScalarFieldEnum["sectionId"] = "sectionId";
     ReplyScalarFieldEnum["actorId"] = "actorId";
-    ReplyScalarFieldEnum["quickRepliesId"] = "quickRepliesId";
+    ReplyScalarFieldEnum["quickReplyId"] = "quickReplyId";
 })(ReplyScalarFieldEnum = exports.ReplyScalarFieldEnum || (exports.ReplyScalarFieldEnum = {}));
 (0, graphql_1.registerEnumType)(ReplyScalarFieldEnum, { name: 'ReplyScalarFieldEnum', description: undefined });
-//# sourceMappingURL=reply-scalar-field.enum.js.map

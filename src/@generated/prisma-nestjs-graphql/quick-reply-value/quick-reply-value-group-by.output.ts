@@ -13,11 +13,11 @@ export class QuickReplyValueGroupBy {
     @Field(() => Int, {nullable:false})
     id!: number;
 
-    @Field(() => String, {nullable:false})
-    title!: string;
+    @Field(() => String, {nullable:true})
+    title?: string;
 
-    @Field(() => String, {nullable:false})
-    value!: string;
+    @Field(() => String, {nullable:true})
+    value?: string;
 
     @Field(() => Int, {nullable:true})
     quickReplyId?: number;

@@ -4,7 +4,6 @@ import { SortOrder } from '../prisma/sort-order.enum';
 import { FileOrderByWithRelationInput } from '../file/file-order-by-with-relation.input';
 import { SectionOrderByRelationAggregateInput } from '../section/section-order-by-relation-aggregate.input';
 import { UserOrderByWithRelationInput } from '../user/user-order-by-with-relation.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class CourseOrderByWithRelationInput {
@@ -42,9 +41,9 @@ export class CourseOrderByWithRelationInput {
     @Field(() => SortOrder, {nullable:true})
     authorId?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     createdAt?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     updatedAt?: keyof typeof SortOrder;
 }

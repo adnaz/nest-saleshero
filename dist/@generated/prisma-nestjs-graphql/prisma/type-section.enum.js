@@ -8,4 +8,3 @@ var TypeSection;
     TypeSection["ARTICLE"] = "ARTICLE";
 })(TypeSection = exports.TypeSection || (exports.TypeSection = {}));
 (0, graphql_1.registerEnumType)(TypeSection, { name: 'TypeSection', description: undefined });
-//# sourceMappingURL=type-section.enum.js.map

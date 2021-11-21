@@ -1,4 +1,5 @@
 import { Args, Int, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
+import { Prisma } from '@prisma/client';
 import { FindManyQuickReplyValueArgs } from 'src/@generated/prisma-nestjs-graphql/quick-reply-value/find-many-quick-reply-value.args';
 import { QuickReplyValueCreateInput } from 'src/@generated/prisma-nestjs-graphql/quick-reply-value/quick-reply-value-create.input';
 import { QuickReplyValue } from 'src/@generated/prisma-nestjs-graphql/quick-reply-value/quick-reply-value.model';
@@ -22,12 +23,12 @@ export class QuickReplyValuesResolver {
     }
 
     @Mutation(returns =>QuickReplyValue)
-    createQuickReplyValue(@Args('quickReplyValueCreateInput') quickReplyValueCreateInput:QuickReplyValueCreateInput ){
+    createQuickReplyValue(@Args('quickReplyValueCreateInput') quickReplyValueCreateInput: QuickReplyValueCreateInput ){
         return this.quickReplyValuesService.createQuickReplyValue(quickReplyValueCreateInput)
     }
     
     @Mutation(()=>QuickReplyValue)
-    updateQuickReplyValue(@Args() updateOneQuickReplyValueArgs:UpdateOneQuickReplyValueArgs){
+    updateQuickReplyValue(@Args() updateOneQuickReplyValueArgs: UpdateOneQuickReplyValueArgs ){
         return this.quickReplyValuesService.updateQuickReplyValue(updateOneQuickReplyValueArgs)
     }
 

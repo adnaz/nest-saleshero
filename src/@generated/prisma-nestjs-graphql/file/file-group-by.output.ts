@@ -35,8 +35,8 @@ export class FileGroupBy {
     @Field(() => Date, {nullable:false})
     updatedAt!: Date | string;
 
-    @Field(() => TypeFile, {nullable:false})
-    type!: keyof typeof TypeFile;
+    @Field(() => TypeFile, {nullable:true})
+    type?: keyof typeof TypeFile;
 
     @Field(() => FileCountAggregate, {nullable:true})
     _count?: FileCountAggregate;

@@ -28,7 +28,7 @@ export class ActorsService {
         });
       }
     
-      async createActor(data: ActorCreateInput): Promise<Actor> {
+      async createActor(data: Prisma.ActorCreateInput): Promise<Actor> {
         return this.prisma.actor.create({
           data,
         });

@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { SortOrder } from '../prisma/sort-order.enum';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class SectionMaxOrderByAggregateInput {
@@ -27,12 +26,12 @@ export class SectionMaxOrderByAggregateInput {
     @Field(() => SortOrder, {nullable:true})
     published?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     authorId?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     createdAt?: keyof typeof SortOrder;
 
-    @HideField()
+    @Field(() => SortOrder, {nullable:true})
     updatedAt?: keyof typeof SortOrder;
 }

@@ -15,11 +15,11 @@ export class QuickReply {
     @Field(() => Reply, {nullable:true})
     reply?: Reply | null;
 
-    @Field(() => Boolean, {nullable:false,defaultValue:true})
-    keepIt!: boolean;
+    @Field(() => Boolean, {nullable:true,defaultValue:true})
+    keepIt!: boolean | null;
 
-    @Field(() => TypeReply, {nullable:false})
-    type!: keyof typeof TypeReply;
+    @Field(() => TypeReply, {nullable:true})
+    type!: keyof typeof TypeReply | null;
 
     @Field(() => [QuickReplyValue], {nullable:true})
     values?: Array<QuickReplyValue>;

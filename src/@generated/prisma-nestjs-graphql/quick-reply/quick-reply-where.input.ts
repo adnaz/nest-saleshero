@@ -2,9 +2,8 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
 import { ReplyRelationFilter } from '../reply/reply-relation-filter.input';
-import { HideField } from '@nestjs/graphql';
-import { BoolFilter } from '../prisma/bool-filter.input';
-import { EnumTypeReplyFilter } from '../prisma/enum-type-reply-filter.input';
+import { BoolNullableFilter } from '../prisma/bool-nullable-filter.input';
+import { EnumTypeReplyNullableFilter } from '../prisma/enum-type-reply-nullable-filter.input';
 import { QuickReplyValueListRelationFilter } from '../quick-reply-value/quick-reply-value-list-relation-filter.input';
 
 @InputType()
@@ -22,15 +21,15 @@ export class QuickReplyWhereInput {
     @Field(() => IntFilter, {nullable:true})
     id?: IntFilter;
 
-    @HideField()
+    @Field(() => ReplyRelationFilter, {nullable:true})
     reply?: ReplyRelationFilter;
 
-    @Field(() => BoolFilter, {nullable:true})
-    keepIt?: BoolFilter;
+    @Field(() => BoolNullableFilter, {nullable:true})
+    keepIt?: BoolNullableFilter;
 
-    @Field(() => EnumTypeReplyFilter, {nullable:true})
-    type?: EnumTypeReplyFilter;
+    @Field(() => EnumTypeReplyNullableFilter, {nullable:true})
+    type?: EnumTypeReplyNullableFilter;
 
-    @HideField()
+    @Field(() => QuickReplyValueListRelationFilter, {nullable:true})
     values?: QuickReplyValueListRelationFilter;
 }

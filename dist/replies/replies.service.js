@@ -1,32 +1,50 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RepliesService = void 0;
+const tslib_1 = require("tslib");
 const common_1 = require("@nestjs/common");
+// import { Reply } from './reply.entity';
+const prisma_service_1 = require("../prisma.service");
+const find_many_reply_args_1 = require("../@generated/prisma-nestjs-graphql/reply/find-many-reply.args");
 let RepliesService = class RepliesService {
-    create(createReplyInput) {
-        return 'This action adds a new reply';
+    constructor(prisma) {
+        this.prisma = prisma;
     }
-    findAll() {
-        return `This action returns all replies`;
+    async reply(replyWhereUniqueInput) {
+        return this.prisma.reply.findUnique({
+            where: replyWhereUniqueInput,
+        });
     }
-    findOne(id) {
-        return `This action returns a #${id} reply`;
+    async replies(params) {
+        const { skip, take, cursor, where, orderBy } = params;
+        return this.prisma.reply.findMany({
+            skip,
+            take,
+            cursor,
+            where,
+            orderBy,
+        });
     }
-    update(id, updateReplyInput) {
-        return `This action updates a #${id} reply`;
+    async createReply(data) {
+        return this.prisma.reply.create({
+            data,
+        });
     }
-    remove(id) {
-        return `This action removes a #${id} reply`;
+    async updateReply(params) {
+        const { data, where } = params;
+        return this.prisma.reply.update({
+            data,
+            where,
+        });
+    }
+    async deleteReply(where) {
+        return this.prisma.reply.delete({
+            where,
+        });
     }
 };
-RepliesService = __decorate([
-    (0, common_1.Injectable)()
+RepliesService = (0, tslib_1.__decorate)([
+    (0, common_1.Injectable)(),
+    (0, tslib_1.__metadata)("design:paramtypes", [prisma_service_1.PrismaService])
 ], RepliesService);
 exports.RepliesService = RepliesService;
-//# sourceMappingURL=replies.service.js.map

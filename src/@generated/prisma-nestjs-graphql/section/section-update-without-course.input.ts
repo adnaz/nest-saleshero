@@ -5,7 +5,6 @@ import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-str
 import { NullableEnumTypeSectionFieldUpdateOperationsInput } from '../prisma/nullable-enum-type-section-field-update-operations.input';
 import { NullableBoolFieldUpdateOperationsInput } from '../prisma/nullable-bool-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
-import { HideField } from '@nestjs/graphql';
 import { FileUpdateOneWithoutSectionInput } from '../file/file-update-one-without-section.input';
 import { ReplyUpdateManyWithoutSectionInput } from '../reply/reply-update-many-without-section.input';
 import { UserUpdateOneWithoutSectionsInput } from '../user/user-update-one-without-sections.input';
@@ -25,10 +24,10 @@ export class SectionUpdateWithoutCourseInput {
     @Field(() => NullableBoolFieldUpdateOperationsInput, {nullable:true})
     published?: NullableBoolFieldUpdateOperationsInput;
 
-    @HideField()
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     createdAt?: DateTimeFieldUpdateOperationsInput;
 
-    @HideField()
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     updatedAt?: DateTimeFieldUpdateOperationsInput;
 
     @Field(() => FileUpdateOneWithoutSectionInput, {nullable:true})
@@ -37,6 +36,6 @@ export class SectionUpdateWithoutCourseInput {
     @Field(() => ReplyUpdateManyWithoutSectionInput, {nullable:true})
     replies?: ReplyUpdateManyWithoutSectionInput;
 
-    @HideField()
+    @Field(() => UserUpdateOneWithoutSectionsInput, {nullable:true})
     author?: UserUpdateOneWithoutSectionsInput;
 }

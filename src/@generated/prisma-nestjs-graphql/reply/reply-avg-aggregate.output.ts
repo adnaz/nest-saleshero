@@ -18,5 +18,5 @@ export class ReplyAvgAggregate {
     actorId?: number;
 
     @Field(() => Float, {nullable:true})
-    quickRepliesId?: number;
+    quickReplyId?: number;
 }

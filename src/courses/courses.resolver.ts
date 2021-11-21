@@ -1,5 +1,6 @@
 import { UseGuards } from '@nestjs/common';
 import { Args, Int, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
+import { Prisma } from '@prisma/client';
 import { CourseCreateInput } from 'src/@generated/prisma-nestjs-graphql/course/course-create.input';
 import { Course } from 'src/@generated/prisma-nestjs-graphql/course/course.model';
 import { FindManyCourseArgs } from 'src/@generated/prisma-nestjs-graphql/course/find-many-course.args';
@@ -30,7 +31,7 @@ export class CoursesResolver {
 
   @UseGuards(GqlAuthGuard)
   @Authorize(Role.ADMIN)
-    @Mutation(returns =>User)
+    @Mutation(returns =>Course)
     createCourse(@CurrentUser() user: User,@Args('courseCreateInput') courseCreateInput:CourseCreateInput ){
         return this.coursesService.createCourse({...courseCreateInput, "author": {
             "connect": {
@@ -40,7 +41,7 @@ export class CoursesResolver {
     }
     
     @Mutation(()=>Course)
-    updateCourse(@Args() updateOneCourseArgs:UpdateOneCourseArgs){
+    updateCourse(@Args() updateOneCourseArgs: UpdateOneCourseArgs){
         return this.coursesService.updateCourse(updateOneCourseArgs)
     }
 

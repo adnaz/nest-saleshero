@@ -9,4 +9,3 @@ var QuickReplyScalarFieldEnum;
     QuickReplyScalarFieldEnum["type"] = "type";
 })(QuickReplyScalarFieldEnum = exports.QuickReplyScalarFieldEnum || (exports.QuickReplyScalarFieldEnum = {}));
 (0, graphql_1.registerEnumType)(QuickReplyScalarFieldEnum, { name: 'QuickReplyScalarFieldEnum', description: undefined });
-//# sourceMappingURL=quick-reply-scalar-field.enum.js.map

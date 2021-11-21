@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
 import { FileRelationFilter } from '../file/file-relation-filter.input';
 import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
+import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { SectionRelationFilter } from '../section/section-relation-filter.input';
 import { ActorRelationFilter } from '../actor/actor-relation-filter.input';
@@ -29,6 +30,9 @@ export class ReplyWhereInput {
     @Field(() => IntNullableFilter, {nullable:true})
     fileId?: IntNullableFilter;
 
+    @Field(() => StringNullableFilter, {nullable:true})
+    text?: StringNullableFilter;
+
     @Field(() => DateTimeFilter, {nullable:true})
     createdAt?: DateTimeFilter;
 
@@ -38,8 +42,8 @@ export class ReplyWhereInput {
     @Field(() => SectionRelationFilter, {nullable:true})
     section?: SectionRelationFilter;
 
-    @Field(() => IntFilter, {nullable:true})
-    sectionId?: IntFilter;
+    @Field(() => IntNullableFilter, {nullable:true})
+    sectionId?: IntNullableFilter;
 
     @Field(() => ActorRelationFilter, {nullable:true})
     user?: ActorRelationFilter;
@@ -48,8 +52,8 @@ export class ReplyWhereInput {
     actorId?: IntNullableFilter;
 
     @Field(() => QuickReplyRelationFilter, {nullable:true})
-    quickReplies?: QuickReplyRelationFilter;
+    quickReply?: QuickReplyRelationFilter;
 
     @Field(() => IntNullableFilter, {nullable:true})
-    quickRepliesId?: IntNullableFilter;
+    quickReplyId?: IntNullableFilter;
 }

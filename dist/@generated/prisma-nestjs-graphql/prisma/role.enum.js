@@ -8,4 +8,3 @@ var Role;
     Role["ADMIN"] = "ADMIN";
 })(Role = exports.Role || (exports.Role = {}));
 (0, graphql_1.registerEnumType)(Role, { name: 'Role', description: undefined });
-//# sourceMappingURL=role.enum.js.map

@@ -22,12 +22,12 @@ export class QuickRepliesResolver {
     }
 
     @Mutation(returns =>QuickReply)
-    createQuickReply(@Args('quickReplyCreateInput') quickReplyCreateInput:QuickReplyCreateInput ){
+    createQuickReply(@Args('quickReplyCreateInput') quickReplyCreateInput: QuickReplyCreateInput ){
         return this.quickRepliesService.createQuickReply(quickReplyCreateInput)
     }
     
     @Mutation(()=>QuickReply)
-    updateQuickReply(@Args() updateOneQuickReplyArgs:UpdateOneQuickReplyArgs){
+    updateQuickReply(@Args() updateOneQuickReplyArgs: UpdateOneQuickReplyArgs){
         return this.quickRepliesService.updateQuickReply(updateOneQuickReplyArgs)
     }
 

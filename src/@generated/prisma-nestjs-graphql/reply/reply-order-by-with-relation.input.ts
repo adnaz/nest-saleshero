@@ -19,6 +19,9 @@ export class ReplyOrderByWithRelationInput {
     fileId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    text?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     createdAt?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
@@ -37,8 +40,8 @@ export class ReplyOrderByWithRelationInput {
     actorId?: keyof typeof SortOrder;
 
     @Field(() => QuickReplyOrderByWithRelationInput, {nullable:true})
-    quickReplies?: QuickReplyOrderByWithRelationInput;
+    quickReply?: QuickReplyOrderByWithRelationInput;
 
     @Field(() => SortOrder, {nullable:true})
-    quickRepliesId?: keyof typeof SortOrder;
+    quickReplyId?: keyof typeof SortOrder;
 }

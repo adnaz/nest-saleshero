@@ -6,7 +6,6 @@ import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-str
 import { NullableIntFieldUpdateOperationsInput } from '../prisma/nullable-int-field-update-operations.input';
 import { NullableBoolFieldUpdateOperationsInput } from '../prisma/nullable-bool-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
-import { HideField } from '@nestjs/graphql';
 import { SectionUncheckedUpdateManyWithoutCourseInput } from '../section/section-unchecked-update-many-without-course.input';
 
 @InputType()
@@ -30,10 +29,10 @@ export class CourseUncheckedUpdateWithoutAuthorInput {
     @Field(() => NullableBoolFieldUpdateOperationsInput, {nullable:true})
     published?: NullableBoolFieldUpdateOperationsInput;
 
-    @HideField()
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     createdAt?: DateTimeFieldUpdateOperationsInput;
 
-    @HideField()
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     updatedAt?: DateTimeFieldUpdateOperationsInput;
 
     @Field(() => SectionUncheckedUpdateManyWithoutCourseInput, {nullable:true})

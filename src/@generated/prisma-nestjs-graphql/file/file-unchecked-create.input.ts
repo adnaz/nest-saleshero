@@ -35,8 +35,8 @@ export class FileUncheckedCreateInput {
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
 
-    @Field(() => TypeFile, {nullable:false})
-    type!: keyof typeof TypeFile;
+    @Field(() => TypeFile, {nullable:true})
+    type?: keyof typeof TypeFile;
 
     @Field(() => ReplyUncheckedCreateNestedOneWithoutFileInput, {nullable:true})
     reply?: ReplyUncheckedCreateNestedOneWithoutFileInput;

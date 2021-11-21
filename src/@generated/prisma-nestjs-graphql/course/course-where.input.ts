@@ -9,7 +9,6 @@ import { SectionListRelationFilter } from '../section/section-list-relation-filt
 import { BoolNullableFilter } from '../prisma/bool-nullable-filter.input';
 import { UserRelationFilter } from '../user/user-relation-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class CourseWhereInput {
@@ -56,9 +55,9 @@ export class CourseWhereInput {
     @Field(() => IntNullableFilter, {nullable:true})
     authorId?: IntNullableFilter;
 
-    @HideField()
+    @Field(() => DateTimeFilter, {nullable:true})
     createdAt?: DateTimeFilter;
 
-    @HideField()
+    @Field(() => DateTimeFilter, {nullable:true})
     updatedAt?: DateTimeFilter;
 }

@@ -7,7 +7,6 @@ import { NullableIntFieldUpdateOperationsInput } from '../prisma/nullable-int-fi
 import { NullableEnumTypeSectionFieldUpdateOperationsInput } from '../prisma/nullable-enum-type-section-field-update-operations.input';
 import { NullableBoolFieldUpdateOperationsInput } from '../prisma/nullable-bool-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
-import { HideField } from '@nestjs/graphql';
 import { ReplyUncheckedUpdateManyWithoutSectionInput } from '../reply/reply-unchecked-update-many-without-section.input';
 
 @InputType()
@@ -34,10 +33,10 @@ export class SectionUncheckedUpdateWithoutAuthorInput {
     @Field(() => NullableBoolFieldUpdateOperationsInput, {nullable:true})
     published?: NullableBoolFieldUpdateOperationsInput;
 
-    @HideField()
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     createdAt?: DateTimeFieldUpdateOperationsInput;
 
-    @HideField()
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     updatedAt?: DateTimeFieldUpdateOperationsInput;
 
     @Field(() => ReplyUncheckedUpdateManyWithoutSectionInput, {nullable:true})

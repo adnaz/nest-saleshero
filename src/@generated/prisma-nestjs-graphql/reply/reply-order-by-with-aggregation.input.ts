@@ -17,6 +17,9 @@ export class ReplyOrderByWithAggregationInput {
     fileId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    text?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     createdAt?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
@@ -29,7 +32,7 @@ export class ReplyOrderByWithAggregationInput {
     actorId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
-    quickRepliesId?: keyof typeof SortOrder;
+    quickReplyId?: keyof typeof SortOrder;
 
     @Field(() => ReplyCountOrderByAggregateInput, {nullable:true})
     _count?: ReplyCountOrderByAggregateInput;

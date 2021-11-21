@@ -1,13 +1,14 @@
 import { Args, Int, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
-import { ActorCreateInput } from 'src/@generated/prisma-nestjs-graphql/actor/actor-create.input';
 import { Actor } from 'src/@generated/prisma-nestjs-graphql/actor/actor.model';
 import { FindManyActorArgs } from 'src/@generated/prisma-nestjs-graphql/actor/find-many-actor.args';
-import { UpdateOneActorArgs } from 'src/@generated/prisma-nestjs-graphql/actor/update-one-actor.args';
 import { UsersService } from 'src/users/users.service';
 import { ActorsService } from './actors.service';
 import { CoursesService } from 'src/courses/courses.service';
 import { File } from 'src/@generated/prisma-nestjs-graphql/file/file.model';
 import { FilesService } from 'src/files/files.service';
+import { Prisma } from '@prisma/client';
+import { ActorCreateInput } from 'src/@generated/prisma-nestjs-graphql/actor/actor-create.input';
+import { UpdateOneActorArgs } from 'src/@generated/prisma-nestjs-graphql/actor/update-one-actor.args';
 @Resolver( Actor)
 export class ActorsResolver {
 
@@ -25,12 +26,12 @@ export class ActorsResolver {
     }
 
     @Mutation(returns =>Actor)
-    createActor(@Args('actorCreateInput') actorCreateInput:ActorCreateInput ){
+    createActor(@Args('actorCreateInput') actorCreateInput: ActorCreateInput ){
         return this.actorsService.createActor(actorCreateInput)
     }
     
     @Mutation(()=>Actor)
-    updateActor(@Args() updateOneActorArgs:UpdateOneActorArgs){
+    updateActor(@Args() updateOneActorArgs: UpdateOneActorArgs ){
         return this.actorsService.updateActor(updateOneActorArgs)
     }
 

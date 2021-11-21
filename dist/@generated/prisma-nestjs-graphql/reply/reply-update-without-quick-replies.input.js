@@ -1,45 +1,41 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReplyUpdateWithoutQuickRepliesInput = void 0;
+const tslib_1 = require("tslib");
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
+const nullable_string_field_update_operations_input_1 = require("../prisma/nullable-string-field-update-operations.input");
 const date_time_field_update_operations_input_1 = require("../prisma/date-time-field-update-operations.input");
 const file_update_one_without_reply_input_1 = require("../file/file-update-one-without-reply.input");
-const section_update_one_required_without_replies_input_1 = require("../section/section-update-one-required-without-replies.input");
+const section_update_one_without_replies_input_1 = require("../section/section-update-one-without-replies.input");
 const actor_update_one_without_replies_input_1 = require("../actor/actor-update-one-without-replies.input");
 let ReplyUpdateWithoutQuickRepliesInput = class ReplyUpdateWithoutQuickRepliesInput {
 };
-__decorate([
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
+], ReplyUpdateWithoutQuickRepliesInput.prototype, "text", void 0);
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput, { nullable: true }),
-    __metadata("design:type", date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput)
+    (0, tslib_1.__metadata)("design:type", date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput)
 ], ReplyUpdateWithoutQuickRepliesInput.prototype, "createdAt", void 0);
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput, { nullable: true }),
-    __metadata("design:type", date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput)
+    (0, tslib_1.__metadata)("design:type", date_time_field_update_operations_input_1.DateTimeFieldUpdateOperationsInput)
 ], ReplyUpdateWithoutQuickRepliesInput.prototype, "updatedAt", void 0);
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => file_update_one_without_reply_input_1.FileUpdateOneWithoutReplyInput, { nullable: true }),
-    __metadata("design:type", file_update_one_without_reply_input_1.FileUpdateOneWithoutReplyInput)
+    (0, tslib_1.__metadata)("design:type", file_update_one_without_reply_input_1.FileUpdateOneWithoutReplyInput)
 ], ReplyUpdateWithoutQuickRepliesInput.prototype, "file", void 0);
-__decorate([
-    (0, graphql_1.Field)(() => section_update_one_required_without_replies_input_1.SectionUpdateOneRequiredWithoutRepliesInput, { nullable: true }),
-    __metadata("design:type", section_update_one_required_without_replies_input_1.SectionUpdateOneRequiredWithoutRepliesInput)
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => section_update_one_without_replies_input_1.SectionUpdateOneWithoutRepliesInput, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", section_update_one_without_replies_input_1.SectionUpdateOneWithoutRepliesInput)
 ], ReplyUpdateWithoutQuickRepliesInput.prototype, "section", void 0);
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => actor_update_one_without_replies_input_1.ActorUpdateOneWithoutRepliesInput, { nullable: true }),
-    __metadata("design:type", actor_update_one_without_replies_input_1.ActorUpdateOneWithoutRepliesInput)
+    (0, tslib_1.__metadata)("design:type", actor_update_one_without_replies_input_1.ActorUpdateOneWithoutRepliesInput)
 ], ReplyUpdateWithoutQuickRepliesInput.prototype, "user", void 0);
-ReplyUpdateWithoutQuickRepliesInput = __decorate([
+ReplyUpdateWithoutQuickRepliesInput = (0, tslib_1.__decorate)([
     (0, graphql_2.InputType)()
 ], ReplyUpdateWithoutQuickRepliesInput);
 exports.ReplyUpdateWithoutQuickRepliesInput = ReplyUpdateWithoutQuickRepliesInput;
-//# sourceMappingURL=reply-update-without-quick-replies.input.js.map

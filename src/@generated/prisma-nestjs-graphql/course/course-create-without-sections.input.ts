@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 import { FileCreateNestedOneWithoutCourseAudioInput } from '../file/file-create-nested-one-without-course-audio.input';
 import { FileCreateNestedOneWithoutCourseImageInput } from '../file/file-create-nested-one-without-course-image.input';
 import { UserCreateNestedOneWithoutCoursesInput } from '../user/user-create-nested-one-without-courses.input';
@@ -17,10 +16,10 @@ export class CourseCreateWithoutSectionsInput {
     @Field(() => Boolean, {nullable:true})
     published?: boolean;
 
-    @HideField()
+    @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 
-    @HideField()
+    @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
 
     @Field(() => FileCreateNestedOneWithoutCourseAudioInput, {nullable:true})

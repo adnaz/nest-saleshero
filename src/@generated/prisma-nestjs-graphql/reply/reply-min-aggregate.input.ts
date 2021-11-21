@@ -11,6 +11,9 @@ export class ReplyMinAggregateInput {
     fileId?: true;
 
     @Field(() => Boolean, {nullable:true})
+    text?: true;
+
+    @Field(() => Boolean, {nullable:true})
     createdAt?: true;
 
     @Field(() => Boolean, {nullable:true})
@@ -23,5 +26,5 @@ export class ReplyMinAggregateInput {
     actorId?: true;
 
     @Field(() => Boolean, {nullable:true})
-    quickRepliesId?: true;
+    quickReplyId?: true;
 }

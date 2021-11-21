@@ -18,5 +18,5 @@ export class ReplySumAggregate {
     actorId?: number;
 
     @Field(() => Int, {nullable:true})
-    quickRepliesId?: number;
+    quickReplyId?: number;
 }

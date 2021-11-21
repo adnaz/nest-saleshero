@@ -41,7 +41,7 @@ export class UsersService {
     });
   }
 
-  async updateUser(params: UpdateOneUserArgs): Promise<User> {
+  async updateUser(params: Prisma.UserUpdateArgs): Promise<User> {
     const { data, where } = params;
     return this.prisma.user.update({
       data,

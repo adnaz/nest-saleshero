@@ -6,6 +6,7 @@ import { UpdateOneFileArgs } from 'src/@generated/prisma-nestjs-graphql/file/upd
 import { UsersService } from 'src/users/users.service';
 import { FilesService } from './files.service';
 import { CoursesService } from 'src/courses/courses.service';
+import { Prisma } from '@prisma/client';
 @Resolver( File)
 export class FilesResolver {
 
@@ -23,12 +24,12 @@ export class FilesResolver {
     }
 
     @Mutation(returns =>File)
-    createFile(@Args('fileCreateInput') fileCreateInput:FileCreateInput ){
+    createFile(@Args('fileCreateInput') fileCreateInput: FileCreateInput ){
         return this.filesService.createFile(fileCreateInput)
     }
     
     @Mutation(()=>File)
-    updateFile(@Args() updateOneFileArgs:UpdateOneFileArgs){
+    updateFile(@Args() updateOneFileArgs: UpdateOneFileArgs){
         return this.filesService.updateFile(updateOneFileArgs)
     }
 

@@ -19,17 +19,20 @@ export class Reply {
     @Field(() => Int, {nullable:true})
     fileId!: number | null;
 
+    @Field(() => String, {nullable:true})
+    text!: string | null;
+
     @Field(() => Date, {nullable:false})
     createdAt!: Date;
 
     @Field(() => Date, {nullable:false})
     updatedAt!: Date;
 
-    @Field(() => Section, {nullable:false})
-    section?: Section;
+    @Field(() => Section, {nullable:true})
+    section?: Section | null;
 
-    @Field(() => Int, {nullable:false})
-    sectionId!: number;
+    @Field(() => Int, {nullable:true})
+    sectionId!: number | null;
 
     @Field(() => Actor, {nullable:true})
     user?: Actor | null;
@@ -38,8 +41,8 @@ export class Reply {
     actorId!: number | null;
 
     @Field(() => QuickReply, {nullable:true})
-    quickReplies?: QuickReply | null;
+    quickReply?: QuickReply | null;
 
     @Field(() => Int, {nullable:true})
-    quickRepliesId!: number | null;
+    quickReplyId!: number | null;
 }

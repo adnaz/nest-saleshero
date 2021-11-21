@@ -17,5 +17,5 @@ export class ReplySumAggregateInput {
     actorId?: true;
 
     @Field(() => Boolean, {nullable:true})
-    quickRepliesId?: true;
+    quickReplyId?: true;
 }

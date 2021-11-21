@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.input';
 import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-with-aggregates-filter.input';
 import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input';
-import { EnumTypeFileWithAggregatesFilter } from '../prisma/enum-type-file-with-aggregates-filter.input';
+import { EnumTypeFileNullableWithAggregatesFilter } from '../prisma/enum-type-file-nullable-with-aggregates-filter.input';
 
 @InputType()
 export class FileScalarWhereWithAggregatesInput {
@@ -41,6 +41,6 @@ export class FileScalarWhereWithAggregatesInput {
     @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
     updatedAt?: DateTimeWithAggregatesFilter;
 
-    @Field(() => EnumTypeFileWithAggregatesFilter, {nullable:true})
-    type?: EnumTypeFileWithAggregatesFilter;
+    @Field(() => EnumTypeFileNullableWithAggregatesFilter, {nullable:true})
+    type?: EnumTypeFileNullableWithAggregatesFilter;
 }

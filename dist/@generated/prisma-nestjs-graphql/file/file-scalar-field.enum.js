@@ -15,4 +15,3 @@ var FileScalarFieldEnum;
     FileScalarFieldEnum["type"] = "type";
 })(FileScalarFieldEnum = exports.FileScalarFieldEnum || (exports.FileScalarFieldEnum = {}));
 (0, graphql_1.registerEnumType)(FileScalarFieldEnum, { name: 'FileScalarFieldEnum', description: undefined });
-//# sourceMappingURL=file-scalar-field.enum.js.map

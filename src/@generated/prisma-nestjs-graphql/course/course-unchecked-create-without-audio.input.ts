@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 import { SectionUncheckedCreateNestedManyWithoutCourseInput } from '../section/section-unchecked-create-nested-many-without-course.input';
 
 @InputType()
@@ -25,10 +24,10 @@ export class CourseUncheckedCreateWithoutAudioInput {
     @Field(() => Int, {nullable:true})
     authorId?: number;
 
-    @HideField()
+    @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 
-    @HideField()
+    @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
 
     @Field(() => SectionUncheckedCreateNestedManyWithoutCourseInput, {nullable:true})

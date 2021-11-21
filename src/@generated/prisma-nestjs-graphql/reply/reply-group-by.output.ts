@@ -16,20 +16,23 @@ export class ReplyGroupBy {
     @Field(() => Int, {nullable:true})
     fileId?: number;
 
+    @Field(() => String, {nullable:true})
+    text?: string;
+
     @Field(() => Date, {nullable:false})
     createdAt!: Date | string;
 
     @Field(() => Date, {nullable:false})
     updatedAt!: Date | string;
 
-    @Field(() => Int, {nullable:false})
-    sectionId!: number;
+    @Field(() => Int, {nullable:true})
+    sectionId?: number;
 
     @Field(() => Int, {nullable:true})
     actorId?: number;
 
     @Field(() => Int, {nullable:true})
-    quickRepliesId?: number;
+    quickReplyId?: number;
 
     @Field(() => ReplyCountAggregate, {nullable:true})
     _count?: ReplyCountAggregate;

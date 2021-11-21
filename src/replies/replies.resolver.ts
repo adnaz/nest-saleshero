@@ -1,35 +1,55 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
-import { RepliesService } from './replies.service';
-import { CreateReplyInput } from './dto/create-reply.input';
-import { UpdateReplyInput } from './dto/update-reply.input';
+import { Args, Int, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
+import { ReplyCreateInput } from 'src/@generated/prisma-nestjs-graphql/reply/reply-create.input';
 import { Reply } from 'src/@generated/prisma-nestjs-graphql/reply/reply.model';
-
-@Resolver(() => Reply)
+import { FindManyReplyArgs } from 'src/@generated/prisma-nestjs-graphql/reply/find-many-reply.args';
+import { UpdateOneReplyArgs } from 'src/@generated/prisma-nestjs-graphql/reply/update-one-reply.args';
+import { UsersService } from 'src/users/users.service';
+import { RepliesService } from './replies.service';
+import { SectionsService } from 'src/sections/sections.service';
+import { Prisma } from '@prisma/client';
+import { QuickRepliesService } from 'src/quick-replies/quick-replies.service';
+import { QuickReply } from 'src/@generated/prisma-nestjs-graphql/quick-reply/quick-reply.model';
+@Resolver( Reply)
 export class RepliesResolver {
-  constructor(private readonly repliesService: RepliesService) {}
 
-  @Mutation(() => Reply)
-  createReply(@Args('createReplyInput') createReplyInput: CreateReplyInput) {
-    return this.repliesService.create(createReplyInput);
-  }
+    constructor(private repliesService: RepliesService, private sectionsService: SectionsService,private quickRepliesService:QuickRepliesService) { }
 
-  @Query(() => [Reply], { name: 'replies' })
-  findAll() {
-    return this.repliesService.findAll();
-  }
 
-  @Query(() => Reply, { name: 'reply' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
-    return this.repliesService.findOne(id);
-  }
+    @Query(returns => [Reply])
+    replies(@Args() findManyReplyArgs : FindManyReplyArgs): Promise<Reply[]> {
+        return this.repliesService.replies(findManyReplyArgs);
+    }
 
-  @Mutation(() => Reply)
-  updateReply(@Args('updateReplyInput') updateReplyInput: UpdateReplyInput) {
-    return this.repliesService.update(updateReplyInput.id, updateReplyInput);
-  }
+    @Query(retuns => Reply)
+    async reply(@Args('id', { type: () => Int }) id: number) {
+        return this.repliesService.reply({ id })
+    }
 
-  @Mutation(() => Reply)
-  removeReply(@Args('id', { type: () => Int }) id: number) {
-    return this.repliesService.remove(id);
-  }
+    @Mutation(returns =>Reply)
+    createReply(@Args('replyCreateInput') replyCreateInput:ReplyCreateInput ){
+        return this.repliesService.createReply(replyCreateInput)
+    }
+    
+    @Mutation(()=>Reply)
+    updateReply(@Args() updateOneReplyArgs: UpdateOneReplyArgs){
+        return this.repliesService.updateReply(updateOneReplyArgs)
+    }
+
+    @Mutation(()=>Reply)
+    removeReply(@Args('id', { type: () => Int }) id: number){
+        return this.repliesService.deleteReply({id});
+    }
+
+    @ResolveField()
+    async section(@Parent() reply: Reply) {
+        const { sectionId } = reply;
+        if(sectionId){
+            return this.sectionsService.section({ id:sectionId });
+        }
+    }
+    @ResolveField()
+    async quickReply(@Parent() reply: Reply) {
+        const { quickReplyId } = reply;
+        return this.quickRepliesService.quickReply({id:quickReplyId});
+    }
 }

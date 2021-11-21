@@ -1,26 +1,53 @@
 import { Injectable } from '@nestjs/common';
-import { CreateReplyInput } from './dto/create-reply.input';
-import { UpdateReplyInput } from './dto/update-reply.input';
-
+// import { Reply } from './reply.entity';
+import { PrismaService } from '../prisma.service';
+import {
+  Reply,
+  Prisma,
+} from '@prisma/client';
+import { FindManyReplyArgs } from 'src/@generated/prisma-nestjs-graphql/reply/find-many-reply.args';
 @Injectable()
 export class RepliesService {
-  create(createReplyInput: CreateReplyInput) {
-    return 'This action adds a new reply';
-  }
+    constructor(private prisma: PrismaService) {}
 
-  findAll() {
-    return `This action returns all replies`;
-  }
 
-  findOne(id: number) {
-    return `This action returns a #${id} reply`;
-  }
-
-  update(id: number, updateReplyInput: UpdateReplyInput) {
-    return `This action updates a #${id} reply`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} reply`;
-  }
+    async reply(replyWhereUniqueInput: Prisma.ReplyWhereUniqueInput): Promise<Reply | null> {
+        return this.prisma.reply.findUnique({
+          where: replyWhereUniqueInput,
+        });
+      }
+    
+      async replies(params: FindManyReplyArgs): Promise<Reply[]> {
+        const { skip, take, cursor, where, orderBy } = params;
+        return this.prisma.reply.findMany({
+          skip,
+          take,
+          cursor,
+          where,
+          orderBy,
+        });
+      }
+    
+      async createReply(data: Prisma.ReplyCreateInput): Promise<Reply> {
+        return this.prisma.reply.create({
+          data,
+        });
+      }
+    
+      async updateReply(params: {
+        where: Prisma.ReplyWhereUniqueInput;
+        data: Prisma.ReplyUpdateInput;
+      }): Promise<Reply> {
+        const { data, where } = params;
+        return this.prisma.reply.update({
+          data,
+          where,
+        });
+      }
+    
+      async deleteReply(where: Prisma.ReplyWhereUniqueInput): Promise<Reply> {
+        return this.prisma.reply.delete({
+          where,
+        });
+      }
 }

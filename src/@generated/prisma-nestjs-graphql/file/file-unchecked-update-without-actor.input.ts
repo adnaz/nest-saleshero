@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
 import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
-import { EnumTypeFileFieldUpdateOperationsInput } from '../prisma/enum-type-file-field-update-operations.input';
+import { NullableEnumTypeFileFieldUpdateOperationsInput } from '../prisma/nullable-enum-type-file-field-update-operations.input';
 import { ReplyUncheckedUpdateOneWithoutFileInput } from '../reply/reply-unchecked-update-one-without-file.input';
 import { CourseUncheckedUpdateOneWithoutImageInput } from '../course/course-unchecked-update-one-without-image.input';
 import { CourseUncheckedUpdateOneWithoutAudioInput } from '../course/course-unchecked-update-one-without-audio.input';
@@ -36,8 +36,8 @@ export class FileUncheckedUpdateWithoutActorInput {
     @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     updatedAt?: DateTimeFieldUpdateOperationsInput;
 
-    @Field(() => EnumTypeFileFieldUpdateOperationsInput, {nullable:true})
-    type?: EnumTypeFileFieldUpdateOperationsInput;
+    @Field(() => NullableEnumTypeFileFieldUpdateOperationsInput, {nullable:true})
+    type?: NullableEnumTypeFileFieldUpdateOperationsInput;
 
     @Field(() => ReplyUncheckedUpdateOneWithoutFileInput, {nullable:true})
     reply?: ReplyUncheckedUpdateOneWithoutFileInput;

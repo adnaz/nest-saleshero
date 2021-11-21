@@ -1,25 +1,16 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateQuickReplyValueInput = void 0;
+const tslib_1 = require("tslib");
 const create_quick_reply_value_input_1 = require("./create-quick-reply-value.input");
 const graphql_1 = require("@nestjs/graphql");
 let UpdateQuickReplyValueInput = class UpdateQuickReplyValueInput extends (0, graphql_1.PartialType)(create_quick_reply_value_input_1.CreateQuickReplyValueInput) {
 };
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => graphql_1.Int),
-    __metadata("design:type", Number)
+    (0, tslib_1.__metadata)("design:type", Number)
 ], UpdateQuickReplyValueInput.prototype, "id", void 0);
-UpdateQuickReplyValueInput = __decorate([
+UpdateQuickReplyValueInput = (0, tslib_1.__decorate)([
     (0, graphql_1.InputType)()
 ], UpdateQuickReplyValueInput);
 exports.UpdateQuickReplyValueInput = UpdateQuickReplyValueInput;
-//# sourceMappingURL=update-quick-reply-value.input.js.map

@@ -7,6 +7,9 @@ import { ActorCreateNestedOneWithoutRepliesInput } from '../actor/actor-create-n
 @InputType()
 export class ReplyCreateWithoutQuickRepliesInput {
 
+    @Field(() => String, {nullable:true})
+    text?: string;
+
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 
@@ -16,8 +19,8 @@ export class ReplyCreateWithoutQuickRepliesInput {
     @Field(() => FileCreateNestedOneWithoutReplyInput, {nullable:true})
     file?: FileCreateNestedOneWithoutReplyInput;
 
-    @Field(() => SectionCreateNestedOneWithoutRepliesInput, {nullable:false})
-    section!: SectionCreateNestedOneWithoutRepliesInput;
+    @Field(() => SectionCreateNestedOneWithoutRepliesInput, {nullable:true})
+    section?: SectionCreateNestedOneWithoutRepliesInput;
 
     @Field(() => ActorCreateNestedOneWithoutRepliesInput, {nullable:true})
     user?: ActorCreateNestedOneWithoutRepliesInput;

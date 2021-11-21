@@ -3,7 +3,6 @@ import { InputType } from '@nestjs/graphql';
 import * as Validator from 'class-validator';
 import { Role } from '../prisma/role.enum';
 import { AppCreateNestedManyWithoutAuthorInput } from '../app/app-create-nested-many-without-author.input';
-import { HideField } from '@nestjs/graphql';
 import { PostCreateNestedManyWithoutAuthorInput } from '../post/post-create-nested-many-without-author.input';
 import { CourseCreateNestedManyWithoutAuthorInput } from '../course/course-create-nested-many-without-author.input';
 import { SectionCreateNestedManyWithoutAuthorInput } from '../section/section-create-nested-many-without-author.input';
@@ -33,15 +32,15 @@ export class UserCreateInput {
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
 
-    @HideField()
+    @Field(() => AppCreateNestedManyWithoutAuthorInput, {nullable:true})
     apps?: AppCreateNestedManyWithoutAuthorInput;
 
-    @HideField()
+    @Field(() => PostCreateNestedManyWithoutAuthorInput, {nullable:true})
     posts?: PostCreateNestedManyWithoutAuthorInput;
 
-    @HideField()
+    @Field(() => CourseCreateNestedManyWithoutAuthorInput, {nullable:true})
     courses?: CourseCreateNestedManyWithoutAuthorInput;
 
-    @HideField()
+    @Field(() => SectionCreateNestedManyWithoutAuthorInput, {nullable:true})
     sections?: SectionCreateNestedManyWithoutAuthorInput;
 }

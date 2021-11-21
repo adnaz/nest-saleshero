@@ -1,15 +1,7 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Section = void 0;
+const tslib_1 = require("tslib");
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const graphql_3 = require("@nestjs/graphql");
@@ -22,68 +14,67 @@ const user_model_1 = require("../user/user.model");
 const section_count_output_1 = require("./section-count.output");
 let Section = class Section {
 };
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => graphql_3.ID, { nullable: false }),
-    __metadata("design:type", Number)
+    (0, tslib_1.__metadata)("design:type", Number)
 ], Section.prototype, "id", void 0);
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => String, { nullable: false }),
-    __metadata("design:type", String)
+    (0, tslib_1.__metadata)("design:type", String)
 ], Section.prototype, "title", void 0);
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => String, { nullable: true }),
-    __metadata("design:type", String)
+    (0, tslib_1.__metadata)("design:type", String)
 ], Section.prototype, "description", void 0);
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => file_model_1.File, { nullable: true }),
-    __metadata("design:type", file_model_1.File)
+    (0, tslib_1.__metadata)("design:type", file_model_1.File)
 ], Section.prototype, "image", void 0);
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => graphql_4.Int, { nullable: true }),
-    __metadata("design:type", Number)
+    (0, tslib_1.__metadata)("design:type", Number)
 ], Section.prototype, "imageId", void 0);
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => type_section_enum_1.TypeSection, { nullable: true }),
-    __metadata("design:type", Object)
+    (0, tslib_1.__metadata)("design:type", Object)
 ], Section.prototype, "type", void 0);
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => course_model_1.Course, { nullable: true }),
-    __metadata("design:type", course_model_1.Course)
+    (0, tslib_1.__metadata)("design:type", course_model_1.Course)
 ], Section.prototype, "course", void 0);
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => graphql_4.Int, { nullable: true }),
-    __metadata("design:type", Number)
+    (0, tslib_1.__metadata)("design:type", Number)
 ], Section.prototype, "courseId", void 0);
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => [reply_model_1.Reply], { nullable: true }),
-    __metadata("design:type", Array)
+    (0, tslib_1.__metadata)("design:type", Array)
 ], Section.prototype, "replies", void 0);
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => Boolean, { nullable: true, defaultValue: false }),
-    __metadata("design:type", Boolean)
+    (0, tslib_1.__metadata)("design:type", Boolean)
 ], Section.prototype, "published", void 0);
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => user_model_1.User, { nullable: true }),
-    __metadata("design:type", user_model_1.User)
+    (0, tslib_1.__metadata)("design:type", user_model_1.User)
 ], Section.prototype, "author", void 0);
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => graphql_4.Int, { nullable: true }),
-    __metadata("design:type", Number)
+    (0, tslib_1.__metadata)("design:type", Number)
 ], Section.prototype, "authorId", void 0);
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => Date, { nullable: false }),
-    __metadata("design:type", Date)
+    (0, tslib_1.__metadata)("design:type", Date)
 ], Section.prototype, "createdAt", void 0);
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => Date, { nullable: false }),
-    __metadata("design:type", Date)
+    (0, tslib_1.__metadata)("design:type", Date)
 ], Section.prototype, "updatedAt", void 0);
-__decorate([
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => section_count_output_1.SectionCount, { nullable: false }),
-    __metadata("design:type", section_count_output_1.SectionCount)
+    (0, tslib_1.__metadata)("design:type", section_count_output_1.SectionCount)
 ], Section.prototype, "_count", void 0);
-Section = __decorate([
+Section = (0, tslib_1.__decorate)([
     (0, graphql_2.ObjectType)()
 ], Section);
 exports.Section = Section;
-//# sourceMappingURL=section.model.js.map

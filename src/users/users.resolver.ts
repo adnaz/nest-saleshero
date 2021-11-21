@@ -2,8 +2,6 @@ import { Role } from '.prisma/client';
 import { UseGuards } from '@nestjs/common';
 import { Args, Int, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
 import { Course } from 'src/@generated/prisma-nestjs-graphql/course/course.model';
-import { FindManyUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/find-many-user.args';
-import { UpdateOneUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/update-one-user.args';
 import { UserCreateInput } from 'src/@generated/prisma-nestjs-graphql/user/user-create.input';
 import { User } from 'src/@generated/prisma-nestjs-graphql/user/user.model';
 import { CurrentUser } from 'src/auth/current-user.decorator';
@@ -12,6 +10,9 @@ import { Authorize, Roles } from 'src/auth/roles.decorator';
 import { RolesGuard } from 'src/auth/roles.guard';
 import { CoursesService } from 'src/courses/courses.service';
 import { UsersService } from './users.service';
+import { Prisma } from '.prisma/client';
+import { FindManyUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/find-many-user.args';
+import { UpdateOneUserArgs } from 'src/@generated/prisma-nestjs-graphql/user/update-one-user.args';
 
 @Resolver(User)
 export class UsersResolver {
@@ -40,7 +41,7 @@ export class UsersResolver {
   }
   
   @Mutation(()=>User)
-  updateUser(@Args() updateOneUserArgs:UpdateOneUserArgs){
+  updateUser(@Args() updateOneUserArgs: UpdateOneUserArgs){
       return this.usersService.updateUser(updateOneUserArgs)
   }
 

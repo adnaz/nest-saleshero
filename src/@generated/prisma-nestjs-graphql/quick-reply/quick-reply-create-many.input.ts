@@ -12,6 +12,6 @@ export class QuickReplyCreateManyInput {
     @Field(() => Boolean, {nullable:true})
     keepIt?: boolean;
 
-    @Field(() => TypeReply, {nullable:false})
-    type!: keyof typeof TypeReply;
+    @Field(() => TypeReply, {nullable:true})
+    type?: keyof typeof TypeReply;
 }

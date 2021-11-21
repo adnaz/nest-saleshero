@@ -2,7 +2,6 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
 import { TypeSection } from '../prisma/type-section.enum';
-import { HideField } from '@nestjs/graphql';
 import { ReplyUncheckedCreateNestedManyWithoutSectionInput } from '../reply/reply-unchecked-create-nested-many-without-section.input';
 
 @InputType()
@@ -29,10 +28,10 @@ export class SectionUncheckedCreateWithoutAuthorInput {
     @Field(() => Boolean, {nullable:true})
     published?: boolean;
 
-    @HideField()
+    @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 
-    @HideField()
+    @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
 
     @Field(() => ReplyUncheckedCreateNestedManyWithoutSectionInput, {nullable:true})

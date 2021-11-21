@@ -6,7 +6,6 @@ import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-str
 import { EnumRoleFieldUpdateOperationsInput } from '../prisma/enum-role-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { AppUncheckedUpdateManyWithoutAuthorInput } from '../app/app-unchecked-update-many-without-author.input';
-import { HideField } from '@nestjs/graphql';
 import { PostUncheckedUpdateManyWithoutAuthorInput } from '../post/post-unchecked-update-many-without-author.input';
 import { CourseUncheckedUpdateManyWithoutAuthorInput } from '../course/course-unchecked-update-many-without-author.input';
 import { SectionUncheckedUpdateManyWithoutAuthorInput } from '../section/section-unchecked-update-many-without-author.input';
@@ -38,15 +37,15 @@ export class UserUncheckedUpdateInput {
     @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     updatedAt?: DateTimeFieldUpdateOperationsInput;
 
-    @HideField()
+    @Field(() => AppUncheckedUpdateManyWithoutAuthorInput, {nullable:true})
     apps?: AppUncheckedUpdateManyWithoutAuthorInput;
 
-    @HideField()
+    @Field(() => PostUncheckedUpdateManyWithoutAuthorInput, {nullable:true})
     posts?: PostUncheckedUpdateManyWithoutAuthorInput;
 
-    @HideField()
+    @Field(() => CourseUncheckedUpdateManyWithoutAuthorInput, {nullable:true})
     courses?: CourseUncheckedUpdateManyWithoutAuthorInput;
 
-    @HideField()
+    @Field(() => SectionUncheckedUpdateManyWithoutAuthorInput, {nullable:true})
     sections?: SectionUncheckedUpdateManyWithoutAuthorInput;
 }

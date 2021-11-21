@@ -8,4 +8,3 @@ var TypeReply;
     TypeReply["radio"] = "radio";
 })(TypeReply = exports.TypeReply || (exports.TypeReply = {}));
 (0, graphql_1.registerEnumType)(TypeReply, { name: 'TypeReply', description: undefined });
-//# sourceMappingURL=type-reply.enum.js.map

@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { HideField } from '@nestjs/graphql';
 
 @InputType()
 export class SectionAvgAggregateInput {
@@ -14,6 +13,6 @@ export class SectionAvgAggregateInput {
     @Field(() => Boolean, {nullable:true})
     courseId?: true;
 
-    @HideField()
+    @Field(() => Boolean, {nullable:true})
     authorId?: true;
 }

@@ -7,6 +7,9 @@ import { QuickReplyCreateNestedOneWithoutReplyInput } from '../quick-reply/quick
 @InputType()
 export class ReplyCreateWithoutUserInput {
 
+    @Field(() => String, {nullable:true})
+    text?: string;
+
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 
@@ -16,9 +19,9 @@ export class ReplyCreateWithoutUserInput {
     @Field(() => FileCreateNestedOneWithoutReplyInput, {nullable:true})
     file?: FileCreateNestedOneWithoutReplyInput;
 
-    @Field(() => SectionCreateNestedOneWithoutRepliesInput, {nullable:false})
-    section!: SectionCreateNestedOneWithoutRepliesInput;
+    @Field(() => SectionCreateNestedOneWithoutRepliesInput, {nullable:true})
+    section?: SectionCreateNestedOneWithoutRepliesInput;
 
     @Field(() => QuickReplyCreateNestedOneWithoutReplyInput, {nullable:true})
-    quickReplies?: QuickReplyCreateNestedOneWithoutReplyInput;
+    quickReply?: QuickReplyCreateNestedOneWithoutReplyInput;
 }

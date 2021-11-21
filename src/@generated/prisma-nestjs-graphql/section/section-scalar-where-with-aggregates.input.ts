@@ -6,7 +6,6 @@ import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-wi
 import { IntNullableWithAggregatesFilter } from '../prisma/int-nullable-with-aggregates-filter.input';
 import { EnumTypeSectionNullableWithAggregatesFilter } from '../prisma/enum-type-section-nullable-with-aggregates-filter.input';
 import { BoolNullableWithAggregatesFilter } from '../prisma/bool-nullable-with-aggregates-filter.input';
-import { HideField } from '@nestjs/graphql';
 import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input';
 
 @InputType()
@@ -42,12 +41,12 @@ export class SectionScalarWhereWithAggregatesInput {
     @Field(() => BoolNullableWithAggregatesFilter, {nullable:true})
     published?: BoolNullableWithAggregatesFilter;
 
-    @HideField()
+    @Field(() => IntNullableWithAggregatesFilter, {nullable:true})
     authorId?: IntNullableWithAggregatesFilter;
 
-    @HideField()
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
     createdAt?: DateTimeWithAggregatesFilter;
 
-    @HideField()
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
     updatedAt?: DateTimeWithAggregatesFilter;
 }

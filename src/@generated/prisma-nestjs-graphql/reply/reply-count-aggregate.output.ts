@@ -12,6 +12,9 @@ export class ReplyCountAggregate {
     fileId!: number;
 
     @Field(() => Int, {nullable:false})
+    text!: number;
+
+    @Field(() => Int, {nullable:false})
     createdAt!: number;
 
     @Field(() => Int, {nullable:false})
@@ -24,7 +27,7 @@ export class ReplyCountAggregate {
     actorId!: number;
 
     @Field(() => Int, {nullable:false})
-    quickRepliesId!: number;
+    quickReplyId!: number;
 
     @Field(() => Int, {nullable:false})
     _all!: number;

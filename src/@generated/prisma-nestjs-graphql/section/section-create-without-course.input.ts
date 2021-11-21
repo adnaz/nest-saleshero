@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { TypeSection } from '../prisma/type-section.enum';
-import { HideField } from '@nestjs/graphql';
 import { FileCreateNestedOneWithoutSectionInput } from '../file/file-create-nested-one-without-section.input';
 import { ReplyCreateNestedManyWithoutSectionInput } from '../reply/reply-create-nested-many-without-section.input';
 import { UserCreateNestedOneWithoutSectionsInput } from '../user/user-create-nested-one-without-sections.input';
@@ -21,10 +20,10 @@ export class SectionCreateWithoutCourseInput {
     @Field(() => Boolean, {nullable:true})
     published?: boolean;
 
-    @HideField()
+    @Field(() => Date, {nullable:true})
     createdAt?: Date | string;
 
-    @HideField()
+    @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
 
     @Field(() => FileCreateNestedOneWithoutSectionInput, {nullable:true})
@@ -33,6 +32,6 @@ export class SectionCreateWithoutCourseInput {
     @Field(() => ReplyCreateNestedManyWithoutSectionInput, {nullable:true})
     replies?: ReplyCreateNestedManyWithoutSectionInput;
 
-    @HideField()
+    @Field(() => UserCreateNestedOneWithoutSectionsInput, {nullable:true})
     author?: UserCreateNestedOneWithoutSectionsInput;
 }

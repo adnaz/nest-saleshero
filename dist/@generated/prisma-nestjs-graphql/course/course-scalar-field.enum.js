@@ -15,4 +15,3 @@ var CourseScalarFieldEnum;
     CourseScalarFieldEnum["updatedAt"] = "updatedAt";
 })(CourseScalarFieldEnum = exports.CourseScalarFieldEnum || (exports.CourseScalarFieldEnum = {}));
 (0, graphql_1.registerEnumType)(CourseScalarFieldEnum, { name: 'CourseScalarFieldEnum', description: undefined });
-//# sourceMappingURL=course-scalar-field.enum.js.map

@@ -14,4 +14,3 @@ var UserScalarFieldEnum;
     UserScalarFieldEnum["updatedAt"] = "updatedAt";
 })(UserScalarFieldEnum = exports.UserScalarFieldEnum || (exports.UserScalarFieldEnum = {}));
 (0, graphql_1.registerEnumType)(UserScalarFieldEnum, { name: 'UserScalarFieldEnum', description: undefined });
-//# sourceMappingURL=user-scalar-field.enum.js.map

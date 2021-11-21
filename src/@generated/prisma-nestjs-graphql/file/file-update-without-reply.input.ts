@@ -2,7 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
-import { EnumTypeFileFieldUpdateOperationsInput } from '../prisma/enum-type-file-field-update-operations.input';
+import { NullableEnumTypeFileFieldUpdateOperationsInput } from '../prisma/nullable-enum-type-file-field-update-operations.input';
 import { ActorUpdateOneWithoutAvatarInput } from '../actor/actor-update-one-without-avatar.input';
 import { CourseUpdateOneWithoutImageInput } from '../course/course-update-one-without-image.input';
 import { CourseUpdateOneWithoutAudioInput } from '../course/course-update-one-without-audio.input';
@@ -32,8 +32,8 @@ export class FileUpdateWithoutReplyInput {
     @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     updatedAt?: DateTimeFieldUpdateOperationsInput;
 
-    @Field(() => EnumTypeFileFieldUpdateOperationsInput, {nullable:true})
-    type?: EnumTypeFileFieldUpdateOperationsInput;
+    @Field(() => NullableEnumTypeFileFieldUpdateOperationsInput, {nullable:true})
+    type?: NullableEnumTypeFileFieldUpdateOperationsInput;
 
     @Field(() => ActorUpdateOneWithoutAvatarInput, {nullable:true})
     actor?: ActorUpdateOneWithoutAvatarInput;
