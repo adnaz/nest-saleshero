@@ -8,5 +8,8 @@ export class PostSumAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
+    order?: true;
+
+    @Field(() => Boolean, {nullable:true})
     authorId?: true;
 }

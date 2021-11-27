@@ -9,6 +9,9 @@ export class FileCountAggregate {
     id!: number;
 
     @Field(() => Int, {nullable:false})
+    name!: number;
+
+    @Field(() => Int, {nullable:false})
     link!: number;
 
     @Field(() => Int, {nullable:false})

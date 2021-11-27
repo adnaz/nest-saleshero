@@ -1,5 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
+import { Float } from '@nestjs/graphql';
 import { TypeSection } from '../prisma/type-section.enum';
 import { FileCreateNestedOneWithoutSectionInput } from '../file/file-create-nested-one-without-section.input';
 import { CourseCreateNestedOneWithoutSectionsInput } from '../course/course-create-nested-one-without-sections.input';
@@ -7,6 +8,9 @@ import { ReplyCreateNestedManyWithoutSectionInput } from '../reply/reply-create-
 
 @InputType()
 export class SectionCreateWithoutAuthorInput {
+
+    @Field(() => Float, {nullable:true})
+    order?: number;
 
     @Field(() => String, {nullable:false})
     title!: string;

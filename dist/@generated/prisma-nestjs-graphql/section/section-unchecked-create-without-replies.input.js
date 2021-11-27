@@ -5,6 +5,7 @@ const tslib_1 = require("tslib");
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const graphql_3 = require("@nestjs/graphql");
+const graphql_4 = require("@nestjs/graphql");
 const type_section_enum_1 = require("../prisma/type-section.enum");
 let SectionUncheckedCreateWithoutRepliesInput = class SectionUncheckedCreateWithoutRepliesInput {
 };
@@ -12,6 +13,10 @@ let SectionUncheckedCreateWithoutRepliesInput = class SectionUncheckedCreateWith
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Number)
 ], SectionUncheckedCreateWithoutRepliesInput.prototype, "id", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => graphql_4.Float, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Number)
+], SectionUncheckedCreateWithoutRepliesInput.prototype, "order", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => String, { nullable: false }),
     (0, tslib_1.__metadata)("design:type", String)

@@ -12,6 +12,9 @@ import { CourseUpdateOneWithoutAudioInput } from '../course/course-update-one-wi
 export class FileUpdateWithoutSectionInput {
 
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    name?: NullableStringFieldUpdateOperationsInput;
+
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     link?: NullableStringFieldUpdateOperationsInput;
 
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})

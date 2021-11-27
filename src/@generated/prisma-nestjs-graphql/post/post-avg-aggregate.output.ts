@@ -9,5 +9,8 @@ export class PostAvgAggregate {
     id?: number;
 
     @Field(() => Float, {nullable:true})
+    order?: number;
+
+    @Field(() => Float, {nullable:true})
     authorId?: number;
 }

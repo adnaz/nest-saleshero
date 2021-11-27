@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
+import { Float } from '@nestjs/graphql';
 import { TypeSection } from '../prisma/type-section.enum';
 
 @InputType()
@@ -8,6 +9,9 @@ export class SectionUncheckedCreateWithoutRepliesInput {
 
     @Field(() => Int, {nullable:true})
     id?: number;
+
+    @Field(() => Float, {nullable:true})
+    order?: number;
 
     @Field(() => String, {nullable:false})
     title!: string;

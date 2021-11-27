@@ -7,12 +7,15 @@ const find_many_quick_reply_value_args_1 = require("../@generated/prisma-nestjs-
 const quick_reply_value_create_input_1 = require("../@generated/prisma-nestjs-graphql/quick-reply-value/quick-reply-value-create.input");
 const quick_reply_value_model_1 = require("../@generated/prisma-nestjs-graphql/quick-reply-value/quick-reply-value.model");
 const update_one_quick_reply_value_args_1 = require("../@generated/prisma-nestjs-graphql/quick-reply-value/update-one-quick-reply-value.args");
+const quick_reply_model_1 = require("../@generated/prisma-nestjs-graphql/quick-reply/quick-reply.model");
+const quick_replies_service_1 = require("../quick-replies/quick-replies.service");
 const users_service_1 = require("../users/users.service");
 const quick_reply_values_service_1 = require("./quick-reply-values.service");
 let QuickReplyValuesResolver = class QuickReplyValuesResolver {
-    constructor(quickReplyValuesService, usersService) {
+    constructor(quickReplyValuesService, usersService, quickRepliesService) {
         this.quickReplyValuesService = quickReplyValuesService;
         this.usersService = usersService;
+        this.quickRepliesService = quickRepliesService;
     }
     quickReplyValues(findManyQuickReplyValueArgs) {
         return this.quickReplyValuesService.quickReplyValues(findManyQuickReplyValueArgs);
@@ -28,6 +31,10 @@ let QuickReplyValuesResolver = class QuickReplyValuesResolver {
     }
     removeQuickReplyValue(id) {
         return this.quickReplyValuesService.deleteQuickReplyValue({ id });
+    }
+    async quickReply(quickReplyValue) {
+        const { id } = quickReplyValue;
+        return this.quickRepliesService.quickReply({ id });
     }
 };
 (0, tslib_1.__decorate)([
@@ -65,8 +72,15 @@ let QuickReplyValuesResolver = class QuickReplyValuesResolver {
     (0, tslib_1.__metadata)("design:paramtypes", [Number]),
     (0, tslib_1.__metadata)("design:returntype", void 0)
 ], QuickReplyValuesResolver.prototype, "removeQuickReplyValue", null);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.ResolveField)(),
+    (0, tslib_1.__param)(0, (0, graphql_1.Parent)()),
+    (0, tslib_1.__metadata)("design:type", Function),
+    (0, tslib_1.__metadata)("design:paramtypes", [quick_reply_value_model_1.QuickReplyValue]),
+    (0, tslib_1.__metadata)("design:returntype", Promise)
+], QuickReplyValuesResolver.prototype, "quickReply", null);
 QuickReplyValuesResolver = (0, tslib_1.__decorate)([
     (0, graphql_1.Resolver)(quick_reply_value_model_1.QuickReplyValue),
-    (0, tslib_1.__metadata)("design:paramtypes", [quick_reply_values_service_1.QuickReplyValuesService, users_service_1.UsersService])
+    (0, tslib_1.__metadata)("design:paramtypes", [quick_reply_values_service_1.QuickReplyValuesService, users_service_1.UsersService, quick_replies_service_1.QuickRepliesService])
 ], QuickReplyValuesResolver);
 exports.QuickReplyValuesResolver = QuickReplyValuesResolver;

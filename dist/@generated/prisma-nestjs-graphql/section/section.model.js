@@ -5,8 +5,9 @@ const tslib_1 = require("tslib");
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const graphql_3 = require("@nestjs/graphql");
-const file_model_1 = require("../file/file.model");
 const graphql_4 = require("@nestjs/graphql");
+const file_model_1 = require("../file/file.model");
+const graphql_5 = require("@nestjs/graphql");
 const type_section_enum_1 = require("../prisma/type-section.enum");
 const course_model_1 = require("../course/course.model");
 const reply_model_1 = require("../reply/reply.model");
@@ -18,6 +19,10 @@ let Section = class Section {
     (0, graphql_1.Field)(() => graphql_3.ID, { nullable: false }),
     (0, tslib_1.__metadata)("design:type", Number)
 ], Section.prototype, "id", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => graphql_4.Float, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Number)
+], Section.prototype, "order", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => String, { nullable: false }),
     (0, tslib_1.__metadata)("design:type", String)
@@ -31,7 +36,7 @@ let Section = class Section {
     (0, tslib_1.__metadata)("design:type", file_model_1.File)
 ], Section.prototype, "image", void 0);
 (0, tslib_1.__decorate)([
-    (0, graphql_1.Field)(() => graphql_4.Int, { nullable: true }),
+    (0, graphql_1.Field)(() => graphql_5.Int, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Number)
 ], Section.prototype, "imageId", void 0);
 (0, tslib_1.__decorate)([
@@ -43,7 +48,7 @@ let Section = class Section {
     (0, tslib_1.__metadata)("design:type", course_model_1.Course)
 ], Section.prototype, "course", void 0);
 (0, tslib_1.__decorate)([
-    (0, graphql_1.Field)(() => graphql_4.Int, { nullable: true }),
+    (0, graphql_1.Field)(() => graphql_5.Int, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Number)
 ], Section.prototype, "courseId", void 0);
 (0, tslib_1.__decorate)([
@@ -59,7 +64,7 @@ let Section = class Section {
     (0, tslib_1.__metadata)("design:type", user_model_1.User)
 ], Section.prototype, "author", void 0);
 (0, tslib_1.__decorate)([
-    (0, graphql_1.Field)(() => graphql_4.Int, { nullable: true }),
+    (0, graphql_1.Field)(() => graphql_5.Int, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Number)
 ], Section.prototype, "authorId", void 0);
 (0, tslib_1.__decorate)([

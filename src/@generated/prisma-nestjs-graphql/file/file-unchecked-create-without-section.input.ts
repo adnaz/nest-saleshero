@@ -14,6 +14,9 @@ export class FileUncheckedCreateWithoutSectionInput {
     id?: number;
 
     @Field(() => String, {nullable:true})
+    name?: string;
+
+    @Field(() => String, {nullable:true})
     link?: string;
 
     @Field(() => String, {nullable:true})

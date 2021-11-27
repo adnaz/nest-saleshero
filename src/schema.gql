@@ -18,6 +18,7 @@ scalar DateTime
 
 type Post {
   id: ID!
+  order: Float
   title: String!
   content: String
   published: Boolean
@@ -60,6 +61,7 @@ type SectionCount {
 
 type Section {
   id: ID!
+  order: Float
   title: String!
   description: String
   image: File
@@ -124,9 +126,11 @@ enum TypeReply {
 
 type Reply {
   id: ID!
+  order: Float
   file: File
   fileId: Int
   text: String
+  reply: String
   createdAt: DateTime!
   updatedAt: DateTime!
   section: Section
@@ -139,6 +143,7 @@ type Reply {
 
 type File {
   id: ID!
+  name: String
   link: String
   location: String
   key: String
@@ -166,6 +171,7 @@ type CourseCount {
 
 type Course {
   id: ID!
+  order: Float
   title: String!
   description: String
   audio: File
@@ -210,6 +216,7 @@ input CourseWhereInput {
   OR: [CourseWhereInput!]
   NOT: [CourseWhereInput!]
   id: IntFilter
+  order: FloatNullableFilter
   title: StringFilter
   description: StringNullableFilter
   audio: FileRelationFilter
@@ -244,6 +251,28 @@ input NestedIntFilter {
   gt: Int
   gte: Int
   not: NestedIntFilter
+}
+
+input FloatNullableFilter {
+  equals: Float
+  in: [Float!]
+  notIn: [Float!]
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: NestedFloatNullableFilter
+}
+
+input NestedFloatNullableFilter {
+  equals: Float
+  in: [Float!]
+  notIn: [Float!]
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: NestedFloatNullableFilter
 }
 
 input StringFilter {
@@ -312,6 +341,7 @@ input FileWhereInput {
   OR: [FileWhereInput!]
   NOT: [FileWhereInput!]
   id: IntFilter
+  name: StringNullableFilter
   link: StringNullableFilter
   location: StringNullableFilter
   key: StringNullableFilter
@@ -337,9 +367,11 @@ input ReplyWhereInput {
   OR: [ReplyWhereInput!]
   NOT: [ReplyWhereInput!]
   id: IntFilter
+  order: FloatNullableFilter
   file: FileRelationFilter
   fileId: IntNullableFilter
   text: StringNullableFilter
+  reply: StringNullableFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
   section: SectionRelationFilter
@@ -404,6 +436,7 @@ input SectionWhereInput {
   OR: [SectionWhereInput!]
   NOT: [SectionWhereInput!]
   id: IntFilter
+  order: FloatNullableFilter
   title: StringFilter
   description: StringNullableFilter
   image: FileRelationFilter
@@ -506,6 +539,7 @@ input PostWhereInput {
   OR: [PostWhereInput!]
   NOT: [PostWhereInput!]
   id: IntFilter
+  order: FloatNullableFilter
   title: StringFilter
   content: StringNullableFilter
   published: BoolNullableFilter
@@ -622,6 +656,7 @@ input NestedEnumTypeFileNullableFilter {
 
 input CourseOrderByWithRelationInput {
   id: SortOrder
+  order: SortOrder
   title: SortOrder
   description: SortOrder
   audio: FileOrderByWithRelationInput
@@ -643,6 +678,7 @@ enum SortOrder {
 
 input FileOrderByWithRelationInput {
   id: SortOrder
+  name: SortOrder
   link: SortOrder
   location: SortOrder
   key: SortOrder
@@ -660,9 +696,11 @@ input FileOrderByWithRelationInput {
 
 input ReplyOrderByWithRelationInput {
   id: SortOrder
+  order: SortOrder
   file: FileOrderByWithRelationInput
   fileId: SortOrder
   text: SortOrder
+  reply: SortOrder
   createdAt: SortOrder
   updatedAt: SortOrder
   section: SectionOrderByWithRelationInput
@@ -675,6 +713,7 @@ input ReplyOrderByWithRelationInput {
 
 input SectionOrderByWithRelationInput {
   id: SortOrder
+  order: SortOrder
   title: SortOrder
   description: SortOrder
   image: FileOrderByWithRelationInput
@@ -755,6 +794,7 @@ input CourseWhereUniqueInput {
 
 enum CourseScalarFieldEnum {
   id
+  order
   title
   description
   audioId
@@ -784,6 +824,7 @@ enum UserScalarFieldEnum {
 
 input PostOrderByWithRelationInput {
   id: SortOrder
+  order: SortOrder
   title: SortOrder
   content: SortOrder
   published: SortOrder
@@ -799,6 +840,7 @@ input PostWhereUniqueInput {
 
 enum PostScalarFieldEnum {
   id
+  order
   title
   content
   published
@@ -813,6 +855,7 @@ input FileWhereUniqueInput {
 
 enum FileScalarFieldEnum {
   id
+  name
   link
   location
   key
@@ -843,6 +886,7 @@ input SectionWhereUniqueInput {
 
 enum SectionScalarFieldEnum {
   id
+  order
   title
   description
   imageId
@@ -862,8 +906,10 @@ input ReplyWhereUniqueInput {
 
 enum ReplyScalarFieldEnum {
   id
+  order
   fileId
   text
+  reply
   createdAt
   updatedAt
   sectionId
@@ -955,6 +1001,7 @@ type Mutation {
 }
 
 input CourseCreateInput {
+  order: Float
   title: String!
   description: String
   published: Boolean
@@ -973,6 +1020,7 @@ input FileCreateNestedOneWithoutCourseAudioInput {
 }
 
 input FileCreateWithoutCourseAudioInput {
+  name: String
   link: String
   location: String
   key: String
@@ -994,7 +1042,9 @@ input ReplyCreateNestedOneWithoutFileInput {
 }
 
 input ReplyCreateWithoutFileInput {
+  order: Float
   text: String
+  reply: String
   createdAt: DateTime
   updatedAt: DateTime
   section: SectionCreateNestedOneWithoutRepliesInput
@@ -1009,6 +1059,7 @@ input SectionCreateNestedOneWithoutRepliesInput {
 }
 
 input SectionCreateWithoutRepliesInput {
+  order: Float
   title: String!
   description: String
   type: TypeSection
@@ -1027,6 +1078,7 @@ input FileCreateNestedOneWithoutSectionInput {
 }
 
 input FileCreateWithoutSectionInput {
+  name: String
   link: String
   location: String
   key: String
@@ -1062,7 +1114,9 @@ input ReplyCreateNestedManyWithoutUserInput {
 }
 
 input ReplyCreateWithoutUserInput {
+  order: Float
   text: String
+  reply: String
   createdAt: DateTime
   updatedAt: DateTime
   file: FileCreateNestedOneWithoutReplyInput
@@ -1077,6 +1131,7 @@ input FileCreateNestedOneWithoutReplyInput {
 }
 
 input FileCreateWithoutReplyInput {
+  name: String
   link: String
   location: String
   key: String
@@ -1098,6 +1153,7 @@ input CourseCreateNestedOneWithoutImageInput {
 }
 
 input CourseCreateWithoutImageInput {
+  order: Float
   title: String!
   description: String
   published: Boolean
@@ -1116,6 +1172,7 @@ input SectionCreateNestedManyWithoutCourseInput {
 }
 
 input SectionCreateWithoutCourseInput {
+  order: Float
   title: String!
   description: String
   type: TypeSection
@@ -1135,7 +1192,9 @@ input ReplyCreateNestedManyWithoutSectionInput {
 }
 
 input ReplyCreateWithoutSectionInput {
+  order: Float
   text: String
+  reply: String
   createdAt: DateTime
   updatedAt: DateTime
   file: FileCreateNestedOneWithoutReplyInput
@@ -1163,6 +1222,7 @@ input FileCreateNestedOneWithoutActorInput {
 }
 
 input FileCreateWithoutActorInput {
+  name: String
   link: String
   location: String
   key: String
@@ -1184,6 +1244,7 @@ input CourseCreateNestedOneWithoutAudioInput {
 }
 
 input CourseCreateWithoutAudioInput {
+  order: Float
   title: String!
   description: String
   published: Boolean
@@ -1201,6 +1262,7 @@ input FileCreateNestedOneWithoutCourseImageInput {
 }
 
 input FileCreateWithoutCourseImageInput {
+  name: String
   link: String
   location: String
   key: String
@@ -1222,6 +1284,7 @@ input SectionCreateNestedOneWithoutImageInput {
 }
 
 input SectionCreateWithoutImageInput {
+  order: Float
   title: String!
   description: String
   type: TypeSection
@@ -1240,6 +1303,7 @@ input CourseCreateNestedOneWithoutSectionsInput {
 }
 
 input CourseCreateWithoutSectionsInput {
+  order: Float
   title: String!
   description: String
   published: Boolean
@@ -1307,6 +1371,7 @@ input PostCreateNestedManyWithoutAuthorInput {
 }
 
 input PostCreateWithoutAuthorInput {
+  order: Float
   title: String!
   content: String
   published: Boolean
@@ -1326,6 +1391,7 @@ input PostCreateManyAuthorInputEnvelope {
 
 input PostCreateManyAuthorInput {
   id: Int
+  order: Float
   title: String!
   content: String
   published: Boolean
@@ -1341,6 +1407,7 @@ input SectionCreateNestedManyWithoutAuthorInput {
 }
 
 input SectionCreateWithoutAuthorInput {
+  order: Float
   title: String!
   description: String
   type: TypeSection
@@ -1364,6 +1431,7 @@ input SectionCreateManyAuthorInputEnvelope {
 
 input SectionCreateManyAuthorInput {
   id: Int
+  order: Float
   title: String!
   description: String
   imageId: Int
@@ -1411,6 +1479,7 @@ input CourseCreateNestedManyWithoutAuthorInput {
 }
 
 input CourseCreateWithoutAuthorInput {
+  order: Float
   title: String!
   description: String
   published: Boolean
@@ -1433,6 +1502,7 @@ input CourseCreateManyAuthorInputEnvelope {
 
 input CourseCreateManyAuthorInput {
   id: Int
+  order: Float
   title: String!
   description: String
   audioId: Int
@@ -1529,8 +1599,10 @@ input ReplyCreateManySectionInputEnvelope {
 
 input ReplyCreateManySectionInput {
   id: Int
+  order: Float
   fileId: Int
   text: String
+  reply: String
   createdAt: DateTime
   updatedAt: DateTime
   actorId: Int
@@ -1549,6 +1621,7 @@ input SectionCreateManyCourseInputEnvelope {
 
 input SectionCreateManyCourseInput {
   id: Int
+  order: Float
   title: String!
   description: String
   imageId: Int
@@ -1581,8 +1654,10 @@ input ReplyCreateManyUserInputEnvelope {
 
 input ReplyCreateManyUserInput {
   id: Int
+  order: Float
   fileId: Int
   text: String
+  reply: String
   createdAt: DateTime
   updatedAt: DateTime
   sectionId: Int
@@ -1615,6 +1690,7 @@ input FileCreateOrConnectWithoutCourseAudioInput {
 }
 
 input CourseUpdateInput {
+  order: NullableFloatFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
@@ -1624,6 +1700,14 @@ input CourseUpdateInput {
   image: FileUpdateOneWithoutCourseImageInput
   sections: SectionUpdateManyWithoutCourseInput
   author: UserUpdateOneWithoutCoursesInput
+}
+
+input NullableFloatFieldUpdateOperationsInput {
+  set: Float
+  increment: Float
+  decrement: Float
+  multiply: Float
+  divide: Float
 }
 
 input StringFieldUpdateOperationsInput {
@@ -1658,6 +1742,7 @@ input FileUpsertWithoutCourseAudioInput {
 }
 
 input FileUpdateWithoutCourseAudioInput {
+  name: NullableStringFieldUpdateOperationsInput
   link: NullableStringFieldUpdateOperationsInput
   location: NullableStringFieldUpdateOperationsInput
   key: NullableStringFieldUpdateOperationsInput
@@ -1692,7 +1777,9 @@ input ReplyUpsertWithoutFileInput {
 }
 
 input ReplyUpdateWithoutFileInput {
+  order: NullableFloatFieldUpdateOperationsInput
   text: NullableStringFieldUpdateOperationsInput
+  reply: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   section: SectionUpdateOneWithoutRepliesInput
@@ -1716,6 +1803,7 @@ input SectionUpsertWithoutRepliesInput {
 }
 
 input SectionUpdateWithoutRepliesInput {
+  order: NullableFloatFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   type: NullableEnumTypeSectionFieldUpdateOperationsInput
@@ -1747,6 +1835,7 @@ input FileUpsertWithoutSectionInput {
 }
 
 input FileUpdateWithoutSectionInput {
+  name: NullableStringFieldUpdateOperationsInput
   link: NullableStringFieldUpdateOperationsInput
   location: NullableStringFieldUpdateOperationsInput
   key: NullableStringFieldUpdateOperationsInput
@@ -1804,7 +1893,9 @@ input ReplyUpsertWithWhereUniqueWithoutUserInput {
 }
 
 input ReplyUpdateWithoutUserInput {
+  order: NullableFloatFieldUpdateOperationsInput
   text: NullableStringFieldUpdateOperationsInput
+  reply: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   file: FileUpdateOneWithoutReplyInput
@@ -1828,6 +1919,7 @@ input FileUpsertWithoutReplyInput {
 }
 
 input FileUpdateWithoutReplyInput {
+  name: NullableStringFieldUpdateOperationsInput
   link: NullableStringFieldUpdateOperationsInput
   location: NullableStringFieldUpdateOperationsInput
   key: NullableStringFieldUpdateOperationsInput
@@ -1858,6 +1950,7 @@ input CourseUpsertWithoutImageInput {
 }
 
 input CourseUpdateWithoutImageInput {
+  order: NullableFloatFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
@@ -1889,6 +1982,7 @@ input SectionUpsertWithWhereUniqueWithoutCourseInput {
 }
 
 input SectionUpdateWithoutCourseInput {
+  order: NullableFloatFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   type: NullableEnumTypeSectionFieldUpdateOperationsInput
@@ -1921,7 +2015,9 @@ input ReplyUpsertWithWhereUniqueWithoutSectionInput {
 }
 
 input ReplyUpdateWithoutSectionInput {
+  order: NullableFloatFieldUpdateOperationsInput
   text: NullableStringFieldUpdateOperationsInput
+  reply: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   file: FileUpdateOneWithoutReplyInput
@@ -1967,6 +2063,7 @@ input FileUpsertWithoutActorInput {
 }
 
 input FileUpdateWithoutActorInput {
+  name: NullableStringFieldUpdateOperationsInput
   link: NullableStringFieldUpdateOperationsInput
   location: NullableStringFieldUpdateOperationsInput
   key: NullableStringFieldUpdateOperationsInput
@@ -1997,6 +2094,7 @@ input CourseUpsertWithoutAudioInput {
 }
 
 input CourseUpdateWithoutAudioInput {
+  order: NullableFloatFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
@@ -2023,6 +2121,7 @@ input FileUpsertWithoutCourseImageInput {
 }
 
 input FileUpdateWithoutCourseImageInput {
+  name: NullableStringFieldUpdateOperationsInput
   link: NullableStringFieldUpdateOperationsInput
   location: NullableStringFieldUpdateOperationsInput
   key: NullableStringFieldUpdateOperationsInput
@@ -2053,6 +2152,7 @@ input SectionUpsertWithoutImageInput {
 }
 
 input SectionUpdateWithoutImageInput {
+  order: NullableFloatFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   type: NullableEnumTypeSectionFieldUpdateOperationsInput
@@ -2080,6 +2180,7 @@ input CourseUpsertWithoutSectionsInput {
 }
 
 input CourseUpdateWithoutSectionsInput {
+  order: NullableFloatFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
@@ -2196,6 +2297,7 @@ input PostUpsertWithWhereUniqueWithoutAuthorInput {
 }
 
 input PostUpdateWithoutAuthorInput {
+  order: NullableFloatFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   content: NullableStringFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
@@ -2218,6 +2320,7 @@ input PostScalarWhereInput {
   OR: [PostScalarWhereInput!]
   NOT: [PostScalarWhereInput!]
   id: IntFilter
+  order: FloatNullableFilter
   title: StringFilter
   content: StringNullableFilter
   published: BoolNullableFilter
@@ -2227,6 +2330,7 @@ input PostScalarWhereInput {
 }
 
 input PostUpdateManyMutationInput {
+  order: NullableFloatFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   content: NullableStringFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
@@ -2255,6 +2359,7 @@ input SectionUpsertWithWhereUniqueWithoutAuthorInput {
 }
 
 input SectionUpdateWithoutAuthorInput {
+  order: NullableFloatFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   type: NullableEnumTypeSectionFieldUpdateOperationsInput
@@ -2281,6 +2386,7 @@ input SectionScalarWhereInput {
   OR: [SectionScalarWhereInput!]
   NOT: [SectionScalarWhereInput!]
   id: IntFilter
+  order: FloatNullableFilter
   title: StringFilter
   description: StringNullableFilter
   imageId: IntNullableFilter
@@ -2293,6 +2399,7 @@ input SectionScalarWhereInput {
 }
 
 input SectionUpdateManyMutationInput {
+  order: NullableFloatFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   type: NullableEnumTypeSectionFieldUpdateOperationsInput
@@ -2350,6 +2457,7 @@ input CourseUpsertWithWhereUniqueWithoutAuthorInput {
 }
 
 input CourseUpdateWithoutAuthorInput {
+  order: NullableFloatFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
@@ -2375,6 +2483,7 @@ input CourseScalarWhereInput {
   OR: [CourseScalarWhereInput!]
   NOT: [CourseScalarWhereInput!]
   id: IntFilter
+  order: FloatNullableFilter
   title: StringFilter
   description: StringNullableFilter
   audioId: IntNullableFilter
@@ -2386,6 +2495,7 @@ input CourseScalarWhereInput {
 }
 
 input CourseUpdateManyMutationInput {
+  order: NullableFloatFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
@@ -2483,8 +2593,10 @@ input ReplyScalarWhereInput {
   OR: [ReplyScalarWhereInput!]
   NOT: [ReplyScalarWhereInput!]
   id: IntFilter
+  order: FloatNullableFilter
   fileId: IntNullableFilter
   text: StringNullableFilter
+  reply: StringNullableFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
   sectionId: IntNullableFilter
@@ -2493,7 +2605,9 @@ input ReplyScalarWhereInput {
 }
 
 input ReplyUpdateManyMutationInput {
+  order: NullableFloatFieldUpdateOperationsInput
   text: NullableStringFieldUpdateOperationsInput
+  reply: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -2547,6 +2661,7 @@ input UserUpdateInput {
 }
 
 input PostCreateInput {
+  order: Float
   title: String!
   content: String
   published: Boolean
@@ -2580,6 +2695,7 @@ input UserCreateOrConnectWithoutPostsInput {
 }
 
 input PostUpdateInput {
+  order: NullableFloatFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   content: NullableStringFieldUpdateOperationsInput
   published: NullableBoolFieldUpdateOperationsInput
@@ -2617,6 +2733,7 @@ input UserUpdateWithoutPostsInput {
 }
 
 input FileCreateInput {
+  name: String
   link: String
   location: String
   key: String
@@ -2633,6 +2750,7 @@ input FileCreateInput {
 }
 
 input FileUpdateInput {
+  name: NullableStringFieldUpdateOperationsInput
   link: NullableStringFieldUpdateOperationsInput
   location: NullableStringFieldUpdateOperationsInput
   key: NullableStringFieldUpdateOperationsInput
@@ -2665,6 +2783,7 @@ input ActorUpdateInput {
 }
 
 input SectionCreateInput {
+  order: Float
   title: String!
   description: String
   type: TypeSection
@@ -2678,6 +2797,7 @@ input SectionCreateInput {
 }
 
 input SectionUpdateInput {
+  order: NullableFloatFieldUpdateOperationsInput
   title: StringFieldUpdateOperationsInput
   description: NullableStringFieldUpdateOperationsInput
   type: NullableEnumTypeSectionFieldUpdateOperationsInput
@@ -2691,7 +2811,9 @@ input SectionUpdateInput {
 }
 
 input ReplyCreateInput {
+  order: Float
   text: String
+  reply: String
   createdAt: DateTime
   updatedAt: DateTime
   file: FileCreateNestedOneWithoutReplyInput
@@ -2701,7 +2823,9 @@ input ReplyCreateInput {
 }
 
 input ReplyUpdateInput {
+  order: NullableFloatFieldUpdateOperationsInput
   text: NullableStringFieldUpdateOperationsInput
+  reply: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   file: FileUpdateOneWithoutReplyInput
@@ -2724,7 +2848,9 @@ input ReplyCreateNestedOneWithoutQuickReplyInput {
 }
 
 input ReplyCreateWithoutQuickReplyInput {
+  order: Float
   text: String
+  reply: String
   createdAt: DateTime
   updatedAt: DateTime
   file: FileCreateNestedOneWithoutReplyInput
@@ -2760,7 +2886,9 @@ input ReplyUpsertWithoutQuickReplyInput {
 }
 
 input ReplyUpdateWithoutQuickReplyInput {
+  order: NullableFloatFieldUpdateOperationsInput
   text: NullableStringFieldUpdateOperationsInput
+  reply: NullableStringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   file: FileUpdateOneWithoutReplyInput

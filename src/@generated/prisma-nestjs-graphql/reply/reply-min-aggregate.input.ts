@@ -8,10 +8,16 @@ export class ReplyMinAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
+    order?: true;
+
+    @Field(() => Boolean, {nullable:true})
     fileId?: true;
 
     @Field(() => Boolean, {nullable:true})
     text?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    reply?: true;
 
     @Field(() => Boolean, {nullable:true})
     createdAt?: true;

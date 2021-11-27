@@ -1,11 +1,15 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
+import { Float } from '@nestjs/graphql';
 import { FileCreateNestedOneWithoutCourseAudioInput } from '../file/file-create-nested-one-without-course-audio.input';
 import { SectionCreateNestedManyWithoutCourseInput } from '../section/section-create-nested-many-without-course.input';
 import { UserCreateNestedOneWithoutCoursesInput } from '../user/user-create-nested-one-without-courses.input';
 
 @InputType()
 export class CourseCreateWithoutImageInput {
+
+    @Field(() => Float, {nullable:true})
+    order?: number;
 
     @Field(() => String, {nullable:false})
     title!: string;

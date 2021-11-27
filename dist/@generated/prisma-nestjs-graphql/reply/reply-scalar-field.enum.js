@@ -5,8 +5,10 @@ const graphql_1 = require("@nestjs/graphql");
 var ReplyScalarFieldEnum;
 (function (ReplyScalarFieldEnum) {
     ReplyScalarFieldEnum["id"] = "id";
+    ReplyScalarFieldEnum["order"] = "order";
     ReplyScalarFieldEnum["fileId"] = "fileId";
     ReplyScalarFieldEnum["text"] = "text";
+    ReplyScalarFieldEnum["reply"] = "reply";
     ReplyScalarFieldEnum["createdAt"] = "createdAt";
     ReplyScalarFieldEnum["updatedAt"] = "updatedAt";
     ReplyScalarFieldEnum["sectionId"] = "sectionId";

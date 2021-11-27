@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
+import { Float } from '@nestjs/graphql';
 
 @InputType()
 export class ReplyCreateManySectionInput {
@@ -8,11 +9,17 @@ export class ReplyCreateManySectionInput {
     @Field(() => Int, {nullable:true})
     id?: number;
 
+    @Field(() => Float, {nullable:true})
+    order?: number;
+
     @Field(() => Int, {nullable:true})
     fileId?: number;
 
     @Field(() => String, {nullable:true})
     text?: string;
+
+    @Field(() => String, {nullable:true})
+    reply?: string;
 
     @Field(() => Date, {nullable:true})
     createdAt?: Date | string;

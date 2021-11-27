@@ -5,6 +5,7 @@ const tslib_1 = require("tslib");
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const graphql_3 = require("@nestjs/graphql");
+const graphql_4 = require("@nestjs/graphql");
 const reply_count_aggregate_output_1 = require("./reply-count-aggregate.output");
 const reply_avg_aggregate_output_1 = require("./reply-avg-aggregate.output");
 const reply_sum_aggregate_output_1 = require("./reply-sum-aggregate.output");
@@ -17,6 +18,10 @@ let ReplyGroupBy = class ReplyGroupBy {
     (0, tslib_1.__metadata)("design:type", Number)
 ], ReplyGroupBy.prototype, "id", void 0);
 (0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => graphql_4.Float, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Number)
+], ReplyGroupBy.prototype, "order", void 0);
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Number)
 ], ReplyGroupBy.prototype, "fileId", void 0);
@@ -24,6 +29,10 @@ let ReplyGroupBy = class ReplyGroupBy {
     (0, graphql_1.Field)(() => String, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", String)
 ], ReplyGroupBy.prototype, "text", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => String, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", String)
+], ReplyGroupBy.prototype, "reply", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => Date, { nullable: false }),
     (0, tslib_1.__metadata)("design:type", Object)

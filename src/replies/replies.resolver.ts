@@ -9,10 +9,12 @@ import { SectionsService } from 'src/sections/sections.service';
 import { Prisma } from '@prisma/client';
 import { QuickRepliesService } from 'src/quick-replies/quick-replies.service';
 import { QuickReply } from 'src/@generated/prisma-nestjs-graphql/quick-reply/quick-reply.model';
+import { ActorsService } from 'src/actors/actors.service';
+import { FilesService } from 'src/files/files.service';
 @Resolver( Reply)
 export class RepliesResolver {
 
-    constructor(private repliesService: RepliesService, private sectionsService: SectionsService,private quickRepliesService:QuickRepliesService) { }
+    constructor(private repliesService: RepliesService, private sectionsService: SectionsService,private quickRepliesService:QuickRepliesService,private actorsService:ActorsService, private filesService:FilesService) { }
 
 
     @Query(returns => [Reply])
@@ -41,6 +43,14 @@ export class RepliesResolver {
     }
 
     @ResolveField()
+    async file(@Parent() reply: Reply) {
+        const { fileId } = reply;
+        if(fileId){
+            return this.filesService.file({ id:fileId });
+        }
+    }
+
+    @ResolveField()
     async section(@Parent() reply: Reply) {
         const { sectionId } = reply;
         if(sectionId){
@@ -51,5 +61,10 @@ export class RepliesResolver {
     async quickReply(@Parent() reply: Reply) {
         const { quickReplyId } = reply;
         return this.quickRepliesService.quickReply({id:quickReplyId});
+    }
+    @ResolveField()
+    async user(@Parent() reply: Reply) {
+        const { actorId } = reply;
+        return this.actorsService.actor({id:actorId});
     }
 }

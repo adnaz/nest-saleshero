@@ -16,6 +16,10 @@ let FileUpdateWithoutSectionInput = class FileUpdateWithoutSectionInput {
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
+], FileUpdateWithoutSectionInput.prototype, "name", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
 ], FileUpdateWithoutSectionInput.prototype, "link", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),

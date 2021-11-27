@@ -9,10 +9,16 @@ export class ReplyCountAggregate {
     id!: number;
 
     @Field(() => Int, {nullable:false})
+    order!: number;
+
+    @Field(() => Int, {nullable:false})
     fileId!: number;
 
     @Field(() => Int, {nullable:false})
     text!: number;
+
+    @Field(() => Int, {nullable:false})
+    reply!: number;
 
     @Field(() => Int, {nullable:false})
     createdAt!: number;

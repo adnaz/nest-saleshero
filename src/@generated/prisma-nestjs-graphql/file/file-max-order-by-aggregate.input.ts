@@ -9,6 +9,9 @@ export class FileMaxOrderByAggregateInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    name?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     link?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})

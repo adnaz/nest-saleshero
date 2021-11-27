@@ -20,6 +20,10 @@ let FileGroupBy = class FileGroupBy {
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => String, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", String)
+], FileGroupBy.prototype, "name", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => String, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", String)
 ], FileGroupBy.prototype, "link", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => String, { nullable: true }),

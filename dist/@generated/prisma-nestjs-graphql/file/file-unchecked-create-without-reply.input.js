@@ -19,6 +19,10 @@ let FileUncheckedCreateWithoutReplyInput = class FileUncheckedCreateWithoutReply
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => String, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", String)
+], FileUncheckedCreateWithoutReplyInput.prototype, "name", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => String, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", String)
 ], FileUncheckedCreateWithoutReplyInput.prototype, "link", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => String, { nullable: true }),

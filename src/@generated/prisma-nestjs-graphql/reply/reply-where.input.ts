@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
+import { FloatNullableFilter } from '../prisma/float-nullable-filter.input';
 import { FileRelationFilter } from '../file/file-relation-filter.input';
 import { IntNullableFilter } from '../prisma/int-nullable-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
@@ -24,6 +25,9 @@ export class ReplyWhereInput {
     @Field(() => IntFilter, {nullable:true})
     id?: IntFilter;
 
+    @Field(() => FloatNullableFilter, {nullable:true})
+    order?: FloatNullableFilter;
+
     @Field(() => FileRelationFilter, {nullable:true})
     file?: FileRelationFilter;
 
@@ -32,6 +36,9 @@ export class ReplyWhereInput {
 
     @Field(() => StringNullableFilter, {nullable:true})
     text?: StringNullableFilter;
+
+    @Field(() => StringNullableFilter, {nullable:true})
+    reply?: StringNullableFilter;
 
     @Field(() => DateTimeFilter, {nullable:true})
     createdAt?: DateTimeFilter;

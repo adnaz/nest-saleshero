@@ -8,6 +8,9 @@ export class FileMinAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
+    name?: true;
+
+    @Field(() => Boolean, {nullable:true})
     link?: true;
 
     @Field(() => Boolean, {nullable:true})

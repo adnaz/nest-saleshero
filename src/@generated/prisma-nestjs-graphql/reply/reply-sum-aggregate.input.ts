@@ -8,6 +8,9 @@ export class ReplySumAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
+    order?: true;
+
+    @Field(() => Boolean, {nullable:true})
     fileId?: true;
 
     @Field(() => Boolean, {nullable:true})

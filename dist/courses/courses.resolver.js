@@ -9,18 +9,21 @@ const course_model_1 = require("../@generated/prisma-nestjs-graphql/course/cours
 const find_many_course_args_1 = require("../@generated/prisma-nestjs-graphql/course/find-many-course.args");
 const update_one_course_args_1 = require("../@generated/prisma-nestjs-graphql/course/update-one-course.args");
 const role_enum_1 = require("../@generated/prisma-nestjs-graphql/prisma/role.enum");
+const section_model_1 = require("../@generated/prisma-nestjs-graphql/section/section.model");
 const user_model_1 = require("../@generated/prisma-nestjs-graphql/user/user.model");
 const current_user_decorator_1 = require("../auth/current-user.decorator");
 const gql_auth_guard_1 = require("../auth/gql-auth.guard");
 const roles_decorator_1 = require("../auth/roles.decorator");
 const files_service_1 = require("../files/files.service");
+const sections_service_1 = require("../sections/sections.service");
 const users_service_1 = require("../users/users.service");
 const courses_service_1 = require("./courses.service");
 let CoursesResolver = class CoursesResolver {
-    constructor(coursesService, usersService, filesService) {
+    constructor(coursesService, usersService, filesService, sectionsService) {
         this.coursesService = coursesService;
         this.usersService = usersService;
         this.filesService = filesService;
+        this.sectionsService = sectionsService;
     }
     courses(findManyCourseArgs) {
         return this.coursesService.courses(findManyCourseArgs);
@@ -52,6 +55,10 @@ let CoursesResolver = class CoursesResolver {
         if (imageId) {
             return this.filesService.file({ id: imageId });
         }
+    }
+    async sections(course) {
+        const { id } = course;
+        return this.sectionsService.sections({ where: { courseId: { equals: id } } });
     }
 };
 (0, tslib_1.__decorate)([
@@ -106,8 +113,15 @@ let CoursesResolver = class CoursesResolver {
     (0, tslib_1.__metadata)("design:paramtypes", [course_model_1.Course]),
     (0, tslib_1.__metadata)("design:returntype", Promise)
 ], CoursesResolver.prototype, "image", null);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.ResolveField)(() => [section_model_1.Section]),
+    (0, tslib_1.__param)(0, (0, graphql_1.Parent)()),
+    (0, tslib_1.__metadata)("design:type", Function),
+    (0, tslib_1.__metadata)("design:paramtypes", [course_model_1.Course]),
+    (0, tslib_1.__metadata)("design:returntype", Promise)
+], CoursesResolver.prototype, "sections", null);
 CoursesResolver = (0, tslib_1.__decorate)([
     (0, graphql_1.Resolver)(course_model_1.Course),
-    (0, tslib_1.__metadata)("design:paramtypes", [courses_service_1.CoursesService, users_service_1.UsersService, files_service_1.FilesService])
+    (0, tslib_1.__metadata)("design:paramtypes", [courses_service_1.CoursesService, users_service_1.UsersService, files_service_1.FilesService, sections_service_1.SectionsService])
 ], CoursesResolver);
 exports.CoursesResolver = CoursesResolver;

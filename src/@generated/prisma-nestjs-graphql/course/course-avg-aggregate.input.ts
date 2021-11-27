@@ -8,6 +8,9 @@ export class CourseAvgAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
+    order?: true;
+
+    @Field(() => Boolean, {nullable:true})
     audioId?: true;
 
     @Field(() => Boolean, {nullable:true})

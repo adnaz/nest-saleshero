@@ -1,8 +1,12 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
+import { Float } from '@nestjs/graphql';
 
 @InputType()
 export class PostCreateWithoutAuthorInput {
+
+    @Field(() => Float, {nullable:true})
+    order?: number;
 
     @Field(() => String, {nullable:false})
     title!: string;

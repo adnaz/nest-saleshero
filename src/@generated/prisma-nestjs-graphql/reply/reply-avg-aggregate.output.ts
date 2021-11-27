@@ -9,6 +9,9 @@ export class ReplyAvgAggregate {
     id?: number;
 
     @Field(() => Float, {nullable:true})
+    order?: number;
+
+    @Field(() => Float, {nullable:true})
     fileId?: number;
 
     @Field(() => Float, {nullable:true})

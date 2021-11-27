@@ -16,6 +16,10 @@ let FileUpdateWithoutActorInput = class FileUpdateWithoutActorInput {
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
+], FileUpdateWithoutActorInput.prototype, "name", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput)
 ], FileUpdateWithoutActorInput.prototype, "link", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => nullable_string_field_update_operations_input_1.NullableStringFieldUpdateOperationsInput, { nullable: true }),

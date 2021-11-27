@@ -13,6 +13,10 @@ let PostCountAggregateInput = class PostCountAggregateInput {
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Boolean)
+], PostCountAggregateInput.prototype, "order", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Boolean)
 ], PostCountAggregateInput.prototype, "title", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),

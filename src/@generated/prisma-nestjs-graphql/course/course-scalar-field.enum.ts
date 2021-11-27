@@ -2,6 +2,7 @@ import { registerEnumType } from '@nestjs/graphql';
 
 export enum CourseScalarFieldEnum {
     id = "id",
+    order = "order",
     title = "title",
     description = "description",
     audioId = "audioId",

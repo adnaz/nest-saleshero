@@ -5,6 +5,7 @@ const graphql_1 = require("@nestjs/graphql");
 var PostScalarFieldEnum;
 (function (PostScalarFieldEnum) {
     PostScalarFieldEnum["id"] = "id";
+    PostScalarFieldEnum["order"] = "order";
     PostScalarFieldEnum["title"] = "title";
     PostScalarFieldEnum["content"] = "content";
     PostScalarFieldEnum["published"] = "published";

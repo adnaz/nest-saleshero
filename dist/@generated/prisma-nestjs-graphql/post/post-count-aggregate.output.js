@@ -14,6 +14,10 @@ let PostCountAggregate = class PostCountAggregate {
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
     (0, tslib_1.__metadata)("design:type", Number)
+], PostCountAggregate.prototype, "order", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),
+    (0, tslib_1.__metadata)("design:type", Number)
 ], PostCountAggregate.prototype, "title", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: false }),

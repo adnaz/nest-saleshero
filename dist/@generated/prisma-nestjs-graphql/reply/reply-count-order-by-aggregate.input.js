@@ -14,11 +14,19 @@ let ReplyCountOrderByAggregateInput = class ReplyCountOrderByAggregateInput {
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Object)
+], ReplyCountOrderByAggregateInput.prototype, "order", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Object)
 ], ReplyCountOrderByAggregateInput.prototype, "fileId", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Object)
 ], ReplyCountOrderByAggregateInput.prototype, "text", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Object)
+], ReplyCountOrderByAggregateInput.prototype, "reply", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Object)

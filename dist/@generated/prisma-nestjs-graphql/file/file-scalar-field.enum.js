@@ -5,6 +5,7 @@ const graphql_1 = require("@nestjs/graphql");
 var FileScalarFieldEnum;
 (function (FileScalarFieldEnum) {
     FileScalarFieldEnum["id"] = "id";
+    FileScalarFieldEnum["name"] = "name";
     FileScalarFieldEnum["link"] = "link";
     FileScalarFieldEnum["location"] = "location";
     FileScalarFieldEnum["key"] = "key";

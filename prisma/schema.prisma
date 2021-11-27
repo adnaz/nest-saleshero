@@ -47,6 +47,7 @@ model User {
 model Post {
   
   id        Int      @default(autoincrement()) @id
+  order Float?
   title     String
   content   String?
   published Boolean? @default(false)
@@ -60,6 +61,7 @@ model Post {
 
 model Course {
   id        Int      @default(autoincrement()) @id
+  order Float?
   title     String
   description   String?
   audio File? @relation("audio",fields: [audioId],references: [id])
@@ -75,6 +77,7 @@ model Course {
 }
 model Section {
   id        Int      @default(autoincrement()) @id
+  order Float?
   title     String
   description   String?
   image File? @relation(fields: [imageId],references: [id])
@@ -91,9 +94,11 @@ model Section {
 }
 model Reply {
   id        Int      @default(autoincrement()) @id
+  order Float?
   file File? @relation(fields: [fileId],references: [id])
   fileId Int?
   text String?
+  reply String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   section Section? @relation(fields: [sectionId],references:[id])
@@ -132,6 +137,7 @@ model Actor {
 model File {
   
     id    Int     @default(autoincrement()) @id
+    name String?
     link String? 
     location String?
     key String?

@@ -8,6 +8,9 @@ import { NullableEnumTypeFileFieldUpdateOperationsInput } from '../prisma/nullab
 export class FileUpdateManyMutationInput {
 
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    name?: NullableStringFieldUpdateOperationsInput;
+
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     link?: NullableStringFieldUpdateOperationsInput;
 
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})

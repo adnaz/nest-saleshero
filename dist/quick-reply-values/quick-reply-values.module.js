@@ -7,11 +7,12 @@ const quick_reply_values_service_1 = require("./quick-reply-values.service");
 const quick_reply_values_resolver_1 = require("./quick-reply-values.resolver");
 const users_service_1 = require("../users/users.service");
 const prisma_service_1 = require("../prisma.service");
+const quick_replies_service_1 = require("../quick-replies/quick-replies.service");
 let QuickReplyValuesModule = class QuickReplyValuesModule {
 };
 QuickReplyValuesModule = (0, tslib_1.__decorate)([
     (0, common_1.Module)({
-        providers: [quick_reply_values_resolver_1.QuickReplyValuesResolver, quick_reply_values_service_1.QuickReplyValuesService, users_service_1.UsersService, prisma_service_1.PrismaService]
+        providers: [quick_reply_values_resolver_1.QuickReplyValuesResolver, quick_reply_values_service_1.QuickReplyValuesService, users_service_1.UsersService, prisma_service_1.PrismaService, quick_replies_service_1.QuickRepliesService]
     })
 ], QuickReplyValuesModule);
 exports.QuickReplyValuesModule = QuickReplyValuesModule;

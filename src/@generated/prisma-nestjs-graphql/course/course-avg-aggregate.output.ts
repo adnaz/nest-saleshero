@@ -9,6 +9,9 @@ export class CourseAvgAggregate {
     id?: number;
 
     @Field(() => Float, {nullable:true})
+    order?: number;
+
+    @Field(() => Float, {nullable:true})
     audioId?: number;
 
     @Field(() => Float, {nullable:true})

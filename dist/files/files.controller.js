@@ -12,8 +12,9 @@ let FilesController = class FilesController {
         this.filesService = filesService;
         this.s3Service = s3Service;
     }
-    create(fileCreateInput) {
-        return this.filesService.createFile(fileCreateInput);
+    async create(file, fileCreateInput) {
+        let response = await this.s3Service.uploadFile(file);
+        return this.filesService.createFile({ ...fileCreateInput, link: response.Location, location: response.Location, key: response.Key, etag: response.ETag, bucket: response.Bucket });
     }
     findAll() {
         return this.filesService.files({});
@@ -40,11 +41,13 @@ let FilesController = class FilesController {
     }
 };
 (0, tslib_1.__decorate)([
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file')),
     (0, common_1.Post)(),
-    (0, tslib_1.__param)(0, (0, common_1.Body)()),
+    (0, tslib_1.__param)(0, (0, common_1.UploadedFile)()),
+    (0, tslib_1.__param)(1, (0, common_1.Body)()),
     (0, tslib_1.__metadata)("design:type", Function),
-    (0, tslib_1.__metadata)("design:paramtypes", [file_create_input_1.FileCreateInput]),
-    (0, tslib_1.__metadata)("design:returntype", void 0)
+    (0, tslib_1.__metadata)("design:paramtypes", [Object, file_create_input_1.FileCreateInput]),
+    (0, tslib_1.__metadata)("design:returntype", Promise)
 ], FilesController.prototype, "create", null);
 (0, tslib_1.__decorate)([
     (0, common_1.Get)(),

@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.input';
+import { FloatNullableWithAggregatesFilter } from '../prisma/float-nullable-with-aggregates-filter.input';
 import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input';
 import { StringNullableWithAggregatesFilter } from '../prisma/string-nullable-with-aggregates-filter.input';
 import { IntNullableWithAggregatesFilter } from '../prisma/int-nullable-with-aggregates-filter.input';
@@ -22,6 +23,9 @@ export class SectionScalarWhereWithAggregatesInput {
 
     @Field(() => IntWithAggregatesFilter, {nullable:true})
     id?: IntWithAggregatesFilter;
+
+    @Field(() => FloatNullableWithAggregatesFilter, {nullable:true})
+    order?: FloatNullableWithAggregatesFilter;
 
     @Field(() => StringWithAggregatesFilter, {nullable:true})
     title?: StringWithAggregatesFilter;

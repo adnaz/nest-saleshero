@@ -14,7 +14,9 @@ let S3Service = class S3Service {
     }
     async uploadFile(file) {
         const { originalname } = file;
-        return await this.s3_upload(file.buffer, this.AWS_S3_BUCKET, originalname, file.mimetype);
+        const d = new Date();
+        let text = d.toString();
+        return await this.s3_upload(file.buffer, this.AWS_S3_BUCKET, text + originalname, file.mimetype);
     }
     async s3_upload(file, bucket, name, mimetype) {
         const params = {

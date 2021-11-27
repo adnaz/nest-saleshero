@@ -14,6 +14,10 @@ let PostMaxOrderByAggregateInput = class PostMaxOrderByAggregateInput {
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Object)
+], PostMaxOrderByAggregateInput.prototype, "order", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Object)
 ], PostMaxOrderByAggregateInput.prototype, "title", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),

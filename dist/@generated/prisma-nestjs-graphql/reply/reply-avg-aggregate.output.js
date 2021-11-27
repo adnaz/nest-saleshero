@@ -14,6 +14,10 @@ let ReplyAvgAggregate = class ReplyAvgAggregate {
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => graphql_3.Float, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Number)
+], ReplyAvgAggregate.prototype, "order", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => graphql_3.Float, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Number)
 ], ReplyAvgAggregate.prototype, "fileId", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => graphql_3.Float, { nullable: true }),

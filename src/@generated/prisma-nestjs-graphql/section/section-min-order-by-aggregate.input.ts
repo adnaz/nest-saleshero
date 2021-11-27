@@ -9,6 +9,9 @@ export class SectionMinOrderByAggregateInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    order?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     title?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})

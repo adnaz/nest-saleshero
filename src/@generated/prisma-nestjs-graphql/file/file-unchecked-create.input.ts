@@ -15,6 +15,9 @@ export class FileUncheckedCreateInput {
     id?: number;
 
     @Field(() => String, {nullable:true})
+    name?: string;
+
+    @Field(() => String, {nullable:true})
     link?: string;
 
     @Field(() => String, {nullable:true})

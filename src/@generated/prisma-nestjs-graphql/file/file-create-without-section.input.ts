@@ -10,6 +10,9 @@ import { CourseCreateNestedOneWithoutAudioInput } from '../course/course-create-
 export class FileCreateWithoutSectionInput {
 
     @Field(() => String, {nullable:true})
+    name?: string;
+
+    @Field(() => String, {nullable:true})
     link?: string;
 
     @Field(() => String, {nullable:true})

@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { IntFilter } from '../prisma/int-filter.input';
+import { FloatNullableFilter } from '../prisma/float-nullable-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 import { FileRelationFilter } from '../file/file-relation-filter.input';
@@ -24,6 +25,9 @@ export class CourseWhereInput {
 
     @Field(() => IntFilter, {nullable:true})
     id?: IntFilter;
+
+    @Field(() => FloatNullableFilter, {nullable:true})
+    order?: FloatNullableFilter;
 
     @Field(() => StringFilter, {nullable:true})
     title?: StringFilter;

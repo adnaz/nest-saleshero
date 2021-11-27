@@ -14,11 +14,19 @@ let ReplyMaxOrderByAggregateInput = class ReplyMaxOrderByAggregateInput {
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Object)
+], ReplyMaxOrderByAggregateInput.prototype, "order", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Object)
 ], ReplyMaxOrderByAggregateInput.prototype, "fileId", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Object)
 ], ReplyMaxOrderByAggregateInput.prototype, "text", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Object)
+], ReplyMaxOrderByAggregateInput.prototype, "reply", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Object)

@@ -4,6 +4,7 @@ exports.SectionUpdateWithoutCourseInput = void 0;
 const tslib_1 = require("tslib");
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
+const nullable_float_field_update_operations_input_1 = require("../prisma/nullable-float-field-update-operations.input");
 const string_field_update_operations_input_1 = require("../prisma/string-field-update-operations.input");
 const nullable_string_field_update_operations_input_1 = require("../prisma/nullable-string-field-update-operations.input");
 const nullable_enum_type_section_field_update_operations_input_1 = require("../prisma/nullable-enum-type-section-field-update-operations.input");
@@ -14,6 +15,10 @@ const reply_update_many_without_section_input_1 = require("../reply/reply-update
 const user_update_one_without_sections_input_1 = require("../user/user-update-one-without-sections.input");
 let SectionUpdateWithoutCourseInput = class SectionUpdateWithoutCourseInput {
 };
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => nullable_float_field_update_operations_input_1.NullableFloatFieldUpdateOperationsInput, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", nullable_float_field_update_operations_input_1.NullableFloatFieldUpdateOperationsInput)
+], SectionUpdateWithoutCourseInput.prototype, "order", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => string_field_update_operations_input_1.StringFieldUpdateOperationsInput, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", string_field_update_operations_input_1.StringFieldUpdateOperationsInput)

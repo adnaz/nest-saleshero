@@ -30,6 +30,10 @@ let FileScalarWhereWithAggregatesInput = FileScalarWhereWithAggregatesInput_1 = 
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter)
+], FileScalarWhereWithAggregatesInput.prototype, "name", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter)
 ], FileScalarWhereWithAggregatesInput.prototype, "link", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => string_nullable_with_aggregates_filter_input_1.StringNullableWithAggregatesFilter, { nullable: true }),

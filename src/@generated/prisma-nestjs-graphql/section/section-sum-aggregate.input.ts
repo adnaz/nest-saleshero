@@ -8,6 +8,9 @@ export class SectionSumAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
+    order?: true;
+
+    @Field(() => Boolean, {nullable:true})
     imageId?: true;
 
     @Field(() => Boolean, {nullable:true})

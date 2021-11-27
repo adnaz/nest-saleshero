@@ -12,6 +12,9 @@ import { SectionUpdateOneWithoutImageInput } from '../section/section-update-one
 export class FileUpdateWithoutCourseImageInput {
 
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    name?: NullableStringFieldUpdateOperationsInput;
+
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     link?: NullableStringFieldUpdateOperationsInput;
 
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})

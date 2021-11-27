@@ -13,11 +13,19 @@ let ReplyMaxAggregateInput = class ReplyMaxAggregateInput {
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Boolean)
+], ReplyMaxAggregateInput.prototype, "order", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Boolean)
 ], ReplyMaxAggregateInput.prototype, "fileId", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Boolean)
 ], ReplyMaxAggregateInput.prototype, "text", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Boolean)
+], ReplyMaxAggregateInput.prototype, "reply", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Boolean)

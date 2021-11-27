@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
+import { Float } from '@nestjs/graphql';
 import { PostCountAggregate } from './post-count-aggregate.output';
 import { PostAvgAggregate } from './post-avg-aggregate.output';
 import { PostSumAggregate } from './post-sum-aggregate.output';
@@ -12,6 +13,9 @@ export class PostGroupBy {
 
     @Field(() => Int, {nullable:false})
     id!: number;
+
+    @Field(() => Float, {nullable:true})
+    order?: number;
 
     @Field(() => String, {nullable:false})
     title!: string;

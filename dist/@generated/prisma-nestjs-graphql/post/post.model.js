@@ -5,14 +5,19 @@ const tslib_1 = require("tslib");
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const graphql_3 = require("@nestjs/graphql");
-const user_model_1 = require("../user/user.model");
 const graphql_4 = require("@nestjs/graphql");
+const user_model_1 = require("../user/user.model");
+const graphql_5 = require("@nestjs/graphql");
 let Post = class Post {
 };
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => graphql_3.ID, { nullable: false }),
     (0, tslib_1.__metadata)("design:type", Number)
 ], Post.prototype, "id", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => graphql_4.Float, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Number)
+], Post.prototype, "order", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => String, { nullable: false }),
     (0, tslib_1.__metadata)("design:type", String)
@@ -30,7 +35,7 @@ let Post = class Post {
     (0, tslib_1.__metadata)("design:type", user_model_1.User)
 ], Post.prototype, "author", void 0);
 (0, tslib_1.__decorate)([
-    (0, graphql_1.Field)(() => graphql_4.Int, { nullable: true }),
+    (0, graphql_1.Field)(() => graphql_5.Int, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Number)
 ], Post.prototype, "authorId", void 0);
 (0, tslib_1.__decorate)([

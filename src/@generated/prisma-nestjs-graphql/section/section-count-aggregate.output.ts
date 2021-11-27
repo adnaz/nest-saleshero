@@ -9,6 +9,9 @@ export class SectionCountAggregate {
     id!: number;
 
     @Field(() => Int, {nullable:false})
+    order!: number;
+
+    @Field(() => Int, {nullable:false})
     title!: number;
 
     @Field(() => Int, {nullable:false})

@@ -25,6 +25,9 @@ export class FileWhereInput {
     id?: IntFilter;
 
     @Field(() => StringNullableFilter, {nullable:true})
+    name?: StringNullableFilter;
+
+    @Field(() => StringNullableFilter, {nullable:true})
     link?: StringNullableFilter;
 
     @Field(() => StringNullableFilter, {nullable:true})

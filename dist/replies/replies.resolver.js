@@ -12,11 +12,15 @@ const replies_service_1 = require("./replies.service");
 const sections_service_1 = require("../sections/sections.service");
 const quick_replies_service_1 = require("../quick-replies/quick-replies.service");
 const quick_reply_model_1 = require("../@generated/prisma-nestjs-graphql/quick-reply/quick-reply.model");
+const actors_service_1 = require("../actors/actors.service");
+const files_service_1 = require("../files/files.service");
 let RepliesResolver = class RepliesResolver {
-    constructor(repliesService, sectionsService, quickRepliesService) {
+    constructor(repliesService, sectionsService, quickRepliesService, actorsService, filesService) {
         this.repliesService = repliesService;
         this.sectionsService = sectionsService;
         this.quickRepliesService = quickRepliesService;
+        this.actorsService = actorsService;
+        this.filesService = filesService;
     }
     replies(findManyReplyArgs) {
         return this.repliesService.replies(findManyReplyArgs);
@@ -33,6 +37,12 @@ let RepliesResolver = class RepliesResolver {
     removeReply(id) {
         return this.repliesService.deleteReply({ id });
     }
+    async file(reply) {
+        const { fileId } = reply;
+        if (fileId) {
+            return this.filesService.file({ id: fileId });
+        }
+    }
     async section(reply) {
         const { sectionId } = reply;
         if (sectionId) {
@@ -42,6 +52,10 @@ let RepliesResolver = class RepliesResolver {
     async quickReply(reply) {
         const { quickReplyId } = reply;
         return this.quickRepliesService.quickReply({ id: quickReplyId });
+    }
+    async user(reply) {
+        const { actorId } = reply;
+        return this.actorsService.actor({ id: actorId });
     }
 };
 (0, tslib_1.__decorate)([
@@ -85,6 +99,13 @@ let RepliesResolver = class RepliesResolver {
     (0, tslib_1.__metadata)("design:type", Function),
     (0, tslib_1.__metadata)("design:paramtypes", [reply_model_1.Reply]),
     (0, tslib_1.__metadata)("design:returntype", Promise)
+], RepliesResolver.prototype, "file", null);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.ResolveField)(),
+    (0, tslib_1.__param)(0, (0, graphql_1.Parent)()),
+    (0, tslib_1.__metadata)("design:type", Function),
+    (0, tslib_1.__metadata)("design:paramtypes", [reply_model_1.Reply]),
+    (0, tslib_1.__metadata)("design:returntype", Promise)
 ], RepliesResolver.prototype, "section", null);
 (0, tslib_1.__decorate)([
     (0, graphql_1.ResolveField)(),
@@ -93,8 +114,15 @@ let RepliesResolver = class RepliesResolver {
     (0, tslib_1.__metadata)("design:paramtypes", [reply_model_1.Reply]),
     (0, tslib_1.__metadata)("design:returntype", Promise)
 ], RepliesResolver.prototype, "quickReply", null);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.ResolveField)(),
+    (0, tslib_1.__param)(0, (0, graphql_1.Parent)()),
+    (0, tslib_1.__metadata)("design:type", Function),
+    (0, tslib_1.__metadata)("design:paramtypes", [reply_model_1.Reply]),
+    (0, tslib_1.__metadata)("design:returntype", Promise)
+], RepliesResolver.prototype, "user", null);
 RepliesResolver = (0, tslib_1.__decorate)([
     (0, graphql_1.Resolver)(reply_model_1.Reply),
-    (0, tslib_1.__metadata)("design:paramtypes", [replies_service_1.RepliesService, sections_service_1.SectionsService, quick_replies_service_1.QuickRepliesService])
+    (0, tslib_1.__metadata)("design:paramtypes", [replies_service_1.RepliesService, sections_service_1.SectionsService, quick_replies_service_1.QuickRepliesService, actors_service_1.ActorsService, files_service_1.FilesService])
 ], RepliesResolver);
 exports.RepliesResolver = RepliesResolver;

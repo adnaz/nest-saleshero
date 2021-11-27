@@ -14,11 +14,19 @@ let ReplyMinOrderByAggregateInput = class ReplyMinOrderByAggregateInput {
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Object)
+], ReplyMinOrderByAggregateInput.prototype, "order", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Object)
 ], ReplyMinOrderByAggregateInput.prototype, "fileId", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Object)
 ], ReplyMinOrderByAggregateInput.prototype, "text", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Object)
+], ReplyMinOrderByAggregateInput.prototype, "reply", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Object)

@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
+import { Float } from '@nestjs/graphql';
 import { File } from '../file/file.model';
 import { Int } from '@nestjs/graphql';
 import { Section } from '../section/section.model';
@@ -13,6 +14,9 @@ export class Reply {
     @Field(() => ID, {nullable:false})
     id!: number;
 
+    @Field(() => Float, {nullable:true})
+    order!: number | null;
+
     @Field(() => File, {nullable:true})
     file?: File | null;
 
@@ -21,6 +25,9 @@ export class Reply {
 
     @Field(() => String, {nullable:true})
     text!: string | null;
+
+    @Field(() => String, {nullable:true})
+    reply!: string | null;
 
     @Field(() => Date, {nullable:false})
     createdAt!: Date;

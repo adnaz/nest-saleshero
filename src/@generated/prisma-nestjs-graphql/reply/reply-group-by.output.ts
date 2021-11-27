@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { Int } from '@nestjs/graphql';
+import { Float } from '@nestjs/graphql';
 import { ReplyCountAggregate } from './reply-count-aggregate.output';
 import { ReplyAvgAggregate } from './reply-avg-aggregate.output';
 import { ReplySumAggregate } from './reply-sum-aggregate.output';
@@ -13,11 +14,17 @@ export class ReplyGroupBy {
     @Field(() => Int, {nullable:false})
     id!: number;
 
+    @Field(() => Float, {nullable:true})
+    order?: number;
+
     @Field(() => Int, {nullable:true})
     fileId?: number;
 
     @Field(() => String, {nullable:true})
     text?: string;
+
+    @Field(() => String, {nullable:true})
+    reply?: string;
 
     @Field(() => Date, {nullable:false})
     createdAt!: Date | string;

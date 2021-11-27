@@ -5,6 +5,7 @@ const graphql_1 = require("@nestjs/graphql");
 var CourseScalarFieldEnum;
 (function (CourseScalarFieldEnum) {
     CourseScalarFieldEnum["id"] = "id";
+    CourseScalarFieldEnum["order"] = "order";
     CourseScalarFieldEnum["title"] = "title";
     CourseScalarFieldEnum["description"] = "description";
     CourseScalarFieldEnum["audioId"] = "audioId";

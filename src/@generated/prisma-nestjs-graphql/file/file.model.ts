@@ -14,6 +14,9 @@ export class File {
     id!: number;
 
     @Field(() => String, {nullable:true})
+    name!: string | null;
+
+    @Field(() => String, {nullable:true})
     link!: string | null;
 
     @Field(() => String, {nullable:true})

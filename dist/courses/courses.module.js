@@ -9,12 +9,13 @@ const prisma_service_1 = require("../prisma.service");
 const users_service_1 = require("../users/users.service");
 const users_module_1 = require("../users/users.module");
 const files_service_1 = require("../files/files.service");
+const sections_service_1 = require("../sections/sections.service");
 let CoursesModule = class CoursesModule {
 };
 CoursesModule = (0, tslib_1.__decorate)([
     (0, common_1.Module)({
         imports: [users_module_1.UsersModule],
-        providers: [courses_service_1.CoursesService, courses_resolver_1.CoursesResolver, prisma_service_1.PrismaService, files_service_1.FilesService]
+        providers: [courses_service_1.CoursesService, courses_resolver_1.CoursesResolver, prisma_service_1.PrismaService, files_service_1.FilesService, sections_service_1.SectionsService]
     })
 ], CoursesModule);
 exports.CoursesModule = CoursesModule;

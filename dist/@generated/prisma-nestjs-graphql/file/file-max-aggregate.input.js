@@ -13,6 +13,10 @@ let FileMaxAggregateInput = class FileMaxAggregateInput {
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Boolean)
+], FileMaxAggregateInput.prototype, "name", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Boolean)
 ], FileMaxAggregateInput.prototype, "link", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),

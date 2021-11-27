@@ -16,6 +16,10 @@ let ReplyOrderByWithRelationInput = class ReplyOrderByWithRelationInput {
     (0, tslib_1.__metadata)("design:type", Object)
 ], ReplyOrderByWithRelationInput.prototype, "id", void 0);
 (0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Object)
+], ReplyOrderByWithRelationInput.prototype, "order", void 0);
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => file_order_by_with_relation_input_1.FileOrderByWithRelationInput, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", file_order_by_with_relation_input_1.FileOrderByWithRelationInput)
 ], ReplyOrderByWithRelationInput.prototype, "file", void 0);
@@ -27,6 +31,10 @@ let ReplyOrderByWithRelationInput = class ReplyOrderByWithRelationInput {
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Object)
 ], ReplyOrderByWithRelationInput.prototype, "text", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Object)
+], ReplyOrderByWithRelationInput.prototype, "reply", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => sort_order_enum_1.SortOrder, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Object)

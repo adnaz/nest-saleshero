@@ -9,10 +9,16 @@ export class ReplyMinOrderByAggregateInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    order?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     fileId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     text?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    reply?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     createdAt?: keyof typeof SortOrder;

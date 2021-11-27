@@ -13,6 +13,10 @@ let CourseMinAggregateInput = class CourseMinAggregateInput {
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Boolean)
+], CourseMinAggregateInput.prototype, "order", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Boolean)
 ], CourseMinAggregateInput.prototype, "title", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),

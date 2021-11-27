@@ -4,12 +4,14 @@ import { FindManyQuickReplyValueArgs } from 'src/@generated/prisma-nestjs-graphq
 import { QuickReplyValueCreateInput } from 'src/@generated/prisma-nestjs-graphql/quick-reply-value/quick-reply-value-create.input';
 import { QuickReplyValue } from 'src/@generated/prisma-nestjs-graphql/quick-reply-value/quick-reply-value.model';
 import { UpdateOneQuickReplyValueArgs } from 'src/@generated/prisma-nestjs-graphql/quick-reply-value/update-one-quick-reply-value.args';
+import { QuickReply } from 'src/@generated/prisma-nestjs-graphql/quick-reply/quick-reply.model';
+import { QuickRepliesService } from 'src/quick-replies/quick-replies.service';
 import { UsersService } from 'src/users/users.service';
 import { QuickReplyValuesService } from './quick-reply-values.service';
 @Resolver( QuickReplyValue)
 export class QuickReplyValuesResolver {
 
-    constructor(private quickReplyValuesService: QuickReplyValuesService, private usersService: UsersService) { }
+    constructor(private quickReplyValuesService: QuickReplyValuesService, private usersService: UsersService,private quickRepliesService: QuickRepliesService) { }
 
 
     @Query(returns => [QuickReplyValue])
@@ -37,5 +39,9 @@ export class QuickReplyValuesResolver {
         return this.quickReplyValuesService.deleteQuickReplyValue({id});
     }
 
-   
+    @ResolveField()
+    async quickReply(@Parent() quickReplyValue: QuickReplyValue) {
+        const { id } = quickReplyValue;
+        return this.quickRepliesService.quickReply({id})
+    }
 }

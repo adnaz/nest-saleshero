@@ -5,6 +5,7 @@ const tslib_1 = require("tslib");
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const graphql_3 = require("@nestjs/graphql");
+const graphql_4 = require("@nestjs/graphql");
 const type_section_enum_1 = require("../prisma/type-section.enum");
 const reply_unchecked_create_nested_many_without_section_input_1 = require("../reply/reply-unchecked-create-nested-many-without-section.input");
 let SectionUncheckedCreateWithoutImageInput = class SectionUncheckedCreateWithoutImageInput {
@@ -13,6 +14,10 @@ let SectionUncheckedCreateWithoutImageInput = class SectionUncheckedCreateWithou
     (0, graphql_1.Field)(() => graphql_3.Int, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Number)
 ], SectionUncheckedCreateWithoutImageInput.prototype, "id", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => graphql_4.Float, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Number)
+], SectionUncheckedCreateWithoutImageInput.prototype, "order", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => String, { nullable: false }),
     (0, tslib_1.__metadata)("design:type", String)

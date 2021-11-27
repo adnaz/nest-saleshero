@@ -13,6 +13,10 @@ let PostAvgAggregateInput = class PostAvgAggregateInput {
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => Boolean, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", Boolean)
+], PostAvgAggregateInput.prototype, "order", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => Boolean, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", Boolean)
 ], PostAvgAggregateInput.prototype, "authorId", void 0);
 PostAvgAggregateInput = (0, tslib_1.__decorate)([
     (0, graphql_2.InputType)()

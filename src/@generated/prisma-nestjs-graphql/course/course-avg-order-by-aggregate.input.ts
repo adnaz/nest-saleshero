@@ -9,6 +9,9 @@ export class CourseAvgOrderByAggregateInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    order?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     audioId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})

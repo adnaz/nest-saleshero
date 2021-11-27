@@ -5,6 +5,7 @@ const graphql_1 = require("@nestjs/graphql");
 var SectionScalarFieldEnum;
 (function (SectionScalarFieldEnum) {
     SectionScalarFieldEnum["id"] = "id";
+    SectionScalarFieldEnum["order"] = "order";
     SectionScalarFieldEnum["title"] = "title";
     SectionScalarFieldEnum["description"] = "description";
     SectionScalarFieldEnum["imageId"] = "imageId";

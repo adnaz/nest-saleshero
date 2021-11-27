@@ -10,6 +10,9 @@ import { SectionCreateNestedOneWithoutImageInput } from '../section/section-crea
 export class FileCreateWithoutCourseImageInput {
 
     @Field(() => String, {nullable:true})
+    name?: string;
+
+    @Field(() => String, {nullable:true})
     link?: string;
 
     @Field(() => String, {nullable:true})

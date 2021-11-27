@@ -6,6 +6,7 @@ const tslib_1 = require("tslib");
 const graphql_1 = require("@nestjs/graphql");
 const graphql_2 = require("@nestjs/graphql");
 const int_filter_input_1 = require("../prisma/int-filter.input");
+const float_nullable_filter_input_1 = require("../prisma/float-nullable-filter.input");
 const file_relation_filter_input_1 = require("../file/file-relation-filter.input");
 const int_nullable_filter_input_1 = require("../prisma/int-nullable-filter.input");
 const string_nullable_filter_input_1 = require("../prisma/string-nullable-filter.input");
@@ -32,6 +33,10 @@ let ReplyWhereInput = ReplyWhereInput_1 = class ReplyWhereInput {
     (0, tslib_1.__metadata)("design:type", int_filter_input_1.IntFilter)
 ], ReplyWhereInput.prototype, "id", void 0);
 (0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => float_nullable_filter_input_1.FloatNullableFilter, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", float_nullable_filter_input_1.FloatNullableFilter)
+], ReplyWhereInput.prototype, "order", void 0);
+(0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => file_relation_filter_input_1.FileRelationFilter, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", file_relation_filter_input_1.FileRelationFilter)
 ], ReplyWhereInput.prototype, "file", void 0);
@@ -43,6 +48,10 @@ let ReplyWhereInput = ReplyWhereInput_1 = class ReplyWhereInput {
     (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", string_nullable_filter_input_1.StringNullableFilter)
 ], ReplyWhereInput.prototype, "text", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", string_nullable_filter_input_1.StringNullableFilter)
+], ReplyWhereInput.prototype, "reply", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => date_time_filter_input_1.DateTimeFilter, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", date_time_filter_input_1.DateTimeFilter)

@@ -6,17 +6,19 @@ import { Course } from 'src/@generated/prisma-nestjs-graphql/course/course.model
 import { FindManyCourseArgs } from 'src/@generated/prisma-nestjs-graphql/course/find-many-course.args';
 import { UpdateOneCourseArgs } from 'src/@generated/prisma-nestjs-graphql/course/update-one-course.args';
 import { Role } from 'src/@generated/prisma-nestjs-graphql/prisma/role.enum';
+import { Section } from 'src/@generated/prisma-nestjs-graphql/section/section.model';
 import { User } from 'src/@generated/prisma-nestjs-graphql/user/user.model';
 import { CurrentUser } from 'src/auth/current-user.decorator';
 import { GqlAuthGuard } from 'src/auth/gql-auth.guard';
 import { Authorize } from 'src/auth/roles.decorator';
 import { FilesService } from 'src/files/files.service';
+import { SectionsService } from 'src/sections/sections.service';
 import { UsersService } from 'src/users/users.service';
 import { CoursesService } from './courses.service';
 @Resolver( Course)
 export class CoursesResolver {
 
-    constructor(private coursesService: CoursesService, private usersService: UsersService,private filesService: FilesService) { }
+    constructor(private coursesService: CoursesService, private usersService: UsersService,private filesService: FilesService,private sectionsService: SectionsService) { }
 
 
     @Query(returns => [Course])
@@ -65,5 +67,10 @@ export class CoursesResolver {
             return this.filesService.file({ id:imageId });
 
         }
+    }
+    @ResolveField(()=>[Section])
+    async sections(@Parent() course: Course) {
+        const { id } = course;
+        return this.sectionsService.sections({where:{courseId:{equals:id}}})
     }
 }

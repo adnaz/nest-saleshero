@@ -34,6 +34,10 @@ let FileWhereInput = FileWhereInput_1 = class FileWhereInput {
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", string_nullable_filter_input_1.StringNullableFilter)
+], FileWhereInput.prototype, "name", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", string_nullable_filter_input_1.StringNullableFilter)
 ], FileWhereInput.prototype, "link", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => string_nullable_filter_input_1.StringNullableFilter, { nullable: true }),

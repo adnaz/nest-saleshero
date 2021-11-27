@@ -16,11 +16,14 @@ const roles_decorator_1 = require("../auth/roles.decorator");
 const role_enum_1 = require("../@generated/prisma-nestjs-graphql/prisma/role.enum");
 const user_model_1 = require("../@generated/prisma-nestjs-graphql/user/user.model");
 const current_user_decorator_1 = require("../auth/current-user.decorator");
+const replies_service_1 = require("../replies/replies.service");
+const reply_model_1 = require("../@generated/prisma-nestjs-graphql/reply/reply.model");
 let SectionsResolver = class SectionsResolver {
-    constructor(sectionsService, usersService, coursesService) {
+    constructor(sectionsService, usersService, coursesService, repliesService) {
         this.sectionsService = sectionsService;
         this.usersService = usersService;
         this.coursesService = coursesService;
+        this.repliesService = repliesService;
     }
     sections(findManySectionArgs) {
         return this.sectionsService.sections(findManySectionArgs);
@@ -52,6 +55,10 @@ let SectionsResolver = class SectionsResolver {
     async course(section) {
         const { courseId } = section;
         return this.coursesService.course({ id: courseId });
+    }
+    async replies(section) {
+        const { id } = section;
+        return this.repliesService.replies({ where: { sectionId: { equals: id } } });
     }
 };
 (0, tslib_1.__decorate)([
@@ -106,8 +113,15 @@ let SectionsResolver = class SectionsResolver {
     (0, tslib_1.__metadata)("design:paramtypes", [section_model_1.Section]),
     (0, tslib_1.__metadata)("design:returntype", Promise)
 ], SectionsResolver.prototype, "course", null);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.ResolveField)(() => [reply_model_1.Reply]),
+    (0, tslib_1.__param)(0, (0, graphql_1.Parent)()),
+    (0, tslib_1.__metadata)("design:type", Function),
+    (0, tslib_1.__metadata)("design:paramtypes", [section_model_1.Section]),
+    (0, tslib_1.__metadata)("design:returntype", Promise)
+], SectionsResolver.prototype, "replies", null);
 SectionsResolver = (0, tslib_1.__decorate)([
     (0, graphql_1.Resolver)(section_model_1.Section),
-    (0, tslib_1.__metadata)("design:paramtypes", [sections_service_1.SectionsService, users_service_1.UsersService, courses_service_1.CoursesService])
+    (0, tslib_1.__metadata)("design:paramtypes", [sections_service_1.SectionsService, users_service_1.UsersService, courses_service_1.CoursesService, replies_service_1.RepliesService])
 ], SectionsResolver);
 exports.SectionsResolver = SectionsResolver;

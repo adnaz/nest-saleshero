@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
+import { Float } from '@nestjs/graphql';
 import { User } from '../user/user.model';
 import { Int } from '@nestjs/graphql';
 
@@ -9,6 +10,9 @@ export class Post {
 
     @Field(() => ID, {nullable:false})
     id!: number;
+
+    @Field(() => Float, {nullable:true})
+    order!: number | null;
 
     @Field(() => String, {nullable:false})
     title!: string;

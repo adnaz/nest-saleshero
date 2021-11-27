@@ -13,10 +13,12 @@ import { Role } from 'src/@generated/prisma-nestjs-graphql/prisma/role.enum';
 import { User } from 'src/@generated/prisma-nestjs-graphql/user/user.model';
 import { CurrentUser } from 'src/auth/current-user.decorator';
 import { Prisma } from '@prisma/client';
+import { RepliesService } from 'src/replies/replies.service';
+import { Reply } from 'src/@generated/prisma-nestjs-graphql/reply/reply.model';
 @Resolver(Section)
 export class SectionsResolver {
 
-    constructor(private sectionsService: SectionsService, private usersService: UsersService, private coursesService: CoursesService) { }
+    constructor(private sectionsService: SectionsService, private usersService: UsersService, private coursesService: CoursesService,private repliesService:RepliesService) { }
 
 
     @Query(returns => [Section])
@@ -65,4 +67,9 @@ export class SectionsResolver {
         return this.coursesService.course({ id: courseId });
     }
 
+    @ResolveField(()=>[Reply])
+    async replies(@Parent() section: Section) {
+        const { id } = section;
+        return this.repliesService.replies({where:{sectionId:{equals:id}}})
+    }
 }
