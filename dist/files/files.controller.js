@@ -41,7 +41,11 @@ let FilesController = class FilesController {
     }
 };
 (0, tslib_1.__decorate)([
-    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file')),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('file', {
+        limits: {
+            fileSize: Math.pow(3072, 2)
+        }
+    })),
     (0, common_1.Post)(),
     (0, tslib_1.__param)(0, (0, common_1.UploadedFile)()),
     (0, tslib_1.__param)(1, (0, common_1.Body)()),

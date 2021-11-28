@@ -11,7 +11,11 @@ import { FileCreateInput } from 'src/@generated/prisma-nestjs-graphql/file/file-
 export class FilesController {
   constructor(private readonly filesService: FilesService,private s3Service: S3Service) {}
 
-  @UseInterceptors(FileInterceptor('file'))
+  @UseInterceptors(FileInterceptor('file',{
+    limits:{
+      fileSize:Math.pow(3072, 2)
+    }
+  }))
   @Post()
   async create(@UploadedFile() file,@Body() fileCreateInput: FileCreateInput) {
     let response =  await this.s3Service.uploadFile(file);
