@@ -7,6 +7,7 @@ const graphql_2 = require("@nestjs/graphql");
 const sort_order_enum_1 = require("../prisma/sort-order.enum");
 const reply_order_by_with_relation_input_1 = require("../reply/reply-order-by-with-relation.input");
 const actor_order_by_with_relation_input_1 = require("../actor/actor-order-by-with-relation.input");
+const affirmation_order_by_with_relation_input_1 = require("../affirmation/affirmation-order-by-with-relation.input");
 const course_order_by_with_relation_input_1 = require("../course/course-order-by-with-relation.input");
 const section_order_by_with_relation_input_1 = require("../section/section-order-by-with-relation.input");
 let FileOrderByWithRelationInput = class FileOrderByWithRelationInput {
@@ -47,6 +48,10 @@ let FileOrderByWithRelationInput = class FileOrderByWithRelationInput {
     (0, graphql_1.Field)(() => actor_order_by_with_relation_input_1.ActorOrderByWithRelationInput, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", actor_order_by_with_relation_input_1.ActorOrderByWithRelationInput)
 ], FileOrderByWithRelationInput.prototype, "actor", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => affirmation_order_by_with_relation_input_1.AffirmationOrderByWithRelationInput, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", affirmation_order_by_with_relation_input_1.AffirmationOrderByWithRelationInput)
+], FileOrderByWithRelationInput.prototype, "affirmation", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => course_order_by_with_relation_input_1.CourseOrderByWithRelationInput, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", course_order_by_with_relation_input_1.CourseOrderByWithRelationInput)

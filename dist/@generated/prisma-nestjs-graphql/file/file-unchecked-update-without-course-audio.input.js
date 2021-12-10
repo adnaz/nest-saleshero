@@ -10,6 +10,7 @@ const date_time_field_update_operations_input_1 = require("../prisma/date-time-f
 const nullable_enum_type_file_field_update_operations_input_1 = require("../prisma/nullable-enum-type-file-field-update-operations.input");
 const reply_unchecked_update_one_without_file_input_1 = require("../reply/reply-unchecked-update-one-without-file.input");
 const actor_unchecked_update_one_without_avatar_input_1 = require("../actor/actor-unchecked-update-one-without-avatar.input");
+const affirmation_unchecked_update_one_without_image_input_1 = require("../affirmation/affirmation-unchecked-update-one-without-image.input");
 const course_unchecked_update_one_without_image_input_1 = require("../course/course-unchecked-update-one-without-image.input");
 const section_unchecked_update_one_without_image_input_1 = require("../section/section-unchecked-update-one-without-image.input");
 let FileUncheckedUpdateWithoutCourseAudioInput = class FileUncheckedUpdateWithoutCourseAudioInput {
@@ -62,6 +63,10 @@ let FileUncheckedUpdateWithoutCourseAudioInput = class FileUncheckedUpdateWithou
     (0, graphql_1.Field)(() => actor_unchecked_update_one_without_avatar_input_1.ActorUncheckedUpdateOneWithoutAvatarInput, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", actor_unchecked_update_one_without_avatar_input_1.ActorUncheckedUpdateOneWithoutAvatarInput)
 ], FileUncheckedUpdateWithoutCourseAudioInput.prototype, "actor", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => affirmation_unchecked_update_one_without_image_input_1.AffirmationUncheckedUpdateOneWithoutImageInput, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", affirmation_unchecked_update_one_without_image_input_1.AffirmationUncheckedUpdateOneWithoutImageInput)
+], FileUncheckedUpdateWithoutCourseAudioInput.prototype, "affirmation", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => course_unchecked_update_one_without_image_input_1.CourseUncheckedUpdateOneWithoutImageInput, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", course_unchecked_update_one_without_image_input_1.CourseUncheckedUpdateOneWithoutImageInput)

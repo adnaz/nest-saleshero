@@ -3,6 +3,7 @@ import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
 import { Reply } from '../reply/reply.model';
 import { Actor } from '../actor/actor.model';
+import { Affirmation } from '../affirmation/affirmation.model';
 import { Course } from '../course/course.model';
 import { Section } from '../section/section.model';
 import { TypeFile } from '../prisma/type-file.enum';
@@ -36,6 +37,9 @@ export class File {
 
     @Field(() => Actor, {nullable:true})
     actor?: Actor | null;
+
+    @Field(() => Affirmation, {nullable:true})
+    affirmation?: Affirmation | null;
 
     @Field(() => Course, {nullable:true})
     courseImage?: Course | null;

@@ -19,6 +19,7 @@ import { RepliesModule } from './replies/replies.module';
 import { QuickRepliesModule } from './quick-replies/quick-replies.module';
 import { QuickReplyValuesModule } from './quick-reply-values/quick-reply-values.module';
 import { AppsModule } from './apps/apps.module';
+import { AffirmationsModule } from './affirmations/affirmations.module';
 const whitelist = ['http://localhost:3000','http://localhost:3001','https://www.holumbo.com', 'https://holumbo.com','https://studio.apollographql.com'];
 @Module({
   imports: [
@@ -49,7 +50,8 @@ const whitelist = ['http://localhost:3000','http://localhost:3001','https://www.
     RepliesModule,
     QuickRepliesModule,
     QuickReplyValuesModule,
-    AppsModule
+    AppsModule,
+    AffirmationsModule
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService

@@ -3,6 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { SortOrder } from '../prisma/sort-order.enum';
 import { ReplyOrderByWithRelationInput } from '../reply/reply-order-by-with-relation.input';
 import { ActorOrderByWithRelationInput } from '../actor/actor-order-by-with-relation.input';
+import { AffirmationOrderByWithRelationInput } from '../affirmation/affirmation-order-by-with-relation.input';
 import { CourseOrderByWithRelationInput } from '../course/course-order-by-with-relation.input';
 import { SectionOrderByWithRelationInput } from '../section/section-order-by-with-relation.input';
 
@@ -35,6 +36,9 @@ export class FileOrderByWithRelationInput {
 
     @Field(() => ActorOrderByWithRelationInput, {nullable:true})
     actor?: ActorOrderByWithRelationInput;
+
+    @Field(() => AffirmationOrderByWithRelationInput, {nullable:true})
+    affirmation?: AffirmationOrderByWithRelationInput;
 
     @Field(() => CourseOrderByWithRelationInput, {nullable:true})
     courseImage?: CourseOrderByWithRelationInput;

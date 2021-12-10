@@ -141,6 +141,18 @@ type Reply {
   quickReplyId: Int
 }
 
+type Affirmation {
+  id: ID!
+  order: Float
+  title: String!
+  description: String
+  image: File
+  imageId: Int
+  published: Boolean
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 type File {
   id: ID!
   name: String
@@ -151,6 +163,7 @@ type File {
   etag: String
   reply: Reply
   actor: Actor
+  affirmation: Affirmation
   courseImage: Course
   courseAudio: Course
   section: Section
@@ -209,6 +222,8 @@ type Query {
   quickReplyValue(id: Int!): QuickReplyValue!
   apps(where: AppWhereInput, orderBy: [AppOrderByWithRelationInput!], cursor: AppWhereUniqueInput, take: Int, skip: Int, distinct: [AppScalarFieldEnum!]): [App!]!
   app(id: Int!): App!
+  affirmations(where: AffirmationWhereInput, orderBy: [AffirmationOrderByWithRelationInput!], cursor: AffirmationWhereUniqueInput, take: Int, skip: Int, distinct: [AffirmationScalarFieldEnum!]): [Affirmation!]!
+  affirmation(id: Int!): Affirmation!
 }
 
 input CourseWhereInput {
@@ -349,6 +364,7 @@ input FileWhereInput {
   etag: StringNullableFilter
   reply: ReplyRelationFilter
   actor: ActorRelationFilter
+  affirmation: AffirmationRelationFilter
   courseImage: CourseRelationFilter
   courseAudio: CourseRelationFilter
   section: SectionRelationFilter
@@ -640,6 +656,26 @@ input QuickReplyValueWhereInput {
   quickReplyId: IntNullableFilter
 }
 
+input AffirmationRelationFilter {
+  is: AffirmationWhereInput
+  isNot: AffirmationWhereInput
+}
+
+input AffirmationWhereInput {
+  AND: [AffirmationWhereInput!]
+  OR: [AffirmationWhereInput!]
+  NOT: [AffirmationWhereInput!]
+  id: IntFilter
+  order: FloatNullableFilter
+  title: StringFilter
+  description: StringNullableFilter
+  image: FileRelationFilter
+  imageId: IntNullableFilter
+  published: BoolNullableFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
 input EnumTypeFileNullableFilter {
   equals: TypeFile
   in: [TypeFile!]
@@ -686,6 +722,7 @@ input FileOrderByWithRelationInput {
   etag: SortOrder
   reply: ReplyOrderByWithRelationInput
   actor: ActorOrderByWithRelationInput
+  affirmation: AffirmationOrderByWithRelationInput
   courseImage: CourseOrderByWithRelationInput
   courseAudio: CourseOrderByWithRelationInput
   section: SectionOrderByWithRelationInput
@@ -784,6 +821,18 @@ input QuickReplyOrderByWithRelationInput {
 
 input QuickReplyValueOrderByRelationAggregateInput {
   _count: SortOrder
+}
+
+input AffirmationOrderByWithRelationInput {
+  id: SortOrder
+  order: SortOrder
+  title: SortOrder
+  description: SortOrder
+  image: FileOrderByWithRelationInput
+  imageId: SortOrder
+  published: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
 }
 
 input CourseWhereUniqueInput {
@@ -967,6 +1016,22 @@ enum AppScalarFieldEnum {
   updatedAt
 }
 
+input AffirmationWhereUniqueInput {
+  id: Int
+  imageId: Int
+}
+
+enum AffirmationScalarFieldEnum {
+  id
+  order
+  title
+  description
+  imageId
+  published
+  createdAt
+  updatedAt
+}
+
 type Mutation {
   createCourse(courseCreateInput: CourseCreateInput!): Course!
   updateCourse(data: CourseUpdateInput!, where: CourseWhereUniqueInput!): Course!
@@ -998,6 +1063,9 @@ type Mutation {
   createApp(appCreateInput: AppCreateInput!): App!
   updateApp(data: AppUpdateInput!, where: AppWhereUniqueInput!): App!
   removeApp(id: Int!): App!
+  createAffirmation(affirmationCreateInput: AffirmationCreateInput!): Affirmation!
+  updateAffirmation(data: AffirmationUpdateInput!, where: AffirmationWhereUniqueInput!): Affirmation!
+  removeAffirmation(id: Int!): Affirmation!
 }
 
 input CourseCreateInput {
@@ -1031,6 +1099,7 @@ input FileCreateWithoutCourseAudioInput {
   type: TypeFile
   reply: ReplyCreateNestedOneWithoutFileInput
   actor: ActorCreateNestedOneWithoutAvatarInput
+  affirmation: AffirmationCreateNestedOneWithoutImageInput
   courseImage: CourseCreateNestedOneWithoutImageInput
   section: SectionCreateNestedOneWithoutImageInput
 }
@@ -1089,6 +1158,7 @@ input FileCreateWithoutSectionInput {
   type: TypeFile
   reply: ReplyCreateNestedOneWithoutFileInput
   actor: ActorCreateNestedOneWithoutAvatarInput
+  affirmation: AffirmationCreateNestedOneWithoutImageInput
   courseImage: CourseCreateNestedOneWithoutImageInput
   courseAudio: CourseCreateNestedOneWithoutAudioInput
 }
@@ -1141,9 +1211,30 @@ input FileCreateWithoutReplyInput {
   updatedAt: DateTime
   type: TypeFile
   actor: ActorCreateNestedOneWithoutAvatarInput
+  affirmation: AffirmationCreateNestedOneWithoutImageInput
   courseImage: CourseCreateNestedOneWithoutImageInput
   courseAudio: CourseCreateNestedOneWithoutAudioInput
   section: SectionCreateNestedOneWithoutImageInput
+}
+
+input AffirmationCreateNestedOneWithoutImageInput {
+  create: AffirmationCreateWithoutImageInput
+  connectOrCreate: AffirmationCreateOrConnectWithoutImageInput
+  connect: AffirmationWhereUniqueInput
+}
+
+input AffirmationCreateWithoutImageInput {
+  order: Float
+  title: String!
+  description: String
+  published: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input AffirmationCreateOrConnectWithoutImageInput {
+  where: AffirmationWhereUniqueInput!
+  create: AffirmationCreateWithoutImageInput!
 }
 
 input CourseCreateNestedOneWithoutImageInput {
@@ -1232,6 +1323,7 @@ input FileCreateWithoutActorInput {
   updatedAt: DateTime
   type: TypeFile
   reply: ReplyCreateNestedOneWithoutFileInput
+  affirmation: AffirmationCreateNestedOneWithoutImageInput
   courseImage: CourseCreateNestedOneWithoutImageInput
   courseAudio: CourseCreateNestedOneWithoutAudioInput
   section: SectionCreateNestedOneWithoutImageInput
@@ -1273,6 +1365,7 @@ input FileCreateWithoutCourseImageInput {
   type: TypeFile
   reply: ReplyCreateNestedOneWithoutFileInput
   actor: ActorCreateNestedOneWithoutAvatarInput
+  affirmation: AffirmationCreateNestedOneWithoutImageInput
   courseAudio: CourseCreateNestedOneWithoutAudioInput
   section: SectionCreateNestedOneWithoutImageInput
 }
@@ -1753,6 +1846,7 @@ input FileUpdateWithoutCourseAudioInput {
   type: NullableEnumTypeFileFieldUpdateOperationsInput
   reply: ReplyUpdateOneWithoutFileInput
   actor: ActorUpdateOneWithoutAvatarInput
+  affirmation: AffirmationUpdateOneWithoutImageInput
   courseImage: CourseUpdateOneWithoutImageInput
   section: SectionUpdateOneWithoutImageInput
 }
@@ -1846,6 +1940,7 @@ input FileUpdateWithoutSectionInput {
   type: NullableEnumTypeFileFieldUpdateOperationsInput
   reply: ReplyUpdateOneWithoutFileInput
   actor: ActorUpdateOneWithoutAvatarInput
+  affirmation: AffirmationUpdateOneWithoutImageInput
   courseImage: CourseUpdateOneWithoutImageInput
   courseAudio: CourseUpdateOneWithoutAudioInput
 }
@@ -1929,9 +2024,34 @@ input FileUpdateWithoutReplyInput {
   updatedAt: DateTimeFieldUpdateOperationsInput
   type: NullableEnumTypeFileFieldUpdateOperationsInput
   actor: ActorUpdateOneWithoutAvatarInput
+  affirmation: AffirmationUpdateOneWithoutImageInput
   courseImage: CourseUpdateOneWithoutImageInput
   courseAudio: CourseUpdateOneWithoutAudioInput
   section: SectionUpdateOneWithoutImageInput
+}
+
+input AffirmationUpdateOneWithoutImageInput {
+  create: AffirmationCreateWithoutImageInput
+  connectOrCreate: AffirmationCreateOrConnectWithoutImageInput
+  upsert: AffirmationUpsertWithoutImageInput
+  disconnect: Boolean
+  delete: Boolean
+  connect: AffirmationWhereUniqueInput
+  update: AffirmationUpdateWithoutImageInput
+}
+
+input AffirmationUpsertWithoutImageInput {
+  update: AffirmationUpdateWithoutImageInput!
+  create: AffirmationCreateWithoutImageInput!
+}
+
+input AffirmationUpdateWithoutImageInput {
+  order: NullableFloatFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  published: NullableBoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input CourseUpdateOneWithoutImageInput {
@@ -2073,6 +2193,7 @@ input FileUpdateWithoutActorInput {
   updatedAt: DateTimeFieldUpdateOperationsInput
   type: NullableEnumTypeFileFieldUpdateOperationsInput
   reply: ReplyUpdateOneWithoutFileInput
+  affirmation: AffirmationUpdateOneWithoutImageInput
   courseImage: CourseUpdateOneWithoutImageInput
   courseAudio: CourseUpdateOneWithoutAudioInput
   section: SectionUpdateOneWithoutImageInput
@@ -2132,6 +2253,7 @@ input FileUpdateWithoutCourseImageInput {
   type: NullableEnumTypeFileFieldUpdateOperationsInput
   reply: ReplyUpdateOneWithoutFileInput
   actor: ActorUpdateOneWithoutAvatarInput
+  affirmation: AffirmationUpdateOneWithoutImageInput
   courseAudio: CourseUpdateOneWithoutAudioInput
   section: SectionUpdateOneWithoutImageInput
 }
@@ -2744,6 +2866,7 @@ input FileCreateInput {
   type: TypeFile
   reply: ReplyCreateNestedOneWithoutFileInput
   actor: ActorCreateNestedOneWithoutAvatarInput
+  affirmation: AffirmationCreateNestedOneWithoutImageInput
   courseImage: CourseCreateNestedOneWithoutImageInput
   courseAudio: CourseCreateNestedOneWithoutAudioInput
   section: SectionCreateNestedOneWithoutImageInput
@@ -2761,6 +2884,7 @@ input FileUpdateInput {
   type: NullableEnumTypeFileFieldUpdateOperationsInput
   reply: ReplyUpdateOneWithoutFileInput
   actor: ActorUpdateOneWithoutAvatarInput
+  affirmation: AffirmationUpdateOneWithoutImageInput
   courseImage: CourseUpdateOneWithoutImageInput
   courseAudio: CourseUpdateOneWithoutAudioInput
   section: SectionUpdateOneWithoutImageInput
@@ -3010,4 +3134,84 @@ input UserUpdateWithoutAppsInput {
   posts: PostUpdateManyWithoutAuthorInput
   courses: CourseUpdateManyWithoutAuthorInput
   sections: SectionUpdateManyWithoutAuthorInput
+}
+
+input AffirmationCreateInput {
+  order: Float
+  title: String!
+  description: String
+  published: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
+  image: FileCreateNestedOneWithoutAffirmationInput
+}
+
+input FileCreateNestedOneWithoutAffirmationInput {
+  create: FileCreateWithoutAffirmationInput
+  connectOrCreate: FileCreateOrConnectWithoutAffirmationInput
+  connect: FileWhereUniqueInput
+}
+
+input FileCreateWithoutAffirmationInput {
+  name: String
+  link: String
+  location: String
+  key: String
+  bucket: String
+  etag: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  type: TypeFile
+  reply: ReplyCreateNestedOneWithoutFileInput
+  actor: ActorCreateNestedOneWithoutAvatarInput
+  courseImage: CourseCreateNestedOneWithoutImageInput
+  courseAudio: CourseCreateNestedOneWithoutAudioInput
+  section: SectionCreateNestedOneWithoutImageInput
+}
+
+input FileCreateOrConnectWithoutAffirmationInput {
+  where: FileWhereUniqueInput!
+  create: FileCreateWithoutAffirmationInput!
+}
+
+input AffirmationUpdateInput {
+  order: NullableFloatFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  published: NullableBoolFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  image: FileUpdateOneWithoutAffirmationInput
+}
+
+input FileUpdateOneWithoutAffirmationInput {
+  create: FileCreateWithoutAffirmationInput
+  connectOrCreate: FileCreateOrConnectWithoutAffirmationInput
+  upsert: FileUpsertWithoutAffirmationInput
+  disconnect: Boolean
+  delete: Boolean
+  connect: FileWhereUniqueInput
+  update: FileUpdateWithoutAffirmationInput
+}
+
+input FileUpsertWithoutAffirmationInput {
+  update: FileUpdateWithoutAffirmationInput!
+  create: FileCreateWithoutAffirmationInput!
+}
+
+input FileUpdateWithoutAffirmationInput {
+  name: NullableStringFieldUpdateOperationsInput
+  link: NullableStringFieldUpdateOperationsInput
+  location: NullableStringFieldUpdateOperationsInput
+  key: NullableStringFieldUpdateOperationsInput
+  bucket: NullableStringFieldUpdateOperationsInput
+  etag: NullableStringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  type: NullableEnumTypeFileFieldUpdateOperationsInput
+  reply: ReplyUpdateOneWithoutFileInput
+  actor: ActorUpdateOneWithoutAvatarInput
+  courseImage: CourseUpdateOneWithoutImageInput
+  courseAudio: CourseUpdateOneWithoutAudioInput
+  section: SectionUpdateOneWithoutImageInput
 }

@@ -11,43 +11,45 @@ generator client {
 }
 
 generator nestgraphql {
-    provider = "node node_modules/prisma-nestjs-graphql"
-    output = "../src/@generated/prisma-nestjs-graphql"
-    fields_Validator_from = "class-validator"
-    fields_Validator_input = true
+  provider               = "node node_modules/prisma-nestjs-graphql"
+  output                 = "../src/@generated/prisma-nestjs-graphql"
+  fields_Validator_from  = "class-validator"
+  fields_Validator_input = true
 }
+
 model App {
-  
-  id    Int     @default(autoincrement()) @id
-  name  String?
+
+  id        Int      @id @default(autoincrement())
+  name      String?
   author    User?    @relation(fields: [authorId], references: [id])
   authorId  Int?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
 model User {
-  
-  id    Int     @default(autoincrement()) @id
-  email String  @unique
-   /// @Validator.MinLength(3)
-  username  String? @unique
-  name  String?
+
+  id       Int       @id @default(autoincrement())
+  email    String    @unique
+  /// @Validator.MinLength(3)
+  username String?   @unique
+  name     String?
   /// @HideField()
   password String
-  apps App[]
-  posts Post[]
-  courses Course[]
+  apps     App[]
+  posts    Post[]
+  courses  Course[]
   sections Section[]
-  role      Role
+  role     Role
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Post {
-  
-  id        Int      @default(autoincrement()) @id
-  order Float?
+
+  id        Int      @id @default(autoincrement())
+  order     Float?
   title     String
   content   String?
   published Boolean? @default(false)
@@ -58,112 +60,134 @@ model Post {
   updatedAt DateTime @updatedAt
 }
 
+model Affirmation {
+
+  id          Int      @id @default(autoincrement())
+  order       Float?
+  title       String
+  description String?
+  image       File?    @relation(fields: [imageId], references: [id])
+  imageId     Int?     @unique
+  published   Boolean? @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
 
 model Course {
-  id        Int      @default(autoincrement()) @id
-  order Float?
-  title     String
-  description   String?
-  audio File? @relation("audio",fields: [audioId],references: [id])
-  audioId Int?
-  image File? @relation("image",fields: [imageId],references: [id])
-  imageId Int?
-  sections Section[]
-  published Boolean? @default(false)
-  author    User?    @relation(fields: [authorId], references: [id])
-  authorId  Int?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          Int       @id @default(autoincrement())
+  order       Float?
+  title       String
+  description String?
+  audio       File?     @relation("audio", fields: [audioId], references: [id])
+  audioId     Int?      @unique
+  image       File?     @relation("image", fields: [imageId], references: [id])
+  imageId     Int?      @unique
+  sections    Section[]
+  published   Boolean?  @default(false)
+  author      User?     @relation(fields: [authorId], references: [id])
+  authorId    Int?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
+
 model Section {
-  id        Int      @default(autoincrement()) @id
-  order Float?
-  title     String
-  description   String?
-  image File? @relation(fields: [imageId],references: [id])
-  imageId Int?
-  type TypeSection?
-  course Course? @relation(fields: [courseId],references:[id])
-  courseId Int?
-  replies Reply[]
-  published Boolean? @default(false)
-  author    User?    @relation(fields: [authorId], references: [id])
-  authorId  Int?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          Int          @id @default(autoincrement())
+  order       Float?
+  title       String
+  description String?
+  image       File?        @relation(fields: [imageId], references: [id])
+  imageId     Int?         @unique
+  type        TypeSection?
+  course      Course?      @relation(fields: [courseId], references: [id])
+  courseId    Int?
+  replies     Reply[]
+  published   Boolean?     @default(false)
+  author      User?        @relation(fields: [authorId], references: [id])
+  authorId    Int?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
 }
+
 model Reply {
-  id        Int      @default(autoincrement()) @id
-  order Float?
-  file File? @relation(fields: [fileId],references: [id])
-  fileId Int?
-  text String?
-  reply String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  section Section? @relation(fields: [sectionId],references:[id])
-  sectionId Int?
-  user    Actor?    @relation(fields: [actorId], references: [id])
-  actorId  Int?
-  quickReply QuickReply? @relation(fields: [quickReplyId],references:[id])
-  quickReplyId Int?
+  id           Int         @id @default(autoincrement())
+  order        Float?
+  file         File?       @relation(fields: [fileId], references: [id])
+  fileId       Int?        @unique
+  text         String?
+  reply        String?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  section      Section?    @relation(fields: [sectionId], references: [id])
+  sectionId    Int?
+  user         Actor?      @relation(fields: [actorId], references: [id])
+  actorId      Int?
+  quickReply   QuickReply? @relation(fields: [quickReplyId], references: [id])
+  quickReplyId Int?        @unique
 }
+
 model QuickReply {
-    id        Int      @default(autoincrement()) @id
-    reply Reply?
-    keepIt Boolean? @default(true)
-    type TypeReply?
-    values QuickReplyValue[]
+  id     Int               @id @default(autoincrement())
+  reply  Reply?
+  keepIt Boolean?          @default(true)
+  type   TypeReply?
+  values QuickReplyValue[]
 }
+
 model QuickReplyValue {
-  
-      id        Int      @default(autoincrement()) @id
-      title String?
-      value String?
-      quickReply QuickReply? @relation(fields: [quickReplyId], references: [id])
-      quickReplyId Int?
+
+  id           Int         @id @default(autoincrement())
+  title        String?
+  value        String?
+  quickReply   QuickReply? @relation(fields: [quickReplyId], references: [id])
+  quickReplyId Int?
 }
 
 model Actor {
-  
-  id    Int     @default(autoincrement()) @id
-  name  String?
-  avatar   File? @relation(fields: [fileId],references: [id])
-  fileId Int?
-  replies Reply[]
+
+  id        Int      @id @default(autoincrement())
+  name      String?
+  avatar    File?    @relation(fields: [fileId], references: [id])
+  fileId    Int?     @unique
+  replies   Reply[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
 model File {
-  
-    id    Int     @default(autoincrement()) @id
-    name String?
-    link String? 
-    location String?
-    key String?
-    bucket String?
-    etag String?
-    reply Reply?
-    actor Actor?
-    courseImage Course? @relation("image")
-    courseAudio Course? @relation("audio")
-    section Section?
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    type TypeFile?
+
+  id          Int          @id @default(autoincrement())
+  name        String?
+  link        String?
+  location    String?
+  key         String?
+  bucket      String?
+  etag        String?
+  reply       Reply?
+  actor       Actor?
+  affirmation Affirmation?
+  courseImage Course?      @relation("image")
+  courseAudio Course?      @relation("audio")
+  section     Section?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  type        TypeFile?
 }
+
 enum TypeSection {
   CHAT
   ARTICLE
 }
+
 enum TypeReply {
   checkbox
   radio
 }
+
 enum Role {
   USER
   ADMIN
 }
+
 enum TypeFile {
   AUDIO
   IMAGE

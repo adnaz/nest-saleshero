@@ -5,6 +5,7 @@ import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-up
 import { NullableEnumTypeFileFieldUpdateOperationsInput } from '../prisma/nullable-enum-type-file-field-update-operations.input';
 import { ReplyUpdateOneWithoutFileInput } from '../reply/reply-update-one-without-file.input';
 import { ActorUpdateOneWithoutAvatarInput } from '../actor/actor-update-one-without-avatar.input';
+import { AffirmationUpdateOneWithoutImageInput } from '../affirmation/affirmation-update-one-without-image.input';
 import { CourseUpdateOneWithoutImageInput } from '../course/course-update-one-without-image.input';
 import { SectionUpdateOneWithoutImageInput } from '../section/section-update-one-without-image.input';
 
@@ -43,6 +44,9 @@ export class FileUpdateWithoutCourseAudioInput {
 
     @Field(() => ActorUpdateOneWithoutAvatarInput, {nullable:true})
     actor?: ActorUpdateOneWithoutAvatarInput;
+
+    @Field(() => AffirmationUpdateOneWithoutImageInput, {nullable:true})
+    affirmation?: AffirmationUpdateOneWithoutImageInput;
 
     @Field(() => CourseUpdateOneWithoutImageInput, {nullable:true})
     courseImage?: CourseUpdateOneWithoutImageInput;

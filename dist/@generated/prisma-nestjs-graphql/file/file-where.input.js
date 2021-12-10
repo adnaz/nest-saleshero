@@ -9,6 +9,7 @@ const int_filter_input_1 = require("../prisma/int-filter.input");
 const string_nullable_filter_input_1 = require("../prisma/string-nullable-filter.input");
 const reply_relation_filter_input_1 = require("../reply/reply-relation-filter.input");
 const actor_relation_filter_input_1 = require("../actor/actor-relation-filter.input");
+const affirmation_relation_filter_input_1 = require("../affirmation/affirmation-relation-filter.input");
 const course_relation_filter_input_1 = require("../course/course-relation-filter.input");
 const section_relation_filter_input_1 = require("../section/section-relation-filter.input");
 const date_time_filter_input_1 = require("../prisma/date-time-filter.input");
@@ -63,6 +64,10 @@ let FileWhereInput = FileWhereInput_1 = class FileWhereInput {
     (0, graphql_1.Field)(() => actor_relation_filter_input_1.ActorRelationFilter, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", actor_relation_filter_input_1.ActorRelationFilter)
 ], FileWhereInput.prototype, "actor", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => affirmation_relation_filter_input_1.AffirmationRelationFilter, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", affirmation_relation_filter_input_1.AffirmationRelationFilter)
+], FileWhereInput.prototype, "affirmation", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => course_relation_filter_input_1.CourseRelationFilter, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", course_relation_filter_input_1.CourseRelationFilter)

@@ -4,6 +4,7 @@ import { IntFilter } from '../prisma/int-filter.input';
 import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 import { ReplyRelationFilter } from '../reply/reply-relation-filter.input';
 import { ActorRelationFilter } from '../actor/actor-relation-filter.input';
+import { AffirmationRelationFilter } from '../affirmation/affirmation-relation-filter.input';
 import { CourseRelationFilter } from '../course/course-relation-filter.input';
 import { SectionRelationFilter } from '../section/section-relation-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
@@ -47,6 +48,9 @@ export class FileWhereInput {
 
     @Field(() => ActorRelationFilter, {nullable:true})
     actor?: ActorRelationFilter;
+
+    @Field(() => AffirmationRelationFilter, {nullable:true})
+    affirmation?: AffirmationRelationFilter;
 
     @Field(() => CourseRelationFilter, {nullable:true})
     courseImage?: CourseRelationFilter;

@@ -5,7 +5,6 @@ import { FindManyPostArgs } from 'src/@generated/prisma-nestjs-graphql/post/find
 import { UpdateOnePostArgs } from 'src/@generated/prisma-nestjs-graphql/post/update-one-post.args';
 import { UsersService } from 'src/users/users.service';
 import { PostsService } from './posts.service';
-import { Prisma } from '@prisma/client';
 @Resolver( Post)
 export class PostsResolver {
 

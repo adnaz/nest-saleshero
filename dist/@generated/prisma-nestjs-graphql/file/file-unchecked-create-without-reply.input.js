@@ -7,6 +7,7 @@ const graphql_2 = require("@nestjs/graphql");
 const graphql_3 = require("@nestjs/graphql");
 const type_file_enum_1 = require("../prisma/type-file.enum");
 const actor_unchecked_create_nested_one_without_avatar_input_1 = require("../actor/actor-unchecked-create-nested-one-without-avatar.input");
+const affirmation_unchecked_create_nested_one_without_image_input_1 = require("../affirmation/affirmation-unchecked-create-nested-one-without-image.input");
 const course_unchecked_create_nested_one_without_image_input_1 = require("../course/course-unchecked-create-nested-one-without-image.input");
 const course_unchecked_create_nested_one_without_audio_input_1 = require("../course/course-unchecked-create-nested-one-without-audio.input");
 const section_unchecked_create_nested_one_without_image_input_1 = require("../section/section-unchecked-create-nested-one-without-image.input");
@@ -56,6 +57,10 @@ let FileUncheckedCreateWithoutReplyInput = class FileUncheckedCreateWithoutReply
     (0, graphql_1.Field)(() => actor_unchecked_create_nested_one_without_avatar_input_1.ActorUncheckedCreateNestedOneWithoutAvatarInput, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", actor_unchecked_create_nested_one_without_avatar_input_1.ActorUncheckedCreateNestedOneWithoutAvatarInput)
 ], FileUncheckedCreateWithoutReplyInput.prototype, "actor", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => affirmation_unchecked_create_nested_one_without_image_input_1.AffirmationUncheckedCreateNestedOneWithoutImageInput, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", affirmation_unchecked_create_nested_one_without_image_input_1.AffirmationUncheckedCreateNestedOneWithoutImageInput)
+], FileUncheckedCreateWithoutReplyInput.prototype, "affirmation", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => course_unchecked_create_nested_one_without_image_input_1.CourseUncheckedCreateNestedOneWithoutImageInput, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", course_unchecked_create_nested_one_without_image_input_1.CourseUncheckedCreateNestedOneWithoutImageInput)

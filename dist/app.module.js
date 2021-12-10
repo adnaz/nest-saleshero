@@ -20,6 +20,7 @@ const replies_module_1 = require("./replies/replies.module");
 const quick_replies_module_1 = require("./quick-replies/quick-replies.module");
 const quick_reply_values_module_1 = require("./quick-reply-values/quick-reply-values.module");
 const apps_module_1 = require("./apps/apps.module");
+const affirmations_module_1 = require("./affirmations/affirmations.module");
 const whitelist = ['http://localhost:3000', 'http://localhost:3001', 'https://www.holumbo.com', 'https://holumbo.com', 'https://studio.apollographql.com'];
 let AppModule = class AppModule {
 };
@@ -54,7 +55,8 @@ AppModule = (0, tslib_1.__decorate)([
             replies_module_1.RepliesModule,
             quick_replies_module_1.QuickRepliesModule,
             quick_reply_values_module_1.QuickReplyValuesModule,
-            apps_module_1.AppsModule
+            apps_module_1.AppsModule,
+            affirmations_module_1.AffirmationsModule
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService, prisma_service_1.PrismaService

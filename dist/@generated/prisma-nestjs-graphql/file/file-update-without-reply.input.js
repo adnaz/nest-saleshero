@@ -8,6 +8,7 @@ const nullable_string_field_update_operations_input_1 = require("../prisma/nulla
 const date_time_field_update_operations_input_1 = require("../prisma/date-time-field-update-operations.input");
 const nullable_enum_type_file_field_update_operations_input_1 = require("../prisma/nullable-enum-type-file-field-update-operations.input");
 const actor_update_one_without_avatar_input_1 = require("../actor/actor-update-one-without-avatar.input");
+const affirmation_update_one_without_image_input_1 = require("../affirmation/affirmation-update-one-without-image.input");
 const course_update_one_without_image_input_1 = require("../course/course-update-one-without-image.input");
 const course_update_one_without_audio_input_1 = require("../course/course-update-one-without-audio.input");
 const section_update_one_without_image_input_1 = require("../section/section-update-one-without-image.input");
@@ -53,6 +54,10 @@ let FileUpdateWithoutReplyInput = class FileUpdateWithoutReplyInput {
     (0, graphql_1.Field)(() => actor_update_one_without_avatar_input_1.ActorUpdateOneWithoutAvatarInput, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", actor_update_one_without_avatar_input_1.ActorUpdateOneWithoutAvatarInput)
 ], FileUpdateWithoutReplyInput.prototype, "actor", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => affirmation_update_one_without_image_input_1.AffirmationUpdateOneWithoutImageInput, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", affirmation_update_one_without_image_input_1.AffirmationUpdateOneWithoutImageInput)
+], FileUpdateWithoutReplyInput.prototype, "affirmation", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => course_update_one_without_image_input_1.CourseUpdateOneWithoutImageInput, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", course_update_one_without_image_input_1.CourseUpdateOneWithoutImageInput)

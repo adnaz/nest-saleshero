@@ -7,6 +7,7 @@ const graphql_2 = require("@nestjs/graphql");
 const graphql_3 = require("@nestjs/graphql");
 const reply_model_1 = require("../reply/reply.model");
 const actor_model_1 = require("../actor/actor.model");
+const affirmation_model_1 = require("../affirmation/affirmation.model");
 const course_model_1 = require("../course/course.model");
 const section_model_1 = require("../section/section.model");
 const type_file_enum_1 = require("../prisma/type-file.enum");
@@ -48,6 +49,10 @@ let File = class File {
     (0, graphql_1.Field)(() => actor_model_1.Actor, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", actor_model_1.Actor)
 ], File.prototype, "actor", void 0);
+(0, tslib_1.__decorate)([
+    (0, graphql_1.Field)(() => affirmation_model_1.Affirmation, { nullable: true }),
+    (0, tslib_1.__metadata)("design:type", affirmation_model_1.Affirmation)
+], File.prototype, "affirmation", void 0);
 (0, tslib_1.__decorate)([
     (0, graphql_1.Field)(() => course_model_1.Course, { nullable: true }),
     (0, tslib_1.__metadata)("design:type", course_model_1.Course)

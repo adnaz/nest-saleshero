@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { TypeFile } from '../prisma/type-file.enum';
 import { ActorCreateNestedOneWithoutAvatarInput } from '../actor/actor-create-nested-one-without-avatar.input';
+import { AffirmationCreateNestedOneWithoutImageInput } from '../affirmation/affirmation-create-nested-one-without-image.input';
 import { CourseCreateNestedOneWithoutImageInput } from '../course/course-create-nested-one-without-image.input';
 import { CourseCreateNestedOneWithoutAudioInput } from '../course/course-create-nested-one-without-audio.input';
 import { SectionCreateNestedOneWithoutImageInput } from '../section/section-create-nested-one-without-image.input';
@@ -38,6 +39,9 @@ export class FileCreateWithoutReplyInput {
 
     @Field(() => ActorCreateNestedOneWithoutAvatarInput, {nullable:true})
     actor?: ActorCreateNestedOneWithoutAvatarInput;
+
+    @Field(() => AffirmationCreateNestedOneWithoutImageInput, {nullable:true})
+    affirmation?: AffirmationCreateNestedOneWithoutImageInput;
 
     @Field(() => CourseCreateNestedOneWithoutImageInput, {nullable:true})
     courseImage?: CourseCreateNestedOneWithoutImageInput;
